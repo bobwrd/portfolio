@@ -1,0 +1,30 @@
+{
+  "name": "portfolio",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "packages/*",
+    "apps/web"
+  ],
+  "scripts": {
+    "bake": "node scripts/bake-content.mjs",
+    "build": "npm run bake && npm run build --workspace=apps/web",
+    "dev:web": "npm run dev --workspace=apps/web",
+    "dev:worker": "wrangler dev",
+    "deploy": "npm run build && wrangler deploy",
+    "test": "npm run test --workspace=@portfolio/finance && npx vitest run --root worker && npx vitest run --root apps/web",
+    "test:finance": "npm run test --workspace=@portfolio/finance",
+    "test:worker": "npx vitest run --root worker",
+    "test:web": "npx vitest run --root apps/web",
+    "typecheck": "npm run typecheck --workspaces --if-present"
+  },
+  "dependencies": {
+    "hono": "^4.10.6"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^5.20260721.1",
+    "typescript": "^5.9.3",
+    "wrangler": "^4.20.0",
+    "vitest": "^2.1.9"
+  }
+}
