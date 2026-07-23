@@ -1,0 +1,1387 @@
+/*
+ * OneBook design system.
+ *
+ * Dense terminal aesthetic: 13px base, 11px labels, tight 4px radii, and
+ * olive-tinted neutrals (OKLCH hue 110) rather than pure grays — the warmth
+ * keeps a dark, data-dense screen from reading as cold and flat.
+ *
+ * One rule shapes the palette: green and red mean P&L and nothing else. The
+ * accent is olive and the chart line is teal, so no categorical color can be
+ * mistaken for a gain or a loss. Correlation gets its own diverging scale.
+ */
+
+.onebook-app {
+  --bg: oklch(0.095 0 0);
+  --surface: oklch(0.135 0.008 110);
+  --surface-hover: oklch(0.165 0.009 110);
+  --surface-active: oklch(0.19 0.012 110);
+  --border: oklch(0.24 0.014 110);
+  --border-subtle: oklch(0.185 0.01 110);
+
+  --ink: oklch(0.93 0.006 110);
+  --ink-muted: oklch(0.56 0.018 110);
+  --ink-faint: oklch(0.38 0.012 110);
+
+  --primary: oklch(0.72 0.092 110);
+  --primary-dim: oklch(0.56 0.065 110);
+  --primary-subtle: oklch(0.72 0.092 110 / 0.14);
+
+  /* Reserved for P&L. Never used for categorical encoding. */
+  --gain: oklch(0.62 0.14 155);
+  --gain-subtle: oklch(0.62 0.14 155 / 0.12);
+  --loss: oklch(0.61 0.17 25);
+  --loss-subtle: oklch(0.61 0.17 25 / 0.12);
+
+  --chart-line: oklch(0.64 0.11 205);
+  --chart-fill: oklch(0.64 0.11 205 / 0.07);
+  --chart-grid: oklch(0.24 0.014 110);
+
+  /* Correlation: violet/amber, deliberately distinct from the P&L pair. */
+  --corr-pos: oklch(0.6 0.16 300);
+  --corr-neg: oklch(0.7 0.13 70);
+
+  --warn: oklch(0.75 0.13 75);
+
+  --s1: 0.25rem;
+  --s2: 0.5rem;
+  --s3: 0.75rem;
+  --s4: 1rem;
+  --s5: 1.25rem;
+  --s6: 1.5rem;
+  --s8: 2rem;
+
+  --rail-w: 264px;
+  --sidebar-w: 216px;
+  --topbar-h: 52px;
+
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  --sans: -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.onebook-app[data-theme="light"] {
+  --bg: oklch(1 0 0);
+  --surface: oklch(0.967 0.006 110);
+  --surface-hover: oklch(0.952 0.009 110);
+  --surface-active: oklch(0.935 0.013 110);
+  --border: oklch(0.875 0.013 110);
+  --border-subtle: oklch(0.92 0.008 110);
+
+  --ink: oklch(0.14 0.012 110);
+  --ink-muted: oklch(0.38 0.02 110);
+  --ink-faint: oklch(0.45 0.018 110);
+
+  --primary: oklch(0.43 0.085 110);
+  --primary-dim: oklch(0.56 0.06 110);
+  --primary-subtle: oklch(0.43 0.085 110 / 0.12);
+
+  --gain: oklch(0.34 0.135 155);
+  --gain-subtle: oklch(0.34 0.135 155 / 0.1);
+  --loss: oklch(0.43 0.165 25);
+  --loss-subtle: oklch(0.43 0.165 25 / 0.1);
+
+  --chart-line: oklch(0.37 0.12 205);
+  --chart-fill: oklch(0.37 0.12 205 / 0.09);
+  --chart-grid: oklch(0.875 0.013 110);
+
+  --corr-pos: oklch(0.45 0.17 300);
+  --corr-neg: oklch(0.55 0.14 70);
+
+  --warn: oklch(0.52 0.13 75);
+}
+
+
+.onebook-app {
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden;
+}
+
+/* Digits must not reflow while a scenario slider is dragged. */
+.num,
+.tile-value,
+.mono,
+input[type="number"],
+td.num,
+th.num {
+  font-family: var(--mono);
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+.gain {
+  color: var(--gain);
+}
+.loss {
+  color: var(--loss);
+}
+.muted {
+  color: var(--ink-muted);
+}
+.faint {
+  color: var(--ink-faint);
+}
+
+/* ------------------------------------------------------------- layout */
+
+.app {
+  display: grid;
+  grid-template-columns: var(--sidebar-w) 1fr;
+  height: 100%;
+  min-height: 0;
+}
+
+/* Everything right of the sidebar: top strip, the active route, footer. */
+.shell {
+  display: grid;
+  grid-template-rows: var(--topbar-h) 1fr auto;
+  min-width: 0;
+  min-height: 0;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: var(--s4);
+  padding: 0 var(--s4);
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.brand {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.brand em {
+  font-style: normal;
+  color: var(--primary);
+}
+
+.topbar-meta {
+  font-family: var(--mono);
+  font-size: 0.6875rem;
+  color: var(--ink-faint);
+  letter-spacing: 0.01em;
+}
+
+.topbar-spacer {
+  flex: 1;
+}
+
+.main {
+  display: grid;
+  grid-template-columns: var(--rail-w) 1fr;
+  min-height: 0;
+}
+
+.rail {
+  border-right: 1px solid var(--border);
+  overflow-y: auto;
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+}
+
+.rail-head {
+  display: flex;
+  gap: var(--s1);
+  padding: var(--s3);
+  border-bottom: 1px solid var(--border-subtle);
+  position: sticky;
+  top: 0;
+  background: var(--bg);
+  z-index: 5;
+}
+
+.rail-body {
+  padding: var(--s2);
+  flex: 1;
+}
+
+.analysis {
+  overflow-y: auto;
+  min-width: 0;
+}
+
+/* The flagship control never scrolls away. */
+.scenario-bar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: var(--s3) var(--s4);
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) auto;
+  gap: var(--s5);
+  align-items: center;
+}
+
+.slider-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s1);
+  min-width: 0;
+}
+
+.slider-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 0.5625rem;
+  color: var(--ink-faint);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
+.slider-label b {
+  font-family: var(--mono);
+  font-variant-numeric: tabular-nums;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  color: var(--ink);
+  letter-spacing: 0;
+}
+
+input[type="range"] {
+  width: 100%;
+  height: 3px;
+  appearance: none;
+  background: var(--border);
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--primary);
+  cursor: grab;
+}
+
+input[type="range"]::-webkit-slider-thumb:active {
+  cursor: grabbing;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 11px;
+  height: 11px;
+  border: none;
+  border-radius: 50%;
+  background: var(--primary);
+}
+
+.scenario-state {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+}
+
+.state-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.5625rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--ink-faint);
+  white-space: nowrap;
+}
+
+.state-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--ink-faint);
+}
+
+/* At rest the chip is quiet; simulated it takes the accent, so a hypothetical
+   never passes for the real book at a glance. Deliberately not green: green
+   means P&L here, and a green dot beside P&L figures is the exact ambiguity
+   that rule exists to prevent. */
+.state-chip.simulated {
+  color: var(--primary);
+}
+
+.state-chip.simulated .state-dot {
+  background: var(--primary);
+}
+
+.section {
+  border-bottom: 1px solid var(--border-subtle);
+  padding: var(--s4);
+}
+
+.section-title {
+  font-size: 0.5625rem;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--ink-faint);
+  margin: 0 0 var(--s3);
+  font-weight: 500;
+}
+
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.split > * {
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.split > *:first-child {
+  border-right: 1px solid var(--border-subtle);
+}
+
+/* -------------------------------------------------------------- tiles */
+
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(112px, 1fr));
+  gap: 1px;
+  background: var(--border-subtle);
+  border: 1px solid var(--border-subtle);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.tile {
+  background: var(--surface);
+  padding: var(--s2) var(--s3);
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  cursor: help;
+  min-width: 0;
+}
+
+.tile-label {
+  font-size: 0.5625rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--ink-faint);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tile-value {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+.tile-delta {
+  font-family: var(--mono);
+  font-size: 0.5625rem;
+  letter-spacing: 0.01em;
+}
+
+.tile-flag {
+  font-size: 0.5rem;
+  color: var(--warn);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* ---------------------------------------------------------- positions */
+
+.position {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--s2);
+  padding: var(--s2);
+  border-radius: 4px;
+  align-items: center;
+  cursor: default;
+}
+
+.position:hover {
+  background: var(--surface-hover);
+}
+
+.position + .position {
+  border-top: 1px solid var(--border-subtle);
+}
+
+.position-sym {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.position-meta {
+  font-family: var(--mono);
+  font-size: 0.625rem;
+  color: var(--ink-faint);
+  letter-spacing: 0.01em;
+  margin-top: 1px;
+}
+
+/* The delta-equivalent readout: the core idea, on every row. */
+.position-eq {
+  text-align: right;
+  font-family: var(--mono);
+  font-variant-numeric: tabular-nums;
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.position-eq small {
+  display: block;
+  font-size: 0.5rem;
+  color: var(--ink-faint);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 400;
+}
+
+.position-remove {
+  opacity: 0;
+  transition: opacity 0.12s ease;
+}
+
+.position:hover .position-remove {
+  opacity: 1;
+}
+
+.tag {
+  display: inline-block;
+  font-family: var(--sans);
+  font-size: 0.5rem;
+  padding: 0 3px;
+  border-radius: 2px;
+  background: var(--surface-active);
+  color: var(--ink-faint);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  vertical-align: 1px;
+}
+
+.tag.warn {
+  background: transparent;
+  box-shadow: inset 0 0 0 1px var(--warn);
+  color: var(--warn);
+}
+
+/* ------------------------------------------------------------ controls */
+
+button {
+  font: inherit;
+  font-size: 0.6875rem;
+  cursor: pointer;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--ink);
+  padding: var(--s1) var(--s2);
+  transition: background 0.12s ease, border-color 0.12s ease;
+  white-space: nowrap;
+}
+
+button:hover:not(:disabled) {
+  background: var(--surface-hover);
+  border-color: var(--border);
+}
+
+button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+button.primary {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: oklch(0.12 0.01 110);
+  font-weight: 500;
+}
+
+button.primary:hover:not(:disabled) {
+  background: var(--primary-dim);
+  border-color: var(--primary-dim);
+}
+
+button.icon {
+  border-color: transparent;
+  background: transparent;
+  color: var(--ink-faint);
+  padding: 2px 4px;
+  line-height: 1;
+}
+
+button.icon:hover:not(:disabled) {
+  background: var(--loss-subtle);
+  color: var(--loss);
+  border-color: transparent;
+}
+
+button.block {
+  width: 100%;
+  justify-content: center;
+}
+
+input,
+select {
+  font: inherit;
+  font-size: 0.75rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--ink);
+  padding: var(--s1) var(--s2);
+  width: 100%;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: var(--primary-dim);
+}
+
+input::placeholder {
+  color: var(--ink-faint);
+}
+
+label {
+  display: block;
+  font-size: 0.5625rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--ink-faint);
+  margin-bottom: 3px;
+}
+
+.field {
+  margin-bottom: var(--s3);
+}
+
+.field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s2);
+}
+
+/* --------------------------------------------------------- callouts */
+
+.callout {
+  display: flex;
+  gap: var(--s2);
+  padding: var(--s2) var(--s3);
+  border-radius: 4px;
+  background: var(--surface);
+  box-shadow: inset 2px 0 0 var(--border);
+  font-size: 0.6875rem;
+  align-items: baseline;
+}
+
+.callout + .callout {
+  margin-top: var(--s1);
+}
+
+.callout.warning {
+  box-shadow: inset 2px 0 0 var(--warn);
+}
+
+.callout.critical {
+  box-shadow: inset 2px 0 0 var(--loss);
+}
+
+.callout.info {
+  box-shadow: inset 2px 0 0 var(--primary);
+}
+
+.callout b {
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.callout span {
+  color: var(--ink-muted);
+}
+
+/* ------------------------------------------------------------ tables */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.6875rem;
+}
+
+th {
+  text-align: left;
+  font-weight: 400;
+  color: var(--ink-faint);
+  font-size: 0.5625rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  padding: var(--s1) var(--s2);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+td {
+  padding: var(--s1) var(--s2);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+tbody tr:hover {
+  background: var(--surface-hover);
+}
+
+/* Risk contribution bar in the exposure table.
+   Deliberately uses the olive accent rather than --gain/--loss: this is an
+   attribution of volatility, not profit and loss, and green here would read
+   as "good" beside a P&L figure that means something else entirely. */
+.risk-share-cell {
+  text-align: right;
+  width: 8.5rem;
+}
+
+.risk-share {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--s2);
+}
+
+.risk-share-num {
+  min-width: 3.25rem;
+  text-align: right;
+}
+
+.risk-bar-track {
+  flex: 1;
+  min-width: 2.5rem;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--border-subtle);
+  overflow: hidden;
+}
+
+.risk-bar {
+  display: block;
+  height: 100%;
+  border-radius: 2px;
+  background: var(--primary);
+}
+
+/* A hedging leg subtracts from portfolio risk. Muted rather than a second
+   hue, so it reads as "less" without implying a judgment. */
+.risk-bar-hedge {
+  background: var(--ink-faint);
+}
+
+.risk-share-none {
+  color: var(--ink-faint);
+}
+
+.table-note {
+  margin-top: var(--s2);
+  font-size: 0.625rem;
+  color: var(--ink-muted);
+  line-height: 1.5;
+}
+
+/* ----------------------------------------------------------- states */
+
+.empty {
+  padding: var(--s8) var(--s4);
+  text-align: center;
+  color: var(--ink-faint);
+  font-size: 0.6875rem;
+}
+
+.empty b {
+  display: block;
+  color: var(--ink-muted);
+  font-size: 0.75rem;
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+
+.notice {
+  padding: var(--s2) var(--s3);
+  border-radius: 4px;
+  font-size: 0.6875rem;
+  margin-bottom: var(--s3);
+}
+
+.notice.error {
+  background: var(--loss-subtle);
+  color: var(--loss);
+}
+
+.notice.warn {
+  background: var(--surface);
+  box-shadow: inset 2px 0 0 var(--warn);
+  color: var(--ink-muted);
+}
+
+.scroll-x {
+  overflow-x: auto;
+}
+
+/* ---------------------------------------------------------- footer */
+
+.disclaimer {
+  padding: var(--s2) var(--s4);
+  border-top: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--ink-faint);
+  font-size: 0.5625rem;
+  letter-spacing: 0.02em;
+  text-align: center;
+}
+
+/* ----------------------------------------------------------- modal */
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: oklch(0 0 0 / 0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+  padding: var(--s4);
+}
+
+.modal {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  width: 100%;
+  max-width: 420px;
+  max-height: 86vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.modal.wide {
+  max-width: 620px;
+}
+
+.modal-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--s3) var(--s4);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.modal-head h2 {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.modal-body {
+  padding: var(--s4);
+  overflow-y: auto;
+}
+
+.modal-foot {
+  display: flex;
+  gap: var(--s2);
+  justify-content: flex-end;
+  padding: var(--s3) var(--s4);
+  border-top: 1px solid var(--border-subtle);
+}
+
+.tabs {
+  display: flex;
+  gap: var(--s3);
+  border-bottom: 1px solid var(--border-subtle);
+  margin-bottom: var(--s4);
+}
+
+.tab {
+  padding: 0 0 var(--s2);
+  border: none;
+  background: none;
+  color: var(--ink-faint);
+  box-shadow: inset 0 -1px 0 transparent;
+  border-radius: 0;
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
+.tab:hover:not(:disabled) {
+  background: none;
+  color: var(--ink-muted);
+}
+
+.tab.active {
+  color: var(--ink);
+  box-shadow: inset 0 -1px 0 var(--primary);
+}
+
+/* --------------------------------------------------------- brokers */
+
+.broker-tier + .broker-tier {
+  margin-top: var(--s5);
+}
+
+.broker-tier-head {
+  display: flex;
+  align-items: baseline;
+  gap: var(--s2);
+  margin-bottom: var(--s1);
+}
+
+.broker-tier-head h3 {
+  margin: 0;
+  font-size: 0.5625rem;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--ink-faint);
+  font-weight: 500;
+}
+
+.broker-tier-note {
+  font-size: 0.625rem;
+  color: var(--ink-faint);
+  margin: 0 0 var(--s2);
+  line-height: 1.45;
+}
+
+.broker {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--s3);
+  align-items: center;
+  padding: var(--s2) var(--s3);
+  border: 1px solid var(--border-subtle);
+  border-radius: 4px;
+  text-align: left;
+  width: 100%;
+  background: var(--surface);
+  color: inherit;
+  font-size: inherit;
+}
+
+.broker + .broker {
+  margin-top: var(--s1);
+}
+
+.broker:not(:disabled):hover {
+  background: var(--surface-hover);
+  border-color: var(--border);
+}
+
+.broker:disabled {
+  opacity: 1;
+  cursor: default;
+  background: transparent;
+}
+
+.broker-name {
+  font-size: 0.75rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+}
+
+.broker-summary {
+  font-size: 0.625rem;
+  color: var(--ink-faint);
+  line-height: 1.45;
+  margin-top: 1px;
+  white-space: normal;
+}
+
+.broker-caveat {
+  font-size: 0.625rem;
+  color: var(--warn);
+  line-height: 1.45;
+  margin-top: 3px;
+  white-space: normal;
+}
+
+.connection {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--s2);
+  align-items: center;
+  padding: var(--s2) var(--s3);
+  border: 1px solid var(--border-subtle);
+  border-radius: 4px;
+  background: var(--surface);
+}
+
+.connection + .connection {
+  margin-top: var(--s1);
+}
+
+/* Connected-account indicator. Accent rather than green: green is P&L only,
+   and a status light borrowing it erodes that guarantee everywhere else. */
+.dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--primary);
+  display: inline-block;
+}
+
+/* A failed connection. Borrows .notice.error's red, which is already the
+   established non-P&L error color. */
+.dot.error {
+  background: var(--loss);
+}
+
+.connection-error {
+  color: var(--loss);
+}
+
+/* ---------------------------------------------------------- sidebar */
+
+.sidebar {
+  border-right: 1px solid var(--border);
+  background: var(--surface);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--s4);
+  padding: var(--s3);
+  min-height: 0;
+}
+
+.sidebar-head {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s2);
+}
+
+.sidebar-total {
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-total-value {
+  font-family: var(--mono);
+  font-size: 1rem;
+  letter-spacing: -0.02em;
+}
+
+.sidebar-total small {
+  font-family: var(--mono);
+  font-size: 0.625rem;
+  color: var(--ink-faint);
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.sidebar-link {
+  display: block;
+  padding: var(--s2) var(--s3);
+  border-radius: 4px;
+  font-size: 0.75rem;
+  color: var(--ink-muted);
+  text-decoration: none;
+}
+
+.sidebar-link:hover {
+  background: var(--surface-hover);
+  color: var(--ink);
+}
+
+.sidebar-link.active {
+  background: var(--surface-active);
+  color: var(--ink);
+}
+
+.sidebar-section-title {
+  font-size: 0.5625rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-faint);
+  margin-bottom: var(--s2);
+}
+
+.sidebar-row {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+  padding: var(--s1) var(--s2);
+  font-size: 0.6875rem;
+  width: 100%;
+}
+
+.sidebar-row-button {
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  text-align: left;
+  font: inherit;
+}
+
+.sidebar-row-button:hover {
+  background: var(--surface-hover);
+}
+
+.sidebar-row-name {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sidebar-row-value {
+  font-family: var(--mono);
+  font-size: 0.625rem;
+  color: var(--ink-faint);
+}
+
+.sidebar-sublist {
+  display: flex;
+  flex-direction: column;
+  padding-left: var(--s4);
+}
+
+.sidebar-sublink {
+  font-family: var(--mono);
+  font-size: 0.625rem;
+  color: var(--ink-muted);
+  text-decoration: none;
+  padding: 2px var(--s2);
+}
+
+.sidebar-sublink:hover {
+  color: var(--ink);
+}
+
+.sidebar-empty {
+  font-size: 0.625rem;
+  color: var(--ink-faint);
+  margin: 0 0 var(--s2);
+}
+
+.sidebar-action {
+  width: 100%;
+  margin-top: var(--s1);
+  font-size: 0.6875rem;
+}
+
+.sidebar-foot {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--s2);
+}
+
+/* Group color swatches. Every value is an existing token — no new colors. */
+.swatch {
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  border: none;
+  padding: 0;
+  flex: none;
+  cursor: pointer;
+  background: var(--primary);
+}
+
+.swatch-olive {
+  background: var(--primary);
+}
+.swatch-teal {
+  background: var(--chart-line);
+}
+.swatch-violet {
+  background: var(--corr-pos);
+}
+.swatch-amber {
+  background: var(--warn);
+}
+.swatch-slate {
+  background: var(--ink-faint);
+}
+
+/* ------------------------------------------------------------- pages */
+
+.page {
+  overflow-y: auto;
+  min-width: 0;
+  padding: var(--s4);
+}
+
+.page-head {
+  display: flex;
+  align-items: center;
+  gap: var(--s3);
+  margin-bottom: var(--s4);
+  flex-wrap: wrap;
+}
+
+.page-head h2 {
+  font-size: 0.9375rem;
+  margin: 0;
+  margin-right: auto;
+}
+
+.page-head input[type="search"] {
+  width: 200px;
+}
+
+.toggle-group {
+  display: flex;
+  gap: 1px;
+}
+
+.toggle-group button.active {
+  background: var(--surface-active);
+  color: var(--ink);
+}
+
+.row-link {
+  cursor: pointer;
+}
+
+.row-link:hover {
+  background: var(--surface-hover);
+}
+
+/* --------------------------------------------------------- history */
+
+.trade-card {
+  border: 1px solid var(--border-subtle);
+  border-radius: 4px;
+  padding: var(--s3);
+  margin-bottom: var(--s2);
+}
+
+.trade-card-head {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+  font-size: 0.75rem;
+}
+
+.trade-side {
+  font-family: var(--mono);
+  font-size: 0.625rem;
+  color: var(--ink-muted);
+}
+
+.trade-ticker {
+  font-weight: 600;
+}
+
+.trade-card-body {
+  display: flex;
+  gap: var(--s6);
+  margin-top: var(--s2);
+}
+
+.trade-card-body > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.trade-card-body small {
+  font-size: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-faint);
+}
+
+.trade-card-body span {
+  font-family: var(--mono);
+  font-size: 0.8125rem;
+}
+
+.trade-card-foot {
+  margin-top: var(--s2);
+  font-size: 0.625rem;
+  color: var(--ink-faint);
+}
+
+/* ------------------------------------------------------------- news */
+
+.news-item {
+  display: block;
+  padding: var(--s3);
+  border-bottom: 1px solid var(--border-subtle);
+  text-decoration: none;
+  color: inherit;
+}
+
+.news-item:hover {
+  background: var(--surface-hover);
+}
+
+.news-meta {
+  font-size: 0.5625rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ink-faint);
+}
+
+.news-headline {
+  font-size: 0.8125rem;
+  margin-top: 2px;
+}
+
+.news-summary {
+  font-size: 0.6875rem;
+  color: var(--ink-muted);
+  margin-top: 2px;
+}
+
+/* ----------------------------------------------------------- groups */
+
+.group-block {
+  border: 1px solid var(--border-subtle);
+  border-radius: 4px;
+  padding: var(--s3);
+  margin-bottom: var(--s2);
+}
+
+.group-head {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+}
+
+.group-head input {
+  flex: 1;
+}
+
+.group-members {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s1);
+  margin-top: var(--s2);
+  font-size: 0.625rem;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 1px var(--s2);
+  border-radius: 10px;
+  background: var(--surface-active);
+  font-family: var(--mono);
+  font-size: 0.625rem;
+}
+
+.group-assign-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s2);
+  padding: var(--s1) 0;
+  font-size: 0.6875rem;
+}
+
+/* An inline retry beside the message that explains why it is needed. */
+.notice-action {
+  margin-left: var(--s2);
+  font-size: 0.625rem;
+}
+
+/* A checkbox belongs beside its text, not stacked above it the way `.field`
+   lays out a labelled input. */
+.field-check label {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+  text-transform: none;
+  letter-spacing: normal;
+  font-size: 0.6875rem;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.field-check input[type="checkbox"] {
+  width: auto;
+  margin: 0;
+  accent-color: var(--primary);
+}
+
+.chart-legend {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--mono);
+  font-size: 0.625rem;
+  color: var(--ink-faint);
+  padding: 0 var(--s2);
+}
+
+/* ------------------------------------------------------- responsive */
+
+@media (max-width: 900px) {
+  body {
+    overflow: auto;
+  }
+
+  .app {
+    height: auto;
+    min-height: 100%;
+    /* The sidebar stacks above the shell rather than squeezing it. */
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .main {
+    grid-template-columns: 1fr;
+  }
+
+  .rail {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .scenario-bar {
+    grid-template-columns: 1fr;
+    gap: var(--s3);
+  }
+
+  .split {
+    grid-template-columns: 1fr;
+  }
+
+  .split > *:first-child {
+    border-right: none;
+  }
+}
+}

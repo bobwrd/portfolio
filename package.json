@@ -19,12 +19,13 @@
     "typecheck": "npm run typecheck --workspaces --if-present"
   },
   "dependencies": {
-    "hono": "^4.10.6"
+    "hono": "^4.10.6",
+    "pdf-lib": "^1.17.1"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^5.20260721.1",
     "typescript": "^5.9.3",
     "wrangler": "^4.20.0",
-    "vitest": "^2.1.9"
+    "vitest": "^3.2.7"
   }
 }

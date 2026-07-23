@@ -1,5 +1,4 @@
-// Run with: bun test src/pages/distlab/mapping.test.ts
-import { describe, expect, it } from "bun:test";
+import { describe, expect, it } from "vitest";
 import { resolve, DEFAULT_CONFIG, type ObservedPoint } from "./mapping";
 
 const DIMS = 8;

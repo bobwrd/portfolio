@@ -19,3 +19,36 @@ run_worker_first = ["/api/*"]
 binding = "MOE_DB"
 database_name = "portfolio-moe-db"
 database_id = "793c898b-84ad-4fbf-97fb-0671fcdd5bba"
+
+# OneBook data (users, portfolios, broker connections, sessions). Reuses the
+# existing live database — same data as the still-live onebook-api Worker,
+# kept as a distinct binding/schema from MOE_DB per the unification plan.
+[[d1_databases]]
+binding = "DB"
+database_name = "onebook"
+database_id = "0f5b2c3b-8f95-457b-ba5d-66aafaf418db"
+
+[[kv_namespaces]]
+binding = "KV"
+id = "4eaf9f7d6f254d4c879aa7725d1111da"
+
+[vars]
+# EDIT before deploying: the single origin this Worker actually serves from.
+APP_ORIGIN = "https://arinjain.arinjain-mail.workers.dev"
+API_ORIGIN = "https://arinjain.arinjain-mail.workers.dev"
+MARKET_DATA_PROVIDER = "alpaca"
+ALPACA_DATA_FEED = "delayed_sip"
+# Logs magic links to the console instead of emailing them. Set to "0" once
+# email delivery is wired up.
+DEV_LOG_MAGIC_LINKS = "1"
+
+# Secrets — never committed. Set each with `npx wrangler secret put <NAME>`:
+#   VERDICT_PASSWORD        gates /api/verdict/submit
+#   TOKEN_ENCRYPTION_KEY    openssl rand -base64 32
+#   STATE_SIGNING_SECRET    openssl rand -base64 32
+#   ALPACA_API_KEY_ID / ALPACA_API_SECRET_KEY   from alpaca.markets
+#   ALPHA_VANTAGE_API_KEY   optional fallback market-data provider
+#   SCHWAB_CLIENT_ID / SCHWAB_CLIENT_SECRET
+#   TRADIER_CLIENT_ID / TRADIER_CLIENT_SECRET
+#
+# For local dev, put the same names in .dev.vars at the repo root (gitignored).

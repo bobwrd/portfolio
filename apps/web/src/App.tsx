@@ -16,6 +16,10 @@ const Contact = lazy(() => import("./pages/Contact"));
 
 const MiniIndex = lazy(() => import("./pages/MiniIndex"));
 
+const OnebookApp = lazy(() =>
+  import("./onebook/App").then((m) => ({ default: m.OnebookApp })),
+);
+
 const VerdictShell = lazy(() =>
   import("./pages/verdict/VerdictLayout").then((m) => {
     const { default: VerdictLayout, VerdictThemeProvider } = m;
@@ -199,6 +203,15 @@ export default function App() {
               <Route index element={<DocketIndex />} />
               <Route path="methods" element={<DocketMethods />} />
             </Route>
+
+            <Route
+              path="/onebook/*"
+              element={
+                <div className="onebook-app">
+                  <OnebookApp />
+                </div>
+              }
+            />
           </Routes>
         </Suspense>
       </BrowserRouter>
