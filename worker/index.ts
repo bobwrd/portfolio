@@ -1,11 +1,13 @@
 import { Hono } from "hono";
+import moe from "./moe";
 
 interface Env {
   ASSETS: Fetcher;
+  MOE_DB: D1Database;
 }
 
 const app = new Hono<{ Bindings: Env }>();
 
-app.get("/api/health", (c) => c.json({ ok: true }));
+app.route("/api", moe);
 
 export default app;

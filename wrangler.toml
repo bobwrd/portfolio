@@ -4,9 +4,18 @@ name = "arinjain"
 main = "worker/index.ts"
 compatibility_date = "2025-05-01"
 compatibility_flags = ["nodejs_compat"]
+account_id = "b6bbf563bb333c202cb99dca976a0cbe"
 
 [assets]
 directory = "./apps/web/dist/"
 not_found_handling = "single-page-application"
 binding = "ASSETS"
 run_worker_first = ["/api/*"]
+
+# Margin of Error + Mini Projects data (likes, contact submissions, newsletter
+# signups, Verdict drafts). Freshly provisioned for this repo — kept separate
+# from the still-live margin-of-error repo's own D1 database.
+[[d1_databases]]
+binding = "MOE_DB"
+database_name = "portfolio-moe-db"
+database_id = "793c898b-84ad-4fbf-97fb-0671fcdd5bba"

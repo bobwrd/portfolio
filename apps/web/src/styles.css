@@ -1,1 +1,558 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  color-scheme: light dark;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --radius: 0.625rem;
+
+  /* Warm off-white background — barely perceptible tint */
+  --background: oklch(0.985 0.006 80);
+  --foreground: oklch(0.14 0.008 50);
+  --card: oklch(0.99 0.004 75);
+  --card-foreground: oklch(0.14 0.008 50);
+  --popover: oklch(0.99 0.004 75);
+  --popover-foreground: oklch(0.14 0.008 50);
+  --primary: oklch(0.22 0.008 54);
+  --primary-foreground: oklch(0.985 0.002 100);
+  --secondary: oklch(0.95 0.006 72);
+  --secondary-foreground: oklch(0.22 0.008 54);
+  --muted: oklch(0.95 0.006 72);
+  --muted-foreground: oklch(0.52 0.016 58);
+  --accent: oklch(0.95 0.006 72);
+  --accent-foreground: oklch(0.22 0.008 54);
+  --destructive: oklch(0.577 0.245 27.325);
+  /* Softer, warmer border */
+  --border: oklch(0.90 0.008 65);
+  --input: oklch(0.90 0.008 65);
+  --ring: oklch(0.70 0.012 58);
+
+  /* Warm accent — terracotta/amber */
+  --warm-accent: oklch(0.60 0.14 42);
+  --warm-accent-muted: oklch(0.60 0.14 42 / 12%);
+  --warm-accent-foreground: oklch(0.985 0.002 100);
+
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.975 0.005 78);
+  --sidebar-foreground: oklch(0.14 0.008 50);
+  --sidebar-primary: oklch(0.22 0.008 54);
+  --sidebar-primary-foreground: oklch(0.985 0.002 100);
+  --sidebar-accent: oklch(0.95 0.006 72);
+  --sidebar-accent-foreground: oklch(0.22 0.008 54);
+  --sidebar-border: oklch(0.90 0.008 65);
+  --sidebar-ring: oklch(0.70 0.012 58);
+}
+
+.dark {
+  --background: oklch(0.14 0.006 48);
+  --foreground: oklch(0.96 0.003 100);
+  --card: oklch(0.19 0.007 50);
+  --card-foreground: oklch(0.96 0.003 100);
+  --popover: oklch(0.19 0.007 50);
+  --popover-foreground: oklch(0.96 0.003 100);
+  --primary: oklch(0.92 0.004 46);
+  --primary-foreground: oklch(0.19 0.007 50);
+  --secondary: oklch(0.25 0.007 42);
+  --secondary-foreground: oklch(0.96 0.003 100);
+  --muted: oklch(0.25 0.007 42);
+  --muted-foreground: oklch(0.68 0.012 58);
+  --accent: oklch(0.25 0.007 42);
+  --accent-foreground: oklch(0.96 0.003 100);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 9%);
+  --input: oklch(1 0 0 / 13%);
+  --ring: oklch(0.55 0.014 56);
+
+  /* Warm accent in dark — amber gold */
+  --warm-accent: oklch(0.76 0.13 60);
+  --warm-accent-muted: oklch(0.76 0.13 60 / 14%);
+  --warm-accent-foreground: oklch(0.14 0.006 48);
+
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.19 0.007 50);
+  --sidebar-foreground: oklch(0.96 0.003 100);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.96 0.003 100);
+  --sidebar-accent: oklch(0.25 0.007 42);
+  --sidebar-accent-foreground: oklch(0.96 0.003 100);
+  --sidebar-border: oklch(1 0 0 / 9%);
+  --sidebar-ring: oklch(0.55 0.014 56);
+}
+
+body {
+  margin: 0;
+}
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-warm-accent: var(--warm-accent);
+  --color-warm-accent-muted: var(--warm-accent-muted);
+  --color-warm-accent-foreground: var(--warm-accent-foreground);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    line-height: 1.6;
+  }
+}
+
+@layer utilities {
+  /* Font size overrides for article reader */
+  [data-font-size="sm"] .prose {
+    font-size: 0.9375rem;
+    line-height: 1.75;
+  }
+  [data-font-size="md"] .prose {
+    font-size: 1.0625rem;
+    line-height: 1.8;
+  }
+  [data-font-size="lg"] .prose {
+    font-size: 1.1875rem;
+    line-height: 1.85;
+  }
+  [data-font-size="xl"] .prose {
+    font-size: 1.3125rem;
+    line-height: 1.9;
+  }
+
+  [data-font="serif"] .prose {
+    font-family: Georgia, "Times New Roman", serif;
+  }
+  [data-font="sans"] .prose {
+    font-family: system-ui, -apple-system, sans-serif;
+  }
+  [data-font="mono"] .prose {
+    font-family: "Courier New", monospace;
+  }
+
+  /* Warm accent progress bar animation */
+  .progress-bar {
+    transition: width 80ms linear;
+  }
+
+  /* Verdict section theme */
+  .verdict-section {
+    --verdict-bg: #0a0e1a;
+    --verdict-surface: #111827;
+    --verdict-surface-2: #1a2235;
+    --verdict-border: rgba(34, 211, 238, 0.12);
+    --verdict-border-hover: rgba(34, 211, 238, 0.35);
+    --verdict-accent: #22d3ee;
+    --verdict-accent-dim: rgba(34, 211, 238, 0.08);
+    --verdict-text: #e2e8f0;
+    --verdict-muted: #94a3b8;
+    --verdict-seismic: #f87171;
+    --verdict-major: #fb923c;
+    --verdict-moderate: #facc15;
+    --verdict-marginal: #94a3b8;
+  }
+
+  .verdict-section.verdict-light {
+    --verdict-bg: #f8fafc;
+    --verdict-surface: #ffffff;
+    --verdict-surface-2: #f1f5f9;
+    --verdict-border: rgba(14, 116, 144, 0.15);
+    --verdict-border-hover: rgba(14, 116, 144, 0.40);
+    --verdict-accent: #0e7490;
+    --verdict-accent-dim: rgba(14, 116, 144, 0.07);
+    --verdict-text: #0f172a;
+    --verdict-muted: #475569;
+    --verdict-seismic: #dc2626;
+    --verdict-major: #ea580c;
+    --verdict-moderate: #ca8a04;
+    --verdict-marginal: #64748b;
+  }
+
+  /* The Ledger — warm "regulatory docket" identity (amber on espresso) */
+  .ledger-section {
+    --ledger-bg: #16130f;
+    --ledger-surface: #1f1a14;
+    --ledger-surface-2: #2a231a;
+    --ledger-border: rgba(217, 119, 6, 0.16);
+    --ledger-border-hover: rgba(217, 119, 6, 0.4);
+    --ledger-accent: #f59e0b;
+    --ledger-accent-dim: rgba(245, 158, 11, 0.1);
+    --ledger-text: #f5efe4;
+    --ledger-muted: #a8997f;
+    --ledger-sev-1: #dc2626;
+    --ledger-sev-2: #f59e0b;
+    --ledger-sev-3: #ea9a3c;
+    --ledger-sev-4: #d4b14a;
+    --ledger-sev-5: #9b8e76;
+  }
+
+  .ledger-section.ledger-light {
+    --ledger-bg: #faf7f0;
+    --ledger-surface: #ffffff;
+    --ledger-surface-2: #f3ecdf;
+    --ledger-border: rgba(146, 84, 14, 0.18);
+    --ledger-border-hover: rgba(146, 84, 14, 0.42);
+    --ledger-accent: #b45309;
+    --ledger-accent-dim: rgba(180, 83, 9, 0.08);
+    --ledger-text: #1c1917;
+    --ledger-muted: #6b5d47;
+    --ledger-sev-1: #b91c1c;
+    --ledger-sev-2: #b45309;
+    --ledger-sev-3: #c2701c;
+    --ledger-sev-4: #a07b1f;
+    --ledger-sev-5: #6b5d47;
+  }
+
+  /* The Observatory — AI / productivity / prices. Teal on deep slate. */
+  .obs-section {
+    --obs-bg: #0b1418;
+    --obs-surface: #111d22;
+    --obs-surface-2: #16282e;
+    --obs-border: rgba(45, 212, 191, 0.14);
+    --obs-border-hover: rgba(45, 212, 191, 0.4);
+    --obs-accent: #2dd4bf;
+    --obs-accent-2: #38bdf8;
+    --obs-accent-dim: rgba(45, 212, 191, 0.1);
+    --obs-text: #e6f2ef;
+    --obs-muted: #8aa6a0;
+    --obs-c1: #2dd4bf;
+    --obs-c2: #fbbf24;
+    --obs-c3: #38bdf8;
+    --obs-c4: #f472b6;
+    --obs-c5: #a3e635;
+    --obs-warn: #fb7185;
+  }
+
+  .obs-section.obs-light {
+    --obs-bg: #f3faf8;
+    --obs-surface: #ffffff;
+    --obs-surface-2: #e7f3f0;
+    --obs-border: rgba(13, 124, 112, 0.16);
+    --obs-border-hover: rgba(13, 124, 112, 0.42);
+    --obs-accent: #0d9488;
+    --obs-accent-2: #0369a1;
+    --obs-accent-dim: rgba(13, 148, 136, 0.08);
+    --obs-text: #0c2420;
+    --obs-muted: #4b6b65;
+    --obs-c1: #0d9488;
+    --obs-c2: #b45309;
+    --obs-c3: #0369a1;
+    --obs-c4: #be185d;
+    --obs-c5: #4d7c0f;
+    --obs-warn: #e11d48;
+  }
+
+  /* Observatory range sliders — themed to the section accent. */
+  .obs-section .obs-range {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 4px;
+    border-radius: 999px;
+    background: var(--obs-surface-2);
+    outline: none;
+  }
+  .obs-section .obs-range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--obs-accent);
+    border: 2px solid var(--obs-bg);
+    cursor: pointer;
+    transition: transform 120ms;
+  }
+  .obs-section .obs-range::-webkit-slider-thumb:hover {
+    transform: scale(1.15);
+  }
+  .obs-section .obs-range::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--obs-accent);
+    border: 2px solid var(--obs-bg);
+    cursor: pointer;
+  }
+
+  /* The Arena — competition & efficiency. Magenta/rose on ink-violet. */
+  .arena-section {
+    --arena-bg: #100e1b;
+    --arena-surface: #181428;
+    --arena-surface-2: #211a36;
+    --arena-border: rgba(251, 93, 143, 0.16);
+    --arena-border-hover: rgba(251, 93, 143, 0.42);
+    --arena-accent: #fb5d8f;
+    --arena-accent-2: #818cf8;
+    --arena-accent-dim: rgba(251, 93, 143, 0.1);
+    --arena-text: #ece8f5;
+    --arena-muted: #9890b5;
+    --arena-c1: #fb5d8f;
+    --arena-c2: #818cf8;
+    --arena-c3: #34d399;
+    --arena-c4: #fbbf24;
+    --arena-c5: #22d3ee;
+    --arena-warn: #fb7185;
+    --arena-good: #34d399;
+  }
+
+  .arena-section.arena-light {
+    --arena-bg: #f7f5fb;
+    --arena-surface: #ffffff;
+    --arena-surface-2: #efeaf7;
+    --arena-border: rgba(190, 24, 93, 0.16);
+    --arena-border-hover: rgba(190, 24, 93, 0.42);
+    --arena-accent: #be185d;
+    --arena-accent-2: #4f46e5;
+    --arena-accent-dim: rgba(190, 24, 93, 0.08);
+    --arena-text: #1c142a;
+    --arena-muted: #6a6088;
+    --arena-c1: #be185d;
+    --arena-c2: #4f46e5;
+    --arena-c3: #047857;
+    --arena-c4: #b45309;
+    --arena-c5: #0e7490;
+    --arena-warn: #e11d48;
+    --arena-good: #047857;
+  }
+
+  /* Arena range sliders — themed to the section accent. */
+  .arena-section .arena-range {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 4px;
+    border-radius: 999px;
+    background: var(--arena-surface-2);
+    outline: none;
+  }
+  .arena-section .arena-range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--arena-accent);
+    border: 2px solid var(--arena-bg);
+    cursor: pointer;
+    transition: transform 120ms;
+  }
+  .arena-section .arena-range::-webkit-slider-thumb:hover {
+    transform: scale(1.15);
+  }
+  .arena-section .arena-range::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--arena-accent);
+    border: 2px solid var(--arena-bg);
+    cursor: pointer;
+  }
+
+  /* Arena: respect reduced-motion by neutralising transitions/animations. */
+  @media (prefers-reduced-motion: reduce) {
+    .arena-section * {
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+    }
+  }
+
+  /* The Distribution Lab — inequality, mobility, wellbeing. Gold/coral on deep indigo. */
+  .distlab-section {
+    --dl-bg: #0b0f1f;
+    --dl-surface: #131a30;
+    --dl-surface-2: #1b2440;
+    --dl-border: rgba(251, 191, 36, 0.15);
+    --dl-border-hover: rgba(251, 191, 36, 0.42);
+    --dl-accent: #fbbf24;
+    --dl-accent-2: #fb923c;
+    --dl-accent-dim: rgba(251, 191, 36, 0.10);
+    --dl-text: #eef1fb;
+    --dl-muted: #94a0c4;
+    /* sequential ramp for distribution / mobility intensity (low -> high) */
+    --dl-s1: #fde68a;
+    --dl-s2: #fcd34d;
+    --dl-s3: #fbbf24;
+    --dl-s4: #fb923c;
+    --dl-s5: #ea580c;
+    /* categorical chart palette */
+    --dl-c1: #fbbf24;
+    --dl-c2: #38bdf8;
+    --dl-c3: #34d399;
+    --dl-c4: #f472b6;
+    --dl-c5: #a78bfa;
+    --dl-warn: #fb7185;
+    --dl-good: #34d399;
+  }
+
+  .distlab-section.distlab-light {
+    --dl-bg: #f6f4ff;
+    --dl-surface: #ffffff;
+    --dl-surface-2: #ece9fb;
+    --dl-border: rgba(180, 83, 9, 0.18);
+    --dl-border-hover: rgba(180, 83, 9, 0.45);
+    --dl-accent: #b45309;
+    --dl-accent-2: #c2410c;
+    --dl-accent-dim: rgba(180, 83, 9, 0.08);
+    --dl-text: #161a2e;
+    --dl-muted: #5a6285;
+    --dl-s1: #fde68a;
+    --dl-s2: #fbbf24;
+    --dl-s3: #f59e0b;
+    --dl-s4: #ea580c;
+    --dl-s5: #9a3412;
+    --dl-c1: #b45309;
+    --dl-c2: #0369a1;
+    --dl-c3: #047857;
+    --dl-c4: #be185d;
+    --dl-c5: #6d28d9;
+    --dl-warn: #e11d48;
+    --dl-good: #047857;
+  }
+
+  /* Distribution Lab range sliders — themed to the section accent. */
+  .distlab-section .dl-range {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 4px;
+    border-radius: 999px;
+    background: var(--dl-surface-2);
+    outline: none;
+  }
+  .distlab-section .dl-range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--dl-accent);
+    border: 2px solid var(--dl-bg);
+    cursor: pointer;
+    transition: transform 120ms;
+  }
+  .distlab-section .dl-range::-webkit-slider-thumb:hover {
+    transform: scale(1.15);
+  }
+  .distlab-section .dl-range:disabled::-webkit-slider-thumb {
+    background: var(--dl-muted);
+    cursor: not-allowed;
+  }
+  .distlab-section .dl-range::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--dl-accent);
+    border: 2px solid var(--dl-bg);
+    cursor: pointer;
+  }
+
+  /* Distribution Lab: respect reduced-motion. */
+  @media (prefers-reduced-motion: reduce) {
+    .distlab-section * {
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+    }
+  }
+
+  /* The Docket — Indian court backlogs. Emerald on deep forest. */
+  .docket-section {
+    --docket-bg: #090f0a;
+    --docket-surface: #111e12;
+    --docket-surface-2: #182a1a;
+    --docket-border: rgba(52, 211, 153, 0.16);
+    --docket-border-hover: rgba(52, 211, 153, 0.42);
+    --docket-accent: #34d399;
+    --docket-accent-dim: rgba(52, 211, 153, 0.10);
+    --docket-text: #e4f5ef;
+    --docket-muted: #6fa882;
+    /* severity colours */
+    --docket-crit: #f87171;   /* red-400 */
+    --docket-high: #fb923c;   /* orange-400 */
+    --docket-mod:  #fbbf24;   /* amber-400 */
+    --docket-low:  #34d399;   /* emerald-400 (same as accent) */
+    /* chart palette */
+    --docket-c1: #34d399;
+    --docket-c2: #38bdf8;
+    --docket-c3: #f472b6;
+    --docket-c4: #fbbf24;
+    --docket-c5: #a78bfa;
+  }
+
+  .docket-section.docket-light {
+    --docket-bg: #f0faf3;
+    --docket-surface: #ffffff;
+    --docket-surface-2: #e4f5eb;
+    --docket-border: rgba(5, 122, 85, 0.18);
+    --docket-border-hover: rgba(5, 122, 85, 0.42);
+    --docket-accent: #059669;
+    --docket-accent-dim: rgba(5, 150, 105, 0.08);
+    --docket-text: #0a2318;
+    --docket-muted: #2d6b4f;
+    --docket-crit: #dc2626;
+    --docket-high: #ea580c;
+    --docket-mod:  #b45309;
+    --docket-low:  #059669;
+    --docket-c1: #059669;
+    --docket-c2: #0369a1;
+    --docket-c3: #be185d;
+    --docket-c4: #b45309;
+    --docket-c5: #6d28d9;
+  }
+
+  /* Docket: respect reduced-motion. */
+  @media (prefers-reduced-motion: reduce) {
+    .docket-section * {
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+    }
+  }
+}
