@@ -1,0 +1,1520 @@
+[
+  {
+    "action_id": 1,
+    "date_published": "2016-05-24",
+    "respondents": [
+      {
+        "name": "BSI Bank Limited",
+        "is_individual": false,
+        "fi_type": "merchant bank"
+      }
+    ],
+    "respondent_type": "FI",
+    "fi_subtype": "merchant bank",
+    "action_type": "Licence revocation",
+    "violation_category": "AML-CFT",
+    "penalty_amount_sgd": 13300000,
+    "prohibition_years": null,
+    "statutes": [
+      "MAS Notice 1014"
+    ],
+    "conduct_start": null,
+    "conduct_end": null,
+    "enforcement_lag_days": null,
+    "repeat_offender": false,
+    "joint_action_with": [],
+    "group": "1mdb",
+    "source_url": "https://www.mas.gov.sg/news/media-releases/2016/mas-directs-bsi-bank-to-shut-down-in-singapore",
+    "summary": "MAS withdrew BSI Bank's merchant-bank status and imposed S$13.3m for 41 AML breaches, citing serious failures of controls, poor management oversight, and gross misconduct by staff in 1MDB-linked flows. First Singapore bank shut down for AML failures in 32 years.",
+    "coding_confidence": 9
+  },
+  {
+    "action_id": 2,
+    "date_published": "2016-10-11",
+    "respondents": [
+      {
+        "name": "Falcon Private Bank Ltd (Singapore branch)",
+        "is_individual": false,
+        "fi_type": "merchant bank"
+      }
+    ],
+    "respondent_type": "FI",
+    "fi_subtype": "merchant bank",
+    "action_type": "Licence revocation",
+    "violation_category": "AML-CFT",
+    "penalty_amount_sgd": 4300000,
+    "prohibition_years": null,
+    "statutes": [
+      "MAS Notice 1014"
+    ],
+    "conduct_start": null,
+    "conduct_end": null,
+    "enforcement_lag_days": null,
+    "repeat_offender": false,
+    "joint_action_with": [],
+    "group": "1mdb",
+    "source_url": "https://www.mas.gov.sg/news/media-releases/2016/mas-directs-falcon-bank-to-cease-operations-in-singapore",
+    "summary": "MAS ordered Falcon Bank's Singapore branch to cease operations and imposed S$4.3m for 14 AML breaches, citing a persistent and severe lack of understanding of Singapore's AML controls in 1MDB-linked transactions.",
+    "coding_confidence": 9
+  },
+  {
+    "action_id": 3,
+    "date_published": "2016-10-11",
+    "respondents": [
+      {
+        "name": "DBS Bank Ltd",
+        "is_individual": false,
+        "fi_type": "bank"
+      }
+    ],
+    "respondent_type": "FI",
+    "fi_subtype": "bank",
+    "action_type": "Composition penalty",
+    "violation_category": "AML-CFT",
+    "penalty_amount_sgd": 1000000,
+    "prohibition_years": null,
+    "statutes": [
+      "MAS Notice 626"
+    ],
+    "conduct_start": null,
+    "conduct_end": null,
+    "enforcement_lag_days": null,
+    "repeat_offender": false,
+    "joint_action_with": [],
+    "group": "1mdb",
+    "source_url": "https://www.mas.gov.sg/news/media-releases/2016/mas-imposes-penalties-on-dbs-bank-and-ubs-and-issues-prohibition-orders-against-former-bank-employees",
+    "summary": "MAS imposed S$1m on DBS for 10 breaches of MAS Notice 626 on AML/CFT controls in 1MDB-related transactions.",
+    "coding_confidence": 9
+  },
+  {
+    "action_id": 4,
+    "date_published": "2016-10-11",
+    "respondents": [
+      {
+        "name": "UBS AG (Singapore branch)",
+        "is_individual": false,
+        "fi_type": "bank"
+      }
+    ],
+    "respondent_type": "FI",
+    "fi_subtype": "bank",
+    "action_type": "Composition penalty",
+    "violation_category": "AML-CFT",
+    "penalty_amount_sgd": 1300000,
+    "prohibition_years": null,
+    "statutes": [
+      "MAS Notice 626"
+    ],
+    "conduct_start": null,
+    "conduct_end": null,
+    "enforcement_lag_days": null,
+    "repeat_offender": false,
+    "joint_action_with": [],
+    "group": "1mdb",
+    "source_url": "https://www.mas.gov.sg/news/media-releases/2016/mas-imposes-penalties-on-dbs-bank-and-ubs-and-issues-prohibition-orders-against-former-bank-employees",
+    "summary": "MAS imposed S$1.3m on UBS for 13 breaches of MAS Notice 626 on AML/CFT controls in 1MDB-related transactions.",
+    "coding_confidence": 9
+  },
+  {
+    "action_id": 5,
+    "date_published": "2016-12-02",
+    "respondents": [
+      {
+        "name": "Standard Chartered Bank (Singapore)",
+        "is_individual": false,
+        "fi_type": "bank"
+      }
+    ],
+    "respondent_type": "FI",
+    "fi_subtype": "bank",
+    "action_type": "Composition penalty",
+    "violation_category": "AML-CFT",
+    "penalty_amount_sgd": 5200000,
+    "prohibition_years": null,
+    "statutes": [
+      "MAS Notice 626"
+    ],
+    "conduct_start": null,
+    "conduct_end": null,
+    "enforcement_lag_days": null,
+    "repeat_offender": false,
+    "joint_action_with": [],
+    "group": "1mdb",
+    "source_url": "https://www.mas.gov.sg/news/media-releases/2016/mas-imposes-penalties-on-standard-chartered-bank-and-coutts-for-1mdb-related-aml-breaches",
+    "summary": "MAS imposed S$5.2m on Standard Chartered Bank for 28 breaches of MAS Notice 626 on AML/CFT controls in 1MDB-related transactions.",
+    "coding_confidence": 9
+  },
+  {
+    "action_id": 6,
+    "date_published": "2016-12-02",
+    "respondents": [
+      {
+        "name": "Coutts & Co Ltd (Singapore branch)",
+        "is_individual": false,
+        "fi_type": "bank"
+      }
+    ],
+    "respondent_type": "FI",
+    "fi_subtype": "bank",
+    "action_type": "Composition penalty",
+    "violation_category": "AML-CFT",
+    "penalty_amount_sgd": 2400000,
+    "prohibition_years": null,
+    "statutes": [
+      "MAS Notice 626"
+    ],
+    "conduct_start": null,
+    "conduct_end": null,
+    "enforcement_lag_days": null,
+    "repeat_offender": false,
+    "joint_action_with": [],
+    "group": "1mdb",
+    "source_url": "https://www.mas.gov.sg/news/media-releases/2016/mas-imposes-penalties-on-standard-chartered-bank-and-coutts-for-1mdb-related-aml-breaches",
+    "summary": "MAS imposed S$2.4m on Coutts for 24 breaches of MAS Notice 626 on AML/CFT controls in 1MDB-related transactions.",
+    "coding_confidence": 8
+  },
+  {
+    "action_id": 7,
+    "date_published": "2017-05-30",
+    "respondents": [
+      {
+        "name": "Credit Suisse AG (Singapore branch)",
+        "is_individual": false,
+        "fi_type": "bank"
+      }
+    ],
+    "respondent_type": "FI",
+    "fi_subtype": "bank",
+    "action_type": "Composition penalty",
+    "violation_category": "AML-CFT",
+    "penalty_amount_sgd": 700000,
+    "prohibition_years": null,
+    "statutes": [
+      "MAS Notice 626"
+    ],
+    "conduct_start": null,
+    "conduct_end": null,
+    "enforcement_lag_days": null,
+    "repeat_offender": false,
+    "joint_action_with": [],
+    "group": "1mdb",
+    "source_url": "https://www.mas.gov.sg/news/media-releases/2017/financial-penalties-imposed-on-credit-suisse-and-uob-for-1mdb-related-transactions",
+    "summary": "MAS imposed S$700k on Credit Suisse for 7 breaches of MAS Notice 626 on AML/CFT controls in 1MDB-related transactions, completing its two-year review of 1MDB-linked banks.",
+    "coding_confidence": 9
+  },
+  {
+    "action_id": 8,
+    "date_published": "2017-05-30",
+    "respondents": [
+      {
+        "name": "United Overseas Bank Ltd",
+        "is_individual": false,
+        "fi_type": "bank"
+      }
+    ],
+    "respondent_type": "FI",
+    "fi_subtype": "bank",
+    "action_type": "Composition penalty",
+    "violation_category": "AML-CFT",
+    "penalty_amount_sgd": 900000,
+    "prohibition_years": null,
+    "statutes": [
+      "MAS Notice 626"
+    ],
+    "conduct_start": null,
+    "conduct_end": null,
+    "enforcement_lag_days": null,
+    "repeat_offender": false,
+    "joint_action_with": [],
+    "group": "1mdb",
+    "source_url": "https://www.mas.gov.sg/news/media-releases/2017/financial-penalties-imposed-on-credit-suisse-and-uob-for-1mdb-related-transactions",
+    "summary": "MAS imposed S$900k on UOB for 9 breaches of MAS Notice 626 on AML/CFT controls in 1MDB-related transactions.",
+    "coding_confidence": 9
+  },
+  {
+    "action_id": 9,
+    "date_published": "2020-10-22",
+    "respondents": [
+      {
+        "name": "Sun Weiyeh",
+        "is_individual": true,
+        "fi_type": "fund manager"
+      }
+    ],
+    "respondent_type": "individual",
+    "fi_subtype": "fund/asset manager",
+    "action_type": "Criminal prosecution",
+    "violation_category": "fraud/dishonesty",
+    "penalty_amount_sgd": null,
+    "prohibition_years": null,
+    "statutes": [
+      "Securities and Futures Act"
+    ],
+    "conduct_start": null,
+    "conduct_end": null,
+    "enforcement_lag_days": null,
+    "repeat_offender": false,
+    "joint_action_with": [],
+    "group": null,
+    "source_url": "https://www.mas.gov.sg/regulation/enforcement/enforcement-actions",
+    "summary": "Former fund manager charged for engaging in acts likely to defraud investors under the Securities and Futures Act.",
+    "coding_confidence": 7
+  },
+  {
+    "action_id": 10,
+    "date_published": "2020-10-23",
+    "respondents": [
+      {
+        "name": "Kevin Michael Swampillai",
+        "is_individual": true,
+        "fi_type": null
+      }
+    ],
+    "respondent_type": "individual",
+    "fi_subtype": null,
+    "action_type": "Prohibition order",
+    "violation_category": "fraud/dishonesty",
+    "penalty_amount_sgd": null,
+    "prohibition_years": null,
+    "statutes": [
+      "Securities and Futures Act"
+    ],
+    "conduct_start": null,
+    "conduct_end": null,
+    "enforcement_lag_days": null,
+    "repeat_offender": false,
+    "joint_action_with": [],
+    "group": null,
+    "source_url": "https://www.mas.gov.sg/regulation/enforcement/enforcement-actions",
+    "summary": "MAS issued a lifetime prohibition order against Kevin Michael Swampillai for his role in a scheme to misappropriate investor monies.",
+    "coding_confidence": 7
+  },
+  {
+    "action_id": 11,
+    "date_published": "2020-10-23",
+    "respondents": [
+      {
+        "name": "Goldman Sachs (Singapore) Pte",
+        "is_individual": false,
+        "fi_type": "capital markets"
+      }
+    ],
+    "respondent_type": "FI",
+    "fi_subtype": "capital markets",
+    "action_type": "Conditional warning",
+    "violation_category": "fraud/dishonesty",
+    "penalty_amount_sgd": 165000000,
+    "prohibition_years": null,
+    "statutes": [
+      "Prevention of Corruption Act"
+    ],
+    "conduct_start": "2012-01-01",
+    "conduct_end": "2013-12-31",
+    "enforcement_lag_days": 2488,
+    "repeat_offender": false,
+    "joint_action_with": [
+      "AGC",
+      "CAD"
+    ],
+    "group": "1mdb",
+    "source_url": "https://www.mas.gov.sg/regulation/enforcement/enforcement-actions/2020/incorrect-media-reporting-of-action-against-goldman-sachs-singapore-pte",
+    "summary": "Goldman Sachs (Singapore) paid US$122m (about S$165m) to the Singapore Government under a 36-month conditional warning from CAD, in lieu of prosecution, for its role in the 1MDB bond offerings. Reported as the largest such payment in Singapore at the time.",
+    "coding_confidence": 8
+  },
+  {
+    "action_id": 12,
+    "date_published": "2020-10-29",
+    "respondents": [
+      {
+        "name": "Tan Kheng Yeow",
+        "is_individual": true,
+        "fi_type": null
+      },
+      {
+        "name": "Tan Chun Yong",
+        "is_individual": true,
+        "fi_type": null
+      }
+    ],
+    "respondent_type": "individual",
+    "fi_subtype": null,
+    "action_type": "Criminal prosecution",
+    "violation_category": "market abuse",
+    "penalty_amount_sgd": null,
+    "prohibition_years": null,
+    "statutes": [
+      "Securities and Futures Act",
+      "Penal Code"
+    ],
+    "conduct_start": null,
+    "conduct_end": null,
+    "enforcement_lag_days": null,
+    "repeat_offender": false,
+    "joint_action_with": [
+      "CAD"
+    ],
+    "group": null,
+    "source_url": "https://www.mas.gov.sg/regulation/enforcement/enforcement-actions",
+    "summary": "Two individuals charged for offences under the Securities and Futures Act and Penal Code relating to securities market misconduct.",
+    "coding_confidence": 6
+  },
+  {
+    "action_id": 13,
+    "date_published": "2020-10-30",
+    "respondents": [
+      {
+        "name": "Lu Chor Sheng",
+        "is_individual": true,
+        "fi_type": null
+      },
+      {
+        "name": "Tan Swee Thiam Timothy",
+        "is_individual": true,
+        "fi_type": null
+      }
+    ],
+    "respondent_type": "individual",
+    "fi_subtype": null,
+    "action_type": "Prohibition order",
+    "violation_category": "fraud/dishonesty",
+    "penalty_amount_sgd": null,
+    "prohibition_years": null,
+    "statutes": [
+      "Financial Advisers Act"
+    ],
+    "conduct_start": null,
+    "conduct_end": null,
+    "enforcement_lag_days": null,
+    "repeat_offender": false,
+    "joint_action_with": [],
+    "group": null,
+    "source_url": "https://www.mas.gov.sg/regulation/enforcement/enforcement-actions",
+    "summary": "MAS banned two individuals for fraud and dishonest conduct in the provision of financial advisory services.",
+    "coding_confidence": 6
+  },
+  {
+    "action_id": 14,
+    "date_published": "2020-12-02",
+    "respondents": [
+      {
+        "name": "Chong Yoon Loi",
+        "is_individual": true,
+        "fi_type": null
+      },
+      {
+        "name": "Suresh Kannan",
+        "is_individual": true,
+        "fi_type": null
+      }
+    ],
+    "respondent_type": "individual",
+    "fi_subtype": "financial adviser",
+    "action_type": "Prohibition order",
+    "violation_category": "fraud/dishonesty",
+    "penalty_amount_sgd": null,
+    "prohibition_years": null,
+    "statutes": [
+      "Financial Advisers Act"
+    ],
+    "conduct_start": null,
+    "conduct_end": null,
+    "enforcement_lag_days": null,
+    "repeat_offender": false,
+    "joint_action_with": [],
+    "group": null,
+    "source_url": "https://www.mas.gov.sg/regulation/enforcement/enforcement-actions",
+    "summary": "MAS banned two former insurance agents for dishonest conduct.",
+    "coding_confidence": 6
+  },
+  {
+    "action_id": 15,
+    "date_published": "2021-02-01",
+    "respondents": [
+      {
+        "name": "CoAssets Group (companies under)",
+        "is_individual": false,
+        "fi_type": "payment/crypto"
+      }
+    ],
+    "respondent_type": "FI",
+    "fi_subtype": "other",
+    "action_type": "Investigation",
+    "violation_category": "other",
+    "penalty_amount_sgd": null,
+    "prohibition_years": null,
+    "statutes": [],
+    "conduct_start": null,
+    "conduct_end": null,
+    "enforcement_lag_days": null,
+    "repeat_offender": false,
+    "joint_action_with": [
+      "SPF"
+    ],
+    "group": null,
+    "source_url": "https://www.mas.gov.sg/regulation/enforcement/enforcement-actions",
+    "summary": "Singapore Police Force and MAS jointly investigating companies under the CoAssets Group (crowdfunding platform).",
+    "coding_confidence": 6
+  },
+  {
+    "action_id": 16,
+    "date_published": "2021-02-24",
+    "respondents": [
+      {
+        "name": "Lau Man Chun",
+        "is_individual": true,
+        "fi_type": null
+      }
+    ],
+    "respondent_type": "individual",
+    "fi_subtype": "broker",
+    "action_type": "Prohibition order",
+    "violation_category": "fraud/dishonesty",
+    "penalty_amount_sgd": null,
+    "prohibition_years": null,
+    "statutes": [
+      "Financial Advisers Act"
+    ],
+    "conduct_start": null,
+    "conduct_end": null,
+    "enforcement_lag_days": null,
+    "repeat_offender": false,
+    "joint_action_with": [],
+    "group": null,
+    "source_url": "https://www.mas.gov.sg/regulation/enforcement/enforcement-actions",
+    "summary": "MAS banned a former representative of an insurance broker for dishonest conduct.",
+    "coding_confidence": 6
+  },
+  {
+    "action_id": 17,
+    "date_published": "2021-03-03",
+    "respondents": [
+      {
+        "name": "Lau Wan Heng",
+        "is_individual": true,
+        "fi_type": null
+      },
+      {
+        "name": "Yeo An Lun",
+        "is_individual": true,
+        "fi_type": null
+      },
+      {
+        "name": "Goh Qi Rui Rayson",
+        "is_individual": true,
+        "fi_type": null
+      },
+      {
+        "name": "Teo Boon Cheang",
+        "is_individual": true,
+        "fi_type": null
+      }
+    ],
+    "respondent_type": "individual",
+    "fi_subtype": null,
+    "action_type": "Prohibition order",
+    "violation_category": "market abuse",
+    "penalty_amount_sgd": null,
+    "prohibition_years": null,
+    "statutes": [
+      "Securities and Futures Act"
+    ],
+    "conduct_start": null,
+    "conduct_end": null,
+    "enforcement_lag_days": null,
+    "repeat_offender": false,
+    "joint_action_with": [],
+    "group": null,
+    "source_url": "https://www.mas.gov.sg/regulation/enforcement/enforcement-actions",
+    "summary": "MAS banned four individuals for market misconduct.",
+    "coding_confidence": 6
+  },
+  {
+    "action_id": 18,
+    "date_published": "2022-08-15",
+    "respondents": [
+      {
+        "name": "Chua Kah Boey",
+        "is_individual": true,
+        "fi_type": null
+      }
+    ],
+    "respondent_type": "individual",
+    "fi_subtype": "broker",
+    "action_type": "Civil penalty",
+    "violation_category": "market abuse",
+    "penalty_amount_sgd": 100000,
+    "prohibition_years": null,
+    "statutes": [
+      "Securities and Futures Act"
+    ],
+    "conduct_start": null,
+    "conduct_end": null,
+    "enforcement_lag_days": null,
+    "repeat_offender": false,
+    "joint_action_with": [],
+    "group": null,
+    "source_url": "https://www.mas.gov.sg/regulation/enforcement/enforcement-actions/2022/mas-takes-civil-penalty-action-and-issues-prohibition-orders-against-former-trading-representative-for-false-and-unauthorised-trading",
+    "summary": "MAS imposed a S$100k civil penalty and prohibition orders on a former trading representative for false trading (creating a misleading appearance of price) and unauthorised trading.",
+    "coding_confidence": 8
+  },
+  {
+    "action_id": 19,
+    "date_published": "2023-06-21",
+    "respondents": [
+      {
+        "name": "DBS Bank Ltd",
+        "is_individual": false,
+        "fi_type": "bank"
+      }
+    ],
+    "respondent_type": "FI",
+    "fi_subtype": "bank",
+    "action_type": "Composition penalty",
+    "violation_category": "AML-CFT",
+    "penalty_amount_sgd": 2600000,
+    "prohibition_years": null,
+    "statutes": [
+      "MAS Notice 626"
+    ],
+    "conduct_start": "2015-07-01",
+    "conduct_end": "2020-02-29",
+    "enforcement_lag_days": 1208,
+    "repeat_offender": true,
+    "joint_action_with": [],
+    "group": "wirecard",
+    "source_url": "https://www.mas.gov.sg/regulation/enforcement/enforcement-actions/2023/mas-penalises-3-banks-and-an-insurer-for-breaches-of-anti-money-laundering-requirements",
+    "summary": "MAS imposed S$2.6m on DBS for AML/CFT control breaches (Jul 2015 to Feb 2020) on accounts of 11 corporate customers linked to the Wirecard matter.",
+    "coding_confidence": 9
+  },
+  {
+    "action_id": 20,
+    "date_published": "2023-06-21",
+    "respondents": [
+      {
+        "name": "Oversea-Chinese Banking Corporation Ltd",
+        "is_individual": false,
+        "fi_type": "bank"
+      }
+    ],
+    "respondent_type": "FI",
+    "fi_subtype": "bank",
+    "action_type": "Composition penalty",
+    "violation_category": "AML-CFT",
+    "penalty_amount_sgd": 600000,
+    "prohibition_years": null,
+    "statutes": [
+      "MAS Notice 626"
+    ],
+    "conduct_start": "2015-06-01",
+    "conduct_end": "2016-01-31",
+    "enforcement_lag_days": 2698,
+    "repeat_offender": false,
+    "joint_action_with": [],
+    "group": "wirecard",
+    "source_url": "https://www.mas.gov.sg/regulation/enforcement/enforcement-actions/2023/mas-penalises-3-banks-and-an-insurer-for-breaches-of-anti-money-laundering-requirements",
+    "summary": "MAS imposed S$600k on OCBC for AML/CFT control breaches (Jun 2015 to Jan 2016) on accounts of one corporate customer linked to the Wirecard matter.",
+    "coding_confidence": 9
+  },
+  {
+    "action_id": 21,
+    "date_published": "2023-06-21",
+    "respondents": [
+      {
+        "name": "Citibank N.A. Singapore / Citibank Singapore Ltd",
+        "is_individual": false,
+        "fi_type": "bank"
+      }
+    ],
+    "respondent_type": "FI",
+    "fi_subtype": "bank",
+    "action_type": "Composition penalty",
+    "violation_category": "AML-CFT",
+    "penalty_amount_sgd": 400000,
+    "prohibition_years": null,
+    "statutes": [
+      "MAS Notice 626"
+    ],
+    "conduct_start": "2019-09-01",
+    "conduct_end": "2020-06-30",
+    "enforcement_lag_days": 1086,
+    "repeat_offender": false,
+    "joint_action_with": [],
+    "group": "wirecard",
+    "source_url": "https://www.mas.gov.sg/regulation/enforcement/enforcement-actions/2023/mas-penalises-3-banks-and-an-insurer-for-breaches-of-anti-money-laundering-requirements",
+    "summary": "MAS imposed S$400k on Citibank for AML/CFT control breaches (Sep 2019 to Jun 2020) on accounts of two corporate customers linked to the Wirecard matter.",
+    "coding_confidence": 9
+  },
+  {
+    "action_id": 22,
+    "date_published": "2023-06-21",
+    "respondents": [
+      {
+        "name": "Swiss Life (Singapore) Pte Ltd",
+        "is_individual": false,
+        "fi_type": "insurer"
+      }
+    ],
+    "respondent_type": "FI",
+    "fi_subtype": "insurer",
+    "action_type": "Composition penalty",
+    "violation_category": "AML-CFT",
+    "penalty_amount_sgd": 200000,
+    "prohibition_years": null,
+    "statutes": [
+      "MAS Notice 314"
+    ],
+    "conduct_start": "2017-05-01",
+    "conduct_end": "2017-05-31",
+    "enforcement_lag_days": 2212,
+    "repeat_offender": false,
+    "joint_action_with": [],
+    "group": "wirecard",
+    "source_url": "https://www.mas.gov.sg/regulation/enforcement/enforcement-actions/2023/mas-penalises-3-banks-and-an-insurer-for-breaches-of-anti-money-laundering-requirements",
+    "summary": "MAS imposed S$200k on Swiss Life (Singapore) for AML/CFT control breaches (May 2017) relating to an investment-linked life insurance policy linked to the Wirecard matter.",
+    "coding_confidence": 9
+  },
+  {
+    "action_id": 23,
+    "date_published": "2024-04-18",
+    "respondents": [
+      {
+        "name": "Gng Hoon Hong",
+        "is_individual": true,
+        "fi_type": null
+      }
+    ],
+    "respondent_type": "individual",
+    "fi_subtype": "insurer",
+    "action_type": "Prohibition order",
+    "violation_category": "fraud/dishonesty",
+    "penalty_amount_sgd": null,
+    "prohibition_years": 8,
+    "statutes": [
+      "Financial Advisers Act"
+    ],
+    "conduct_start": "2012-03-01",
+    "conduct_end": "2018-07-31",
+    "enforcement_lag_days": 2088,
+    "repeat_offender": false,
+    "joint_action_with": [],
+    "group": null,
+    "source_url": "https://www.mas.gov.sg/regulation/enforcement/enforcement-actions/2024/mas-issues-prohibition-orders-against-mr-gng-hoon-hong-for-dishonest-conduct",
+    "summary": "MAS issued an 8-year prohibition order against a former Prudential representative who misappropriated S$117,160.94 of client insurance-premium monies between Mar 2012 and Jul 2018.",
+    "coding_confidence": 9
+  },
+  {
+    "action_id": 24,
+    "date_published": "2024-05-20",
+    "respondents": [
+      {
+        "name": "Muhammad Hafiz Bin Ismail",
+        "is_individual": true,
+        "fi_type": null
+      }
+    ],
+    "respondent_type": "individual",
+    "fi_subtype": "bank",
+    "action_type": "Prohibition order",
+    "violation_category": "fraud/dishonesty",
+    "penalty_amount_sgd": null,
+    "prohibition_years": 5,
+    "statutes": [
+      "Financial Advisers Act",
+      "Securities and Futures Act"
+    ],
+    "conduct_start": null,
+    "conduct_end": null,
+    "enforcement_lag_days": null,
+    "repeat_offender": false,
+    "joint_action_with": [],
+    "group": null,
+    "source_url": "https://www.mas.gov.sg/regulation/enforcement/enforcement-actions/2024/mas-issues-prohibition-order-against-mr-muhammad-hafiz-bin-ismail-for-dishonest-conduct",
+    "summary": "MAS issued a 5-year prohibition order against a former DBS representative following his conviction for intentionally obstructing the course of justice and related FAA and SFA contraventions.",
+    "coding_confidence": 9
+  },
+  {
+    "action_id": 25,
+    "date_published": "2024-07-23",
+    "respondents": [
+      {
+        "name": "Tay Joo Heng",
+        "is_individual": true,
+        "fi_type": null
+      }
+    ],
+    "respondent_type": "individual",
+    "fi_subtype": null,
+    "action_type": "Civil penalty",
+    "violation_category": "market abuse",
+    "penalty_amount_sgd": 70000,
+    "prohibition_years": null,
+    "statutes": [
+      "Securities and Futures Act"
+    ],
+    "conduct_start": null,
+    "conduct_end": null,
+    "enforcement_lag_days": null,
+    "repeat_offender": false,
+    "joint_action_with": [],
+    "group": null,
+    "source_url": "https://www.mas.gov.sg/regulation/enforcement/enforcement-actions/2024/civil-penalty-action-taken-against-tay-joo-heng-for-insider-trading",
+    "summary": "MAS imposed a S$70k civil penalty on Tay Joo Heng for insider trading in the shares of GS Holdings Limited.",
+    "coding_confidence": 9
+  },
+  {
+    "action_id": 26,
+    "date_published": "2024-08-19",
+    "respondents": [
+      {
+        "name": "Hoi Wei Kit",
+        "is_individual": true,
+        "fi_type": null
+      }
+    ],
+    "respondent_type": "individual",
+    "fi_subtype": "bank",
+    "action_type": "Prohibition order",
+    "violation_category": "fraud/dishonesty",
+    "penalty_amount_sgd": null,
+    "prohibition_years": 9,
+    "statutes": [
+      "Penal Code",
+      "Corruption, Drug Trafficking and Other Serious Crimes (Confiscation of Benefits) Act"
+    ],
+    "conduct_start": null,
+    "conduct_end": null,
+    "enforcement_lag_days": null,
+    "repeat_offender": false,
+    "joint_action_with": [],
+    "group": null,
+    "source_url": "https://www.mas.gov.sg/regulation/enforcement/enforcement-actions/2024/mas-issues-prohibition-order-against-mr-hoi-wei-kit",
+    "summary": "MAS issued a 9-year prohibition order against a former OCBC representative following his conviction for offences under the Penal Code and the CDSA.",
+    "coding_confidence": 9
+  },
+  {
+    "action_id": 27,
+    "date_published": "2024-09-24",
+    "respondents": [
+      {
+        "name": "Pan Qi",
+        "is_individual": true,
+        "fi_type": null
+      }
+    ],
+    "respondent_type": "individual",
+    "fi_subtype": "fund/asset manager",
+    "action_type": "Prohibition order",
+    "violation_category": "fraud/dishonesty",
+    "penalty_amount_sgd": null,
+    "prohibition_years": 5,
+    "statutes": [
+      "Securities and Futures Act"
+    ],
+    "conduct_start": null,
+    "conduct_end": null,
+    "enforcement_lag_days": null,
+    "repeat_offender": false,
+    "joint_action_with": [],
+    "group": null,
+    "source_url": "https://www.mas.gov.sg/regulation/enforcement/enforcement-actions/2024/mas-issues-prohibition-order-against-mr-pan-qi-for-dishonest-conduct",
+    "summary": "MAS issued a 5-year prohibition order against a former representative of fund manager Nech Capital following his conviction for engaging in a course of business operating as fraud under the SFA.",
+    "coding_confidence": 9
+  },
+  {
+    "action_id": 28,
+    "date_published": "2025-07-04",
+    "respondents": [
+      {
+        "name": "Credit Suisse AG (Singapore branch)",
+        "is_individual": false,
+        "fi_type": "bank"
+      }
+    ],
+    "respondent_type": "FI",
+    "fi_subtype": "bank",
+    "action_type": "Composition penalty",
+    "violation_category": "AML-CFT",
+    "penalty_amount_sgd": 5800000,
+    "prohibition_years": null,
+    "statutes": [
+      "MAS Notice 626"
+    ],
+    "conduct_start": null,
+    "conduct_end": null,
+    "enforcement_lag_days": null,
+    "repeat_offender": true,
+    "joint_action_with": [],
+    "group": "sg3b",
+    "source_url": "https://www.mas.gov.sg/regulation/enforcement/enforcement-actions/2025/mas-takes-regulatory-actions-against-9-financial-institutions-for-aml-related-breaches",
+    "summary": "MAS imposed S$5.8m on Credit Suisse, the largest of nine penalties totalling S$27.45m for AML/CFT breaches tied to the S$3 billion money-laundering case uncovered in August 2023.",
+    "coding_confidence": 9
+  },
+  {
+    "action_id": 29,
+    "date_published": "2025-07-04",
+    "respondents": [
+      {
+        "name": "United Overseas Bank Ltd",
+        "is_individual": false,
+        "fi_type": "bank"
+      }
+    ],
+    "respondent_type": "FI",
+    "fi_subtype": "bank",
+    "action_type": "Composition penalty",
+    "violation_category": "AML-CFT",
+    "penalty_amount_sgd": 5600000,
+    "prohibition_years": null,
+    "statutes": [
+      "MAS Notice 626"
+    ],
+    "conduct_start": null,
+    "conduct_end": null,
+    "enforcement_lag_days": null,
+    "repeat_offender": true,
+    "joint_action_with": [],
+    "group": "sg3b",
+    "source_url": "https://www.mas.gov.sg/regulation/enforcement/enforcement-actions/2025/mas-takes-regulatory-actions-against-9-financial-institutions-for-aml-related-breaches",
+    "summary": "MAS imposed S$5.6m on UOB for AML/CFT breaches tied to the S$3 billion money-laundering case uncovered in August 2023.",
+    "coding_confidence": 9
+  },
+  {
+    "action_id": 30,
+    "date_published": "2025-07-04",
+    "respondents": [
+      {
+        "name": "UBS AG (Singapore branch)",
+        "is_individual": false,
+        "fi_type": "bank"
+      }
+    ],
+    "respondent_type": "FI",
+    "fi_subtype": "bank",
+    "action_type": "Composition penalty",
+    "violation_category": "AML-CFT",
+    "penalty_amount_sgd": 3000000,
+    "prohibition_years": null,
+    "statutes": [
+      "MAS Notice 626"
+    ],
+    "conduct_start": null,
+    "conduct_end": null,
+    "enforcement_lag_days": null,
+    "repeat_offender": true,
+    "joint_action_with": [],
+    "group": "sg3b",
+    "source_url": "https://www.mas.gov.sg/regulation/enforcement/enforcement-actions/2025/mas-takes-regulatory-actions-against-9-financial-institutions-for-aml-related-breaches",
+    "summary": "MAS imposed S$3m on UBS for AML/CFT breaches tied to the S$3 billion money-laundering case uncovered in August 2023.",
+    "coding_confidence": 9
+  },
+  {
+    "action_id": 31,
+    "date_published": "2025-07-04",
+    "respondents": [
+      {
+        "name": "Citibank Singapore Ltd / Citibank N.A. Singapore",
+        "is_individual": false,
+        "fi_type": "bank"
+      }
+    ],
+    "respondent_type": "FI",
+    "fi_subtype": "bank",
+    "action_type": "Composition penalty",
+    "violation_category": "AML-CFT",
+    "penalty_amount_sgd": 2600000,
+    "prohibition_years": null,
+    "statutes": [
+      "MAS Notice 626"
+    ],
+    "conduct_start": null,
+    "conduct_end": null,
+    "enforcement_lag_days": null,
+    "repeat_offender": true,
+    "joint_action_with": [],
+    "group": "sg3b",
+    "source_url": "https://www.mas.gov.sg/regulation/enforcement/enforcement-actions/2025/mas-takes-regulatory-actions-against-9-financial-institutions-for-aml-related-breaches",
+    "summary": "MAS imposed S$2.6m on Citibank for AML/CFT breaches tied to the S$3 billion money-laundering case uncovered in August 2023.",
+    "coding_confidence": 9
+  },
+  {
+    "action_id": 32,
+    "date_published": "2025-07-04",
+    "respondents": [
+      {
+        "name": "UOB Kay Hian Pte Ltd",
+        "is_individual": false,
+        "fi_type": "capital markets"
+      }
+    ],
+    "respondent_type": "FI",
+    "fi_subtype": "capital markets",
+    "action_type": "Composition penalty",
+    "violation_category": "AML-CFT",
+    "penalty_amount_sgd": 2850000,
+    "prohibition_years": null,
+    "statutes": [
+      "MAS Notice SFA04-N02"
+    ],
+    "conduct_start": null,
+    "conduct_end": null,
+    "enforcement_lag_days": null,
+    "repeat_offender": false,
+    "joint_action_with": [],
+    "group": "sg3b",
+    "source_url": "https://www.mas.gov.sg/regulation/enforcement/enforcement-actions/2025/mas-takes-regulatory-actions-against-9-financial-institutions-for-aml-related-breaches",
+    "summary": "MAS imposed S$2.85m on capital markets services licensee UOB Kay Hian for AML/CFT breaches tied to the S$3 billion money-laundering case.",
+    "coding_confidence": 9
+  },
+  {
+    "action_id": 33,
+    "date_published": "2025-07-04",
+    "respondents": [
+      {
+        "name": "Blue Ocean Invest Pte Ltd",
+        "is_individual": false,
+        "fi_type": "fund manager"
+      }
+    ],
+    "respondent_type": "FI",
+    "fi_subtype": "fund/asset manager",
+    "action_type": "Composition penalty",
+    "violation_category": "AML-CFT",
+    "penalty_amount_sgd": 2400000,
+    "prohibition_years": null,
+    "statutes": [
+      "MAS Notice SFA04-N02"
+    ],
+    "conduct_start": null,
+    "conduct_end": null,
+    "enforcement_lag_days": null,
+    "repeat_offender": false,
+    "joint_action_with": [],
+    "group": "sg3b",
+    "source_url": "https://www.mas.gov.sg/regulation/enforcement/enforcement-actions/2025/mas-takes-regulatory-actions-against-9-financial-institutions-for-aml-related-breaches",
+    "summary": "MAS imposed S$2.4m on external asset manager Blue Ocean Invest for AML/CFT breaches tied to the S$3 billion money-laundering case. MAS separately revoked a related capital markets licence.",
+    "coding_confidence": 9
+  },
+  {
+    "action_id": 34,
+    "date_published": "2025-07-04",
+    "respondents": [
+      {
+        "name": "Julius Baer & Co Ltd (Singapore branch)",
+        "is_individual": false,
+        "fi_type": "bank"
+      }
+    ],
+    "respondent_type": "FI",
+    "fi_subtype": "bank",
+    "action_type": "Composition penalty",
+    "violation_category": "AML-CFT",
+    "penalty_amount_sgd": 2400000,
+    "prohibition_years": null,
+    "statutes": [
+      "MAS Notice 626"
+    ],
+    "conduct_start": null,
+    "conduct_end": null,
+    "enforcement_lag_days": null,
+    "repeat_offender": false,
+    "joint_action_with": [],
+    "group": "sg3b",
+    "source_url": "https://www.mas.gov.sg/regulation/enforcement/enforcement-actions/2025/mas-takes-regulatory-actions-against-9-financial-institutions-for-aml-related-breaches",
+    "summary": "MAS imposed S$2.4m on Julius Baer for AML/CFT breaches tied to the S$3 billion money-laundering case uncovered in August 2023.",
+    "coding_confidence": 9
+  },
+  {
+    "action_id": 35,
+    "date_published": "2025-07-04",
+    "respondents": [
+      {
+        "name": "Trident Trust Company (Singapore) Pte Ltd",
+        "is_individual": false,
+        "fi_type": "trust company"
+      }
+    ],
+    "respondent_type": "FI",
+    "fi_subtype": "other",
+    "action_type": "Composition penalty",
+    "violation_category": "AML-CFT",
+    "penalty_amount_sgd": 1800000,
+    "prohibition_years": null,
+    "statutes": [
+      "MAS Notice TCA-N03"
+    ],
+    "conduct_start": null,
+    "conduct_end": null,
+    "enforcement_lag_days": null,
+    "repeat_offender": false,
+    "joint_action_with": [],
+    "group": "sg3b",
+    "source_url": "https://www.mas.gov.sg/regulation/enforcement/enforcement-actions/2025/mas-takes-regulatory-actions-against-9-financial-institutions-for-aml-related-breaches",
+    "summary": "MAS imposed S$1.8m on licensed trust company Trident Trust for AML/CFT breaches tied to the S$3 billion money-laundering case.",
+    "coding_confidence": 9
+  },
+  {
+    "action_id": 36,
+    "date_published": "2025-07-04",
+    "respondents": [
+      {
+        "name": "LGT Bank (Singapore) Ltd",
+        "is_individual": false,
+        "fi_type": "bank"
+      }
+    ],
+    "respondent_type": "FI",
+    "fi_subtype": "bank",
+    "action_type": "Composition penalty",
+    "violation_category": "AML-CFT",
+    "penalty_amount_sgd": 1000000,
+    "prohibition_years": null,
+    "statutes": [
+      "MAS Notice 626"
+    ],
+    "conduct_start": null,
+    "conduct_end": null,
+    "enforcement_lag_days": null,
+    "repeat_offender": false,
+    "joint_action_with": [],
+    "group": "sg3b",
+    "source_url": "https://www.mas.gov.sg/regulation/enforcement/enforcement-actions/2025/mas-takes-regulatory-actions-against-9-financial-institutions-for-aml-related-breaches",
+    "summary": "MAS imposed S$1m on LGT Bank for AML/CFT breaches tied to the S$3 billion money-laundering case uncovered in August 2023.",
+    "coding_confidence": 9
+  },
+  {
+    "conduct_start": null,
+    "conduct_end": null,
+    "enforcement_lag_days": null,
+    "repeat_offender": false,
+    "joint_action_with": [
+      "CAD"
+    ],
+    "group": null,
+    "prohibition_years": null,
+    "action_id": 37,
+    "date_published": "2025-10-15",
+    "respondents": [
+      {
+        "name": "Tan Tee Beng",
+        "is_individual": true,
+        "fi_type": null
+      }
+    ],
+    "respondent_type": "individual",
+    "fi_subtype": null,
+    "action_type": "Civil penalty",
+    "violation_category": "market abuse",
+    "penalty_amount_sgd": 50000,
+    "statutes": [
+      "Securities and Futures Act"
+    ],
+    "source_url": "https://www.mas.gov.sg/regulation/enforcement/enforcement-actions/2025/civil-penalty-action-taken-against-tan-tee-beng-for-insider-trading",
+    "summary": "MAS imposed a S$50k civil penalty on Tan Tee Beng for insider trading in the shares of Tee International Limited and Tee Land Limited.",
+    "coding_confidence": 9
+  },
+  {
+    "conduct_start": null,
+    "conduct_end": null,
+    "enforcement_lag_days": null,
+    "repeat_offender": false,
+    "joint_action_with": [],
+    "group": null,
+    "prohibition_years": null,
+    "action_id": 38,
+    "date_published": "2025-11-17",
+    "respondents": [
+      {
+        "name": "Ang Yew Jin Eugene",
+        "is_individual": true,
+        "fi_type": null
+      }
+    ],
+    "respondent_type": "individual",
+    "fi_subtype": null,
+    "action_type": "Civil penalty",
+    "violation_category": "market abuse",
+    "penalty_amount_sgd": 137000,
+    "statutes": [
+      "Securities and Futures Act"
+    ],
+    "source_url": "https://www.mas.gov.sg/regulation/enforcement/enforcement-actions/2025/mas-imposes-civil-penalty-on-mr-ang-yew-jin-eugene-for-insider-trading",
+    "summary": "MAS imposed a S$137k civil penalty on Mr Ang Yew Jin Eugene for insider trading in the shares of SGX-listed Alpha Energy Holdings Limited.",
+    "coding_confidence": 9
+  },
+  {
+    "conduct_start": "2021-08-01",
+    "conduct_end": "2021-08-31",
+    "enforcement_lag_days": 1499,
+    "repeat_offender": false,
+    "joint_action_with": [],
+    "group": null,
+    "prohibition_years": 3,
+    "action_id": 39,
+    "date_published": "2025-10-08",
+    "respondents": [
+      {
+        "name": "Tham Kok Tong, Marcus",
+        "is_individual": true,
+        "fi_type": "financial adviser"
+      },
+      {
+        "name": "Charles Chong Yong Qin",
+        "is_individual": true,
+        "fi_type": "financial adviser"
+      }
+    ],
+    "respondent_type": "individual",
+    "fi_subtype": "financial adviser",
+    "action_type": "Prohibition order",
+    "violation_category": "fraud/dishonesty",
+    "penalty_amount_sgd": null,
+    "statutes": [
+      "Financial Services and Markets Act 2022"
+    ],
+    "source_url": "https://www.mas.gov.sg/regulation/enforcement/enforcement-actions/2025/mas-issues-prohibition-orders-against-tham-kok-tong-marcus-and-charles-chong-yong-qin",
+    "summary": "MAS issued 3-year prohibition orders against two former Great Eastern Financial Advisers representatives: Chong forged a client's signature to terminate a policy and gave false information to police; his supervisor Tham was aware and encouraged the concealment.",
+    "coding_confidence": 9
+  },
+  {
+    "conduct_start": null,
+    "conduct_end": null,
+    "enforcement_lag_days": null,
+    "repeat_offender": false,
+    "joint_action_with": [],
+    "group": null,
+    "prohibition_years": null,
+    "action_id": 40,
+    "date_published": "2025-10-23",
+    "respondents": [
+      {
+        "name": "Benjamin Song Junde",
+        "is_individual": true,
+        "fi_type": null
+      },
+      {
+        "name": "Charn Sze Choong",
+        "is_individual": true,
+        "fi_type": null
+      }
+    ],
+    "respondent_type": "individual",
+    "fi_subtype": "insurer",
+    "action_type": "Prohibition order",
+    "violation_category": "fraud/dishonesty",
+    "penalty_amount_sgd": null,
+    "statutes": [],
+    "source_url": "https://www.mas.gov.sg/regulation/enforcement/enforcement-actions/2025/mas-issues-prohibition-orders-against-two-individuals-convicted-for-insurance-fraud",
+    "summary": "MAS issued prohibition orders (effective 23 Oct 2025) against two individuals convicted for insurance fraud.",
+    "coding_confidence": 8
+  },
+  {
+    "conduct_start": null,
+    "conduct_end": null,
+    "enforcement_lag_days": null,
+    "repeat_offender": false,
+    "joint_action_with": [],
+    "group": null,
+    "prohibition_years": 6,
+    "action_id": 41,
+    "date_published": "2025-03-01",
+    "respondents": [
+      {
+        "name": "Lim Kok Tiong, Danny",
+        "is_individual": true,
+        "fi_type": "financial adviser"
+      }
+    ],
+    "respondent_type": "individual",
+    "fi_subtype": "financial adviser",
+    "action_type": "Prohibition order",
+    "violation_category": "fraud/dishonesty",
+    "penalty_amount_sgd": null,
+    "statutes": [
+      "Penal Code"
+    ],
+    "source_url": "https://www.mas.gov.sg/regulation/enforcement/enforcement-actions/2025/mas-issues-prohibition-order-against-mr-lim-kok-tiong-danny-for-forgery-and-cheating-offences",
+    "summary": "MAS issued a 6-year prohibition order against a former Ray Alliance / PIAS representative convicted of forgery and cheating (pleaded guilty 31 May 2023; 15 weeks' jail). Publication date approximate (March 2025).",
+    "coding_confidence": 7
+  },
+  {
+    "conduct_start": "2020-08-01",
+    "conduct_end": "2023-08-31",
+    "enforcement_lag_days": 666,
+    "repeat_offender": false,
+    "joint_action_with": [],
+    "group": "mpi2025",
+    "prohibition_years": null,
+    "action_id": 42,
+    "date_published": "2025-06-27",
+    "respondents": [
+      {
+        "name": "Remsea Pte Ltd",
+        "is_individual": false,
+        "fi_type": "payment institution"
+      }
+    ],
+    "respondent_type": "FI",
+    "fi_subtype": "payment/crypto",
+    "action_type": "Composition penalty",
+    "violation_category": "AML-CFT",
+    "penalty_amount_sgd": 280000,
+    "statutes": [
+      "MAS Notice PSN01"
+    ],
+    "source_url": "https://www.mas.gov.sg/regulation/enforcement/enforcement-actions/2025/mas-imposes-composition-penalties-against-five-major-payment-institutions",
+    "summary": "MAS imposed S$280k on Remsea for AML/CFT breaches (Aug 2020 to Aug 2023), part of S$960k across five major payment institutions.",
+    "coding_confidence": 9
+  },
+  {
+    "conduct_start": "2020-03-01",
+    "conduct_end": "2023-08-31",
+    "enforcement_lag_days": 666,
+    "repeat_offender": false,
+    "joint_action_with": [],
+    "group": "mpi2025",
+    "prohibition_years": null,
+    "action_id": 43,
+    "date_published": "2025-06-27",
+    "respondents": [
+      {
+        "name": "Arcade Plaza Traders Pte Ltd",
+        "is_individual": false,
+        "fi_type": "payment institution"
+      }
+    ],
+    "respondent_type": "FI",
+    "fi_subtype": "payment/crypto",
+    "action_type": "Composition penalty",
+    "violation_category": "AML-CFT",
+    "penalty_amount_sgd": 260000,
+    "statutes": [
+      "MAS Notice PSN01"
+    ],
+    "source_url": "https://www.mas.gov.sg/regulation/enforcement/enforcement-actions/2025/mas-imposes-composition-penalties-against-five-major-payment-institutions",
+    "summary": "MAS imposed S$260k on Arcade Plaza Traders for AML/CFT breaches (Mar 2020 to Aug 2023).",
+    "coding_confidence": 9
+  },
+  {
+    "conduct_start": "2022-07-01",
+    "conduct_end": "2023-08-31",
+    "enforcement_lag_days": 666,
+    "repeat_offender": false,
+    "joint_action_with": [],
+    "group": "mpi2025",
+    "prohibition_years": null,
+    "action_id": 44,
+    "date_published": "2025-06-27",
+    "respondents": [
+      {
+        "name": "J-Dee Remittance Services Pte Ltd",
+        "is_individual": false,
+        "fi_type": "payment institution"
+      }
+    ],
+    "respondent_type": "FI",
+    "fi_subtype": "payment/crypto",
+    "action_type": "Composition penalty",
+    "violation_category": "AML-CFT",
+    "penalty_amount_sgd": 170000,
+    "statutes": [
+      "MAS Notice PSN01"
+    ],
+    "source_url": "https://www.mas.gov.sg/regulation/enforcement/enforcement-actions/2025/mas-imposes-composition-penalties-against-five-major-payment-institutions",
+    "summary": "MAS imposed S$170k on J-Dee Remittance Services for AML/CFT breaches (Jul 2022 to Aug 2023).",
+    "coding_confidence": 9
+  },
+  {
+    "conduct_start": "2021-09-01",
+    "conduct_end": "2023-07-31",
+    "enforcement_lag_days": 697,
+    "repeat_offender": false,
+    "joint_action_with": [],
+    "group": "mpi2025",
+    "prohibition_years": null,
+    "action_id": 45,
+    "date_published": "2025-06-27",
+    "respondents": [
+      {
+        "name": "Mobile Community Tech Pte Ltd",
+        "is_individual": false,
+        "fi_type": "payment institution"
+      }
+    ],
+    "respondent_type": "FI",
+    "fi_subtype": "payment/crypto",
+    "action_type": "Composition penalty",
+    "violation_category": "AML-CFT",
+    "penalty_amount_sgd": 140000,
+    "statutes": [
+      "MAS Notice PSN01"
+    ],
+    "source_url": "https://www.mas.gov.sg/regulation/enforcement/enforcement-actions/2025/mas-imposes-composition-penalties-against-five-major-payment-institutions",
+    "summary": "MAS imposed S$140k on Mobile Community Tech for AML/CFT breaches (Sep 2021 to Jul 2023).",
+    "coding_confidence": 9
+  },
+  {
+    "conduct_start": null,
+    "conduct_end": null,
+    "enforcement_lag_days": null,
+    "repeat_offender": false,
+    "joint_action_with": [],
+    "group": "mpi2025",
+    "prohibition_years": null,
+    "action_id": 46,
+    "date_published": "2025-06-27",
+    "respondents": [
+      {
+        "name": "OxPay SG Pte Ltd",
+        "is_individual": false,
+        "fi_type": "payment institution"
+      }
+    ],
+    "respondent_type": "FI",
+    "fi_subtype": "payment/crypto",
+    "action_type": "Composition penalty",
+    "violation_category": "AML-CFT",
+    "penalty_amount_sgd": 110000,
+    "statutes": [
+      "MAS Notice PSN01"
+    ],
+    "source_url": "https://www.mas.gov.sg/regulation/enforcement/enforcement-actions/2025/mas-imposes-composition-penalties-against-five-major-payment-institutions",
+    "summary": "MAS imposed a composition penalty on OxPay SG (a subsidiary of SGX-listed OxPay Financial) for AML/CFT breaches. Amount (S$110k) derived as the remainder of the S$960k five-institution total reported by MAS.",
+    "coding_confidence": 8
+  },
+  {
+    "conduct_start": null,
+    "conduct_end": null,
+    "enforcement_lag_days": null,
+    "repeat_offender": false,
+    "joint_action_with": [],
+    "group": null,
+    "prohibition_years": 5,
+    "action_id": 47,
+    "date_published": "2022-02-01",
+    "respondents": [
+      {
+        "name": "Zeng Xuan",
+        "is_individual": true,
+        "fi_type": "bank"
+      }
+    ],
+    "respondent_type": "individual",
+    "fi_subtype": "bank",
+    "action_type": "Prohibition order",
+    "violation_category": "fraud/dishonesty",
+    "penalty_amount_sgd": null,
+    "statutes": [
+      "Penal Code"
+    ],
+    "source_url": "https://www.mas.gov.sg/regulation/enforcement/enforcement-actions/2022/mas-issues-prohibition-order-against-zeng-xuan-for-fraudulent-and-dishonest-conduct-1",
+    "summary": "MAS issued a 5-year prohibition order against a former OCBC representative convicted of an offence involving fraud and dishonesty. Publication date approximate (Feb 2022).",
+    "coding_confidence": 7
+  },
+  {
+    "conduct_start": null,
+    "conduct_end": null,
+    "enforcement_lag_days": null,
+    "repeat_offender": false,
+    "joint_action_with": [],
+    "group": null,
+    "prohibition_years": 15,
+    "action_id": 48,
+    "date_published": "2022-12-01",
+    "respondents": [
+      {
+        "name": "Han Delong",
+        "is_individual": true,
+        "fi_type": "bank"
+      }
+    ],
+    "respondent_type": "individual",
+    "fi_subtype": "bank",
+    "action_type": "Prohibition order",
+    "violation_category": "fraud/dishonesty",
+    "penalty_amount_sgd": null,
+    "statutes": [
+      "Penal Code",
+      "Corruption, Drug Trafficking and Other Serious Crimes (Confiscation of Benefits) Act"
+    ],
+    "source_url": "https://www.mas.gov.sg/regulation/enforcement/enforcement-actions/2022/mas-issues-prohibition-order-against-mr-han-delong-for-fraudulent-and-dishonest-conduct",
+    "summary": "MAS issued 15-year prohibition orders against a former UOB and OCBC representative convicted of criminal breach of trust, cheating, forgery, and converting benefits of criminal conduct. Publication date approximate (Dec 2022).",
+    "coding_confidence": 7
+  },
+  {
+    "conduct_start": "2016-01-06",
+    "conduct_end": "2018-09-20",
+    "enforcement_lag_days": 1411,
+    "repeat_offender": false,
+    "joint_action_with": [
+      "CAD"
+    ],
+    "group": null,
+    "prohibition_years": null,
+    "action_id": 49,
+    "date_published": "2022-08-01",
+    "respondents": [
+      {
+        "name": "Goh Jia Poh, Kenneth",
+        "is_individual": true,
+        "fi_type": null
+      }
+    ],
+    "respondent_type": "individual",
+    "fi_subtype": null,
+    "action_type": "Criminal prosecution",
+    "violation_category": "market abuse",
+    "penalty_amount_sgd": 355604,
+    "statutes": [
+      "Securities and Futures Act"
+    ],
+    "source_url": "https://www.mas.gov.sg/regulation/enforcement/enforcement-actions/2022/court-convicts-kenneth-goh-jia-poh-for-multiple-offences-under-the-securities-and-futures-act",
+    "summary": "Kenneth Goh Jia Poh convicted of false trading via 'spoofing and layering' plus unauthorised account use; sentenced to 19 months' jail and a S$355,604 fine. Publication date approximate (2022).",
+    "coding_confidence": 6
+  },
+  {
+    "conduct_start": "2014-08-01",
+    "conduct_end": "2016-01-31",
+    "enforcement_lag_days": 2739,
+    "repeat_offender": false,
+    "joint_action_with": [
+      "CAD"
+    ],
+    "group": null,
+    "prohibition_years": null,
+    "action_id": 50,
+    "date_published": "2023-08-01",
+    "respondents": [
+      {
+        "name": "Ang Wei Jie, Simon",
+        "is_individual": true,
+        "fi_type": null
+      },
+      {
+        "name": "Koh Cheo Leng",
+        "is_individual": true,
+        "fi_type": null
+      },
+      {
+        "name": "Lin Eng Jue",
+        "is_individual": true,
+        "fi_type": null
+      },
+      {
+        "name": "Chong Yew Mun, Alan",
+        "is_individual": true,
+        "fi_type": null
+      }
+    ],
+    "respondent_type": "individual",
+    "fi_subtype": null,
+    "action_type": "Criminal prosecution",
+    "violation_category": "market abuse",
+    "penalty_amount_sgd": null,
+    "statutes": [
+      "Securities and Futures Act"
+    ],
+    "source_url": "https://www.mas.gov.sg/regulation/enforcement/enforcement-actions/2023/four-individuals-sentenced-to-imprisonment-for-false-trading-and-deceit-under-the-sfa",
+    "summary": "Four individuals jailed for false trading in the shares of Catalist-listed Koyo International and for deceiving brokerages via the unauthorised use of trading accounts. Publication date approximate (2023).",
+    "coding_confidence": 6
+  }
+]

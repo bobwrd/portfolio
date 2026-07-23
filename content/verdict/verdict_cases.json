@@ -1,0 +1,471 @@
+[
+  {
+    "case_id": 1,
+    "title": "EU AI Act — Full Entry into Force",
+    "date": "2024-08-01",
+    "decision_type": "regulatory",
+    "jurisdiction": "European Union",
+    "summary": "The world's first comprehensive AI regulation entered into force, establishing a risk-tiered framework that subjects high-risk AI systems to mandatory conformity assessments, imposes transparency obligations on general-purpose AI models, and prohibits specific AI applications outright. The Act applies to any provider or deployer operating within the EU market, regardless of where they are incorporated.",
+    "legal_mechanism": "Regulation (EU) 2024/1689 under Article 114 TFEU (internal market harmonisation). Binding directly on all 27 EU member states without transposition. Phased application: prohibited practices from February 2025; GPAI model obligations from August 2025; high-risk system obligations from August 2026. Enforcement via national market surveillance authorities with fines up to €35M or 7% of global annual turnover.",
+    "economic_consequence": "Compliance costs estimated at €400,000–€1.2M per high-risk AI system for initial conformity assessment, plus ongoing audit costs. The EU AI Office projects a net GDP impact of +€271B over five years through productivity gains, offset by near-term compliance drag on EU-headquartered AI firms. Global companies face a binary choice: segment EU AI deployments or standardise globally on EU requirements (the Brussels Effect). A new AI compliance industry — auditors, notified bodies, legal advisory — is already forming, with projected market size of €2–4B by 2027.",
+    "scores": {
+      "LI": 9,
+      "SE": 8,
+      "ER": 9,
+      "SF": 9,
+      "PS": 8
+    },
+    "computed": {
+      "DP": 8.55,
+      "DR": 8.75,
+      "ABS": 8.65,
+      "EDI": 8.96,
+      "uncertainty_band": [
+        1.69,
+        10
+      ],
+      "tier": "Seismic",
+      "scenario_scores": {
+        "conservative": 10,
+        "structural": 10,
+        "balanced": 1.69
+      }
+    },
+    "sources": [
+      "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=OJ:L_202401689",
+      "https://www.europarl.europa.eu/news/en/press-room/20240308IPR19015/artificial-intelligence-act-meps-adopt-landmark-law",
+      "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai",
+      "https://artificialintelligenceact.eu/the-act/"
+    ],
+    "contributor": "arshade",
+    "status": "published"
+  },
+  {
+    "case_id": 2,
+    "title": "EU AI Act Digital Omnibus — High-Risk Delay & Nudifier Ban",
+    "date": "2026-05-13",
+    "decision_type": "regulatory",
+    "jurisdiction": "European Union",
+    "summary": "EU Coreper approved a provisional agreement on the AI Act Digital Omnibus (Omnibus VII), negotiated May 7, 2026, which postpones high-risk AI obligations from August 2, 2026 to December 2, 2027 ( Annex III systems) and August 2, 2028 ( Annex I product-safety systems). The package also adds a new explicit ban on AI 'nudifier' apps that generate non-consensual intimate imagery, effective December 2, 2026, with penalties up to €35M or 7% of global turnover. Transparency obligations under Article 50 remain in force August 2, 2026.",
+    "legal_mechanism": "Amendment to Regulation (EU) 2024/1689 via Digital Omnibus (Omnibus VII). Political agreement May 7, 2026; Coreper approval May 13, 2026; Parliament plenary vote expected June 2026; Council formal adoption expected before August 2, 2026; publication in Official Journal July 2026 with entry into force 3 days later. Directly applicable across all 27 EU member states without national transposition.",
+    "economic_consequence": "The 16-month delay provides near-term regulatory relief for thousands of EU businesses deploying high-risk AI in hiring, healthcare, finance, and law enforcement. Compliance cost deferral estimated €500K–€2M per affected firm. The nudifier ban forces AI image/video companies to build content moderation infrastructure; companies failing to implement safeguards by December 2026 risk fines up to €35M. Overall compliance window extended, reducing short-term drag on EU AI adoption.",
+    "scores": {
+      "LI": 7,
+      "SE": 7,
+      "ER": 8,
+      "SF": 7,
+      "PS": 7
+    },
+    "computed": {
+      "DP": 7,
+      "DR": 7.4,
+      "ABS": 7.2,
+      "EDI": 6.58,
+      "uncertainty_band": [
+        1,
+        10
+      ],
+      "tier": "Major",
+      "scenario_scores": {
+        "conservative": 8.06,
+        "structural": 10,
+        "balanced": 1
+      }
+    },
+    "sources": [
+      "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CEU:CORP:2026:ACT(2026)05-13(01)",
+      "https://www.insideprivacy.com/artificial-intelligence/eu-ai-act-update-timeline-relief-targeted-simplification-and-new-prohibitions/",
+      "https://conventuslaw.com/report/ai-act-state-of-play-key-obligations-postponed-and-amended-alongside-new-guidance/",
+      "https://www.whitecase.com/insight/eu-agrees-digital-omnibus-deal-simplify-ai-rules",
+      "https://agenceurope.eu/en/bulletin/article/13868/32/eu-ambassadors-approve-provisional-agreement-on-ai-omnibus-package"
+    ],
+    "contributor": "arshade",
+    "status": "published"
+  },
+  {
+    "case_id": 3,
+    "title": "Musk v. OpenAI — Federal Jury Verdict (Statute of Limitations)",
+    "date": "2026-05-18",
+    "decision_type": "litigation",
+    "jurisdiction": "United States",
+    "summary": "A California federal jury in Oakland unanimously rejected all claims by Elon Musk against OpenAI, Sam Altman, Greg Brockman, and Microsoft, finding that Musk's claims — alleging breach of charitable trust and unjust enrichment from OpenAI's conversion to a for-profit structure — were time-barred under the applicable statutes of limitation (three years for charitable trust, two years for enrichment). The court adopted the jury's advisory verdict and dismissed all claims with prejudice. Musk has indicated intent to appeal to the Ninth Circuit.",
+    "legal_mechanism": "U.S. District Court for the Northern District of California. Common-law charitable trust doctrine; unjust enrichment; aiding and abetting. Applicable SoL: three years (breach of charitable trust, Cal. Code Civ. Proc. § 338(a)) and two years (unjust enrichment). The court did not rule on the merits. Appeal pending in the Ninth Circuit.",
+    "economic_consequence": "OpenAI avoids potential restructuring or damages exposure of up to $150B. The verdict greenlights the existing for-profit restructuring model for AI companies that originated as nonprofits, removing a key legal uncertainty for OpenAI, Anthropic, and similar organisations. The decision signals that investors in nonprofit-to-profit AI transitions face limited retrospective liability, reducing risk premiums for such restructuring deals. Microsoft was dismissed as a matter of law.",
+    "scores": {
+      "LI": 8,
+      "SE": 7,
+      "ER": 6,
+      "SF": 8,
+      "PS": 7
+    },
+    "computed": {
+      "DP": 7.55,
+      "DR": 6.95,
+      "ABS": 7.24,
+      "EDI": 6.66,
+      "uncertainty_band": [
+        1,
+        10
+      ],
+      "tier": "Major",
+      "scenario_scores": {
+        "conservative": 7.48,
+        "structural": 10,
+        "balanced": 1
+      }
+    },
+    "sources": [
+      "https://www.nbcnews.com/tech/tech-news/openai-elon-musk-case-verdict-rcna345655",
+      "https://www.cbsnews.com/news/musk-openai-lawsuit-dismissed-jury-recommendation/",
+      "https://www.bbc.com/news/articles/cewpyv79pw1o",
+      "https://www.law360.com/articles/2478555",
+      "https://www.aljazeera.com/news/2026/5/18/elon-musk-loses-lawsuit-against-openai"
+    ],
+    "contributor": "arshade",
+    "status": "published"
+  },
+  {
+    "case_id": 4,
+    "title": "UK — BoE/FCA/HMT Joint Statement on Frontier AI Cyber Risks",
+    "date": "2026-05-15",
+    "decision_type": "regulatory",
+    "jurisdiction": "United Kingdom",
+    "summary": "The Bank of England, Financial Conduct Authority, and HM Treasury issued a joint statement warning that frontier AI models already exceed human cybersecurity capabilities in speed, scale, and cost, and urging regulated financial firms and financial market infrastructures to take active steps to mitigate frontier AI-enabled cyber threats. The statement cites Anthropic's Mythos model as a reference risk. It reinforces existing operational resilience obligations under PRA and FCA frameworks without imposing new rules.",
+    "legal_mechanism": "Joint guidance under existing Financial Policy Committee (FPC) and PRA/FCA operational resilience frameworks. No new statutory obligation; firms are expected to act under current regulatory duty to maintain effective cyber risk management. The statement references existing guidance (BoE/PRA/FCA cyber resilience guidance, October 2025). CMORG monitoring and NCSC engagement ongoing.",
+    "economic_consequence": "UK financial institutions (banks, insurers, investment firms) face increased expectations for cyber resilience investment: faster vulnerability triage, AI-enabled defensive tools, and third-party AI service provider oversight. Estimated incremental compliance cost £500K–£3M per major firm. Firms already underinvested in foundational cyber hygiene are considered most exposed. The statement signals tighter regulatory scrutiny of AI supply chain risks in financial services.",
+    "scores": {
+      "LI": 6,
+      "SE": 6,
+      "ER": 7,
+      "SF": 5,
+      "PS": 5
+    },
+    "computed": {
+      "DP": 6,
+      "DR": 5.8,
+      "ABS": 5.9,
+      "EDI": 4.46,
+      "uncertainty_band": [
+        1,
+        7.7
+      ],
+      "tier": "Moderate",
+      "scenario_scores": {
+        "conservative": 5.95,
+        "structural": 7.7,
+        "balanced": 1
+      }
+    },
+    "sources": [
+      "https://www.bankofengland.co.uk/news/2026/may/boe-fca-and-hm-treasury-joint-statement-on-frontier-ai-models-and-cyber-resilience",
+      "https://www.foreignpolicyjournal.com/2026/05/17/bank-of-england-fca-and-hm-treasury-warn-financial-firms-over-frontier-ai-linked-cyber-threats-pra-warning/",
+      "https://letsdatascience.com/news/uk-regulators-urge-firms-to-address-frontier-ai-cyber-risks-f081f2a2",
+      "https://www.ftadviser.com/content/fbba14c9-9a99-42c3-b5a3-ed30abd123e2",
+      "https://regtechanalyst.com/bank-fca-and-treasury-set-out-ai-resilience-rules/"
+    ],
+    "contributor": "arshade",
+    "status": "published"
+  },
+  {
+    "case_id": 5,
+    "title": "Chicago BIPA Voiceprint Class Actions — AI Training Data",
+    "date": "2026-05-15",
+    "decision_type": "litigation",
+    "jurisdiction": "United States",
+    "summary": "Nine class-action lawsuits were filed in Chicago federal court under Illinois' Biometric Information Privacy Act (BIPA) by journalists (including Carol Marin, Phil Rogers), podcasters, and voice actors, alleging that Google, Amazon, Apple, Microsoft, Samsung, Meta, ElevenLabs, NVIDIA, Adobe, and others used their voice recordings to train AI foundational voice models without written consent or notice. Plaintiffs seek statutory damages ($100–$5,000 per violation), injunctive relief, and destruction of unlawfully obtained voiceprints. The suits raise key questions about whether AI-model-encoded voiceprints constitute biometric data under BIPA.",
+    "legal_mechanism": "Illinois Biometric Information Privacy Act (BIPA), 740 ILCS 14/1 et seq. Private right of action with statutory damages of $100–$5,000 per violation plus punitive damages and attorneys' fees. Voiceprints qualify as biometric identifiers under BIPA if they can identify an individual. Violations include failure to obtain written consent, failure to provide a public retention policy, and unauthorized storage/use of biometric data. Cases filed in U.S. District Court for the Northern District of Illinois.",
+    "economic_consequence": "If plaintiffs prevail on the theory that AI-model-encoded voiceprints constitute BIPA-covered biometric data, the AI industry faces billions in retrospective liability. BIPA per-incident statutory damages have produced settlements exceeding $400M in prior cases (Facebook, Google). AI companies training on voice data without explicit licensing face existential litigation exposure. This could force adoption of explicit voice data licensing frameworks and reshape data sourcing practices across the AI语音 sector.",
+    "scores": {
+      "LI": 7,
+      "SE": 8,
+      "ER": 6,
+      "SF": 6,
+      "PS": 6
+    },
+    "computed": {
+      "DP": 7.45,
+      "DR": 6,
+      "ABS": 6.69,
+      "EDI": 5.75,
+      "uncertainty_band": [
+        1,
+        9.27
+      ],
+      "tier": "Moderate",
+      "scenario_scores": {
+        "conservative": 6.91,
+        "structural": 9.27,
+        "balanced": 1
+      }
+    },
+    "sources": [
+      "https://www.biometricupdate.com/202605/tech-giants-sued-under-bipa-over-voiceprints-used-to-train-ai",
+      "https://www.cbsnews.com/chicago/news/illinois-class-action-lawsuits-voices-stolen-train-ai-bipa/",
+      "https://capitolnewsillinois.com/news/tech-giants-sued-over-stealing-voices-of-well-known-journalists-voice-actors-to-train-ai/",
+      "https://letsdatascience.com/news/journalists-sue-tech-giants-over-voice-model-training-6853dee4",
+      "https://www.chicagobusiness.com/media-marketing/ccb-illinois-journalists-ai-lawsuit-bipa-20260515/"
+    ],
+    "contributor": "arshade",
+    "status": "published"
+  },
+  {
+    "case_id": 6,
+    "title": "EU AI Act — Draft High-Risk Classification Guidelines",
+    "date": "2026-05-19",
+    "decision_type": "regulatory",
+    "jurisdiction": "European Union",
+    "summary": "The European Commission issued draft guidelines to help providers and deployers decide whether an AI system is high-risk under Article 6 of the AI Act and opened a stakeholder consultation through 23 June 2026. The package gives firms a cleaner way to sort Annex III use cases, while the Commission says the final version will guide enforcement and be paired with later compliance guidance.",
+    "legal_mechanism": "Non-binding Commission guidance under Article 6(5) and Article 96 of Regulation (EU) 2024/1689. The draft examples are meant to support uniform classification of high-risk systems and market surveillance practice, with consultation feedback folded into the final version before adoption. The Commission's guidance page also reflects the new AI Omnibus timeline for certain high-risk areas (2 December 2027) and product-linked systems (2 August 2028).",
+    "economic_consequence": "The immediate effect is triage: companies get a better screen for whether their systems fall into high-risk buckets, which should cut wasted legal work and late-stage compliance churn. The broader economic effect is still about spending shifts rather than new penalties. Teams in biometrics, education, employment, infrastructure, migration, and justice now have to decide earlier whether to build for high-risk obligations or redesign out of scope.",
+    "scores": {
+      "LI": 3,
+      "SE": 8,
+      "ER": 4,
+      "SF": 3,
+      "PS": 8
+    },
+    "computed": {
+      "DP": 5.25,
+      "DR": 4.65,
+      "ABS": 4.94,
+      "EDI": 2.89,
+      "uncertainty_band": [
+        1,
+        4.94
+      ],
+      "tier": "Marginal",
+      "scenario_scores": {
+        "conservative": 3.78,
+        "structural": 4.94,
+        "balanced": 1
+      }
+    },
+    "sources": [
+      "https://digital-strategy.ec.europa.eu/en/news/commission-seeks-feedback-draft-guidelines-classification-high-risk-artificial-intelligence-systems",
+      "https://digital-strategy.ec.europa.eu/en/policies/guidelines-ai-high-risk-systems",
+      "https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng",
+      "https://www.europarl.europa.eu/RegData/etudes/ATAG/2025/772906/EPRS_ATA%282025%29772906_EN.pdf",
+      "https://www.oecd.org/en/publications/oecd-due-diligence-guidance-for-responsible-ai_41671712-en/full-report/component-4.html",
+      "https://www.bruegel.org/analysis/european-union-needs-more-digital-omnibus-make-digital-services-competitive",
+      "https://digital-strategy.ec.europa.eu/en/policies/ai-office"
+    ],
+    "contributor": "arshade",
+    "status": "published"
+  },
+  {
+    "case_id": 7,
+    "title": "FTC — TAKE IT DOWN Act Enforcement Begins",
+    "date": "2026-05-19",
+    "decision_type": "regulatory",
+    "jurisdiction": "United States",
+    "summary": "The FTC began enforcing the TAKE IT DOWN Act, launched a complaint portal for victims, and warned major platforms to build notice-and-removal processes for nonconsensual intimate images and AI-generated deepfakes. The move turns a new federal anti-deepfake law into an active compliance issue for social platforms and user-generated content services.",
+    "legal_mechanism": "Section 3 of the TAKE IT DOWN Act, effective 19 May 2026, requires covered platforms to remove nonconsensual intimate images and known identical copies within 48 hours of a valid request. The FTC says violators may face law enforcement action and civil penalties under the FTC Act; it also published business guidance and a consumer complaint page.",
+    "economic_consequence": "Platforms that host user content now need takedown workflows, duplicate detection, and clear complaint handling. The practical burden is on trust-and-safety teams and small platform operators, not on model builders alone. The law also raises the cost of hosting intimate synthetic content at scale, which should push some services to tighten moderation and verification rules.",
+    "scores": {
+      "LI": 7,
+      "SE": 6,
+      "ER": 8,
+      "SF": 7,
+      "PS": 5
+    },
+    "computed": {
+      "DP": 6.55,
+      "DR": 6.9,
+      "ABS": 6.72,
+      "EDI": 5.81,
+      "uncertainty_band": [
+        1,
+        9.64
+      ],
+      "tier": "Moderate",
+      "scenario_scores": {
+        "conservative": 7.28,
+        "structural": 9.64,
+        "balanced": 1
+      }
+    },
+    "sources": [
+      "https://www.ftc.gov/news-events/news/press-releases/2026/05/ftc-begins-enforcing-take-it-down-act",
+      "https://www.ftc.gov/business-guidance/blog/2026/05/take-it-down-act-enforcement-starts-now-what-know-about-ftc-tida",
+      "https://www.ftc.gov/business-guidance/resources/complying-take-it-down-act",
+      "https://www.congress.gov/bill/119th-congress/senate-bill/146",
+      "https://www.congress.gov/crs-product/LSB11314",
+      "https://iapp.org/news/a/take-it-down-act-how-to-comply-as-the-ftc-begins-enforcement"
+    ],
+    "contributor": "arshade",
+    "status": "published"
+  },
+  {
+    "case_id": 8,
+    "title": "EU AI Act — Enforcement Gets Independent Expert Support",
+    "date": "2026-06-01",
+    "decision_type": "regulatory",
+    "jurisdiction": "European Union",
+    "summary": "The European Commission appointed a Scientific Panel and an Advisory Forum to support enforcement of the AI Act, giving the AI Office and national authorities more technical depth on GPAI, systemic risks, and classification disputes.",
+    "legal_mechanism": "The new bodies sit inside the AI Act's enforcement architecture under Article 68 and the Commission's implementing rules. The Scientific Panel is made up of independent experts who advise on GPAI models, systemic risk, evaluation methods, and cross-border market surveillance. The Advisory Forum adds stakeholder input from academia, civil society, industry, SMEs, startups, the EU Agency for Fundamental Rights, ENISA, and standardisation bodies.",
+    "economic_consequence": "The immediate effect is not a new duty but tighter interpretation. Firms facing borderline GPAI or high-risk classification questions now have more formal expert input on the Commission side, which should reduce some ambiguity while raising the odds that enforcement develops faster and with less room for informal discretion. Compliance teams will still do the same work, but they are less likely to be able to rely on a thin reading of the rules.",
+    "scores": {
+      "LI": 3,
+      "SE": 7,
+      "ER": 4,
+      "SF": 3,
+      "PS": 8
+    },
+    "computed": {
+      "DP": 4.8,
+      "DR": 4.65,
+      "ABS": 4.72,
+      "EDI": 2.54,
+      "uncertainty_band": [
+        1,
+        4.49
+      ],
+      "tier": "Marginal",
+      "scenario_scores": {
+        "conservative": 3.39,
+        "structural": 4.49,
+        "balanced": 1
+      }
+    },
+    "sources": [
+      "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1689",
+      "https://digital-strategy.ec.europa.eu/en/news/ai-act-enforcement-gets-independent-expert-support",
+      "https://digital-strategy.ec.europa.eu/en/policies/ai-act-governance-and-enforcement",
+      "https://digital-strategy.ec.europa.eu/en/policies/ai-scientific-panel",
+      "https://www.europarl.europa.eu/RegData/etudes/ATAG/2026/785670/EPRS_ATA(2026)785670_EN.pdf",
+      "https://www.bruegel.org/sites/default/files/2026-03/PB%2005%202026.pdf",
+      "https://www.oecd.org/content/dam/oecd/en/publications/reports/2026/02/oecd-due-diligence-guidance-for-responsible-ai_7831bb49/41671712-en.pdf"
+    ],
+    "contributor": "arshade",
+    "status": "published"
+  },
+  {
+    "case_id": 9,
+    "title": "EU AI Act — Code of Practice on Transparency of AI-Generated Content",
+    "date": "2026-06-10",
+    "decision_type": "regulatory",
+    "jurisdiction": "European Union",
+    "summary": "The European Commission published a Code of Practice on transparency for AI-generated content, giving providers and deployers a voluntary route toward Article 50 compliance before 2 August 2026.",
+    "legal_mechanism": "Article 50 of Regulation (EU) 2024/1689 sets the binding transparency rules for AI-generated content and chatbots. The Commission’s Code of Practice on Transparency of AI-Generated Content is voluntary, but it translates those obligations into practical steps for marking, labeling, and detection. The Commission says the code will go through an adequacy assessment by the AI Board, with Article 50 obligations applying from 2 August 2026 and a transition period for systems already on the market ending on 2 December 2026. The related implementation package also includes Commission guidance on Article 50 scope and a sign-up process for providers and deployers that want to align early.",
+    "economic_consequence": "The immediate cost is operational rather than punitive: content platforms, chatbot vendors, and synthetic-media tools need labeling workflows, provenance checks, detection tooling, and user-facing notices. The code lowers some legal uncertainty, but it also makes transparency work harder to avoid. Smaller firms may feel the burden most because they have to add compliance steps before they have scale. The upside is that a clearer EU-wide template is easier to build against than a patchwork of national expectations.",
+    "scores": {
+      "LI": 4,
+      "SE": 8,
+      "ER": 5,
+      "SF": 3,
+      "PS": 8
+    },
+    "computed": {
+      "DP": 5.8,
+      "DR": 5.05,
+      "ABS": 5.41,
+      "EDI": 3.66,
+      "uncertainty_band": [
+        1,
+        6.02
+      ],
+      "tier": "Marginal",
+      "scenario_scores": {
+        "conservative": 4.87,
+        "structural": 6.02,
+        "balanced": 1
+      }
+    },
+    "sources": [
+      "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1689",
+      "https://digital-strategy.ec.europa.eu/en/policies/code-practice-ai-generated-content",
+      "https://digital-strategy.ec.europa.eu/en/news/commission-publishes-code-practice-marking-and-labelling-ai-generated-content",
+      "https://digital-strategy.ec.europa.eu/en/library/how-sign-code-practice-transparency-ai-generated-content",
+      "https://www.europarl.europa.eu/RegData/etudes/BRIE/2026/782651/EPRS_BRI%282026%29782651_EN.pdf",
+      "https://www.bruegel.org/first-glance/deregulating-artificial-intelligence-will-not-boost-eu-tech-markets",
+      "https://www.oecd.org/en/publications/towards-a-common-reporting-framework-for-ai-incidents_f326d4ac-en.html"
+    ],
+    "contributor": "arshade",
+    "status": "published"
+  },
+  {
+    "case_id": 10,
+    "title": "New York — Synthetic Performer Disclosure Law Takes Effect",
+    "date": "2026-06-09",
+    "decision_type": "regulatory",
+    "jurisdiction": "New York",
+    "summary": "New York's synthetic performer disclosure law took effect, requiring commercial ads that use AI-generated synthetic performers to disclose that fact and exposing violators to civil penalties.",
+    "legal_mechanism": "New York General Business Law §396-b, as amended by A8887B/S8420, took effect on 9 June 2026. Commercial advertisements that intentionally include a synthetic performer and are produced with actual knowledge must conspicuously disclose that fact. The statute carves out expressive works and audio or translation-only uses, and it imposes civil penalties of $1,000 for a first violation and $5,000 for each later violation.",
+    "economic_consequence": "The immediate burden falls on advertisers, agencies, and media buyers that use synthetic performers in commercial creative. They now need disclosure review, asset-level labelling, and internal sign-off rules. The law is narrow, but it still adds friction to AI-assisted ad production and gives regulators a clean enforcement hook if labels are missing. The carve-outs limit the hit for film, TV, and other expressive work promotions.",
+    "scores": {
+      "LI": 5,
+      "SE": 4,
+      "ER": 7,
+      "SF": 3,
+      "PS": 5
+    },
+    "computed": {
+      "DP": 4.55,
+      "DR": 5.1,
+      "ABS": 4.82,
+      "EDI": 2.69,
+      "uncertainty_band": [
+        1,
+        5.25
+      ],
+      "tier": "Marginal",
+      "scenario_scores": {
+        "conservative": 4.29,
+        "structural": 5.25,
+        "balanced": 1
+      }
+    },
+    "sources": [
+      "https://www.governor.ny.gov/news/governor-hochul-announces-first-nation-law-requiring-disclosure-when-advertisements-include-ai",
+      "https://www.nysenate.gov/legislation/bills/2025/A8887/amendment/B",
+      "https://www.nysenate.gov/legislation/bills/2025/A606/amendment/A",
+      "https://apnews.com/article/new-york-ai-law-hochul-synthetic-performers-e433625bfb61c8abeab0d619869192ed",
+      "https://www.mcdermottlaw.com/insights/new-yorks-synthetic-performer-disclosure-law-what-advertisers-need-to-know/",
+      "https://www.retailconsumerproductslaw.com/2026/06/synthetic-performers-real-consequences-implications-of-trailblazing-new-york-ai-ad-law/"
+    ],
+    "contributor": "arshade",
+    "status": "published"
+  },
+  {
+    "case_id": 11,
+    "title": "EU Commission — EUROPA Consortium Wins Frontier AI Grand Challenge",
+    "date": "2026-06-19",
+    "decision_type": "regulatory",
+    "jurisdiction": "European Union",
+    "summary": "The European Commission picked EUROPA as the winner of its Frontier AI Grand Challenge, a step tied to Europe’s broader push for a cloud and AI stack of its own.",
+    "legal_mechanism": "Commission policy announcement tied to the Cloud and AI Development Act proposal (COM/2026/502 final) and the EU’s broader AI international-relations strategy. The prize itself is not binding law, but it is part of the Commission’s industrial-policy stack for strengthening Europe’s cloud and AI ecosystem and steering compute, model, and procurement capacity toward trusted European projects.",
+    "economic_consequence": "The immediate effect is signaling, not compliance. It gives a selected European consortium legitimacy and keeps pressure on Brussels to back public compute, model development, and procurement. If the project turns into real capacity, it could reduce Europe’s dependence on foreign frontier models. If it stalls, the prize will be just a press release with a nicer logo.",
+    "scores": {
+      "LI": 3,
+      "SE": 7,
+      "ER": 4,
+      "SF": 3,
+      "PS": 7
+    },
+    "computed": {
+      "DP": 4.8,
+      "DR": 4.9,
+      "ABS": 4.85,
+      "EDI": 4.0,
+      "uncertainty_band": [
+        1.0,
+        7.0
+      ],
+      "tier": "Moderate",
+      "scenario_scores": {
+        "conservative": 4.5,
+        "structural": 5.2,
+        "balanced": 1.0
+      }
+    },
+    "sources": [
+      "https://digital-strategy.ec.europa.eu/en/news/commission-selects-europa-consortium-winner-frontier-ai-grande-challenge-project-build-european-open-source-frontier-ai-model",
+      "https://digital-strategy.ec.europa.eu/en/policies/ai-international-relations",
+      "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=COM:2026:502:FIN",
+      "https://www.reuters.com/legal/government/g7-leaders-discuss-trusted-partners-access-cutting-edge-us-ai-models-sources-say-2026-06-16/",
+      "https://www.bruegel.org/first-glance/achieve-tech-sovereignty-europe-must-not-mimic-its-rivals"
+    ],
+    "contributor": "arshade",
+    "status": "published"
+  }
+]

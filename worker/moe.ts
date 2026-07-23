@@ -9,6 +9,7 @@ import baked from "./generated/content.json";
 
 type Bindings = {
   MOE_DB: D1Database;
+  VERDICT_PASSWORD?: string;
 };
 
 const app = new Hono<{ Bindings: Bindings }>();
@@ -17,7 +18,14 @@ app.use("*", async (c, next) => {
   await next();
   if (c.req.method !== "GET") return;
   const p = c.req.path;
-  if (p.startsWith("/content") || p === "/profile") {
+  if (
+    p.startsWith("/content") ||
+    p === "/profile" ||
+    p.startsWith("/verdict/cases") ||
+    p.startsWith("/ledger") ||
+    p.startsWith("/observatory") ||
+    p.startsWith("/distlab")
+  ) {
     c.header("Cache-Control", "public, max-age=300, stale-while-revalidate=3600");
   }
 });
@@ -25,8 +33,22 @@ app.use("*", async (c, next) => {
 type Baked = {
   articles: Record<string, string>;
   profile: string;
+  verdictCases: Record<string, unknown>[];
+  ledgerActions: Record<string, unknown>[];
+  ledgerCsv: string;
+  ledgerCodebook: string;
+  observatory: Record<string, unknown> | null;
+  distlab: Record<string, unknown> | null;
 };
 const CONTENT = baked as Baked;
+
+function loadVerdictCases(): Record<string, unknown>[] {
+  return CONTENT.verdictCases || [];
+}
+
+function loadLedgerActions(): Record<string, unknown>[] {
+  return CONTENT.ledgerActions || [];
+}
 
 interface ContentMeta {
   slug: string;
@@ -164,6 +186,13 @@ async function ensureSchema(db: D1Database) {
         created_at TEXT NOT NULL DEFAULT (datetime('now'))
       )`,
     ),
+    db.prepare(
+      `CREATE TABLE IF NOT EXISTS verdict_drafts (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        payload TEXT NOT NULL,
+        created_at TEXT NOT NULL DEFAULT (datetime('now'))
+      )`,
+    ),
   ]);
 }
 
@@ -276,6 +305,89 @@ app.post("/newsletter/signup", async (c) => {
     /* fall through */
   }
   return c.json({ success: true, contactCreated: false });
+});
+
+// ---------------------------------------------------------------------------
+// Verdict routes (Mini Projects)
+// ---------------------------------------------------------------------------
+app.get("/verdict/cases", (c) =>
+  c.json({ cases: loadVerdictCases().filter((v) => v.status === "published") }),
+);
+
+app.get("/verdict/cases/:id", (c) => {
+  const id = parseInt(c.req.param("id"), 10);
+  const item = loadVerdictCases().find((v) => v.case_id === id);
+  if (!item) return c.json({ error: "Not found" }, 404);
+  return c.json({ case: item });
+});
+
+// Submit a draft case. The published verdict database is fed from Google
+// Drive, so drafts can't be written back to the bundled file. Instead we
+// store the submission in D1 for the author to review and publish via Drive.
+app.post("/verdict/submit", async (c) => {
+  const expected = c.env.VERDICT_PASSWORD;
+  const authHeader = c.req.header("x-verdict-password");
+  if (!expected || authHeader !== expected) {
+    return c.json({ error: "Unauthorized" }, 401);
+  }
+  const body = await c.req.json<Record<string, unknown>>();
+  await ensureSchema(c.env.MOE_DB);
+  const res = await c.env.MOE_DB.prepare(
+    "INSERT INTO verdict_drafts (payload) VALUES (?)",
+  )
+    .bind(JSON.stringify(body))
+    .run();
+  return c.json({
+    success: true,
+    draft_id: res.meta.last_row_id,
+    note: "Draft stored. Review it in D1 and publish via the Google Drive verdict_cases.json.",
+  });
+});
+
+// ---------------------------------------------------------------------------
+// Ledger routes (MAS enforcement actions) — baked, read-only
+// ---------------------------------------------------------------------------
+app.get("/ledger/actions", (c) => c.json({ actions: loadLedgerActions() }));
+
+// Bulk downloads — static paths BEFORE the /:id param route.
+app.get("/ledger/download/json", (c) => {
+  c.header("Content-Type", "application/json");
+  c.header("Content-Disposition", 'attachment; filename="ledger_enforcement_actions.json"');
+  return c.body(JSON.stringify(loadLedgerActions(), null, 2));
+});
+app.get("/ledger/download/csv", (c) => {
+  c.header("Content-Type", "text/csv");
+  c.header("Content-Disposition", 'attachment; filename="ledger_enforcement_actions.csv"');
+  return c.body(CONTENT.ledgerCsv || "");
+});
+app.get("/ledger/download/codebook", (c) => {
+  c.header("Content-Type", "text/markdown");
+  c.header("Content-Disposition", 'attachment; filename="ledger_codebook.md"');
+  return c.body(CONTENT.ledgerCodebook || "");
+});
+
+app.get("/ledger/actions/:id", (c) => {
+  const id = parseInt(c.req.param("id"), 10);
+  const item = loadLedgerActions().find((a) => a.action_id === id);
+  if (!item) return c.json({ error: "Not found" }, 404);
+  return c.json({ action: item });
+});
+
+// ---------------------------------------------------------------------------
+// Observatory (AI / productivity / prices) — baked dataset, read-only.
+// ---------------------------------------------------------------------------
+app.get("/observatory", (c) => {
+  if (!CONTENT.observatory) return c.json({ error: "Observatory data unavailable" }, 503);
+  return c.json(CONTENT.observatory);
+});
+
+// ---------------------------------------------------------------------------
+// The Distribution Lab (inequality / mobility / wellbeing) — baked dataset,
+// read-only.
+// ---------------------------------------------------------------------------
+app.get("/distlab", (c) => {
+  if (!CONTENT.distlab) return c.json({ error: "Distribution Lab data unavailable" }, 503);
+  return c.json(CONTENT.distlab);
 });
 
 export default app;

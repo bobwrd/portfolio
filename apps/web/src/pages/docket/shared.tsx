@@ -1,0 +1,149 @@
+import { useState } from "react";
+import { ChevronDown } from "lucide-react";
+
+// Section wrapper — matches observatory/arena pattern but uses docket CSS vars.
+export function Section({
+  id,
+  eyebrow,
+  title,
+  children,
+}: {
+  id: string;
+  eyebrow: string;
+  title: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <section id={id} className="scroll-mt-16 border-t" style={{ borderColor: "var(--docket-border)" }}>
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-14">
+        <div className="mb-8">
+          <div
+            className="text-[0.7rem] font-mono uppercase tracking-[0.2em] mb-2"
+            style={{ color: "var(--docket-accent)" }}
+          >
+            {eyebrow}
+          </div>
+          <h2 className="text-2xl sm:text-3xl font-bold tracking-tight" style={{ color: "var(--docket-text)" }}>
+            {title}
+          </h2>
+        </div>
+        {children}
+      </div>
+    </section>
+  );
+}
+
+// Card surface.
+export function Card({
+  title,
+  children,
+  className = "",
+}: {
+  title?: string;
+  children: React.ReactNode;
+  className?: string;
+}) {
+  return (
+    <div
+      className={`rounded-xl border p-5 ${className}`}
+      style={{ borderColor: "var(--docket-border)", backgroundColor: "var(--docket-surface)" }}
+    >
+      {title && (
+        <div
+          className="text-xs font-mono mb-4 uppercase tracking-wider"
+          style={{ color: "var(--docket-muted)" }}
+        >
+          {title}
+        </div>
+      )}
+      {children}
+    </div>
+  );
+}
+
+// Collapsible disclosure (sources, methodology).
+export function Details({ summary, children }: { summary: string; children: React.ReactNode }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="mt-4 rounded-lg border" style={{ borderColor: "var(--docket-border)" }}>
+      <button
+        onClick={() => setOpen((o) => !o)}
+        className="w-full flex items-center justify-between gap-2 px-4 py-2.5 text-left text-xs font-mono uppercase tracking-wider transition-colors"
+        style={{ color: "var(--docket-muted)" }}
+        aria-expanded={open}
+      >
+        <span>{summary}</span>
+        <ChevronDown
+          className="h-4 w-4 transition-transform duration-200"
+          style={{ transform: open ? "rotate(180deg)" : "none" }}
+        />
+      </button>
+      {open && (
+        <div
+          className="px-4 pb-4 pt-1 text-sm leading-relaxed border-t"
+          style={{ color: "var(--docket-text)", borderColor: "var(--docket-border)" }}
+        >
+          {children}
+        </div>
+      )}
+    </div>
+  );
+}
+
+export function Caption({ children }: { children: React.ReactNode }) {
+  return (
+    <p className="mt-3 text-xs leading-relaxed" style={{ color: "var(--docket-muted)" }}>
+      {children}
+    </p>
+  );
+}
+
+// Inline monospace equation / code block.
+export function Eq({ children }: { children: React.ReactNode }) {
+  return (
+    <code
+      className="block my-2 px-3 py-2 rounded text-[0.8rem] overflow-x-auto"
+      style={{ backgroundColor: "var(--docket-surface-2)", color: "var(--docket-text)" }}
+    >
+      {children}
+    </code>
+  );
+}
+
+// Shared recharts theming for the docket palette.
+export function useChartTheme(theme: "dark" | "light") {
+  return {
+    tooltip: {
+      backgroundColor: theme === "dark" ? "#121e12" : "#ffffff",
+      border: "1px solid var(--docket-border)",
+      borderRadius: 8,
+      fontFamily: "ui-monospace, monospace",
+      fontSize: 12,
+      color: "var(--docket-text)",
+    } as React.CSSProperties,
+    tick: {
+      fill: "var(--docket-muted)",
+      fontSize: 10,
+      fontFamily: "ui-monospace, monospace",
+    },
+    grid: "var(--docket-border)",
+  };
+}
+
+// Tier badge.
+export function TierBadge({ tier }: { tier: "Critical" | "High" | "Moderate" | "Low" }) {
+  const color: Record<string, string> = {
+    Critical: "var(--docket-crit)",
+    High: "var(--docket-high)",
+    Moderate: "var(--docket-mod)",
+    Low: "var(--docket-low)",
+  };
+  return (
+    <span
+      className="inline-block px-2 py-0.5 rounded text-[0.68rem] font-mono font-semibold uppercase tracking-wide"
+      style={{ color: color[tier], backgroundColor: `${color[tier]}18` }}
+    >
+      {tier}
+    </span>
+  );
+}
