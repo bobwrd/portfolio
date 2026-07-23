@@ -1,0 +1,75 @@
+name: Sync content from Google Drive
+
+# Pulls the "Margin of Error" Drive folder into content/, commits any changes,
+# and (if something changed) rebuilds and redeploys the Worker.
+#
+# Note: a commit made with the default GITHUB_TOKEN does NOT trigger other
+# workflows (GitHub blocks recursive runs), so this workflow deploys itself
+# rather than relying on deploy.yml to pick up the commit.
+
+on:
+  schedule:
+    # Times are UTC. SGT = UTC+8.
+    # 08:30 UTC (16:30 SGT) — after the 15:00 SGT Daily Brief.
+    - cron: "30 8 * * *"
+    # 17:30 UTC Sat (01:30 SGT Sun) — after the Sat 23:59 SGT Weekly Digest (buffer increased to 90 min).
+    - cron: "30 17 * * 6"
+    # 01:00 UTC Mon (09:00 SGT Mon) — after the 08:00 SGT Verdict Radar.
+    - cron: "0 1 * * 1"
+  workflow_dispatch: {} # allow manual runs from the Actions tab
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-drive
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Pull content from Drive
+        env:
+          GOOGLE_SERVICE_ACCOUNT_KEY: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_KEY }}
+          DRIVE_ROOT_FOLDER_ID: ${{ vars.DRIVE_ROOT_FOLDER_ID }}
+        run: |
+          npm install googleapis@^144 --no-save
+          node scripts/sync-drive.mjs
+
+      - name: Commit changes
+        id: commit
+        run: |
+          git config user.name "drive-sync[bot]"
+          git config user.email "drive-sync@users.noreply.github.com"
+          git add content/
+          if git diff --cached --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "No content changes."
+          else
+            git commit -m "chore(content): sync from Google Drive"
+            git push
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Build
+        if: steps.commit.outputs.changed == 'true'
+        run: npm run build
+
+      - name: Deploy with Wrangler
+        if: steps.commit.outputs.changed == 'true'
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          command: deploy
