@@ -1,0 +1,21 @@
+# Copy to .dev.vars (gitignored) at the repo root for local `wrangler dev`.
+# In production, set each with: npx wrangler secret put <NAME>
+
+# Gates POST /api/verdict/submit
+VERDICT_PASSWORD=
+
+# OneBook auth/broker token encryption — openssl rand -base64 32
+TOKEN_ENCRYPTION_KEY=
+STATE_SIGNING_SECRET=
+
+# OneBook market data (Alpaca) — works with paper keys
+ALPACA_API_KEY_ID=
+ALPACA_API_SECRET_KEY=
+# Optional fallback market-data provider
+ALPHA_VANTAGE_API_KEY=
+
+# OneBook broker OAuth apps — only needed to test those connections locally
+SCHWAB_CLIENT_ID=
+SCHWAB_CLIENT_SECRET=
+TRADIER_CLIENT_ID=
+TRADIER_CLIENT_SECRET=
