@@ -1,8 +1,8 @@
 import SectionSwitcher from "@/components/SectionSwitcher";
 
-const RELEASE_URL = "https://github.com/bobwrd/ask/releases/tag/v0.2.0";
+const RELEASE_URL = "https://github.com/bobwrd/ask/releases/tag/v0.2.1";
 const DOWNLOAD_URL =
-  "https://github.com/bobwrd/ask/releases/download/v0.2.0/Ask-macOS-arm64.zip";
+  "https://github.com/bobwrd/ask/releases/download/v0.2.1/Ask-macOS-arm64.zip";
 
 function Code({ children }: { children: string }) {
   return (
@@ -132,7 +132,7 @@ export default function Ask() {
               rel="noopener noreferrer"
               className="rounded-full border border-neutral-300 px-5 py-2.5 font-medium text-neutral-700 hover:border-neutral-400 dark:border-neutral-700 dark:text-neutral-300"
             >
-              v0.2.0 release notes
+              v0.2.1 release notes
             </a>
             <a
               href="https://github.com/bobwrd/ask"
@@ -351,7 +351,7 @@ Try: clean price`}</Code>
             </a>
           </div>
           <p className="mt-4 text-sm text-neutral-500 dark:text-neutral-500">
-            MIT licensed. v0.2.0.
+            MIT licensed. v0.2.1.
           </p>
         </section>
       </main>
