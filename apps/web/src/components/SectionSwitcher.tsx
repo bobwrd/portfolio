@@ -2,7 +2,8 @@ import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const SECTIONS = [
-  { to: "/", label: "Home" },
+  { to: "/", label: "About Me" },
+  { to: "/overview", label: "Site Overview" },
   { to: "/writing", label: "Margin of Error" },
   { to: "/mini", label: "Mini Projects" },
   { to: "/onebook", label: "OneBook" },

@@ -2,6 +2,8 @@ import { lazy, Suspense } from "react";
 import { BrowserRouter, Route, Routes, Outlet, Navigate } from "react-router-dom";
 import Landing from "./pages/Landing";
 
+const Overview = lazy(() => import("./pages/Overview"));
+
 const WritingHome = lazy(() => import("./pages/WritingHome"));
 const WeeklyBriefing = lazy(() => import("./pages/WeeklyBriefing"));
 const PersonalPieces = lazy(() => import("./pages/PersonalPieces"));
@@ -151,6 +153,7 @@ export default function App() {
         <Suspense fallback={<RouteFallback />}>
           <Routes>
             <Route path="/" element={<Landing />} />
+            <Route path="/overview" element={<Overview />} />
 
             <Route path="/writing" element={<WritingHome />} />
             <Route path="/writing/weekly" element={<WeeklyBriefing />} />

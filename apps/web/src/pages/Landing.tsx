@@ -2,89 +2,38 @@ import { Link } from "react-router-dom";
 import SectionSwitcher from "@/components/SectionSwitcher";
 
 const ANCHORS = [
-  { href: "#abstract", label: "Abstract" },
-  { href: "#focus-areas", label: "Focus Areas" },
-  { href: "#projects", label: "Projects" },
-  { href: "#appendix", label: "Appendix" },
+  { href: "#snapshot", label: "Snapshot" },
+  { href: "#who-i-am", label: "Who I Am" },
+  { href: "#academics", label: "Academics" },
+  { href: "#awards", label: "Awards" },
+  { href: "#research", label: "Research" },
+  { href: "#leadership", label: "Leadership" },
+  { href: "#volunteering", label: "Volunteering" },
+  { href: "#skills", label: "Skills" },
 ];
 
-const SECTION_CARDS = [
-  {
-    number: "2.1",
-    title: "Margin of Error",
-    to: "/writing",
-    body: "Essays, a weekly briefing, and personal pieces working through one question: where formal institutions — legal systems, economic policy, regulatory frameworks — fall short of the people they're supposed to serve, and why.",
-  },
-  {
-    number: "2.2",
-    title: "Mini Projects",
-    to: "/mini",
-    body: "Six standalone interactive tools grown out of that same question: an AI-governance case index, a MAS enforcement database, an industrial-organization sandbox, a macro model of AI and prices, a cross-country distribution explorer, and a map of India's court backlog.",
-  },
-  {
-    number: "2.3",
-    title: "OneBook",
-    to: "/onebook",
-    body: "A risk dashboard for a mixed book of equities, options, and bonds — correlation, volatility, Value-at-Risk, aggregate Greeks, and a scenario engine, with an optional mode that connects real brokerage accounts.",
-  },
-  {
-    number: "2.4",
-    title: "Ask",
-    to: "/ask",
-    body: "A tiny, beginner-friendly data-analysis language. Load a file, clean it, filter it, group it, chart it — no query planner, no hidden magic, no Python to learn first.",
-  },
-];
-
-const SELECTED_WORK = [
-  {
-    href: "/mini/docket",
-    tag: "Mini Projects · Docket",
-    title: "The Docket — Indian Court Backlogs",
-    summary:
-      "49 million pending cases. Maps the delays by state, scores the structural bottlenecks, and prototypes a citizen case-tracking dashboard.",
-  },
-  {
-    href: "/mini/observatory",
-    tag: "Mini Projects · Observatory",
-    title: "The Observatory — AI, Productivity and Prices",
-    summary:
-      "An interactive sandbox tracing how AI adoption might flow through to inflation, wages, and who captures the gains.",
-  },
-  {
-    href: "/mini/verdict/1",
-    tag: "Mini Projects · Verdict",
-    title: "EU AI Act — Full Entry into Force",
-    summary:
-      "The world's first comprehensive AI regulation, scored 87.3 EDI — the highest in the database.",
-  },
-  {
-    href: "/writing/others/access-to-justice-the-gap-nobody-measures",
-    tag: "Margin of Error · Analysis",
-    title: "Access to Justice — The Gap Nobody Measures",
-    summary:
-      "Most legal systems track case outcomes, not whether people could get to court in the first place.",
-  },
-  {
-    href: "/writing/personal/us-economy-cheap-imports-china",
-    tag: "Margin of Error · Personal Essay",
-    title: "Is the US economy harmed by cheap imports from China?",
-    summary:
-      "What counts as harm has to be defined distributionally and geopolitically, not just by GDP.",
-  },
-];
+function List({ items }: { items: React.ReactNode[] }) {
+  return (
+    <ul className="mt-3 list-disc space-y-2 pl-5 leading-relaxed">
+      {items.map((item, i) => (
+        <li key={i}>{item}</li>
+      ))}
+    </ul>
+  );
+}
 
 export default function Landing() {
   return (
     <div className="min-h-screen bg-white font-serif text-neutral-900">
-      <SectionSwitcher current="Home" />
+      <SectionSwitcher current="About Me" />
 
       <nav className="sticky top-0 z-40 border-b border-neutral-200 bg-white/95 backdrop-blur">
-        <div className="mx-auto flex max-w-3xl justify-center gap-6 px-6 py-3 font-sans text-sm">
+        <div className="mx-auto flex max-w-3xl justify-center gap-5 overflow-x-auto px-6 py-3 font-sans text-sm">
           {ANCHORS.map((a) => (
             <a
               key={a.href}
               href={a.href}
-              className="text-neutral-700 underline decoration-neutral-300 underline-offset-4 hover:text-neutral-950"
+              className="whitespace-nowrap text-neutral-700 underline decoration-neutral-300 underline-offset-4 hover:text-neutral-950"
             >
               {a.label}
             </a>
@@ -96,12 +45,11 @@ export default function Landing() {
         {/* Title block */}
         <header className="mb-14 text-center">
           <h1 className="text-4xl leading-tight">Arin Jain</h1>
-          <p className="mt-3 text-base text-neutral-600">
-            Economics &amp; Law · IB Year 1
-          </p>
+          <p className="mt-3 text-base text-neutral-600">He/him · Singapore</p>
           <p className="mt-1 text-sm text-neutral-500">
-            Updated July 2026
+            Overseas Family School — Grade 11
           </p>
+          <p className="mt-1 text-sm text-neutral-500">Updated July 2026</p>
           <p className="mt-3 font-sans text-sm text-neutral-700">
             <a
               className="underline decoration-neutral-300 underline-offset-4"
@@ -130,114 +78,251 @@ export default function Landing() {
           </p>
         </header>
 
-        {/* Abstract */}
-        <section id="abstract" className="scroll-mt-16">
-          <h2 className="text-center text-lg font-bold">Abstract</h2>
+        {/* Snapshot */}
+        <section id="snapshot" className="scroll-mt-16">
+          <h2 className="text-center text-lg font-bold">Snapshot</h2>
           <p className="mt-4 leading-relaxed">
-            I'm 15, studying economics and law. The question running through
-            everything here is where formal institutions — legal systems,
-            economic policy, regulatory frameworks — fall short of the people
-            they're supposed to serve, and why. This site collects the
-            research, tools, and writing that come out of chasing that
-            question, plus two things next to it: a portfolio-risk dashboard
-            built for a related institutional question — how a retail
-            investor is supposed to see risk when brokerages show fragmented,
-            broker-specific views — and a small programming language built to
-            make data analysis legible to beginners instead of powerful for
-            experts.
+            Aspiring economist and future legal scholar combining strong
+            quantitative rigor, policy leadership, and real-world impact
+            across law, economics, and global affairs.
           </p>
-          <p className="mt-4 text-sm italic text-neutral-600">
-            Keywords: institutional economics, regulatory analysis, applied
-            econometrics, portfolio risk, programming language design.
+          <List
+            items={[
+              "Name: Arin Jain (he/him)",
+              "Location: Singapore",
+              "School: Overseas Family School (OFS), Singapore — Grade 11 (attending since Aug 2017)",
+            ]}
+          />
+        </section>
+
+        <hr className="my-10 border-neutral-200" />
+
+        {/* Who I Am */}
+        <section id="who-i-am" className="scroll-mt-16">
+          <h2 className="text-lg font-bold">1 Who I Am</h2>
+          <p className="mt-4 leading-relaxed">
+            I'm a Grade 11 student at Overseas Family School in Singapore. I
+            plan to study economics at the undergraduate level and law at the
+            postgraduate level. I care most about using law and economics to
+            improve access to justice, financial inclusion, and opportunity
+            for underserved communities. I'm especially drawn to development
+            economics, governance, and legal systems — and to the question of
+            where formal institutions fall short of the people they're meant
+            to serve.
           </p>
         </section>
 
         <hr className="my-10 border-neutral-200" />
 
-        {/* Focus Areas */}
-        <section id="focus-areas" className="scroll-mt-16">
-          <h2 className="text-lg font-bold">1 Focus Areas</h2>
-          <p className="mt-4 leading-relaxed">
-            Economics is the thing I keep coming back to — not because it
-            explains everything, but because it's the discipline most honest
-            about trade-offs: someone gains, someone pays, and the
-            interesting question is always who and why. Every project here
-            is that interest applied somewhere specific. Margin of Error and
-            the Mini Projects read regulatory decisions, enforcement records,
-            and market structure as economics problems, not just legal ones —
-            The Ledger codes MAS enforcement actions to see who actually gets
-            penalised; The Arena and The Observatory build the standard
-            industrial-organisation and macro models by hand to see what they
-            actually predict, not just what they're claimed to predict.
-          </p>
-          <p className="mt-4 leading-relaxed">
-            OneBook comes at the same interest from a different angle: risk
-            is a distribution problem, and a dashboard that shows a mixed
-            book of stocks, options, and bonds as one coherent picture is
-            applied economics as much as it's software. Ask looks like the
-            outlier — a programming language, not an economics project — but
-            it comes from the same instinct that drives the rest of this
-            site: taking something with real explanatory power and making it
-            legible to someone without the background, instead of leaving it
-            locked behind jargon only specialists can use.
-          </p>
+        {/* Academics */}
+        <section id="academics" className="scroll-mt-16">
+          <h2 className="text-lg font-bold">2 Academics</h2>
+          <List
+            items={[
+              "GPA: 4.00/4.00 current (Grade 10, Sem 2); 3.93/4.00 cumulative (Grades 9–10)",
+              "IGCSE / IB MYP courses: Computer Science; Coordinated Sciences (Double Award); Economics; English Language & Literature; Mathematics (Accelerated); Additional Mathematics; French (DELF B1); PE",
+              <>
+                Intended IB Diploma:
+                <List
+                  items={[
+                    "Higher Level: Economics; Mathematics: Analysis & Approaches (AA); Physics",
+                    "Standard Level: Global Politics; French B (also listed elsewhere as Spanish Ab Initio); English A Language & Literature",
+                  ]}
+                />
+              </>,
+              "Standardized testing: PSAT/NMSQT 1460/1520 — 700 Reading & Writing, 760 Math, NMSC 216 (best in school; ~99th percentile worldwide)",
+            ]}
+          />
         </section>
 
         <hr className="my-10 border-neutral-200" />
 
-        {/* Projects */}
-        <section id="projects" className="scroll-mt-16">
-          <h2 className="text-lg font-bold">2 Projects</h2>
-          <p className="mt-4 leading-relaxed">
-            Four sections, described below. Each is reachable from the
-            switcher in the corner of every page.
-          </p>
-
-          <div className="mt-8 flex flex-col gap-8">
-            {SECTION_CARDS.map((s) => (
-              <div key={s.to}>
-                <h3 className="font-bold">
-                  {s.number} {s.title}
-                </h3>
-                <p className="mt-2 leading-relaxed">{s.body}</p>
+        {/* Awards */}
+        <section id="awards" className="scroll-mt-16">
+          <h2 className="text-lg font-bold">3 Awards &amp; Achievements</h2>
+          <List
+            items={[
+              <>
+                Peer-reviewed conference author: paper accepted after
+                double-blind review for the 10th International Conference on
+                New Trends in Social Sciences (Stockholm, Aug 2026) —
+                "Sectoral Employment Dynamics and Economic Growth in India: A
+                Gender- and Region-Wise Analysis Across NIC Industries."
+                Rated original and policy-relevant; eligible for indexed
+                journal publication.
+              </>,
+              <>
+                Shortlisted, John Locke Institute Essay Competition
+                (International Relations) — top 17.5% of ~100,000 global
+                participants; essay on{" "}
                 <Link
-                  to={s.to}
-                  className="mt-2 inline-block font-sans text-sm underline decoration-neutral-300 underline-offset-4"
+                  to="/writing/personal/us-economy-cheap-imports-china"
+                  className="underline decoration-neutral-300 underline-offset-4"
                 >
-                  {s.title} →
+                  the impact of cheap Chinese imports on the US economy →
                 </Link>
-              </div>
-            ))}
-          </div>
+              </>,
+              "SASMO 2026 — 1st in school; 126th in award category (~45,000 students).",
+              "UKMT Intermediate Maths Challenge — Gold (top ~7–8%).",
+              "UKMT Junior Maths Challenge — Gold (top 7%).",
+              "OFS Debate Competition — Winner, Best Speaker.",
+              "Mock trials — won 3 of 3 at the SJII LawCon nationwide forum.",
+              "NYAA (National Youth Achievement Award) — completed Bronze and Silver; pursuing Gold.",
+            ]}
+          />
+        </section>
 
-          <h3 className="mt-10 font-bold">2.5 Start here</h3>
-          <p className="mt-2 leading-relaxed">
-            A few pieces that represent what this whole site is about.
-          </p>
-          <div className="mt-4 flex flex-col gap-4">
-            {SELECTED_WORK.map((item) => (
-              <Link
-                key={item.href}
-                to={item.href}
-                className="group block rounded-lg border border-neutral-200 px-5 py-4 transition-colors hover:border-neutral-400"
-              >
-                <p className="font-sans text-xs uppercase tracking-wide text-neutral-500">
-                  {item.tag}
+        <hr className="my-10 border-neutral-200" />
+
+        {/* Research */}
+        <section id="research" className="scroll-mt-16">
+          <h2 className="text-lg font-bold">4 Research &amp; Projects</h2>
+          <List
+            items={[
+              <>
+                Margin of Error — self-directed, full-stack research project
+                (economics + law + development) built around one question:
+                where do legal systems, economic policy, and regulatory
+                frameworks fail the people they serve, and why? Six
+                subprojects:
+                <List
+                  items={[
+                    "The Verdict — reproducible Enforcement-Driven Index (EDI) scoring AI legal/regulatory events on five factors, updated weekly (EU AI Act scored highest at 87.3).",
+                    "The Ledger — hand-built database of Monetary Authority of Singapore enforcement actions.",
+                    "The Observatory — interactive macro model tracing AI adoption → productivity, wages, prices, using live World Bank and FRED data.",
+                    "The Arena — interactive industrial-organization models (Bertrand, Cournot, innovation/tournament incentives).",
+                    "The Distribution Lab — 465-country-year panel (1990–2020) mapping institutional configurations to distributional outcomes via kernel weighting.",
+                    "The Docket — map of India's 49-million-case court backlog with a prototype citizen case-tracking dashboard and an India–Singapore comparison.",
+                  ]}
+                />
+                <p className="mt-2">
+                  Live in this site's{" "}
+                  <Link
+                    to="/mini"
+                    className="underline decoration-neutral-300 underline-offset-4"
+                  >
+                    Mini Projects
+                  </Link>{" "}
+                  and{" "}
+                  <Link
+                    to="/writing"
+                    className="underline decoration-neutral-300 underline-offset-4"
+                  >
+                    Margin of Error
+                  </Link>{" "}
+                  sections; source at{" "}
+                  <a
+                    className="underline decoration-neutral-300 underline-offset-4"
+                    href="https://github.com/bobwrd/portfolio"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    github.com/bobwrd/portfolio
+                  </a>
+                  .
                 </p>
-                <p className="mt-1 font-bold">{item.title}</p>
-                <p className="mt-1 text-sm leading-relaxed text-neutral-700">
-                  {item.summary}
-                </p>
-              </Link>
-            ))}
-          </div>
+              </>,
+              <>
+                Indian PLFS economics research — completed research paper on
+                sectoral employment trends in India by region, industry, and
+                gender using Periodic Labour Force Survey data (the paper
+                accepted at NTSS above).{" "}
+                <Link
+                  to="/writing/others/issue-002-india-labour"
+                  className="underline decoration-neutral-300 underline-offset-4"
+                >
+                  Early findings →
+                </Link>
+              </>,
+              "Supervised literature review — reviewing the South Asian gig economy under Dr. Shreshti Rawat of the Meghnad Desai Academy of Economics (MDAE) / Indira Gandhi Institute of Development Research.",
+              "CivicAid — a legal literacy app informing the public about key Singapore laws; on Google Play, partnering with the Center for Domestic Employees (100,000+ workers/year) to expand reach.",
+            ]}
+          />
+        </section>
+
+        <hr className="my-10 border-neutral-200" />
+
+        {/* Leadership */}
+        <section id="leadership" className="scroll-mt-16">
+          <h2 className="text-lg font-bold">5 Leadership</h2>
+          <List
+            items={[
+              "Under-Secretary-General, MUN@OFS (executive team) — organize MY-MUNOFS (~413 attendees) and MUNOFS (~550 attendees); help lead a ~70–80 delegate club; 19+ conferences as delegate, chaired 9+, focused on international law, human rights, and global governance.",
+              "President, Law Academy @ OFS — application-only club (~21 members, ~65 interested); teach advocacy, case theory, cross-examination; design mock trial and moot court cases; previously advocate in 4 winning mock trials and 2 winning moot courts.",
+              "Co-Founder & President, NYAA Club @ OFS — lead ~70 students through Bronze/Silver/Gold; plan service-learning and outdoor workshops.",
+              <>
+                Director of Speakers, TEDxOFS 2026 (former 2025 speaker) —
+                select and mentor speakers, run rehearsals for a live
+                audience of 100+. My own talk:{" "}
+                <a
+                  className="underline decoration-neutral-300 underline-offset-4"
+                  href="https://www.youtube.com/watch?v=GucwscPHSGs"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  "Do Our Dreams Belong to Us?" →
+                </a>{" "}
+                on how society shapes ambition.
+              </>,
+              "Co-Founder & President, Trader Society / Financial Literacy Club @ OFS — cross-school club teaching markets, trading, and investing basics; reached ~30 people.",
+              "Student Voice @ OFS — President of Alumni Network (team of 10 connecting students with alumni); founding member of the student newsletter (opinion pieces on the end of globalization and privatization/inequality).",
+              "FT Student Advocate, Financial Times (internship, remote) — only selected OFS student advocate; surveying, material creation, and awareness work.",
+            ]}
+          />
+        </section>
+
+        <hr className="my-10 border-neutral-200" />
+
+        {/* Volunteering */}
+        <section id="volunteering" className="scroll-mt-16">
+          <h2 className="text-lg font-bold">6 Volunteering &amp; Impact</h2>
+          <List
+            items={[
+              <>
+                Director of Education &amp; Outreach, Netraheen Vikas
+                Sansthan (Jodhpur, India) — digital outreach and fundraising
+                lead for a school serving ~550 blind, deaf, and verbally
+                challenged students; conceptualized and built the school's
+                e-commerce site (
+                <a
+                  className="underline decoration-neutral-300 underline-offset-4"
+                  href="https://jodhpurblindschool.in"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  jodhpurblindschool.in
+                </a>
+                ) selling student-made crafts; social-media fundraising
+                strategy raised ~INR 11,000 in testing.
+              </>,
+              "Country Director (India), ARISE — student-led financial literacy org; leading expansion into low-income rural India (starting in Rajasthan) via partnerships; cumulatively reached ~1,000 people.",
+              "Public Relations Volunteer, NLB Singapore — ~30 hours across libraries promoting reading programs and helping patrons.",
+              "Community volunteer, Jodhpur NGOs — ~40 hours across 3 NGOs supporting animals, birds, and people in need.",
+            ]}
+          />
+        </section>
+
+        <hr className="my-10 border-neutral-200" />
+
+        {/* Skills */}
+        <section id="skills" className="scroll-mt-16">
+          <h2 className="text-lg font-bold">7 Skills, Languages &amp; Interests</h2>
+          <List
+            items={[
+              "Languages: English (native/bilingual); Hindi (fluent/full professional); French (conversational).",
+              "Technical: Python, Java, C++, SQL, HTML; data analysis; econometrics; full-stack development; Google Suite, Microsoft 365, Canva.",
+              "Strengths: public speaking, debate, mock trial advocacy, quantitative and empirical research, team leadership, project management.",
+              "Passions: development economics, financial inclusion, access to justice, non-profits, and ethics.",
+              "Hobbies: cycling, reading, podcasts, and philosophy (especially ethics).",
+            ]}
+          />
         </section>
 
         <hr className="my-10 border-neutral-200" />
 
         {/* Appendix */}
         <section id="appendix" className="scroll-mt-16 pb-16">
-          <h2 className="text-lg font-bold">3 Appendix</h2>
+          <h2 className="text-lg font-bold">8 Appendix</h2>
           <ul className="mt-4 list-disc space-y-2 pl-5 leading-relaxed">
             <li>
               <a
@@ -258,6 +343,14 @@ export default function Landing() {
               >
                 LinkedIn — linkedin.com/in/arin-jain-69a954270
               </a>
+            </li>
+            <li>
+              <Link
+                to="/overview"
+                className="underline decoration-neutral-300 underline-offset-4"
+              >
+                Site overview — what this portfolio is and how it's built →
+              </Link>
             </li>
             <li>
               <Link
