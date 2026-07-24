@@ -457,17 +457,10 @@ describe("connect accounts", () => {
 });
 
 describe("theme", () => {
-  it("defaults to dark and toggles to light", () => {
-    // The toggle has exactly one home, in Settings — there is deliberately no
-    // second copy in the top strip to drift out of sync with it.
+  it("has no theme toggle anywhere — light mode only", () => {
     renderApp("/settings");
-    expect(document.documentElement.getAttribute("data-theme")).toBe("dark");
+    expect(screen.queryByLabelText("Toggle theme")).toBeNull();
 
-    fireEvent.click(screen.getByLabelText("Toggle theme"));
-    expect(document.documentElement.getAttribute("data-theme")).toBe("light");
-  });
-
-  it("does not duplicate the theme toggle on the dashboard", () => {
     renderApp();
     expect(screen.queryByLabelText("Toggle theme")).toBeNull();
   });

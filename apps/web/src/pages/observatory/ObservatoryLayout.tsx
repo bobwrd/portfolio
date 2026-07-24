@@ -1,18 +1,15 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Sun, Moon } from "lucide-react";
 import SectionSwitcher from "@/components/SectionSwitcher";
 
-type ObsTheme = "dark" | "light";
+type ObsTheme = "light";
 
 interface ObsThemeContextType {
   theme: ObsTheme;
-  toggle: () => void;
 }
 
 const ObsThemeContext = createContext<ObsThemeContextType>({
-  theme: "dark",
-  toggle: () => {},
+  theme: "light",
 });
 
 export function useObservatoryTheme() {
@@ -20,21 +17,10 @@ export function useObservatoryTheme() {
 }
 
 export function ObservatoryThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setTheme] = useState<ObsTheme>(() => {
-    const stored = typeof localStorage !== "undefined" ? localStorage.getItem("observatory-theme") : null;
-    return stored === "light" || stored === "dark" ? stored : "dark";
-  });
-
-  const toggle = () => {
-    const next: ObsTheme = theme === "dark" ? "light" : "dark";
-    setTheme(next);
-    localStorage.setItem("observatory-theme", next);
-  };
-
   return (
-    <ObsThemeContext.Provider value={{ theme, toggle }}>
+    <ObsThemeContext.Provider value={{ theme: "light" }}>
       <div
-        className={`obs-section${theme === "light" ? " obs-light" : ""} min-h-screen`}
+        className="obs-section obs-light min-h-screen"
         style={{ backgroundColor: "var(--obs-bg)", color: "var(--obs-text)" }}
       >
         {children}
@@ -44,7 +30,6 @@ export function ObservatoryThemeProvider({ children }: { children: React.ReactNo
 }
 
 export default function ObservatoryLayout({ children }: { children: React.ReactNode }) {
-  const { theme, toggle } = useObservatoryTheme();
   const location = useLocation();
   const isMethodsPage = location.pathname.endsWith("/methods");
 
@@ -82,7 +67,7 @@ export default function ObservatoryLayout({ children }: { children: React.ReactN
       <header
         className="sticky top-0 z-50 border-b"
         style={{
-          backgroundColor: theme === "dark" ? "rgba(11,20,24,0.92)" : "rgba(243,250,248,0.92)",
+          backgroundColor: "rgba(243,250,248,0.92)",
           borderColor: "var(--obs-border)",
           backdropFilter: "blur(8px)",
         }}
@@ -145,15 +130,6 @@ export default function ObservatoryLayout({ children }: { children: React.ReactN
               Tech note
             </Link>
           </nav>
-
-          <button
-            onClick={toggle}
-            className="p-1.5 rounded transition-colors duration-150 shrink-0"
-            style={{ color: "var(--obs-muted)" }}
-            title="Toggle theme"
-          >
-            {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
-          </button>
         </div>
       </header>
 

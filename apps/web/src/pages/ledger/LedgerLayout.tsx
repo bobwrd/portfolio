@@ -1,18 +1,15 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Sun, Moon } from "lucide-react";
 import SectionSwitcher from "@/components/SectionSwitcher";
 
-type LedgerTheme = "dark" | "light";
+type LedgerTheme = "light";
 
 interface LedgerThemeContextType {
   theme: LedgerTheme;
-  toggle: () => void;
 }
 
 const LedgerThemeContext = createContext<LedgerThemeContextType>({
-  theme: "dark",
-  toggle: () => {},
+  theme: "light",
 });
 
 export function useLedgerTheme() {
@@ -20,21 +17,10 @@ export function useLedgerTheme() {
 }
 
 export function LedgerThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setTheme] = useState<LedgerTheme>(() => {
-    const stored = localStorage.getItem("ledger-theme");
-    return stored === "light" || stored === "dark" ? stored : "dark";
-  });
-
-  const toggle = () => {
-    const next: LedgerTheme = theme === "dark" ? "light" : "dark";
-    setTheme(next);
-    localStorage.setItem("ledger-theme", next);
-  };
-
   return (
-    <LedgerThemeContext.Provider value={{ theme, toggle }}>
+    <LedgerThemeContext.Provider value={{ theme: "light" }}>
       <div
-        className={`ledger-section${theme === "light" ? " ledger-light" : ""} min-h-screen`}
+        className="ledger-section ledger-light min-h-screen"
         style={{ backgroundColor: "var(--ledger-bg)", color: "var(--ledger-text)" }}
       >
         {children}
@@ -45,7 +31,6 @@ export function LedgerThemeProvider({ children }: { children: React.ReactNode })
 
 export default function LedgerLayout({ children }: { children: React.ReactNode }) {
   const { pathname } = useLocation();
-  const { theme, toggle } = useLedgerTheme();
 
   const navLinks = [
     { label: "Register", href: "/mini/ledger" },
@@ -59,7 +44,7 @@ export default function LedgerLayout({ children }: { children: React.ReactNode }
       <header
         className="sticky top-0 z-50 border-b"
         style={{
-          backgroundColor: theme === "dark" ? "rgba(22,19,15,0.95)" : "rgba(250,247,240,0.95)",
+          backgroundColor: "rgba(250,247,240,0.95)",
           borderColor: "var(--ledger-border)",
           backdropFilter: "blur(8px)",
         }}
@@ -102,15 +87,6 @@ export default function LedgerLayout({ children }: { children: React.ReactNode }
               );
             })}
           </nav>
-
-          <button
-            onClick={toggle}
-            className="p-1.5 rounded transition-colors duration-150"
-            style={{ color: "var(--ledger-muted)" }}
-            title="Toggle theme"
-          >
-            {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
-          </button>
         </div>
       </header>
 

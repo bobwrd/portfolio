@@ -3,7 +3,7 @@
  *
  * Dense terminal aesthetic: 13px base, 11px labels, tight 4px radii, and
  * olive-tinted neutrals (OKLCH hue 110) rather than pure grays — the warmth
- * keeps a dark, data-dense screen from reading as cold and flat.
+ * keeps a data-dense screen from reading as cold and flat. Light mode only.
  *
  * One rule shapes the palette: green and red mean P&L and nothing else. The
  * accent is olive and the chart line is teal, so no categorical color can be
@@ -11,54 +11,6 @@
  */
 
 .onebook-app {
-  --bg: oklch(0.095 0 0);
-  --surface: oklch(0.135 0.008 110);
-  --surface-hover: oklch(0.165 0.009 110);
-  --surface-active: oklch(0.19 0.012 110);
-  --border: oklch(0.24 0.014 110);
-  --border-subtle: oklch(0.185 0.01 110);
-
-  --ink: oklch(0.93 0.006 110);
-  --ink-muted: oklch(0.56 0.018 110);
-  --ink-faint: oklch(0.38 0.012 110);
-
-  --primary: oklch(0.72 0.092 110);
-  --primary-dim: oklch(0.56 0.065 110);
-  --primary-subtle: oklch(0.72 0.092 110 / 0.14);
-
-  /* Reserved for P&L. Never used for categorical encoding. */
-  --gain: oklch(0.62 0.14 155);
-  --gain-subtle: oklch(0.62 0.14 155 / 0.12);
-  --loss: oklch(0.61 0.17 25);
-  --loss-subtle: oklch(0.61 0.17 25 / 0.12);
-
-  --chart-line: oklch(0.64 0.11 205);
-  --chart-fill: oklch(0.64 0.11 205 / 0.07);
-  --chart-grid: oklch(0.24 0.014 110);
-
-  /* Correlation: violet/amber, deliberately distinct from the P&L pair. */
-  --corr-pos: oklch(0.6 0.16 300);
-  --corr-neg: oklch(0.7 0.13 70);
-
-  --warn: oklch(0.75 0.13 75);
-
-  --s1: 0.25rem;
-  --s2: 0.5rem;
-  --s3: 0.75rem;
-  --s4: 1rem;
-  --s5: 1.25rem;
-  --s6: 1.5rem;
-  --s8: 2rem;
-
-  --rail-w: 264px;
-  --sidebar-w: 216px;
-  --topbar-h: 52px;
-
-  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
-  --sans: -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-
-.onebook-app[data-theme="light"] {
   --bg: oklch(1 0 0);
   --surface: oklch(0.967 0.006 110);
   --surface-hover: oklch(0.952 0.009 110);
@@ -74,6 +26,7 @@
   --primary-dim: oklch(0.56 0.06 110);
   --primary-subtle: oklch(0.43 0.085 110 / 0.12);
 
+  /* Reserved for P&L. Never used for categorical encoding. */
   --gain: oklch(0.34 0.135 155);
   --gain-subtle: oklch(0.34 0.135 155 / 0.1);
   --loss: oklch(0.43 0.165 25);
@@ -83,10 +36,26 @@
   --chart-fill: oklch(0.37 0.12 205 / 0.09);
   --chart-grid: oklch(0.875 0.013 110);
 
+  /* Correlation: violet/amber, deliberately distinct from the P&L pair. */
   --corr-pos: oklch(0.45 0.17 300);
   --corr-neg: oklch(0.55 0.14 70);
 
   --warn: oklch(0.52 0.13 75);
+
+  --s1: 0.25rem;
+  --s2: 0.5rem;
+  --s3: 0.75rem;
+  --s4: 1rem;
+  --s5: 1.25rem;
+  --s6: 1.5rem;
+  --s8: 2rem;
+
+  --rail-w: 264px;
+  --sidebar-w: 216px;
+  --topbar-h: 52px;
+
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  --sans: -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 

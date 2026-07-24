@@ -75,16 +75,16 @@ const SELECTED_WORK = [
 
 export default function Landing() {
   return (
-    <div className="min-h-screen bg-white font-serif text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100">
+    <div className="min-h-screen bg-white font-serif text-neutral-900">
       <SectionSwitcher current="Home" />
 
-      <nav className="sticky top-0 z-40 border-b border-neutral-200 bg-white/95 backdrop-blur dark:border-neutral-800 dark:bg-neutral-950/95">
+      <nav className="sticky top-0 z-40 border-b border-neutral-200 bg-white/95 backdrop-blur">
         <div className="mx-auto flex max-w-3xl justify-center gap-6 px-6 py-3 font-sans text-sm">
           {ANCHORS.map((a) => (
             <a
               key={a.href}
               href={a.href}
-              className="text-neutral-700 underline decoration-neutral-300 underline-offset-4 hover:text-neutral-950 dark:text-neutral-300 dark:hover:text-white"
+              className="text-neutral-700 underline decoration-neutral-300 underline-offset-4 hover:text-neutral-950"
             >
               {a.label}
             </a>
@@ -96,13 +96,13 @@ export default function Landing() {
         {/* Title block */}
         <header className="mb-14 text-center">
           <h1 className="text-4xl leading-tight">Arin Jain</h1>
-          <p className="mt-3 text-base text-neutral-600 dark:text-neutral-400">
+          <p className="mt-3 text-base text-neutral-600">
             Economics &amp; Law · IB Year 1
           </p>
-          <p className="mt-1 text-sm text-neutral-500 dark:text-neutral-500">
+          <p className="mt-1 text-sm text-neutral-500">
             Updated July 2026
           </p>
-          <p className="mt-3 font-sans text-sm text-neutral-700 dark:text-neutral-300">
+          <p className="mt-3 font-sans text-sm text-neutral-700">
             <a
               className="underline decoration-neutral-300 underline-offset-4"
               href="mailto:arinjain.mail@gmail.com"
@@ -146,32 +146,44 @@ export default function Landing() {
             make data analysis legible to beginners instead of powerful for
             experts.
           </p>
-          <p className="mt-4 text-sm italic text-neutral-600 dark:text-neutral-400">
+          <p className="mt-4 text-sm italic text-neutral-600">
             Keywords: institutional economics, regulatory analysis, applied
             econometrics, portfolio risk, programming language design.
           </p>
         </section>
 
-        <hr className="my-10 border-neutral-200 dark:border-neutral-800" />
+        <hr className="my-10 border-neutral-200" />
 
         {/* Focus Areas */}
         <section id="focus-areas" className="scroll-mt-16">
           <h2 className="text-lg font-bold">1 Focus Areas</h2>
           <p className="mt-4 leading-relaxed">
-            Margin of Error and its six Mini Projects work through the
-            institutions question directly, combining hand-built structured
-            databases drawn from primary regulatory sources, interactive
-            economic models grounded in published theory, and analysis of how
-            institutions operate in practice. OneBook comes at institutions
-            from the other side: how risk should be shown to a retail
-            investor holding a mixed book, when the standard answer is a
-            brokerage statement that doesn't aggregate anything. Ask asks a
-            narrower question — what a data-analysis tool looks like if
-            "guessable" is the design constraint instead of "powerful."
+            Economics is the thing I keep coming back to — not because it
+            explains everything, but because it's the discipline most honest
+            about trade-offs: someone gains, someone pays, and the
+            interesting question is always who and why. Every project here
+            is that interest applied somewhere specific. Margin of Error and
+            the Mini Projects read regulatory decisions, enforcement records,
+            and market structure as economics problems, not just legal ones —
+            The Ledger codes MAS enforcement actions to see who actually gets
+            penalised; The Arena and The Observatory build the standard
+            industrial-organisation and macro models by hand to see what they
+            actually predict, not just what they're claimed to predict.
+          </p>
+          <p className="mt-4 leading-relaxed">
+            OneBook comes at the same interest from a different angle: risk
+            is a distribution problem, and a dashboard that shows a mixed
+            book of stocks, options, and bonds as one coherent picture is
+            applied economics as much as it's software. Ask looks like the
+            outlier — a programming language, not an economics project — but
+            it comes from the same instinct that drives the rest of this
+            site: taking something with real explanatory power and making it
+            legible to someone without the background, instead of leaving it
+            locked behind jargon only specialists can use.
           </p>
         </section>
 
-        <hr className="my-10 border-neutral-200 dark:border-neutral-800" />
+        <hr className="my-10 border-neutral-200" />
 
         {/* Projects */}
         <section id="projects" className="scroll-mt-16">
@@ -207,13 +219,13 @@ export default function Landing() {
               <Link
                 key={item.href}
                 to={item.href}
-                className="group block rounded-lg border border-neutral-200 px-5 py-4 transition-colors hover:border-neutral-400 dark:border-neutral-800 dark:hover:border-neutral-600"
+                className="group block rounded-lg border border-neutral-200 px-5 py-4 transition-colors hover:border-neutral-400"
               >
-                <p className="font-sans text-xs uppercase tracking-wide text-neutral-500 dark:text-neutral-500">
+                <p className="font-sans text-xs uppercase tracking-wide text-neutral-500">
                   {item.tag}
                 </p>
                 <p className="mt-1 font-bold">{item.title}</p>
-                <p className="mt-1 text-sm leading-relaxed text-neutral-700 dark:text-neutral-300">
+                <p className="mt-1 text-sm leading-relaxed text-neutral-700">
                   {item.summary}
                 </p>
               </Link>
@@ -221,7 +233,7 @@ export default function Landing() {
           </div>
         </section>
 
-        <hr className="my-10 border-neutral-200 dark:border-neutral-800" />
+        <hr className="my-10 border-neutral-200" />
 
         {/* Appendix */}
         <section id="appendix" className="scroll-mt-16 pb-16">
@@ -256,7 +268,7 @@ export default function Landing() {
               </Link>
             </li>
           </ul>
-          <p className="mt-8 text-sm text-neutral-500 dark:text-neutral-500">
+          <p className="mt-8 text-sm text-neutral-500">
             Last updated July 2026.
           </p>
         </section>

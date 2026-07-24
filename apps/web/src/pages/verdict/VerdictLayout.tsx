@@ -1,18 +1,15 @@
-import { createContext, useContext, useState, useEffect } from "react";
+import { createContext, useContext } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Sun, Moon } from "lucide-react";
 import SectionSwitcher from "@/components/SectionSwitcher";
 
-type VerdictTheme = "dark" | "light";
+type VerdictTheme = "light";
 
 interface VerdictThemeContextType {
   theme: VerdictTheme;
-  toggle: () => void;
 }
 
 const VerdictThemeContext = createContext<VerdictThemeContextType>({
-  theme: "dark",
-  toggle: () => {},
+  theme: "light",
 });
 
 export function useVerdictTheme() {
@@ -20,21 +17,10 @@ export function useVerdictTheme() {
 }
 
 export function VerdictThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setTheme] = useState<VerdictTheme>(() => {
-    const stored = localStorage.getItem("verdict-theme");
-    return (stored === "light" || stored === "dark") ? stored : "dark";
-  });
-
-  const toggle = () => {
-    const next: VerdictTheme = theme === "dark" ? "light" : "dark";
-    setTheme(next);
-    localStorage.setItem("verdict-theme", next);
-  };
-
   return (
-    <VerdictThemeContext.Provider value={{ theme, toggle }}>
+    <VerdictThemeContext.Provider value={{ theme: "light" }}>
       <div
-        className={`verdict-section${theme === "light" ? " verdict-light" : ""} min-h-screen`}
+        className="verdict-section verdict-light min-h-screen"
         style={{
           backgroundColor: "var(--verdict-bg)",
           color: "var(--verdict-text)",
@@ -48,7 +34,6 @@ export function VerdictThemeProvider({ children }: { children: React.ReactNode }
 
 export default function VerdictLayout({ children }: { children: React.ReactNode }) {
   const { pathname } = useLocation();
-  const { theme, toggle } = useVerdictTheme();
 
   const navLinks = [
     { label: "Index", href: "/mini/verdict" },
@@ -64,7 +49,7 @@ export default function VerdictLayout({ children }: { children: React.ReactNode 
       <header
         className="sticky top-0 z-50 border-b"
         style={{
-          backgroundColor: theme === "dark" ? "rgba(10,14,26,0.95)" : "rgba(248,250,252,0.95)",
+          backgroundColor: "rgba(248,250,252,0.95)",
           borderColor: "var(--verdict-border)",
           backdropFilter: "blur(8px)",
         }}
@@ -108,15 +93,6 @@ export default function VerdictLayout({ children }: { children: React.ReactNode 
               );
             })}
           </nav>
-
-          <button
-            onClick={toggle}
-            className="p-1.5 rounded transition-colors duration-150"
-            style={{ color: "var(--verdict-muted)" }}
-            title="Toggle theme"
-          >
-            {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
-          </button>
         </div>
       </header>
 

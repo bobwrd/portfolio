@@ -1,18 +1,15 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Sun, Moon } from "lucide-react";
 import SectionSwitcher from "@/components/SectionSwitcher";
 
-type DocketTheme = "dark" | "light";
+type DocketTheme = "light";
 
 interface DocketThemeContextType {
   theme: DocketTheme;
-  toggle: () => void;
 }
 
 const DocketThemeContext = createContext<DocketThemeContextType>({
-  theme: "dark",
-  toggle: () => {},
+  theme: "light",
 });
 
 export function useDocketTheme() {
@@ -20,21 +17,10 @@ export function useDocketTheme() {
 }
 
 export function DocketThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setTheme] = useState<DocketTheme>(() => {
-    const stored = typeof localStorage !== "undefined" ? localStorage.getItem("docket-theme") : null;
-    return stored === "light" || stored === "dark" ? stored : "dark";
-  });
-
-  const toggle = () => {
-    const next: DocketTheme = theme === "dark" ? "light" : "dark";
-    setTheme(next);
-    localStorage.setItem("docket-theme", next);
-  };
-
   return (
-    <DocketThemeContext.Provider value={{ theme, toggle }}>
+    <DocketThemeContext.Provider value={{ theme: "light" }}>
       <div
-        className={`docket-section${theme === "light" ? " docket-light" : ""} min-h-screen`}
+        className="docket-section docket-light min-h-screen"
         style={{ backgroundColor: "var(--docket-bg)", color: "var(--docket-text)" }}
       >
         {children}
@@ -44,7 +30,6 @@ export function DocketThemeProvider({ children }: { children: React.ReactNode })
 }
 
 export default function DocketLayout({ children }: { children: React.ReactNode }) {
-  const { theme, toggle } = useDocketTheme();
   const location = useLocation();
   const isMethodsPage = location.pathname.endsWith("/methods");
 
@@ -82,8 +67,7 @@ export default function DocketLayout({ children }: { children: React.ReactNode }
       <header
         className="sticky top-0 z-50 border-b"
         style={{
-          backgroundColor:
-            theme === "dark" ? "rgba(9,16,10,0.92)" : "rgba(240,250,243,0.92)",
+          backgroundColor: "rgba(240,250,243,0.92)",
           borderColor: "var(--docket-border)",
           backdropFilter: "blur(8px)",
         }}
@@ -147,15 +131,6 @@ export default function DocketLayout({ children }: { children: React.ReactNode }
               Methods
             </Link>
           </nav>
-
-          <button
-            onClick={toggle}
-            className="p-1.5 rounded transition-colors duration-150 shrink-0"
-            style={{ color: "var(--docket-muted)" }}
-            title="Toggle theme"
-          >
-            {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
-          </button>
         </div>
       </header>
 

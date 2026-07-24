@@ -1,28 +1,18 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Sun, Moon } from "lucide-react";
 import SectionSwitcher from "@/components/SectionSwitcher";
 
-type DLTheme = "dark" | "light";
+type DLTheme = "light";
 
-interface DLThemeContextType { theme: DLTheme; toggle: () => void; }
-const DLThemeContext = createContext<DLThemeContextType>({ theme: "dark", toggle: () => {} });
+interface DLThemeContextType { theme: DLTheme; }
+const DLThemeContext = createContext<DLThemeContextType>({ theme: "light" });
 export function useDistLabTheme() { return useContext(DLThemeContext); }
 
 export function DistLabThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setTheme] = useState<DLTheme>(() => {
-    const stored = typeof localStorage !== "undefined" ? localStorage.getItem("distlab-theme") : null;
-    return stored === "light" || stored === "dark" ? stored : "dark";
-  });
-  const toggle = () => {
-    const next: DLTheme = theme === "dark" ? "light" : "dark";
-    setTheme(next);
-    localStorage.setItem("distlab-theme", next);
-  };
   return (
-    <DLThemeContext.Provider value={{ theme, toggle }}>
+    <DLThemeContext.Provider value={{ theme: "light" }}>
       <div
-        className={`distlab-section${theme === "light" ? " distlab-light" : ""} min-h-screen`}
+        className="distlab-section distlab-light min-h-screen"
         style={{ backgroundColor: "var(--dl-bg)", color: "var(--dl-text)" }}
       >
         {children}
@@ -32,7 +22,6 @@ export function DistLabThemeProvider({ children }: { children: React.ReactNode }
 }
 
 export default function DistLabLayout({ children }: { children: React.ReactNode }) {
-  const { theme, toggle } = useDistLabTheme();
   const location = useLocation();
   const isMethods = location.pathname.endsWith("/methods");
 
@@ -42,7 +31,7 @@ export default function DistLabLayout({ children }: { children: React.ReactNode 
       <header
         className="sticky top-0 z-50 border-b shrink-0"
         style={{
-          backgroundColor: theme === "dark" ? "rgba(11,15,31,0.92)" : "rgba(246,244,255,0.92)",
+          backgroundColor: "rgba(246,244,255,0.92)",
           borderColor: "var(--dl-border)",
           backdropFilter: "blur(8px)",
         }}
@@ -70,9 +59,6 @@ export default function DistLabLayout({ children }: { children: React.ReactNode 
             >
               {isMethods ? "← Lab" : "Methods"}
             </Link>
-            <button onClick={toggle} className="p-1.5 rounded transition-colors duration-150 shrink-0" style={{ color: "var(--dl-muted)" }} title="Toggle theme">
-              {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
-            </button>
           </nav>
         </div>
       </header>

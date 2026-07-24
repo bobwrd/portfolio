@@ -1,18 +1,15 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Sun, Moon } from "lucide-react";
 import SectionSwitcher from "@/components/SectionSwitcher";
 
-type ArenaTheme = "dark" | "light";
+type ArenaTheme = "light";
 
 interface ArenaThemeContextType {
   theme: ArenaTheme;
-  toggle: () => void;
 }
 
 const ArenaThemeContext = createContext<ArenaThemeContextType>({
-  theme: "dark",
-  toggle: () => {},
+  theme: "light",
 });
 
 export function useArenaTheme() {
@@ -20,21 +17,10 @@ export function useArenaTheme() {
 }
 
 export function ArenaThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setTheme] = useState<ArenaTheme>(() => {
-    const stored = typeof localStorage !== "undefined" ? localStorage.getItem("arena-theme") : null;
-    return stored === "light" || stored === "dark" ? stored : "dark";
-  });
-
-  const toggle = () => {
-    const next: ArenaTheme = theme === "dark" ? "light" : "dark";
-    setTheme(next);
-    localStorage.setItem("arena-theme", next);
-  };
-
   return (
-    <ArenaThemeContext.Provider value={{ theme, toggle }}>
+    <ArenaThemeContext.Provider value={{ theme: "light" }}>
       <div
-        className={`arena-section${theme === "light" ? " arena-light" : ""} min-h-screen`}
+        className="arena-section arena-light min-h-screen"
         style={{ backgroundColor: "var(--arena-bg)", color: "var(--arena-text)" }}
       >
         {children}
@@ -44,7 +30,6 @@ export function ArenaThemeProvider({ children }: { children: React.ReactNode }) 
 }
 
 export default function ArenaLayout({ children }: { children: React.ReactNode }) {
-  const { theme, toggle } = useArenaTheme();
   const location = useLocation();
   const isMethodsPage = location.pathname.endsWith("/methods");
 
@@ -83,7 +68,7 @@ export default function ArenaLayout({ children }: { children: React.ReactNode })
       <header
         className="sticky top-0 z-50 border-b"
         style={{
-          backgroundColor: theme === "dark" ? "rgba(16,14,27,0.92)" : "rgba(247,245,251,0.92)",
+          backgroundColor: "rgba(247,245,251,0.92)",
           borderColor: "var(--arena-border)",
           backdropFilter: "blur(8px)",
         }}
@@ -147,15 +132,6 @@ export default function ArenaLayout({ children }: { children: React.ReactNode })
               Tech note
             </Link>
           </nav>
-
-          <button
-            onClick={toggle}
-            className="p-1.5 rounded transition-colors duration-150 shrink-0"
-            style={{ color: "var(--arena-muted)" }}
-            title="Toggle theme"
-          >
-            {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
-          </button>
         </div>
       </header>
 

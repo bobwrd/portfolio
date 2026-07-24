@@ -29,23 +29,23 @@ export default function SectionSwitcher({ current }: { current?: string }) {
   }, []);
 
   return (
-    <div ref={ref} className="fixed right-3 top-3 z-50 font-sans text-sm">
+    <div ref={ref} className="fixed right-3 top-3 z-[100] font-sans text-sm">
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        className="rounded-full border border-neutral-300 bg-white/90 px-3 py-1.5 text-xs font-medium text-neutral-700 shadow-sm backdrop-blur transition-colors hover:border-neutral-400 dark:border-neutral-700 dark:bg-neutral-900/90 dark:text-neutral-200"
+        className="rounded-full border border-neutral-300 bg-white/90 px-3 py-1.5 text-xs font-medium text-neutral-700 shadow-sm backdrop-blur transition-colors hover:border-neutral-400"
         aria-expanded={open}
       >
         {current ?? "Sections"} ▾
       </button>
       {open && (
-        <div className="mt-1 min-w-[10rem] overflow-hidden rounded-lg border border-neutral-200 bg-white shadow-lg dark:border-neutral-700 dark:bg-neutral-900">
+        <div className="mt-1 min-w-[10rem] overflow-hidden rounded-lg border border-neutral-200 bg-white shadow-lg">
           {SECTIONS.map((s) => (
             <Link
               key={s.to}
               to={s.to}
               onClick={() => setOpen(false)}
-              className="block px-3 py-2 text-neutral-700 hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-800"
+              className="block px-3 py-2 text-neutral-700 hover:bg-neutral-100"
             >
               {s.label}
             </Link>

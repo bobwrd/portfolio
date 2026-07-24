@@ -1,6 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
 import { siteConfig } from "@/config/site";
-import ThemeToggle from "@/components/ThemeToggle";
 
 export default function Nav() {
   const { pathname } = useLocation();
@@ -35,7 +34,6 @@ export default function Nav() {
             );
           })}
         </nav>
-        <ThemeToggle />
       </div>
     </header>
   );

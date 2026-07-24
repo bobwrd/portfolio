@@ -8,6 +8,7 @@
 
 import { useState } from "react";
 import { Outlet } from "react-router-dom";
+import SectionSwitcher from "@/components/SectionSwitcher";
 import { LoginModal } from "./LoginModal.js";
 import { ManageGroupsModal } from "./ManageGroupsModal.js";
 import { Sidebar } from "./Sidebar.js";
@@ -23,6 +24,7 @@ export function Layout({ state }: { state: SharedBookState }) {
 
   return (
     <div className="app">
+      <SectionSwitcher current="OneBook" />
       <Sidebar
         auth={state.auth}
         positions={state.positions}

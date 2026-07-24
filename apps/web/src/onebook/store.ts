@@ -47,7 +47,6 @@ import { demoHistory } from "./demoHistory.js";
 
 const POSITIONS_KEY = "onebook.positions.v1";
 const SPOT_KEY = "onebook.spot.v1";
-const THEME_KEY = "onebook.theme.v1";
 const SEEDED_KEY = "onebook.seeded.v1";
 const GROUPS_KEY = "onebook.groups.v1";
 const TRANSACTIONS_KEY = "onebook.transactions.v1";
@@ -479,30 +478,12 @@ export function useSpotPrices(
 // ------------------------------------------------------------------- theme
 
 /**
- * Theme, persisted and applied to the document root. The initial value is
- * also set inline in index.html so the page never flashes the wrong theme.
+ * Light mode only — no theme toggle. Kept as a hook (rather than a bare
+ * constant) so `SharedBookState`'s shape didn't need to change everywhere
+ * that reads it.
  */
 export function useTheme() {
-  const [theme, setTheme] = useState<"dark" | "light">(() => {
-    const stored = localStorage.getItem(THEME_KEY);
-    return stored === "light" || stored === '"light"' ? "light" : "dark";
-  });
-
-  useEffect(() => {
-    document.documentElement.setAttribute("data-theme", theme);
-    try {
-      localStorage.setItem(THEME_KEY, theme);
-    } catch {
-      // Storage unavailable; the theme still applies for this session.
-    }
-  }, [theme]);
-
-  const toggleTheme = useCallback(
-    () => setTheme((t) => (t === "dark" ? "light" : "dark")),
-    [],
-  );
-
-  return { theme, toggleTheme };
+  return { theme: "light" as const, toggleTheme: () => {} };
 }
 
 // ----------------------------------------------------------------- history

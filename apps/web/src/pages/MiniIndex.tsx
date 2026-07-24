@@ -48,12 +48,12 @@ const PROJECTS = [
 
 export default function MiniIndex() {
   return (
-    <div className="min-h-screen bg-white text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100">
+    <div className="min-h-screen bg-white text-neutral-900">
       <SectionSwitcher current="Mini Projects" />
       <main className="mx-auto max-w-3xl px-6 py-16">
         <header className="mb-12">
           <h1 className="text-3xl font-bold tracking-tight">Mini Projects</h1>
-          <p className="mt-2 text-neutral-600 dark:text-neutral-400">
+          <p className="mt-2 text-neutral-600">
             Six standalone interactive tools — hand-built databases and
             closed-form models grown out of the same institutional-gap
             question that runs through{" "}
@@ -72,7 +72,7 @@ export default function MiniIndex() {
               className={`block rounded-lg border px-5 py-4 transition-colors ${p.accent}`}
             >
               <p className="font-semibold">{p.title}</p>
-              <p className="mt-1 text-sm text-neutral-600 dark:text-neutral-400">{p.summary}</p>
+              <p className="mt-1 text-sm text-neutral-600">{p.summary}</p>
             </Link>
           ))}
         </div>

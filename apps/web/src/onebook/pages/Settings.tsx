@@ -38,8 +38,6 @@ export function Settings() {
     positions,
     spot,
     addMany,
-    theme,
-    toggleTheme,
     signOut,
   } = useShared();
   const navigate = useNavigate();
@@ -130,17 +128,6 @@ export function Settings() {
 
       <div className="section">
         <h3 className="section-title">Appearance</h3>
-
-        <div className="field">
-          <label htmlFor="theme-toggle">Theme</label>
-          <button
-            id="theme-toggle"
-            onClick={toggleTheme}
-            aria-label="Toggle theme"
-          >
-            {theme === "dark" ? "◐ Dark" : "◑ Light"}
-          </button>
-        </div>
 
         <div className="field">
           <label htmlFor="currency">Display currency</label>

@@ -1,6 +1,5 @@
 import { lazy, Suspense } from "react";
 import { BrowserRouter, Route, Routes, Outlet, Navigate } from "react-router-dom";
-import { ThemeProvider } from "@/components/theme-provider";
 import Landing from "./pages/Landing";
 
 const WritingHome = lazy(() => import("./pages/WritingHome"));
@@ -148,8 +147,7 @@ function RouteFallback() {
 
 export default function App() {
   return (
-    <ThemeProvider>
-      <BrowserRouter>
+    <BrowserRouter>
         <Suspense fallback={<RouteFallback />}>
           <Routes>
             <Route path="/" element={<Landing />} />
@@ -219,6 +217,5 @@ export default function App() {
           </Routes>
         </Suspense>
       </BrowserRouter>
-    </ThemeProvider>
   );
 }
