@@ -20,6 +20,8 @@ const OnebookApp = lazy(() =>
   import("./onebook/App").then((m) => ({ default: m.OnebookApp })),
 );
 
+const Ask = lazy(() => import("./pages/Ask"));
+
 const VerdictShell = lazy(() =>
   import("./pages/verdict/VerdictLayout").then((m) => {
     const { default: VerdictLayout, VerdictThemeProvider } = m;
@@ -212,6 +214,8 @@ export default function App() {
                 </div>
               }
             />
+
+            <Route path="/ask" element={<Ask />} />
           </Routes>
         </Suspense>
       </BrowserRouter>
