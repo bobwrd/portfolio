@@ -23,6 +23,9 @@ const OnebookApp = lazy(() =>
 
 const Ask = lazy(() => import("./pages/Ask"));
 
+const TradewindsGame = lazy(() => import("./tradewinds/pages/TradewindsGame"));
+const TradewindsAdmin = lazy(() => import("./tradewinds/pages/TradewindsAdmin"));
+
 const VerdictShell = lazy(() =>
   import("./pages/verdict/VerdictLayout").then((m) => {
     const { default: VerdictLayout, VerdictThemeProvider } = m;
@@ -217,6 +220,9 @@ export default function App() {
             />
 
             <Route path="/ask" element={<Ask />} />
+
+            <Route path="/tradewinds" element={<TradewindsGame />} />
+            <Route path="/tradewinds/admin" element={<TradewindsAdmin />} />
           </Routes>
         </Suspense>
       </BrowserRouter>

@@ -557,4 +557,32 @@ body {
       animation-iteration-count: 1 !important;
     }
   }
+
+  /* Tradewinds — parchment and ink, restrained and cartographic. Single
+     light theme (no dark variant): a daily puzzle page, not a dashboard. */
+  .tradewinds-section {
+    --tw-bg: #f7f1e1;
+    --tw-surface: #fffdf7;
+    --tw-surface-2: #efe4cb;
+    --tw-border: rgba(90, 74, 46, 0.2);
+    --tw-border-hover: rgba(90, 74, 46, 0.42);
+    --tw-accent: #1d3557;
+    --tw-accent-dim: rgba(29, 53, 87, 0.08);
+    --tw-text: #2b2117;
+    --tw-muted: #6b5b45;
+    --tw-green: #2f6f4e;
+    --tw-yellow: #9a6a08;
+    --tw-grey: #8a8272;
+    --tw-ocean: #d3e3ea;
+    --tw-land: #e8ddc8;
+    --tw-land-border: #b9ab8c;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .tradewinds-section * {
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+    }
+  }
 }

@@ -1,0 +1,121 @@
+[
+  {
+    "runDate": "2026-07-28",
+    "shipName": "Nuestra Señora de la Concepción",
+    "currencyName": "Spanish silver pesos (pieces of eight)",
+    "manifest": [
+      { "good": "Chinese raw silk", "quantity": "120 bales", "price": "40 pesos per bale", "revealAt": null },
+      { "good": "Chinese porcelain", "quantity": "85 crates", "price": "12 pesos per crate", "revealAt": null },
+      { "good": "Beeswax blocks", "quantity": "300 blocks", "price": "3 pesos per block", "revealAt": 3 },
+      { "good": "Ballast note", "note": "Coins stamped with a Mexico City mint mark found among the ballast.", "revealAt": 5 },
+      { "good": "Cinnamon bark", "quantity": "40 sacks", "price": "9 pesos per sack", "revealAt": 7 }
+    ],
+    "originPortId": "manila",
+    "destinationPortId": "acapulco",
+    "decade": 1630,
+    "economicRole": "Entrepôt / middleman",
+    "reveal": "This was the Nuestra Señora de la Concepción, a Manila galleon that left the Philippines in 1638 loaded with Chinese silk and porcelain funneled through Manila's entrepôt, bound for Acapulco in exchange for New World silver. She wrecked on a reef near Saipan in the Mariana Islands, and her scattered cargo — later salvaged piecemeal over three centuries — became one of the best-documented wrecks of the galleon trade, showing just how much Chinese luxury goods were worth in Spanish silver on the far side of the Pacific."
+  },
+  {
+    "runDate": "2026-07-29",
+    "shipName": "Isis",
+    "currencyName": "Roman sestertii",
+    "manifest": [
+      { "good": "Egyptian wheat", "quantity": "roughly 50,000 modii", "note": "Requisitioned as annona (grain tax) — no price recorded.", "revealAt": null },
+      { "good": "Egyptian glassware", "quantity": "200 crates", "price": "15 sestertii per crate", "revealAt": null },
+      { "good": "Papyrus scrolls", "quantity": "500 rolls", "price": "4 sestertii per roll", "revealAt": 3 },
+      { "good": "Registry note", "note": "Ship's registry lists Alexandria as home port, under a dedicated grain-fleet insignia.", "revealAt": 5 },
+      { "good": "Egyptian linen cloth", "quantity": "150 bolts", "price": "20 sestertii per bolt", "revealAt": 7 }
+    ],
+    "originPortId": "alexandria",
+    "destinationPortId": "ostia",
+    "decade": 150,
+    "economicRole": "End consumer market",
+    "reveal": "This was the Isis, an Alexandrian grain ship famously described by the satirist Lucian after storms blew her off course to Piraeus around 150 CE — by his account she was over 180 feet long, one of the largest ships of the ancient world. Ships like her carried Egypt's wheat harvest to Rome under the state grain dole, the annona, feeding a city of roughly a million people who grew none of their own bread grain. Rome was the empire's ultimate consumer market for grain — losing even one fleet to weather could mean real hunger in the capital."
+  },
+  {
+    "runDate": "2026-07-30",
+    "shipName": "a Hanseatic cog (of the Bremen Cog's build, dated 1380)",
+    "currencyName": "Lübeck marks",
+    "manifest": [
+      { "good": "Sable and marten furs", "quantity": "60 bundles", "price": "5 marks per bundle", "revealAt": null },
+      { "good": "Beeswax", "quantity": "40 barrels", "price": "3 marks per barrel", "revealAt": null },
+      { "good": "Raw amber", "quantity": "500 pieces", "price": "0.5 marks per piece", "revealAt": 3 },
+      { "good": "Manifest note", "note": "Cargo tallied in Low German for the Peterhof trading post.", "revealAt": 5 },
+      { "good": "Walrus ivory (\"fish teeth\")", "quantity": "20 tusks", "price": "8 marks per tusk", "revealAt": 7 }
+    ],
+    "originPortId": "novgorod",
+    "destinationPortId": "lubeck",
+    "decade": 1380,
+    "economicRole": "Colonial extractor",
+    "reveal": "This voyage reflects the Novgorod-Lübeck run of the Hanseatic League, plausibly aboard a cog like the one recovered from the Weser river in 1962 and tree-ring dated to 1380. German merchants operated a walled, self-governing trading post in Novgorod called the Peterhof, extracting furs, wax, and amber from the Russian interior under exclusive privileges the League defended fiercely — a resource-extraction relationship, not an open market, that made Lübeck rich as the League's central clearing house."
+  },
+  {
+    "runDate": "2026-07-31",
+    "shipName": "a trans-Saharan caravan (the route Ibn Battuta crossed in 1352–53)",
+    "currencyName": "gold mithqals",
+    "manifest": [
+      { "good": "Ivory tusks", "quantity": "45 tusks", "price": "2 mithqals per tusk", "revealAt": null },
+      { "good": "Kola nuts", "quantity": "80 sacks", "price": "0.2 mithqals per sack", "revealAt": null },
+      { "good": "Gold dust", "quantity": "300 mithqals total weight", "note": "The caravan's own currency of account — not itself priced.", "revealAt": 3 },
+      { "good": "Toll note", "note": "Guides required payment in Taghaza rock-salt slabs for safe passage across the salt-mine oasis.", "revealAt": 5 },
+      { "good": "Ostrich feathers", "quantity": "30 bundles", "price": "1 mithqal per bundle", "revealAt": 7 }
+    ],
+    "originPortId": "timbuktu",
+    "destinationPortId": "sijilmasa",
+    "decade": 1350,
+    "economicRole": "Source producer",
+    "reveal": "This caravan traces the route the traveler Ibn Battuta himself described crossing in 1352–53, from the salt town of Taghaza through Timbuktu's trading networks north to Sijilmasa at the edge of Morocco. West Africa's Bambuk and Bure goldfields made the region the medieval world's dominant source of gold — so dominant that Mansa Musa's 1324 pilgrimage through Cairo reportedly depressed the price of gold there for years. Salt, scarce south of the Sahara and mined at Taghaza, moved the other direction, giving the route its famous description as an exchange of salt for gold, ounce for ounce."
+  },
+  {
+    "runDate": "2026-08-01",
+    "shipName": "Geldermalsen",
+    "currencyName": "Spanish silver dollars",
+    "manifest": [
+      { "good": "Tea", "quantity": "roughly 150,000 catties", "price": "0.4 silver dollars per catty", "revealAt": null },
+      { "good": "Chinese export porcelain", "quantity": "225,000 pieces", "price": "0.1 silver dollars per piece", "revealAt": null },
+      { "good": "Gold ingots", "quantity": "125 ingots", "note": "Carried as bullion, not sold cargo.", "revealAt": 3 },
+      { "good": "Chandlery note", "note": "Ship's log references the VOC Canton factory, not Batavia.", "revealAt": 5 },
+      { "good": "Raw silk piece-goods", "quantity": "30 bales", "price": "35 silver dollars per bale", "revealAt": 7 }
+    ],
+    "originPortId": "guangzhou",
+    "destinationPortId": "amsterdam",
+    "decade": 1750,
+    "economicRole": "Re-export hub",
+    "reveal": "This was the Geldermalsen, a Dutch East India Company ship that left Canton in 1751 and sank in the South China Sea in 1752 with an enormous cargo of tea, gold, and export porcelain — rediscovered in 1985 and auctioned as the famous 'Nanking Cargo.' The VOC funneled Chinese tea and porcelain through its Canton factory to Amsterdam, where the Company's auctions re-exported the goods across Europe; Amsterdam itself barely drank the tea it imported; it re-sold it, which is exactly what made the Company's Asia trade profitable."
+  },
+  {
+    "runDate": "2026-08-02",
+    "shipName": "a Sogdian merchant caravan",
+    "currencyName": "bolts of silk",
+    "manifest": [
+      { "good": "Nephrite jade blocks", "quantity": "40 blocks", "price": "6 bolts of silk per block", "revealAt": null },
+      { "good": "Musk pods", "quantity": "100 pods", "price": "0.5 bolts of silk per pod", "revealAt": null },
+      { "good": "Central Asian glass beads", "quantity": "2,000 beads", "price": "0.05 bolts of silk per bead", "revealAt": 3 },
+      { "good": "Register note", "note": "Caravan register partly in Sogdian script, tallied against the Tang military silk-cloth ledger.", "revealAt": 5 },
+      { "good": "Felted wool carpets", "quantity": "25 carpets", "price": "3 bolts of silk per carpet", "revealAt": 7 }
+    ],
+    "originPortId": "khotan",
+    "destinationPortId": "changan",
+    "decade": 700,
+    "economicRole": "Source producer",
+    "reveal": "Khotan, on the southern rim of the Taklamakan desert, was the ancient world's dominant source of nephrite jade, prized in China for millennia before anyone reached it by sea. Sogdian merchants — the Silk Road's dominant traders — carried it east to the Tang capital Chang'an, then the largest city on Earth. Bolts of plain silk, not coin, functioned as the era's standard currency along the route, and were even used to pay Tang garrison troops in Central Asia, which is why this manifest prices everything in silk rather than money."
+  },
+  {
+    "runDate": "2026-08-03",
+    "shipName": "Nossa Senhora da Conceição (Bahia sugar fleet)",
+    "currencyName": "Portuguese milréis",
+    "manifest": [
+      { "good": "Sugar", "quantity": "1,200 arrobas", "price": "1.2 milréis per arroba", "revealAt": null },
+      { "good": "Tobacco rolls", "quantity": "300 rolls", "price": "0.8 milréis per roll", "revealAt": null },
+      { "good": "Brazilwood logs", "quantity": "150 logs", "price": "0.5 milréis per log", "revealAt": 3 },
+      { "good": "Convoy note", "note": "Sailing under armed convoy as part of the frota do açúcar, escorted against Dutch privateers.", "revealAt": 5 },
+      { "good": "Raw cotton bales", "quantity": "60 bales", "price": "1.5 milréis per bale", "revealAt": 7 }
+    ],
+    "originPortId": "salvador",
+    "destinationPortId": "lisbon",
+    "decade": 1650,
+    "economicRole": "Colonial extractor",
+    "reveal": "This voyage reflects the frota do açúcar, the escorted fleet system Portugal used to move Bahia's sugar to Lisbon while the Dutch West India Company still contested Brazil's northeast coast — the Dutch were only fully expelled from Brazil in 1654. Sugar grown on slave-worked engenhos around Salvador was the colony's central export, and the armed convoy system existed precisely because that extracted wealth was worth fighting over."
+  }
+]

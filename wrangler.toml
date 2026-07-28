@@ -44,6 +44,7 @@ DEV_LOG_MAGIC_LINKS = "1"
 
 # Secrets — never committed. Set each with `npx wrangler secret put <NAME>`:
 #   VERDICT_PASSWORD        gates /api/verdict/submit
+#   TRADEWINDS_PASSWORD     gates /tradewinds/admin + /api/tradewinds/admin/*
 #   TOKEN_ENCRYPTION_KEY    openssl rand -base64 32
 #   STATE_SIGNING_SECRET    openssl rand -base64 32
 #   ALPACA_API_KEY_ID / ALPACA_API_SECRET_KEY   from alpaca.markets

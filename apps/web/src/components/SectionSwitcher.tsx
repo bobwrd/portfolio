@@ -8,6 +8,7 @@ const SECTIONS = [
   { to: "/mini", label: "Mini Projects" },
   { to: "/onebook", label: "OneBook" },
   { to: "/ask", label: "Ask" },
+  { to: "/tradewinds", label: "Tradewinds" },
 ];
 
 /**

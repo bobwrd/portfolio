@@ -4,6 +4,10 @@
 # Gates POST /api/verdict/submit
 VERDICT_PASSWORD=
 
+# Gates the Tradewinds puzzle editor (/tradewinds/admin and POST/GET
+# /api/tradewinds/admin/*)
+TRADEWINDS_PASSWORD=
+
 # OneBook auth/broker token encryption — openssl rand -base64 32
 TOKEN_ENCRYPTION_KEY=
 STATE_SIGNING_SECRET=
