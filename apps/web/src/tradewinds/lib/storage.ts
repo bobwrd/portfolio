@@ -23,7 +23,10 @@ export interface Stats {
   lastPlayedDate: string | null;
 }
 
-const PROGRESS_PREFIX = "tradewinds:progress:";
+// v2: guesses store an `eraId` instead of a raw `decade`, and route feedback
+// carries per-endpoint results. Bumping the prefix drops incompatible v1
+// progress rather than trying to migrate a half-played day.
+const PROGRESS_PREFIX = "tradewinds:progress:v2:";
 const STATS_KEY = "tradewinds:stats";
 
 function emptyStats(): Stats {

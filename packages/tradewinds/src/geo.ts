@@ -33,6 +33,28 @@ export function bearing(lat1: number, lon1: number, lat2: number, lon2: number):
   return (toDeg(theta) + 360) % 360;
 }
 
+const EARTH_RADIUS_KM = 6371;
+
+/** Great-circle (haversine) distance between two lat/lon points, in kilometres. */
+export function distanceKm(lat1: number, lon1: number, lat2: number, lon2: number): number {
+  const phi1 = toRad(lat1);
+  const phi2 = toRad(lat2);
+  const deltaPhi = toRad(lat2 - lat1);
+  const deltaLambda = toRad(lon2 - lon1);
+
+  const a =
+    Math.sin(deltaPhi / 2) ** 2 + Math.cos(phi1) * Math.cos(phi2) * Math.sin(deltaLambda / 2) ** 2;
+
+  return 2 * EARTH_RADIUS_KM * Math.asin(Math.min(1, Math.sqrt(a)));
+}
+
+/** Rounds to a readable precision — exact metres are noise at this scale. */
+export function formatDistanceKm(km: number): string {
+  if (km < 1) return "0 km";
+  if (km < 100) return `${Math.round(km)} km`;
+  return `${(Math.round(km / 10) * 10).toLocaleString("en-US")} km`;
+}
+
 const COMPASS_LABELS = [
   "N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE",
   "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW",

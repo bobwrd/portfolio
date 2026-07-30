@@ -1,11 +1,13 @@
 import { useEffect, useMemo, useState } from "react";
 import {
   MAX_GUESSES,
+  allHints,
   findPort,
   gradeEra,
   gradeRole,
   gradeRoute,
   isWin,
+  revealedHints,
   revealedManifestRows,
   type Feedback,
   type Guess,
@@ -16,12 +18,14 @@ import TradewindsShell from "../TradewindsShell";
 import Manifest from "../components/Manifest";
 import GuessBuilder from "../components/GuessBuilder";
 import GuessHistory from "../components/GuessHistory";
+import Hints from "../components/Hints";
 import WorldMap from "../components/WorldMap";
 import ResultView from "../components/ResultView";
 import HowToPlay from "../components/HowToPlay";
 import StatsPanel from "../components/StatsPanel";
 import { fetchPorts, fetchPuzzle } from "../lib/api";
 import { todayLocalDate } from "../lib/date";
+import { deriveLocks, NO_LOCKS } from "../lib/locks";
 import { loadProgress, recordResult, saveProgress, type DailyProgress, type StoredGuess } from "../lib/storage";
 
 type LoadState = "loading" | "ready" | "not-scheduled" | "error";
@@ -61,7 +65,7 @@ export default function TradewindsGame() {
 
     const feedback: Feedback = {
       route: gradeRoute(guess.originPortId, guess.destinationPortId, puzzle.originPortId, puzzle.destinationPortId, ports),
-      era: gradeEra(guess.decade, puzzle.decade),
+      era: gradeEra(guess.eraId, puzzle.decade),
       role: gradeRole(guess.economicRole, puzzle.economicRole),
     };
 
@@ -83,6 +87,14 @@ export default function TradewindsGame() {
   const destinationPort = puzzle ? findPort(ports, puzzle.destinationPortId) : undefined;
   const finished = progress?.status === "won" || progress?.status === "lost";
   const guessesUsed = progress?.history.length ?? 0;
+  const locks = useMemo(
+    () => (progress ? deriveLocks(progress.history) : NO_LOCKS),
+    [progress],
+  );
+  const hints = useMemo(
+    () => (puzzle ? allHints(puzzle, ports) : []),
+    [puzzle, ports],
+  );
 
   return (
     <TradewindsShell>
@@ -145,11 +157,23 @@ export default function TradewindsGame() {
               totalRows={puzzle.manifest.length}
             />
 
+            {!finished && (
+              <Hints
+                revealed={revealedHints(puzzle, ports, guessesUsed)}
+                all={hints}
+                guessesUsed={guessesUsed}
+              />
+            )}
+
             {finished ? (
               <ResultView puzzle={puzzle} history={progress.history} status={progress.status as "won" | "lost"} />
             ) : (
-              <GuessBuilder ports={ports} disabled={finished} onSubmit={handleGuess} />
+              <GuessBuilder ports={ports} disabled={finished} locks={locks} onSubmit={handleGuess} />
             )}
+          </div>
+
+          <div className="space-y-6">
+            <WorldMap origin={originPort} destination={destinationPort} revealed={finished} />
 
             <div>
               <h2 className="text-sm font-semibold tracking-wide uppercase mb-2" style={{ color: "var(--tw-muted)" }}>
@@ -157,10 +181,6 @@ export default function TradewindsGame() {
               </h2>
               <GuessHistory history={progress.history} ports={ports} />
             </div>
-          </div>
-
-          <div className="lg:sticky lg:top-20">
-            <WorldMap origin={originPort} destination={destinationPort} revealed={finished} />
           </div>
         </div>
       )}

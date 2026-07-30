@@ -14,7 +14,8 @@ export default function HowToPlay({ onClose }: { onClose: () => void }) {
             <strong>🧭 Route</strong> — the origin and destination.
           </li>
           <li>
-            <strong>📅 Era</strong> — the decade the voyage took place.
+            <strong>📅 Era</strong> — which of ten named historical eras the
+            voyage took place in.
           </li>
           <li>
             <strong>💰 Economic role</strong> — what the voyage's leg was doing
@@ -41,16 +42,19 @@ export default function HowToPlay({ onClose }: { onClose: () => void }) {
             selling at cost.
           </p>
         </div>
-        <p>Each guess gives feedback on all three axes at once:</p>
+        <p>Each guess gives feedback on every part of the answer at once:</p>
         <ul className="list-disc pl-5 space-y-1">
           <li>
-            <strong>Route</strong> — green if both endpoints are right, yellow if
-            one endpoint (or the right ocean/region) is right, grey otherwise. A
-            compass direction always points toward the true corridor.
+            <strong>Origin</strong> and <strong>destination</strong> are graded
+            separately — green on an exact port, yellow for the right
+            ocean/region. Either way you get the distance and compass direction
+            from your port to the true one, so you can triangulate. If you name
+            the right pair the wrong way round, we'll tell you.
           </li>
           <li>
-            <strong>Era</strong> — green if exact, yellow within two decades. A
-            ▲ or ▼ shows whether the truth is later or earlier.
+            <strong>Era</strong> — green if exact, yellow if you're one era off.
+            Otherwise it says how many eras away the truth is, and a ▲ or ▼ for
+            later or earlier.
           </li>
           <li>
             <strong>Role</strong> — green if correct. Otherwise a nudge
@@ -59,9 +63,15 @@ export default function HowToPlay({ onClose }: { onClose: () => void }) {
           </li>
         </ul>
         <p>
-          Win by getting all three green in the same guess. The manifest reveals
-          a little more after guesses 3, 5, and 7, so no game ever dead-ends
-          before guess 10.
+          <strong>Anything you get right stays locked in.</strong> Nail the
+          destination on guess 2 and it's pre-filled and frozen for the rest of
+          the game — you only have to work on what's still open.
+        </p>
+        <p>
+          Win by getting all of it green in the same guess. The manifest reveals
+          a little more after guesses 3, 5, and 7, and outright hints unlock
+          after guesses 4 (origin region), 6 (era), and 8 (economic role) — so
+          no game ever dead-ends before guess 10.
         </p>
       </div>
     </Overlay>

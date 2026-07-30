@@ -2,12 +2,23 @@ import { describe, expect, it } from "vitest";
 import { buildShareText } from "../../src/tradewinds/lib/shareGrid";
 import type { StoredGuess } from "../../src/tradewinds/lib/storage";
 
+function port(level: "green" | "yellow" | "grey") {
+  return level === "green"
+    ? ({ level, bearing: 0, distanceKm: 0, band: "exact" } as const)
+    : ({ level, bearing: 90, distanceKm: 2000, band: "distant" } as const);
+}
+
 function guess(route: "green" | "yellow" | "grey", era: "green" | "yellow" | "grey", role: "green" | "grey"): StoredGuess {
   return {
-    guess: { originPortId: "a", destinationPortId: "b", decade: 1500, economicRole: "Source producer" },
+    guess: {
+      originPortId: "a",
+      destinationPortId: "b",
+      eraId: "age-of-discovery",
+      economicRole: "Source producer",
+    },
     feedback: {
-      route: { level: route, arrowBearing: 0 },
-      era: { level: era, direction: era === "green" ? null : "later" },
+      route: { level: route, origin: port(route), destination: port(route), swapped: false },
+      era: { level: era, direction: era === "green" ? null : "later", distance: era === "green" ? 0 : 1 },
       role: { level: role, nudge: role === "green" ? null : "overvalued" },
     },
   };

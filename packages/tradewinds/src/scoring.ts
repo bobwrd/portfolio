@@ -1,16 +1,61 @@
-import { bearing, midpoint } from "./geo.js";
+import { eraForDecade, eraIndex } from "./eras.js";
+import { bearing, distanceKm } from "./geo.js";
 import { findPort } from "./ports.js";
 import { roleMarginIndex } from "./roles.js";
-import type {
-  EconomicRole,
-  EraFeedback,
-  Feedback,
-  ManifestRow,
-  Port,
-  RevealAt,
-  RoleFeedback,
-  RouteFeedback,
+import {
+  HINT_GUESSES,
+  type DistanceBand,
+  type EconomicRole,
+  type EraFeedback,
+  type Feedback,
+  type ManifestRow,
+  type Port,
+  type PortFeedback,
+  type Puzzle,
+  type RevealAt,
+  type RoleFeedback,
+  type RouteFeedback,
 } from "./types.js";
+
+/** Upper bound (km, exclusive) for each band below "far". */
+const DISTANCE_BANDS: [DistanceBand, number][] = [
+  ["very-close", 500],
+  ["close", 1500],
+  ["distant", 4000],
+];
+
+export function distanceBand(km: number): DistanceBand {
+  if (km === 0) return "exact";
+  for (const [band, limit] of DISTANCE_BANDS) {
+    if (km < limit) return band;
+  }
+  return "far";
+}
+
+/**
+ * Grades one endpoint: green on an exact port match, yellow when the guess is
+ * in the true port's region, grey otherwise. Bearing and distance are always
+ * populated so a grey guess still triangulates.
+ */
+export function gradePort(guessId: string, trueId: string, ports: Port[]): PortFeedback {
+  const guess = findPort(ports, guessId);
+  const truth = findPort(ports, trueId);
+
+  if (!guess || !truth) {
+    return { level: "grey", bearing: 0, distanceKm: 0, band: "far" };
+  }
+
+  const km = distanceKm(guess.lat, guess.lon, truth.lat, truth.lon);
+  const level: PortFeedback["level"] =
+    guessId === trueId ? "green" : guess.region === truth.region ? "yellow" : "grey";
+
+  return {
+    level,
+    bearing: bearing(guess.lat, guess.lon, truth.lat, truth.lon),
+    distanceKm: km,
+    band: guessId === trueId ? "exact" : distanceBand(km),
+  };
+}
 
 export function gradeRoute(
   guessOriginId: string,
@@ -19,60 +64,40 @@ export function gradeRoute(
   trueDestId: string,
   ports: Port[],
 ): RouteFeedback {
-  const originMatch = guessOriginId === trueOriginId;
-  const destMatch = guessDestId === trueDestId;
+  const origin = gradePort(guessOriginId, trueOriginId, ports);
+  const destination = gradePort(guessDestId, trueDestId, ports);
   const swapped = guessOriginId === trueDestId && guessDestId === trueOriginId;
 
   let level: RouteFeedback["level"];
-  if (originMatch && destMatch) {
+  if (origin.level === "green" && destination.level === "green") {
     level = "green";
-  } else if (originMatch || destMatch || swapped) {
+  } else if (swapped || origin.level !== "grey" || destination.level !== "grey") {
     level = "yellow";
   } else {
-    const guessOrigin = findPort(ports, guessOriginId);
-    const guessDest = findPort(ports, guessDestId);
-    const trueOrigin = findPort(ports, trueOriginId);
-    const trueDest = findPort(ports, trueDestId);
-    const regionMatch =
-      (!!guessOrigin && !!trueOrigin && guessOrigin.region === trueOrigin.region) ||
-      (!!guessDest && !!trueDest && guessDest.region === trueDest.region);
-    level = regionMatch ? "yellow" : "grey";
+    level = "grey";
   }
 
-  const arrowBearing = computeRouteArrow(guessOriginId, guessDestId, trueOriginId, trueDestId, ports);
-
-  return { level, arrowBearing };
+  return { level, origin, destination, swapped };
 }
 
-function computeRouteArrow(
-  guessOriginId: string,
-  guessDestId: string,
-  trueOriginId: string,
-  trueDestId: string,
-  ports: Port[],
-): number {
-  const guessOrigin = findPort(ports, guessOriginId);
-  const guessDest = findPort(ports, guessDestId);
-  const trueOrigin = findPort(ports, trueOriginId);
-  const trueDest = findPort(ports, trueDestId);
-  if (!guessOrigin || !guessDest || !trueOrigin || !trueDest) return 0;
+/** Sentinel for a guess naming an era that no longer exists (e.g. stale saved progress). */
+const ERA_DISTANCE_UNKNOWN = -1;
 
-  const [gLat, gLon] = midpoint(guessOrigin.lat, guessOrigin.lon, guessDest.lat, guessDest.lon);
-  const [tLat, tLon] = midpoint(trueOrigin.lat, trueOrigin.lon, trueDest.lat, trueDest.lon);
+/** Compares the guessed era against the era containing the puzzle's true decade. */
+export function gradeEra(guessEraId: string, trueDecade: number): EraFeedback {
+  const trueEra = eraForDecade(trueDecade);
+  const guessIndex = eraIndex(guessEraId);
+  const trueIdx = eraIndex(trueEra.id);
 
-  return bearing(gLat, gLon, tLat, tLon);
-}
+  if (guessIndex === -1) {
+    return { level: "grey", direction: null, distance: ERA_DISTANCE_UNKNOWN };
+  }
 
-export function gradeEra(guessDecade: number, trueDecade: number): EraFeedback {
-  const diff = Math.abs(guessDecade - trueDecade);
-  let level: EraFeedback["level"];
-  if (diff === 0) level = "green";
-  else if (diff <= 20) level = "yellow";
-  else level = "grey";
+  const distance = Math.abs(guessIndex - trueIdx);
+  const level: EraFeedback["level"] = distance === 0 ? "green" : distance === 1 ? "yellow" : "grey";
+  const direction = distance === 0 ? null : trueIdx > guessIndex ? "later" : "earlier";
 
-  const direction = diff === 0 ? null : trueDecade > guessDecade ? "later" : "earlier";
-
-  return { level, direction };
+  return { level, direction, distance };
 }
 
 export function gradeRole(guessRole: EconomicRole, trueRole: EconomicRole): RoleFeedback {
@@ -99,4 +124,49 @@ export function revealedManifestRows(manifest: ManifestRow[], guessCount: number
 
 function isRevealed(revealAt: RevealAt, guessCount: number): boolean {
   return revealAt === null || revealAt <= guessCount;
+}
+
+// ---------------------------------------------------------------------------
+// Escalating hints
+// ---------------------------------------------------------------------------
+
+export interface Hint {
+  id: "region" | "era" | "role";
+  label: string;
+  text: string;
+  revealAt: number;
+}
+
+/**
+ * Hints are derived from the puzzle rather than authored, so existing puzzles
+ * gain them with no schema or content change.
+ */
+export function allHints(puzzle: Puzzle, ports: Port[]): Hint[] {
+  const origin = findPort(ports, puzzle.originPortId);
+  const era = eraForDecade(puzzle.decade);
+
+  return [
+    {
+      id: "region",
+      label: "Origin region",
+      text: origin ? `The voyage sets out from the ${origin.region}.` : "Origin region unavailable.",
+      revealAt: HINT_GUESSES.region,
+    },
+    {
+      id: "era",
+      label: "Era",
+      text: `The voyage belongs to the ${era.label} (${era.range}).`,
+      revealAt: HINT_GUESSES.era,
+    },
+    {
+      id: "role",
+      label: "Economic role",
+      text: `This leg reads as: ${puzzle.economicRole}.`,
+      revealAt: HINT_GUESSES.role,
+    },
+  ];
+}
+
+export function revealedHints(puzzle: Puzzle, ports: Port[], guessCount: number): Hint[] {
+  return allHints(puzzle, ports).filter((h) => guessCount >= h.revealAt);
 }

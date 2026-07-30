@@ -4,6 +4,7 @@ import {
   ECONOMIC_ROLES,
   MAX_DECADE,
   MIN_DECADE,
+  eraForDecade,
   findPort,
   formatDecade,
   type EconomicRole,
@@ -368,6 +369,12 @@ export default function TradewindsAdmin() {
                 onChange={(e) => setForm((f) => ({ ...f, decade: Number(e.target.value) }))}
                 className="w-full"
               />
+              {/* Players guess the era, not the decade — show which bucket this lands in. */}
+              <p className="text-xs mt-1" style={{ color: "var(--tw-muted)" }}>
+                Players will guess:{" "}
+                <strong style={{ color: "var(--tw-text)" }}>{eraForDecade(form.decade).label}</strong>{" "}
+                ({eraForDecade(form.decade).range})
+              </p>
             </div>
             <div>
               <label className="block text-xs font-medium mb-1" style={{ color: "var(--tw-muted)" }}>
