@@ -30,7 +30,7 @@ function DocketTooltip({
 }) {
   const { theme } = useDocketTheme();
   if (!active || !payload?.length) return null;
-  const bg = theme === "dark" ? "#121e12" : "#ffffff";
+  const bg = "#ffffff";
   return (
     <div
       className="rounded-lg border px-3 py-2 text-xs font-mono shadow-lg"

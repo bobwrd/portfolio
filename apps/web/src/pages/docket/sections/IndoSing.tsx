@@ -60,7 +60,7 @@ export default function IndoSing() {
               <YAxis type="category" dataKey="name" tick={{ ...ct.tick, fontSize: 9.5 }} width={138} />
               <Tooltip
                 contentStyle={{
-                  backgroundColor: theme === "dark" ? "#121e12" : "#fff",
+                  backgroundColor: "#fff",
                   border: "1px solid var(--docket-border)",
                   borderRadius: 6,
                   fontSize: 11,

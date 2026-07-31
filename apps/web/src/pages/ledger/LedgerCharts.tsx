@@ -2,7 +2,6 @@ import { useState, useEffect, useMemo } from "react";
 import {
   BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell, CartesianGrid,
 } from "recharts";
-import { useLedgerTheme } from "./LedgerLayout";
 import { fetchActions, severityColor, type LedgerAction } from "./types";
 
 const VIOLATION_COLORS: Record<string, string> = {
@@ -26,7 +25,6 @@ function ChartCard({ title, children }: { title: string; children: React.ReactNo
 
 export default function LedgerCharts() {
   const [actions, setActions] = useState<LedgerAction[]>([]);
-  const { theme } = useLedgerTheme();
 
   useEffect(() => { fetchActions().then(setActions); }, []);
 
@@ -52,7 +50,7 @@ export default function LedgerCharts() {
   }, [actions]);
 
   const tooltipStyle = {
-    backgroundColor: theme === "dark" ? "#211c16" : "#fff",
+    backgroundColor: "#fff",
     border: "1px solid var(--ledger-border)",
     borderRadius: 6,
     fontFamily: "monospace",

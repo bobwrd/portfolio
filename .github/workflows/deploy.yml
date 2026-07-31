@@ -27,6 +27,12 @@ jobs:
 
       - run: npm ci
 
+      # Gate the deploy on types and tests — this workflow publishes straight
+      # to production on every push to main.
+      - run: npm run typecheck
+
+      - run: npm test
+
       - run: npm run build
 
       - name: Deploy with Wrangler

@@ -69,7 +69,7 @@ function CompactTimeline({ cases }: { cases: VerdictCase[] }) {
       <div
         className="rounded border p-3 text-xs font-mono"
         style={{
-          backgroundColor: theme === "dark" ? "#131929" : "#fff",
+          backgroundColor: "#fff",
           borderColor: "var(--verdict-border)",
           color: "var(--verdict-text)",
         }}
@@ -231,7 +231,7 @@ export default function VerdictIndex() {
   const selectStyle = {
     borderColor: "var(--verdict-border)",
     color: "var(--verdict-muted)",
-    backgroundColor: theme === "dark" ? "var(--verdict-surface)" : "var(--verdict-surface)",
+    backgroundColor: "var(--verdict-surface)",
   };
 
   return (

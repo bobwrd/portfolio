@@ -83,7 +83,7 @@ function OutChart({
             <YAxis tick={ct.tick} axisLine={false} tickLine={false} width={36} tickFormatter={(v) => `${v}${unit}`} />
             <Tooltip
               contentStyle={ct.tooltip}
-              formatter={(v: number, n: string) => [`${Number(v).toFixed(1)}${unit}`, n]}
+              formatter={(v, n) => [`${Number(v).toFixed(1)}${unit}`, n]}
               labelFormatter={(l) => `Year ${l}`}
             />
             {target != null && (

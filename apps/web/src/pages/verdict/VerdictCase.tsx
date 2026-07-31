@@ -54,14 +54,14 @@ function FactorRadarChart({ scores }: { scores: { LI: number; SE: number; ER: nu
           />
           <Tooltip
             contentStyle={{
-              backgroundColor: theme === "dark" ? "#131929" : "#fff",
+              backgroundColor: "#fff",
               border: "1px solid var(--verdict-border)",
               borderRadius: "6px",
               fontSize: "12px",
               fontFamily: "monospace",
               color: "var(--verdict-text)",
             }}
-            formatter={(value: number) => [value.toFixed(0), "Score"]}
+            formatter={(value) => [Number(value).toFixed(0), "Score"]}
           />
         </RadarChart>
       </ResponsiveContainer>
@@ -94,7 +94,7 @@ function UncertaintyChart({
       <div
         className="rounded border px-3 py-2 text-xs font-mono"
         style={{
-          backgroundColor: theme === "dark" ? "#131929" : "#fff",
+          backgroundColor: "#fff",
           borderColor: "var(--verdict-border)",
           color: "var(--verdict-text)",
         }}

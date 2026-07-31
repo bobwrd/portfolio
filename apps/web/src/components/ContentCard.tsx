@@ -11,17 +11,19 @@ function readTime(wordCount: number): string {
   return `${mins} min read`;
 }
 
-// Category badge + style for the 3 content types.
+// Category badge + style for the 4 content types.
 const CATEGORY_LABEL: Record<ContentCategory, string> = {
   short: "Short-form",
   weekly: "Weekly Briefing",
   personal: "Personal Piece",
+  other: "Other",
 };
 
 const CATEGORY_STYLE: Record<ContentCategory, string> = {
   short: "bg-warm-accent-muted text-warm-accent",
   weekly: "bg-secondary text-muted-foreground",
   personal: "bg-secondary text-foreground",
+  other: "bg-secondary text-muted-foreground",
 };
 
 function CategoryBadge({ category }: { category: ContentCategory }) {

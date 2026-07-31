@@ -1,0 +1,15 @@
+{
+  "//": "Build-tooling files run in Node, not the browser — they need Node globals (__dirname, node: modules) that the app's own compilation deliberately excludes.",
+  "compilerOptions": {
+    "strict": true,
+    "esModuleInterop": true,
+    "moduleResolution": "bundler",
+    "module": "esnext",
+    "target": "esnext",
+    "lib": ["ESNext"],
+    "types": ["node"],
+    "skipLibCheck": true,
+    "noEmit": true
+  },
+  "include": ["vite.config.ts"]
+}

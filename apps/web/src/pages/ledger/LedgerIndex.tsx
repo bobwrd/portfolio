@@ -51,7 +51,7 @@ function PenaltyTimeline({ actions }: { actions: LedgerAction[] }) {
       <div
         className="rounded border p-3 text-xs font-mono max-w-[220px]"
         style={{
-          backgroundColor: theme === "dark" ? "#211c16" : "#fff",
+          backgroundColor: "#fff",
           borderColor: "var(--ledger-border)",
           color: "var(--ledger-text)",
         }}

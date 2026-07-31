@@ -5,13 +5,11 @@ import {
   BarChart, Bar, ErrorBar, ResponsiveContainer, LabelList,
   CartesianGrid, ReferenceLine,
 } from "recharts";
-import { useVerdictTheme } from "./VerdictLayout";
 import { fetchCases, TIER_COLORS, type VerdictCase } from "./types";
 
 export default function VerdictCharts() {
   const [cases, setCases] = useState<VerdictCase[]>([]);
   const [loading, setLoading] = useState(true);
-  const { theme } = useVerdictTheme();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -19,7 +17,7 @@ export default function VerdictCharts() {
   }, []);
 
   const tooltipStyle = {
-    backgroundColor: theme === "dark" ? "#131929" : "#fff",
+    backgroundColor: "#fff",
     border: "1px solid var(--verdict-border)",
     borderRadius: "6px",
     fontSize: "12px",
@@ -151,7 +149,12 @@ export default function VerdictCharts() {
                   data={scatterData}
                   isAnimationActive
                   animationDuration={600}
-                  onClick={(data) => navigate(`/verdict/${data.id}`)}
+                  onClick={(data) => {
+                    // Recharts spreads the datum onto the point but types it as
+                    // ScatterPointItem; `payload` is the documented way in.
+                    const id = (data.payload as (typeof scatterData)[number] | undefined)?.id;
+                    if (id != null) navigate(`/verdict/${id}`);
+                  }}
                   style={{ cursor: "pointer" }}
                 >
                   {scatterData.map((entry, idx) => (
@@ -210,7 +213,7 @@ export default function VerdictCharts() {
                   <LabelList
                     dataKey="EDI"
                     position="right"
-                    formatter={(v: number) => v.toFixed(1)}
+                    formatter={(v) => Number(v).toFixed(1)}
                     style={{ fill: "var(--verdict-muted)", fontSize: 10, fontFamily: "monospace" }}
                   />
                   {barData.map((entry, idx) => (

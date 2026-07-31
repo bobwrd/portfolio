@@ -55,7 +55,7 @@ function Step1({ data, country }: { data: ObservatoryData | null; country: strin
                 <CartesianGrid strokeDasharray="3 3" stroke={ct.grid} horizontal={false} />
                 <XAxis type="number" tick={ct.tick} axisLine={{ stroke: ct.grid }} tickLine={false} tickFormatter={(v) => `${v}%`} />
                 <YAxis type="category" dataKey="label" width={110} tick={ct.tick} axisLine={false} tickLine={false} />
-                <Tooltip contentStyle={ct.tooltip} cursor={{ fill: "var(--obs-accent-dim)" }} formatter={(v: number, _n, p: any) => [`+${v}% — ${p.payload.note}`, "gain"]} />
+                <Tooltip contentStyle={ct.tooltip} cursor={{ fill: "var(--obs-accent-dim)" }} formatter={(v, _n, p) => [`+${v}% — ${p.payload.note}`, "gain"]} />
                 <Bar dataKey="value" fill="var(--obs-c1)" radius={[0, 4, 4, 0]} />
               </BarChart>
             </ResponsiveContainer>
@@ -71,7 +71,7 @@ function Step1({ data, country }: { data: ObservatoryData | null; country: strin
                   <CartesianGrid strokeDasharray="3 3" stroke={ct.grid} vertical={false} />
                   <XAxis dataKey="label" tick={ct.tick} axisLine={{ stroke: ct.grid }} tickLine={false} />
                   <YAxis tick={ct.tick} axisLine={{ stroke: ct.grid }} tickLine={false} tickFormatter={(v) => `${v}%`} domain={[0, "auto"]} />
-                  <Tooltip contentStyle={ct.tooltip} cursor={{ fill: "var(--obs-accent-dim)" }} formatter={(v: number) => [`${v}%/yr`, "growth"]} />
+                  <Tooltip contentStyle={ct.tooltip} cursor={{ fill: "var(--obs-accent-dim)" }} formatter={(v) => [`${v}%/yr`, "growth"]} />
                   <Bar dataKey="value" fill="var(--obs-c3)" radius={[4, 4, 0, 0]}>
                     {macro.map((_, i) => <Cell key={i} fill="var(--obs-c3)" />)}
                   </Bar>
@@ -294,7 +294,7 @@ function MiniChart({
             <CartesianGrid strokeDasharray="3 3" stroke={ct.grid} vertical={false} />
             <XAxis dataKey="year" tick={ct.tick} axisLine={{ stroke: ct.grid }} tickLine={false} interval="preserveStartEnd" />
             <YAxis tick={ct.tick} axisLine={false} tickLine={false} width={34} tickFormatter={(v) => `${v}`} />
-            <Tooltip contentStyle={ct.tooltip} formatter={(v: number) => [`${v}${unit}`, ""]} labelFormatter={(l) => `Year ${l}`} />
+            <Tooltip contentStyle={ct.tooltip} formatter={(v) => [`${v}${unit}`, ""]} labelFormatter={(l) => `Year ${l}`} />
             {target != null && <ReferenceLine y={target} stroke="var(--obs-muted)" strokeDasharray="4 4" />}
             <Line type="monotone" dataKey={dataKey} stroke={color} strokeWidth={2.2} dot={false} />
           </LineChart>

@@ -9,7 +9,6 @@
 
 import { useState, useRef, useMemo, useCallback, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useVerdictTheme } from "./VerdictLayout";
 import type { VerdictCase } from "./types";
 import { WORLD_PATH, MAP_W, MAP_H, LAT_TOP, LAT_BOTTOM } from "./world-map-path";
 
@@ -115,8 +114,6 @@ interface Hover { entry: PointEntry; px: number; py: number }
 
 export default function VerdictMap({ cases }: { cases: VerdictCase[] }) {
   const navigate = useNavigate();
-  const { theme } = useVerdictTheme();
-  const isDark = theme === "dark";
 
   const containerRef = useRef<HTMLDivElement>(null);
   const svgRef = useRef<SVGSVGElement>(null);
@@ -206,8 +203,8 @@ export default function VerdictMap({ cases }: { cases: VerdictCase[] }) {
     setHover({ entry, px: e.clientX - rect.left, py: e.clientY - rect.top });
   }, []);
 
-  const land = isDark ? "#1b2a3a" : "#b9d9e6";
-  const landStroke = isDark ? "#2c4257" : "#8fbccf";
+  const land = "#b9d9e6";
+  const landStroke = "#8fbccf";
   const sea = "transparent";
 
   return (
@@ -240,7 +237,7 @@ export default function VerdictMap({ cases }: { cases: VerdictCase[] }) {
                 cy={p.y}
                 r={r}
                 fill={TIER_HEX[p.tier] ?? "#22d3ee"}
-                stroke={isDark ? "#0b1220" : "#ffffff"}
+                stroke={"#ffffff"}
                 strokeWidth={r * 0.28}
                 className="cursor-pointer"
                 onClick={() => openCase(p.id)}
@@ -282,9 +279,9 @@ export default function VerdictMap({ cases }: { cases: VerdictCase[] }) {
               left: Math.min(hover.px + 12, (containerRef.current?.clientWidth ?? 300) - 230),
               top: hover.py + 12,
               maxWidth: 220,
-              backgroundColor: isDark ? "#111827" : "#fff",
-              borderColor: isDark ? "rgba(34,211,238,0.35)" : "rgba(14,116,144,0.25)",
-              color: isDark ? "#e2e8f0" : "#0f172a",
+              backgroundColor: "#fff",
+              borderColor: "rgba(14,116,144,0.25)",
+              color: "#0f172a",
               boxShadow: "0 4px 20px rgba(0,0,0,0.3)",
             }}
           >
@@ -294,14 +291,14 @@ export default function VerdictMap({ cases }: { cases: VerdictCase[] }) {
                 className="inline-block w-2 h-2 rounded-full"
                 style={{ backgroundColor: TIER_HEX[hover.entry.tier] ?? "#22d3ee" }}
               />
-              <span className="text-[13px] font-bold" style={{ color: isDark ? "#22d3ee" : "#0e7490" }}>
+              <span className="text-[13px] font-bold" style={{ color: "#0e7490" }}>
                 EDI {hover.entry.edi}
               </span>
               <span className="text-[10px]" style={{ color: TIER_HEX[hover.entry.tier] }}>
                 {hover.entry.tier}
               </span>
             </div>
-            <div className="text-[10px] mt-1.5" style={{ color: isDark ? "#94a3b8" : "#64748b" }}>
+            <div className="text-[10px] mt-1.5" style={{ color: "#64748b" }}>
               Click to open →
             </div>
           </div>

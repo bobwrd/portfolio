@@ -1,8 +1,6 @@
 import { Link } from "react-router-dom";
-import { useVerdictTheme } from "./VerdictLayout";
 
 export default function VerdictScored() {
-  const { theme } = useVerdictTheme();
 
   const sectionClass = "rounded-lg border p-5 mb-5";
   const sectionStyle = {
@@ -120,7 +118,7 @@ export default function VerdictScored() {
             className="text-xs font-mono px-3 py-2 rounded"
             style={{
               color: "var(--verdict-accent)",
-              backgroundColor: theme === "dark" ? "rgba(34,211,238,0.06)" : "rgba(13,148,136,0.06)",
+              backgroundColor: "rgba(13,148,136,0.06)",
               borderLeft: "2px solid var(--verdict-accent)",
             }}
           >

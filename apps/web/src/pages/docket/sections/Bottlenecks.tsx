@@ -180,7 +180,7 @@ export default function Bottlenecks() {
                     />
                     <Tooltip
                       contentStyle={{
-                        backgroundColor: theme === "dark" ? "#121e12" : "#fff",
+                        backgroundColor: "#fff",
                         border: "1px solid var(--docket-border)",
                         borderRadius: 6,
                         fontSize: 11,

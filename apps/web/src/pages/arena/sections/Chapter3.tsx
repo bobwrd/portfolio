@@ -42,7 +42,7 @@ function OutChart({
             <YAxis tick={ct.tick} axisLine={false} tickLine={false} width={32} domain={[0, 100]} />
             <Tooltip
               contentStyle={ct.tooltip}
-              formatter={(v: number, n: string) => [Number(v).toFixed(0), n]}
+              formatter={(v, n) => [Number(v).toFixed(0), n]}
               labelFormatter={(l) => `Concentration ${Math.round(Number(l) * 100)}`}
             />
             <ReferenceLine x={currentC} stroke="var(--arena-accent)" strokeWidth={1.5} strokeDasharray="4 3" />

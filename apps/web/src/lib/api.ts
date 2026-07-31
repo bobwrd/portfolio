@@ -1,4 +1,5 @@
-export type ContentCategory = "short" | "weekly" | "personal";
+// Must stay in sync with the Worker's ContentMeta["category"] in worker/moe.ts.
+export type ContentCategory = "short" | "weekly" | "personal" | "other";
 
 export interface ContentMeta {
   slug: string;
