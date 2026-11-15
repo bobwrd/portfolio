@@ -4,7 +4,7 @@ export default function Intro() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 pt-16 pb-14">
         <div className="max-w-3xl">
           <div
-            className="text-[0.7rem] font-mono uppercase tracking-[0.2em] mb-4"
+            className="text-[0.7rem] font-mono mb-4"
             style={{ color: "var(--docket-accent)" }}
           >
             The Docket
@@ -68,10 +68,10 @@ export default function Intro() {
           {/* Chapter nav */}
           <div className="mt-8 flex flex-wrap gap-2">
             {[
-              { href: "#backlog", label: "1 · Map the backlog" },
-              { href: "#bottlenecks", label: "2 · Score the bottlenecks" },
-              { href: "#tracker", label: "3 · Case tracker prototype" },
-              { href: "#indosing", label: "4 · India vs Singapore" },
+              { href: "#backlog", label: "1. Map the backlog" },
+              { href: "#bottlenecks", label: "2. Score the bottlenecks" },
+              { href: "#tracker", label: "3. Case tracker prototype" },
+              { href: "#indosing", label: "4. India vs Singapore" },
             ].map((c) => (
               <a
                 key={c.href}

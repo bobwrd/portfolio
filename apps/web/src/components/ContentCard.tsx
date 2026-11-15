@@ -15,8 +15,8 @@ function readTime(wordCount: number): string {
 const CATEGORY_LABEL: Record<ContentCategory, string> = {
   short: "Short-form",
   weekly: "Weekly Briefing",
-  personal: "Personal Piece",
-  other: "Other",
+  personal: "Essay",
+  other: "Analysis",
 };
 
 const CATEGORY_STYLE: Record<ContentCategory, string> = {
@@ -29,7 +29,7 @@ const CATEGORY_STYLE: Record<ContentCategory, string> = {
 function CategoryBadge({ category }: { category: ContentCategory }) {
   return (
     <span
-      className={`text-xs px-2.5 py-0.5 rounded-full font-medium tracking-wide ${CATEGORY_STYLE[category]}`}
+      className={`text-xs px-2.5 py-0.5 rounded-full font-medium ${CATEGORY_STYLE[category]}`}
     >
       {CATEGORY_LABEL[category]}
     </span>
@@ -61,7 +61,7 @@ export default function ContentCard({ item, variant = "list" }: ContentCardProps
     return (
       <Link
         to={articleHref}
-        className="group relative flex flex-col h-full p-5 rounded-lg border border-border bg-card hover:border-warm-accent/40 hover:shadow-sm transition-all duration-200"
+        className="group relative flex flex-col h-full p-5 rounded-lg border border-border bg-card hover:border-warm-accent/40 hover:shadow-sm transition-colors duration-200"
       >
         <div className="flex items-center gap-2 mb-3 flex-wrap">
           <CategoryBadge category={item.category} />
@@ -105,7 +105,7 @@ export default function ContentCard({ item, variant = "list" }: ContentCardProps
   }
 
   return (
-    <article className="group py-7 border-b border-border last:border-0 transition-all duration-200">
+    <article className="group py-7 border-b border-border last:border-0 transition-colors duration-200">
       <div className="flex items-center gap-2.5 mb-3">
         <CategoryBadge category={item.category} />
         {item.date && (

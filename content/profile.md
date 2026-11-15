@@ -4,7 +4,7 @@ I study economics and law, and I am interested in the gap between how institutio
 
 ## What I am working on
 
-**CivicAid** — a legal literacy tool I am building for Singapore. The premise: you cannot exercise rights you do not know you have. CivicAid structures Singapore's legal aid landscape, relevant statutes, and practical next steps into something a non-expert can use. Building toward an MVP.
+**CivicAid** — a legal literacy app I built for Singapore, now on Google Play. The premise: you cannot exercise rights you do not know you have. CivicAid structures Singapore's legal aid landscape, relevant statutes, and practical next steps into something a non-expert can use. It's Raining Raincoats is partnering on it to reach more people.
 
 **Economics research** — an ongoing paper analysing sectoral employment trends in India across regions, industries, and genders using Periodic Labour Force Survey data. Early findings on informal sector persistence and non-uniform gender gaps are written up in the newsletter.
 

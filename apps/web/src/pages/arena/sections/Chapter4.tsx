@@ -145,7 +145,7 @@ export default function Chapter4() {
             </p>
 
             <div className="mt-4 rounded-lg p-3" style={{ backgroundColor: "var(--arena-surface-2)" }}>
-              <div className="text-[0.6rem] font-mono uppercase tracking-wider mb-1" style={{ color: "var(--arena-muted)" }}>
+              <div className="text-[0.6rem] font-mono mb-1" style={{ color: "var(--arena-muted)" }}>
                 Your point
               </div>
               <div className="text-sm font-mono" style={{ color: "var(--arena-text)" }}>

@@ -46,7 +46,7 @@ function TeamPanel({ name, controls, size }: { name: string; controls: Ch2Contro
       </div>
       <div className="grid grid-cols-2 gap-3">
         <div className="rounded-lg p-3" style={{ backgroundColor: "var(--arena-surface-2)" }}>
-          <div className="text-[0.6rem] font-mono uppercase tracking-wider mb-1" style={{ color: "var(--arena-muted)" }}>
+          <div className="text-[0.6rem] font-mono mb-1" style={{ color: "var(--arena-muted)" }}>
             Measured output
           </div>
           <div className="text-xl font-mono font-semibold" style={{ color: "var(--arena-c2)" }}>
@@ -54,7 +54,7 @@ function TeamPanel({ name, controls, size }: { name: string; controls: Ch2Contro
           </div>
         </div>
         <div className="rounded-lg p-3" style={{ backgroundColor: "var(--arena-surface-2)" }}>
-          <div className="text-[0.6rem] font-mono uppercase tracking-wider mb-1" style={{ color: "var(--arena-muted)" }}>
+          <div className="text-[0.6rem] font-mono mb-1" style={{ color: "var(--arena-muted)" }}>
             True efficiency
           </div>
           <div className="text-xl font-mono font-semibold" style={{ color: "var(--arena-good)" }}>

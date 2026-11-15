@@ -16,10 +16,10 @@ export default function ReadingProgressBar() {
   }, []);
 
   return (
-    <div className="fixed top-0 left-0 right-0 z-[100] h-[2px] bg-border/30">
+    <div className="fixed top-0 left-0 right-0 z-[100] h-[2px] bg-border/30" aria-hidden="true">
       <div
-        className="h-full bg-warm-accent progress-bar"
-        style={{ width: `${progress}%` }}
+        className="h-full w-full bg-warm-accent progress-bar"
+        style={{ transform: `scaleX(${progress / 100})` }}
       />
     </div>
   );

@@ -2,33 +2,35 @@ import Layout from "@/components/Layout";
 import NewsletterSignup from "@/components/NewsletterSignup";
 import { siteConfig } from "@/config/site";
 import { Link } from "react-router-dom";
+import { usePageTitle } from "@/hooks/use-page-title";
 
 const categories = [
   {
     href: "/writing/weekly",
     title: "Weekly Briefing",
-    summary: "A running digest of what I'm reading and thinking about, most weeks.",
+    summary: "What I read and thought about this week in economics, law and policy. Published each weekend.",
   },
   {
     href: "/writing/personal",
-    title: "Personal Pieces",
-    summary: "Longer essays — arguments I want to make carefully, not on a schedule.",
+    title: "Essays",
+    summary: "Longer arguments I want to make carefully, written when they are ready rather than on a schedule.",
   },
   {
     href: "/writing/others",
     title: "Analysis",
-    summary: "Research notes and shorter analysis pieces that don't fit the other two.",
+    summary: "Research notes and shorter pieces: early findings, data and working arguments.",
   },
 ];
 
 export default function WritingHome() {
+  usePageTitle("Margin of Error");
   return (
     <Layout>
       <div className="mb-10">
         <h1 className="text-3xl font-bold text-foreground tracking-tight mb-1">
           {siteConfig.title}
         </h1>
-        <p className="text-muted-foreground text-sm mb-0.5">Arin Jain · IB Year 1</p>
+        <p className="text-muted-foreground text-sm mb-0.5">By Arin Jain</p>
         <p className="text-muted-foreground text-base">{siteConfig.tagline}</p>
       </div>
 
@@ -59,16 +61,16 @@ export default function WritingHome() {
           one question: where formal institutions — legal systems, economic
           policy, regulatory frameworks — fall short of the people they're
           supposed to serve, and why.{" "}
-          <Link to="/writing/about" className="text-warm-accent hover:underline">
-            Full project overview →
+          <Link to="/writing/about" className="text-foreground underline decoration-warm-accent underline-offset-4">
+            About the project
           </Link>
         </p>
       </section>
 
       <div className="border-t border-border pt-6 pb-2">
         <p className="text-xs text-muted-foreground">
-          Last updated: June 2026. Currently working on: a quantitative paper on Indian sectoral employment
-          using PLFS data (2017–2024), and CivicAid (legal literacy tool for Singapore, MVP in progress).
+          Updated June 2026. In progress: a quantitative paper on Indian sectoral employment using PLFS
+          data (2017–2024). CivicAid, a legal literacy app for Singapore, is now on Google Play.
         </p>
       </div>
     </Layout>

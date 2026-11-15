@@ -14,8 +14,10 @@ import { ManageGroupsModal } from "./ManageGroupsModal.js";
 import { Sidebar } from "./Sidebar.js";
 import type { SharedBookState } from "../context.js";
 import { useGroups, usePreferences } from "../store.js";
+import { usePageTitle } from "@/hooks/use-page-title";
 
 export function Layout({ state }: { state: SharedBookState }) {
+  usePageTitle("OneBook, a portfolio risk dashboard");
   const [showLogin, setShowLogin] = useState(false);
   const [showGroups, setShowGroups] = useState(false);
 
@@ -24,7 +26,7 @@ export function Layout({ state }: { state: SharedBookState }) {
 
   return (
     <div className="app">
-      <SectionSwitcher current="OneBook" />
+      <SectionSwitcher current="onebook" />
       <Sidebar
         auth={state.auth}
         positions={state.positions}

@@ -45,9 +45,9 @@ export default function Methodology({ data }: { data: ObservatoryData | null }) 
             <table className="w-full text-xs border-collapse">
               <thead>
                 <tr style={{ borderBottom: "1px solid var(--obs-border)" }}>
-                  <th className="text-left pb-2 pr-4 font-mono uppercase tracking-wider" style={{ color: "var(--obs-muted)" }}>Lab slider</th>
-                  <th className="text-left pb-2 pr-4 font-mono uppercase tracking-wider" style={{ color: "var(--obs-muted)" }}>Model object(s) it drives</th>
-                  <th className="text-left pb-2 font-mono uppercase tracking-wider" style={{ color: "var(--obs-muted)" }}>Baseline value</th>
+                  <th className="text-left pb-2 pr-4 font-mono " style={{ color: "var(--obs-muted)" }}>Lab slider</th>
+                  <th className="text-left pb-2 pr-4 font-mono " style={{ color: "var(--obs-muted)" }}>Model object(s) it drives</th>
+                  <th className="text-left pb-2 font-mono " style={{ color: "var(--obs-muted)" }}>Baseline value</th>
                 </tr>
               </thead>
               <tbody className="leading-relaxed" style={{ color: "var(--obs-text)" }}>

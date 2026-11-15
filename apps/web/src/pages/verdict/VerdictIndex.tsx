@@ -12,7 +12,7 @@ import VerdictMap from "./VerdictMap";
 function TierBadge({ tier }: { tier: string }) {
   return (
     <span
-      className="text-[0.65rem] font-mono font-bold tracking-widest px-2 py-0.5 rounded uppercase"
+      className="text-[0.65rem] font-mono font-bold px-2 py-0.5 rounded "
       style={{
         color: TIER_COLORS[tier] ?? "var(--verdict-muted)",
         backgroundColor: TIER_BG[tier] ?? "transparent",
@@ -127,7 +127,7 @@ function CaseCard({ c }: { c: VerdictCase }) {
   return (
     <Link to={`/verdict/${c.case_id}`} className="block group">
       <article
-        className="rounded-lg border p-5 transition-all duration-200"
+        className="rounded-lg border p-5 transition-colors duration-200"
         style={{
           backgroundColor: "var(--verdict-surface)",
           borderColor: "var(--verdict-border)",
@@ -146,7 +146,7 @@ function CaseCard({ c }: { c: VerdictCase }) {
           <div className="flex items-center gap-2 flex-wrap">
             <TierBadge tier={computed.tier} />
             <span
-              className="text-[0.65rem] font-mono tracking-wider uppercase px-2 py-0.5 rounded"
+              className="text-[0.65rem] font-mono px-2 py-0.5 rounded"
               style={{ color: "var(--verdict-muted)", backgroundColor: "var(--verdict-surface-2)" }}
             >
               {c.decision_type}
@@ -390,13 +390,13 @@ export default function VerdictIndex() {
         <p className="mb-2">Related work:</p>
         <div className="flex flex-wrap gap-4">
           <a href="/mini/observatory" className="hover:underline" style={{ color: "var(--verdict-accent)" }}>
-            The Observatory — how AI adoption flows through to prices and wages →
+            The Observatory — how AI adoption flows through to prices and wages
           </a>
           <a href="/others/access-to-justice-the-gap-nobody-measures" className="hover:underline" style={{ color: "var(--verdict-accent)" }}>
-            Access to Justice — The Gap Nobody Measures →
+            Access to Justice — The Gap Nobody Measures
           </a>
           <a href="/why" className="hover:underline" style={{ color: "var(--verdict-accent)" }}>
-            Why this question →
+            Why this question
           </a>
         </div>
       </div>

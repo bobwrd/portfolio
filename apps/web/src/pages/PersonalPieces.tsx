@@ -4,8 +4,8 @@ export default function PersonalPieces() {
   return (
     <CategoryPage
       category="personal"
-      title="Personal Pieces"
-      subtitle="My own essays, with PDF and bibliography."
+      title="Essays"
+      subtitle="Longer, argued essays, each with a PDF and bibliography."
     />
   );
 }

@@ -1,59 +1,63 @@
-import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-const SECTIONS = [
-  { to: "/", label: "About Me" },
-  { to: "/overview", label: "Site Overview" },
-  { to: "/writing", label: "Margin of Error" },
-  { to: "/mini", label: "Mini Projects" },
-  { to: "/onebook", label: "OneBook" },
-  { to: "/ask", label: "Ask" },
-  { to: "/tradewinds", label: "Tradewinds" },
+export type SiteSection =
+  | "about"
+  | "guide"
+  | "writing"
+  | "tools"
+  | "onebook"
+  | "ask"
+  | "tradewinds";
+
+const SECTIONS: { key: SiteSection; to: string; label: string }[] = [
+  { key: "writing", to: "/writing", label: "Writing" },
+  { key: "tools", to: "/mini", label: "Research tools" },
+  { key: "onebook", to: "/onebook", label: "OneBook" },
+  { key: "ask", to: "/ask", label: "Ask" },
+  { key: "tradewinds", to: "/tradewinds", label: "Tradewinds" },
+  { key: "guide", to: "/overview", label: "Site guide" },
 ];
 
 /**
- * Small, low-weight section switcher meant to be dropped into any section's
- * own layout — not a persistent site-wide nav bar. Each section keeps its
- * own chrome; this is just a way to jump between the four sections.
+ * The portfolio's one shared strip. It sits in normal flow above each
+ * section's own header, so it never covers that header's controls, and it
+ * looks the same everywhere so the sections read as one site. Each section
+ * keeps its own chrome below it.
  */
-export default function SectionSwitcher({ current }: { current?: string }) {
-  const [open, setOpen] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    function onClick(e: MouseEvent) {
-      if (ref.current && !ref.current.contains(e.target as Node)) {
-        setOpen(false);
-      }
-    }
-    document.addEventListener("mousedown", onClick);
-    return () => document.removeEventListener("mousedown", onClick);
-  }, []);
-
+export default function SectionSwitcher({ current }: { current?: SiteSection }) {
   return (
-    <div ref={ref} className="fixed right-3 top-3 z-[100] font-sans text-sm">
-      <button
-        type="button"
-        onClick={() => setOpen((v) => !v)}
-        className="rounded-full border border-neutral-300 bg-white/90 px-3 py-1.5 text-xs font-medium text-neutral-700 shadow-sm backdrop-blur transition-colors hover:border-neutral-400"
-        aria-expanded={open}
-      >
-        {current ?? "Sections"} ▾
-      </button>
-      {open && (
-        <div className="mt-1 min-w-[10rem] overflow-hidden rounded-lg border border-neutral-200 bg-white shadow-lg">
-          {SECTIONS.map((s) => (
-            <Link
-              key={s.to}
-              to={s.to}
-              onClick={() => setOpen(false)}
-              className="block px-3 py-2 text-neutral-700 hover:bg-neutral-100"
-            >
-              {s.label}
-            </Link>
-          ))}
-        </div>
-      )}
+    <div className="site-bar border-b border-border bg-background font-sans text-[0.8125rem] text-muted-foreground">
+      <div className="mx-auto flex h-10 max-w-6xl items-center gap-5 px-4 sm:px-6">
+        <Link
+          to="/"
+          aria-current={current === "about" ? "page" : undefined}
+          className="shrink-0 font-semibold text-foreground hover:text-warm-accent transition-colors duration-150"
+        >
+          Arin Jain
+        </Link>
+        <nav aria-label="Portfolio sections" className="min-w-0 flex-1 overflow-x-auto scrollbar-none">
+          <ul className="flex items-center gap-4 whitespace-nowrap">
+            {SECTIONS.map((s) => {
+              const active = s.key === current;
+              return (
+                <li key={s.key}>
+                  <Link
+                    to={s.to}
+                    aria-current={active ? "page" : undefined}
+                    className={`transition-colors duration-150 underline-offset-4 ${
+                      active
+                        ? "text-foreground underline decoration-warm-accent decoration-2"
+                        : "hover:text-foreground"
+                    }`}
+                  >
+                    {s.label}
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </nav>
+      </div>
     </div>
   );
 }

@@ -176,7 +176,7 @@ export default function TradewindsGame() {
             <WorldMap origin={originPort} destination={destinationPort} revealed={finished} />
 
             <div>
-              <h2 className="text-sm font-semibold tracking-wide uppercase mb-2" style={{ color: "var(--tw-muted)" }}>
+              <h2 className="text-sm font-semibold mb-2" style={{ color: "var(--tw-muted)" }}>
                 Guess log
               </h2>
               <GuessHistory history={progress.history} ports={ports} />

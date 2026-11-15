@@ -206,9 +206,9 @@ function BrokerRow({
 
       <span className="faint" style={{ fontSize: "0.625rem" }}>
         {csvOnly
-          ? "Import CSV →"
+          ? "Import CSV"
           : connectable
-            ? "Connect →"
+            ? "Connect"
             : broker.implemented
               ? "Configure on server"
               : "Not built yet"}
@@ -289,7 +289,7 @@ function CredentialForm({
               rel="noreferrer noopener"
               style={{ color: "var(--primary)" }}
             >
-              Where do I find these? →
+              Where do I find these?
             </a>
           </p>
         )}

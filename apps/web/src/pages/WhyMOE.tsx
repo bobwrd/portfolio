@@ -116,14 +116,14 @@ export default function WhyMOE() {
           <p className="text-sm">
             Currently working on:{" "}
             <Link to="/writing/others/issue-002-india-labour" className="text-warm-accent hover:underline">
-              PLFS research paper on Indian sectoral employment →
+              PLFS research paper on Indian sectoral employment
             </Link>
-            {" "}and CivicAid MVP.
+            {" "}and CivicAid, now on Google Play.
           </p>
           <p className="text-sm text-muted-foreground">
             See also:{" "}
             <Link to="/writing/changed-my-mind" className="text-warm-accent hover:underline">
-              What I've changed my mind about →
+              What I've changed my mind about
             </Link>
           </p>
         </div>

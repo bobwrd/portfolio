@@ -1,6 +1,14 @@
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 
+/* Section labels used to sit above each heading as a small accent line
+   ("Chapter 1 · The Docket"), repeating the nav. Only the chapter number
+   is kept, as a prefix on the heading itself. */
+function chapterNumber(label: string): string | null {
+  const m = label.match(/^(?:Chapter\s+)?(\d+)\b/);
+  return m ? m[1] : null;
+}
+
 // Section wrapper with anchor id + sticky heading band.
 export function Section({
   id,
@@ -17,10 +25,10 @@ export function Section({
     <section id={id} className="scroll-mt-16 border-t" style={{ borderColor: "var(--obs-border)" }}>
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-14">
         <div className="mb-8">
-          <div className="text-[0.7rem] font-mono uppercase tracking-[0.2em] mb-2" style={{ color: "var(--obs-accent)" }}>
-            {eyebrow}
-          </div>
           <h2 className="text-2xl sm:text-3xl font-bold tracking-tight" style={{ color: "var(--obs-text)" }}>
+            {chapterNumber(eyebrow) && (
+              <span style={{ color: "var(--obs-accent)" }}>{chapterNumber(eyebrow)}. </span>
+            )}
             {title}
           </h2>
         </div>
@@ -46,7 +54,7 @@ export function Card({
       style={{ borderColor: "var(--obs-border)", backgroundColor: "var(--obs-surface)" }}
     >
       {title && (
-        <div className="text-xs font-mono mb-4 uppercase tracking-wider" style={{ color: "var(--obs-muted)" }}>
+        <div className="text-xs font-mono mb-4 " style={{ color: "var(--obs-muted)" }}>
           {title}
         </div>
       )}
@@ -62,7 +70,7 @@ export function Details({ summary, children }: { summary: string; children: Reac
     <div className="mt-4 rounded-lg border" style={{ borderColor: "var(--obs-border)" }}>
       <button
         onClick={() => setOpen((o) => !o)}
-        className="w-full flex items-center justify-between gap-2 px-4 py-2.5 text-left text-xs font-mono uppercase tracking-wider transition-colors"
+        className="w-full flex items-center justify-between gap-2 px-4 py-2.5 text-left text-xs font-mono transition-colors"
         style={{ color: "var(--obs-muted)" }}
         aria-expanded={open}
       >

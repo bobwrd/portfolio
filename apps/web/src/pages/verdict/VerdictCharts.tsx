@@ -66,7 +66,7 @@ export default function VerdictCharts() {
         <div style={{ color: "var(--verdict-muted)" }}>DP: <span style={{ color: "var(--verdict-accent)" }}>{d.x.toFixed(2)}</span></div>
         <div style={{ color: "var(--verdict-muted)" }}>DR: <span style={{ color: "var(--verdict-accent)" }}>{d.y.toFixed(2)}</span></div>
         <div style={{ color: "var(--verdict-muted)" }}>EDI: <span style={{ color: "var(--verdict-accent)" }}>{d.edi.toFixed(1)}</span></div>
-        <div className="mt-1 text-[0.65rem]" style={{ color: "var(--verdict-muted)" }}>Click to view case →</div>
+        <div className="mt-1 text-[0.65rem]" style={{ color: "var(--verdict-muted)" }}>Click to view case</div>
       </div>
     );
   };
@@ -110,7 +110,7 @@ export default function VerdictCharts() {
 
       {/* Scatter: DP vs DR */}
       <div className={sectionClass} style={sectionStyle}>
-        <div className="text-[0.65rem] font-mono tracking-widest uppercase mb-1" style={{ color: "var(--verdict-muted)" }}>
+        <div className="text-[0.65rem] font-mono mb-1" style={{ color: "var(--verdict-muted)" }}>
           Disruption Potential vs Distributional Reach
         </div>
         <p className="text-xs mb-4 leading-relaxed" style={{ color: "var(--verdict-muted)" }}>
@@ -169,7 +169,7 @@ export default function VerdictCharts() {
 
       {/* Bar: cases ranked by EDI */}
       <div className={sectionClass} style={sectionStyle}>
-        <div className="text-[0.65rem] font-mono tracking-widest uppercase mb-1" style={{ color: "var(--verdict-muted)" }}>
+        <div className="text-[0.65rem] font-mono mb-1" style={{ color: "var(--verdict-muted)" }}>
           Cases ranked by EDI
         </div>
         <p className="text-xs mb-4 leading-relaxed" style={{ color: "var(--verdict-muted)" }}>

@@ -90,7 +90,7 @@ export default function IndoSing() {
       {/* Detail cards — click to expand */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
         <div>
-          <div className="text-xs font-mono mb-2 uppercase tracking-wider" style={{ color: "var(--docket-muted)" }}>
+          <div className="text-xs font-mono mb-2 " style={{ color: "var(--docket-muted)" }}>
             Select a dimension
           </div>
           <div className="flex flex-col gap-1">
@@ -98,7 +98,7 @@ export default function IndoSing() {
               <button
                 key={i}
                 onClick={() => setSelected(i)}
-                className="text-left px-3 py-2 rounded-lg border text-xs transition-all"
+                className="text-left px-3 py-2 rounded-lg border text-xs transition-colors"
                 style={{
                   borderColor: selected === i ? "var(--docket-accent)" : "var(--docket-border)",
                   backgroundColor: selected === i ? "var(--docket-accent-dim)" : "var(--docket-surface)",
@@ -128,7 +128,7 @@ export default function IndoSing() {
 
         <div className="flex flex-col gap-3">
           <Card>
-            <div className="text-xs font-mono mb-3 uppercase tracking-wider" style={{ color: "var(--docket-accent)" }}>
+            <div className="text-xs font-mono mb-3 " style={{ color: "var(--docket-accent)" }}>
               {selectedRow.dimension}
             </div>
 
@@ -170,7 +170,7 @@ export default function IndoSing() {
 
           {/* Cross-cutting argument */}
           <Card>
-            <div className="text-xs font-mono mb-2 uppercase tracking-wider" style={{ color: "var(--docket-muted)" }}>
+            <div className="text-xs font-mono mb-2 " style={{ color: "var(--docket-muted)" }}>
               The gap in one sentence
             </div>
             <p className="text-sm leading-relaxed" style={{ color: "var(--docket-text)" }}>

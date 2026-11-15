@@ -58,16 +58,16 @@ export default function ObservatoryLayout({ children }: { children: React.ReactN
     { label: "Walkthrough", href: "#walkthrough" },
     { label: "Data atlas", href: "#atlas" },
     { label: "Lab", href: "#lab" },
-    { label: "Method", href: "#methodology" },
+    { label: "Methodology", href: "#methodology" },
   ];
 
   return (
     <div style={{ minHeight: "100vh" }}>
-      <SectionSwitcher current="Mini Projects" />
+      <SectionSwitcher current="tools" />
       <header
         className="sticky top-0 z-50 border-b"
         style={{
-          backgroundColor: "rgba(243,250,248,0.92)",
+          backgroundColor: "color-mix(in srgb, var(--obs-bg) 92%, transparent)",
           borderColor: "var(--obs-border)",
           backdropFilter: "blur(8px)",
         }}
@@ -76,18 +76,17 @@ export default function ObservatoryLayout({ children }: { children: React.ReactN
           <div className="flex items-center gap-4 shrink-0">
             <Link
               to="/mini"
-              className="text-xs font-mono tracking-wider opacity-40 hover:opacity-70 transition-opacity"
+              className="text-xs underline-offset-4 hover:underline"
               style={{ color: "var(--obs-muted)" }}
             >
-              ← Mini Projects
+              Research tools
             </Link>
             <a
               href="#intro"
               className="font-semibold tracking-tight text-sm flex items-center gap-2"
               style={{ color: "var(--obs-accent)" }}
             >
-              <span className="font-mono text-xs opacity-70">◉</span>
-              THE OBSERVATORY
+              The Observatory
             </a>
           </div>
 
@@ -99,7 +98,7 @@ export default function ObservatoryLayout({ children }: { children: React.ReactN
                 <a
                   key={link.href}
                   href={link.href}
-                  className="px-2.5 py-1.5 rounded text-xs font-mono tracking-wide transition-all duration-150"
+                  className="px-2.5 py-1.5 rounded text-xs transition-colors duration-150"
                   style={{
                     color: isActive ? "var(--obs-accent)" : "var(--obs-muted)",
                     backgroundColor: isActive ? "var(--obs-accent-dim)" : "transparent",
@@ -112,22 +111,22 @@ export default function ObservatoryLayout({ children }: { children: React.ReactN
             {isMethodsPage && (
               <Link
                 to="/mini/observatory"
-                className="px-2.5 py-1.5 rounded text-xs font-mono tracking-wide transition-all duration-150"
+                className="px-2.5 py-1.5 rounded text-xs transition-colors duration-150"
                 style={{ color: "var(--obs-muted)" }}
               >
-                ← Observatory
+                Back to the Observatory
               </Link>
             )}
             <Link
               to="/mini/observatory/methods"
-              className="px-2.5 py-1.5 rounded text-xs font-mono tracking-wide transition-all duration-150 border"
+              className="px-2.5 py-1.5 rounded text-xs transition-colors duration-150 border"
               style={{
                 borderColor: isMethodsPage ? "var(--obs-accent)" : "var(--obs-border)",
                 color: isMethodsPage ? "var(--obs-accent)" : "var(--obs-muted)",
                 backgroundColor: isMethodsPage ? "var(--obs-accent-dim)" : "transparent",
               }}
             >
-              Tech note
+              Technical note
             </Link>
           </nav>
         </div>
@@ -137,14 +136,14 @@ export default function ObservatoryLayout({ children }: { children: React.ReactN
 
       <footer className="border-t mt-20" style={{ borderColor: "var(--obs-border)" }}>
         <div className="max-w-6xl mx-auto px-4 sm:px-6 py-6">
-          <div className="flex items-center justify-between text-xs font-mono" style={{ color: "var(--obs-muted)" }}>
-            <span>THE OBSERVATORY · Arin Jain</span>
+          <div className="flex items-center justify-between text-xs" style={{ color: "var(--obs-muted)" }}>
+            <span>The Observatory, by Arin Jain</span>
             <div className="flex items-center gap-3">
               <a href="#methodology" className="hover:opacity-80 transition-opacity" style={{ color: "var(--obs-muted)" }}>
-                Methodology ↑
+                Methodology
               </a>
               <Link to="/mini/observatory/methods" className="hover:opacity-80 transition-opacity" style={{ color: "var(--obs-accent)" }}>
-                Technical note →
+                Technical note
               </Link>
             </div>
           </div>

@@ -27,7 +27,7 @@ export default function DistLabIndex() {
   const [error, setError] = useState(false);
 
   useEffect(() => {
-    document.title = "Arin Jain — The Distribution Lab";
+    document.title = "The Distribution Lab, inequality and institutions — Arin Jain";
     fetchDistLab().then(setData).catch(() => setError(true));
   }, []);
 
@@ -113,7 +113,7 @@ function Lab({ data }: { data: DistLabData }) {
       <div className="border-b" style={{ borderColor: "var(--dl-border)", backgroundColor: "var(--dl-surface)" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3">
           <div className="flex items-center justify-between mb-2">
-            <span className="text-[0.65rem] font-mono uppercase tracking-[0.2em]" style={{ color: "var(--dl-accent)" }}>
+            <span className="text-[0.65rem] font-mono " style={{ color: "var(--dl-accent)" }}>
               Regime {mode === "playground" ? "controls" : `· ${names[country] || country} ${year}`}
             </span>
             {mode === "playground" && (
@@ -273,17 +273,17 @@ function buildHTML(data: DistLabData): string {
   <title>Distribution Lab — Data Export</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', system-ui, sans-serif; background: #0b0f1f; color: #e8e6f0; padding: 2rem 1.5rem; }
-    h1 { font-size: 1rem; color: #a78bfa; letter-spacing: 0.15em; font-weight: 700; text-transform: uppercase; margin-bottom: 0.4rem; }
-    .meta { font-size: 0.75rem; color: #6b6880; margin-bottom: 1.5rem; }
+    body { font-family: system-ui, sans-serif; background: #faf8f3; color: #1f1b16; padding: 2rem 1.5rem; }
+    h1 { font-size: 1rem; color: #a04028; font-weight: 700; margin-bottom: 0.4rem; }
+    .meta { font-size: 0.75rem; color: #645c51; margin-bottom: 1.5rem; }
     .wrap { overflow-x: auto; }
     table { border-collapse: collapse; width: 100%; font-size: 0.72rem; white-space: nowrap; }
-    thead th { background: #131627; color: #a78bfa; padding: 0.5rem 0.7rem; text-align: left; font-weight: 600; position: sticky; top: 0; border-bottom: 1px solid #2a2d45; }
-    tbody td { padding: 0.35rem 0.7rem; border-bottom: 1px solid #161929; color: #ccc8e2; }
-    tbody tr:nth-child(even) td { background: #0e1120; }
-    tbody tr:hover td { background: #171b2e; }
-    .sources { margin-top: 1.5rem; font-size: 0.72rem; color: #6b6880; }
-    .sources a { color: #a78bfa; text-decoration: none; }
+    thead th { background: #f2eee5; color: #a04028; padding: 0.5rem 0.7rem; text-align: left; font-weight: 600; position: sticky; top: 0; border-bottom: 1px solid rgba(160,64,40,.18); }
+    tbody td { padding: 0.35rem 0.7rem; border-bottom: 1px solid rgba(160,64,40,.08); color: #1f1b16; }
+    tbody tr:nth-child(even) td { background: #f6f3ec; }
+    tbody tr:hover td { background: #efe9de; }
+    .sources { margin-top: 1.5rem; font-size: 0.72rem; color: #645c51; }
+    .sources a { color: #a04028; text-decoration: none; }
     .sources a:hover { text-decoration: underline; }
   </style>
 </head>
@@ -332,7 +332,7 @@ function DownloadBar({ data }: { data: DistLabData }) {
   return (
     <div className="border-t shrink-0" style={{ borderColor: "var(--dl-border)" }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-2.5 flex items-center gap-3 flex-wrap">
-        <span className="text-[0.6rem] font-mono uppercase tracking-[0.2em]" style={{ color: "var(--dl-muted)", opacity: 0.6 }}>
+        <span className="text-[0.6rem] font-mono " style={{ color: "var(--dl-muted)", opacity: 0.6 }}>
           Download data
         </span>
         {buttons.map(({ label, title, action }) => (
@@ -340,7 +340,7 @@ function DownloadBar({ data }: { data: DistLabData }) {
             key={label}
             onClick={action}
             title={title}
-            className="text-[0.65rem] font-mono px-2.5 py-1 rounded border transition-all duration-150"
+            className="text-[0.65rem] font-mono px-2.5 py-1 rounded border transition-colors duration-150"
             style={{
               borderColor: "var(--dl-border)",
               color: "var(--dl-muted)",

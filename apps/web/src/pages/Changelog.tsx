@@ -72,7 +72,7 @@ export default function Changelog() {
       <div className="space-y-10">
         {entries.map((entry) => (
           <section key={entry.date}>
-            <h2 className="text-sm font-mono font-semibold text-foreground uppercase tracking-wider mb-3">
+            <h2 className="text-sm font-mono font-semibold text-foreground mb-3">
               {entry.date}
             </h2>
             <ul className="space-y-2">

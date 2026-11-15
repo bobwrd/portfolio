@@ -32,17 +32,17 @@ export default function LikeButton({ contentType, slug }: LikeButtonProps) {
     <button
       onClick={handleLike}
       disabled={liked || loading}
-      className={`inline-flex items-center gap-2 px-4 py-2 rounded-full border text-sm transition-all ${
+      className={`inline-flex items-center gap-2 px-4 py-2 rounded-full border text-sm transition-colors ${
         liked
-          ? "border-rose-300 bg-rose-50 text-rose-600 dark:bg-rose-950/30 dark:border-rose-800 dark:text-rose-400 cursor-default"
-          : "border-border text-muted-foreground hover:border-rose-300 hover:text-rose-500 hover:bg-rose-50 dark:hover:bg-rose-950/20"
+          ? "border-warm-accent bg-warm-accent-muted text-warm-accent cursor-default"
+          : "border-border text-muted-foreground hover:border-warm-accent hover:text-warm-accent"
       }`}
       aria-label={liked ? "Liked" : "Like this post"}
     >
       <Heart
-        className={`w-4 h-4 transition-transform ${liked ? "fill-rose-500 text-rose-500 scale-110" : ""}`}
+        className={`w-4 h-4 ${liked ? "fill-current" : ""}`}
       />
-      <span>{count === null ? "·" : count}</span>
+      <span>{count === null ? "…" : count}</span>
     </button>
   );
 }

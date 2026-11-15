@@ -54,7 +54,7 @@ function ParamRow({
 
 export default function ObservatoryMethods() {
   useEffect(() => {
-    document.title = "Technical Note — The Observatory · Arin Jain";
+    document.title = "The Observatory: technical note — Arin Jain";
     window.scrollTo(0, 0);
   }, []);
 
@@ -62,28 +62,28 @@ export default function ObservatoryMethods() {
     <div className="max-w-3xl mx-auto px-4 sm:px-6 py-14">
       <Link
         to="/mini/observatory"
-        className="text-xs font-mono tracking-wider mb-8 inline-block transition-opacity hover:opacity-70"
+        className="text-xs font-mono mb-8 inline-block transition-opacity hover:opacity-70"
         style={{ color: "var(--obs-muted)" }}
       >
-        ← Back to The Observatory
+        Back to the Observatory
       </Link>
 
       {/* Title block */}
       <div className="mt-4 mb-10 border-b pb-8" style={{ borderColor: "var(--obs-border)" }}>
-        <div className="text-[0.65rem] font-mono uppercase tracking-[0.2em] mb-3" style={{ color: "var(--obs-accent)" }}>
-          Technical Note · Methods Appendix
+        <div className="text-[0.65rem] font-mono mb-3" style={{ color: "var(--obs-accent)" }}>
+          The Observatory: technical note
         </div>
         <h1 className="text-2xl sm:text-3xl font-bold tracking-tight mb-4" style={{ color: "var(--obs-text)" }}>
           The Observatory — AI, Productivity and Prices: Data Sources, Transformations and Model Structure
         </h1>
         <p className="text-xs font-mono mb-6" style={{ color: "var(--obs-muted)" }}>
-          Arin Jain · {new Date().getFullYear()}
+          By Arin Jain, {new Date().getFullYear()}
         </p>
         <div
           className="rounded-lg p-4 text-sm leading-relaxed border"
           style={{ borderColor: "var(--obs-border)", backgroundColor: "var(--obs-surface)", color: "var(--obs-text)" }}
         >
-          <strong className="text-xs font-mono uppercase tracking-wider block mb-2" style={{ color: "var(--obs-muted)" }}>
+          <strong className="text-xs font-mono block mb-2" style={{ color: "var(--obs-muted)" }}>
             Abstract
           </strong>
           The Observatory pairs public macroeconomic data with a small simulation model to trace how AI adoption might move productivity, inflation, unemployment, and wages across skill groups. This note covers the series used, the transformations applied, and the model's structure in enough detail to replicate the computations. No observed series is used to calibrate the model directly; data and model run in parallel. All outputs are illustrative.
@@ -229,10 +229,10 @@ export default function ObservatoryMethods() {
         <table className="w-full text-xs border-collapse">
           <thead>
             <tr style={{ borderBottom: "1px solid var(--obs-border)" }}>
-              <th className="text-left pb-2 pr-4 font-mono uppercase tracking-wider" style={{ color: "var(--obs-muted)" }}>Slider</th>
-              <th className="text-left pb-2 pr-4 font-mono uppercase tracking-wider" style={{ color: "var(--obs-muted)" }}>Parameter(s)</th>
-              <th className="text-left pb-2 pr-4 font-mono uppercase tracking-wider" style={{ color: "var(--obs-muted)" }}>Range</th>
-              <th className="text-left pb-2 font-mono uppercase tracking-wider" style={{ color: "var(--obs-muted)" }}>Baseline (slider = 0.5)</th>
+              <th className="text-left pb-2 pr-4 font-mono " style={{ color: "var(--obs-muted)" }}>Slider</th>
+              <th className="text-left pb-2 pr-4 font-mono " style={{ color: "var(--obs-muted)" }}>Parameter(s)</th>
+              <th className="text-left pb-2 pr-4 font-mono " style={{ color: "var(--obs-muted)" }}>Range</th>
+              <th className="text-left pb-2 font-mono " style={{ color: "var(--obs-muted)" }}>Baseline (slider = 0.5)</th>
             </tr>
           </thead>
           <tbody className="leading-relaxed">
@@ -318,7 +318,7 @@ export default function ObservatoryMethods() {
 
       {/* Footer */}
       <div className="mt-12 pt-6 border-t text-xs font-mono" style={{ borderColor: "var(--obs-border)", color: "var(--obs-muted)" }}>
-        <p>THE OBSERVATORY · Arin Jain · Technical Note</p>
+        <p>The Observatory technical note, by Arin Jain</p>
         <p className="mt-1">
           Data: World Bank (<Mono>FP.CPI.TOTL.ZG</Mono>, <Mono>SL.GDP.PCAP.EM.KD</Mono>); FRED optional. Model: <Mono>model.ts</Mono>. Not a forecast. Not investment, financial, or policy advice.
         </p>
@@ -327,7 +327,7 @@ export default function ObservatoryMethods() {
           className="mt-3 inline-block hover:opacity-70 transition-opacity"
           style={{ color: "var(--obs-accent)" }}
         >
-          ← Return to The Observatory
+          Return to the Observatory
         </Link>
       </div>
     </div>

@@ -1,3 +1,6 @@
+/* Hallmark · v2.0.0 · built: the project · redesign: polish · scope: app · OneBook keeps its own olive system; tokens moved to ../tokens.css */
+/* critique: dense terminal UI kept as designed; tracked caps removed, primary button contrast raised from 2.5:1, disabled brokers given three channels */
+/* Hallmark · dismissed 56 · .rail-head sticks inside the position rail and .scenario-bar inside the main pane; two scroll containers, so they never stack */
 /*
  * OneBook design system.
  *
@@ -10,53 +13,6 @@
  * mistaken for a gain or a loss. Correlation gets its own diverging scale.
  */
 
-.onebook-app {
-  --bg: oklch(1 0 0);
-  --surface: oklch(0.967 0.006 110);
-  --surface-hover: oklch(0.952 0.009 110);
-  --surface-active: oklch(0.935 0.013 110);
-  --border: oklch(0.875 0.013 110);
-  --border-subtle: oklch(0.92 0.008 110);
-
-  --ink: oklch(0.14 0.012 110);
-  --ink-muted: oklch(0.38 0.02 110);
-  --ink-faint: oklch(0.45 0.018 110);
-
-  --primary: oklch(0.43 0.085 110);
-  --primary-dim: oklch(0.56 0.06 110);
-  --primary-subtle: oklch(0.43 0.085 110 / 0.12);
-
-  /* Reserved for P&L. Never used for categorical encoding. */
-  --gain: oklch(0.34 0.135 155);
-  --gain-subtle: oklch(0.34 0.135 155 / 0.1);
-  --loss: oklch(0.43 0.165 25);
-  --loss-subtle: oklch(0.43 0.165 25 / 0.1);
-
-  --chart-line: oklch(0.37 0.12 205);
-  --chart-fill: oklch(0.37 0.12 205 / 0.09);
-  --chart-grid: oklch(0.875 0.013 110);
-
-  /* Correlation: violet/amber, deliberately distinct from the P&L pair. */
-  --corr-pos: oklch(0.45 0.17 300);
-  --corr-neg: oklch(0.55 0.14 70);
-
-  --warn: oklch(0.52 0.13 75);
-
-  --s1: 0.25rem;
-  --s2: 0.5rem;
-  --s3: 0.75rem;
-  --s4: 1rem;
-  --s5: 1.25rem;
-  --s6: 1.5rem;
-  --s8: 2rem;
-
-  --rail-w: 264px;
-  --sidebar-w: 216px;
-  --topbar-h: 52px;
-
-  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
-  --sans: -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
 
 
 .onebook-app {
@@ -78,7 +34,7 @@ body {
   font-size: 0.8125rem;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
-  overflow: hidden;
+  overflow: clip;
 }
 
 /* Digits must not reflow while a scenario slider is dragged. */
@@ -111,8 +67,14 @@ th.num {
 .app {
   display: grid;
   grid-template-columns: var(--sidebar-w) 1fr;
+  grid-template-rows: auto minmax(0, 1fr);
   height: 100%;
   min-height: 0;
+}
+
+/* The portfolio's shared site bar spans the full width above the app. */
+.app > .site-bar {
+  grid-column: 1 / -1;
 }
 
 /* Everything right of the sidebar: top strip, the active route, footer. */
@@ -216,12 +178,11 @@ th.num {
   align-items: baseline;
   font-size: 0.5625rem;
   color: var(--ink-faint);
-  text-transform: uppercase;
-  letter-spacing: 0.07em;
+  letter-spacing: 0;
 }
 
 .slider-label b {
-  font-family: var(--mono);
+  font-family: var(--sans);
   font-variant-numeric: tabular-nums;
   font-size: 0.6875rem;
   font-weight: 500;
@@ -270,8 +231,7 @@ input[type="range"]::-moz-range-thumb {
   align-items: center;
   gap: 5px;
   font-size: 0.5625rem;
-  text-transform: uppercase;
-  letter-spacing: 0.07em;
+  letter-spacing: 0;
   color: var(--ink-faint);
   white-space: nowrap;
 }
@@ -302,8 +262,7 @@ input[type="range"]::-moz-range-thumb {
 
 .section-title {
   font-size: 0.5625rem;
-  text-transform: uppercase;
-  letter-spacing: 0.09em;
+  letter-spacing: 0;
   color: var(--ink-faint);
   margin: 0 0 var(--s3);
   font-weight: 500;
@@ -346,8 +305,7 @@ input[type="range"]::-moz-range-thumb {
 
 .tile-label {
   font-size: 0.5625rem;
-  text-transform: uppercase;
-  letter-spacing: 0.07em;
+  letter-spacing: 0;
   color: var(--ink-faint);
   white-space: nowrap;
   overflow: hidden;
@@ -369,8 +327,7 @@ input[type="range"]::-moz-range-thumb {
 .tile-flag {
   font-size: 0.5rem;
   color: var(--warn);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0;
 }
 
 /* ---------------------------------------------------------- positions */
@@ -422,8 +379,7 @@ input[type="range"]::-moz-range-thumb {
   display: block;
   font-size: 0.5rem;
   color: var(--ink-faint);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0;
   font-weight: 400;
 }
 
@@ -444,8 +400,7 @@ input[type="range"]::-moz-range-thumb {
   border-radius: 2px;
   background: var(--surface-active);
   color: var(--ink-faint);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0;
   vertical-align: 1px;
 }
 
@@ -483,7 +438,7 @@ button:disabled {
 button.primary {
   background: var(--primary);
   border-color: var(--primary);
-  color: oklch(0.12 0.01 110);
+  color: var(--bg);
   font-weight: 500;
 }
 
@@ -536,8 +491,7 @@ input::placeholder {
 label {
   display: block;
   font-size: 0.5625rem;
-  text-transform: uppercase;
-  letter-spacing: 0.07em;
+  letter-spacing: 0;
   color: var(--ink-faint);
   margin-bottom: 3px;
 }
@@ -603,8 +557,7 @@ th {
   font-weight: 400;
   color: var(--ink-faint);
   font-size: 0.5625rem;
-  text-transform: uppercase;
-  letter-spacing: 0.07em;
+  letter-spacing: 0;
   padding: var(--s1) var(--s2);
   border-bottom: 1px solid var(--border-subtle);
 }
@@ -732,7 +685,7 @@ tbody tr:hover {
 .backdrop {
   position: fixed;
   inset: 0;
-  background: oklch(0 0 0 / 0.65);
+  background: var(--backdrop);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -765,6 +718,7 @@ tbody tr:hover {
 }
 
 .modal-head h2 {
+  text-wrap: balance;
   margin: 0;
   font-size: 0.75rem;
   font-weight: 500;
@@ -799,8 +753,7 @@ tbody tr:hover {
   box-shadow: inset 0 -1px 0 transparent;
   border-radius: 0;
   font-size: 0.6875rem;
-  text-transform: uppercase;
-  letter-spacing: 0.07em;
+  letter-spacing: 0;
 }
 
 .tab:hover:not(:disabled) {
@@ -829,8 +782,7 @@ tbody tr:hover {
 .broker-tier-head h3 {
   margin: 0;
   font-size: 0.5625rem;
-  text-transform: uppercase;
-  letter-spacing: 0.09em;
+  letter-spacing: 0;
   color: var(--ink-faint);
   font-weight: 500;
 }
@@ -868,8 +820,9 @@ tbody tr:hover {
 
 .broker:disabled {
   opacity: 1;
-  cursor: default;
-  background: transparent;
+  cursor: not-allowed;
+  background: var(--surface);
+  color: var(--ink-faint);
 }
 
 .broker-name {
@@ -994,8 +947,7 @@ tbody tr:hover {
 
 .sidebar-section-title {
   font-size: 0.5625rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0;
   color: var(--ink-faint);
   margin-bottom: var(--s2);
 }
@@ -1183,8 +1135,7 @@ tbody tr:hover {
 
 .trade-card-body small {
   font-size: 0.5rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0;
   color: var(--ink-faint);
 }
 
@@ -1215,8 +1166,7 @@ tbody tr:hover {
 
 .news-meta {
   font-size: 0.5625rem;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0;
   color: var(--ink-faint);
 }
 
@@ -1265,7 +1215,7 @@ tbody tr:hover {
   padding: 1px var(--s2);
   border-radius: 10px;
   background: var(--surface-active);
-  font-family: var(--mono);
+  font-family: var(--sans);
   font-size: 0.625rem;
 }
 
@@ -1306,7 +1256,8 @@ tbody tr:hover {
 .chart-legend {
   display: flex;
   justify-content: space-between;
-  font-family: var(--mono);
+  font-family: var(--sans);
+  font-variant-numeric: tabular-nums;
   font-size: 0.625rem;
   color: var(--ink-faint);
   padding: 0 var(--s2);
@@ -1322,6 +1273,7 @@ tbody tr:hover {
   .app {
     height: auto;
     min-height: 100%;
+    grid-template-rows: auto;
     /* The sidebar stacks above the shell rather than squeezing it. */
     grid-template-columns: 1fr;
   }

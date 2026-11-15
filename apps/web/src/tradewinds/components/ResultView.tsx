@@ -24,7 +24,7 @@ export default function ResultView({ puzzle, history, status }: ResultViewProps)
       style={{ backgroundColor: "var(--tw-surface)", borderColor: "var(--tw-border)" }}
     >
       <div>
-        <p className="text-xs font-medium uppercase tracking-wide" style={{ color: "var(--tw-muted)" }}>
+        <p className="text-xs font-medium " style={{ color: "var(--tw-muted)" }}>
           {status === "won" ? `Solved in ${history.length} of 10 guesses` : "Not solved this time"}
         </p>
         <h2 className="text-xl font-bold mt-1" style={{ color: "var(--tw-text)" }}>

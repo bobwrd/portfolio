@@ -4,6 +4,7 @@ import ContentCard from "@/components/ContentCard";
 import NewsletterSignup from "@/components/NewsletterSignup";
 import ViewToggle, { readStoredView, type ViewMode } from "@/components/ViewToggle";
 import { getAllContent, type ContentMeta, type ContentCategory } from "@/lib/api";
+import { usePageTitle } from "@/hooks/use-page-title";
 
 const VIEW_STORAGE_KEY = "moe-view-mode";
 
@@ -15,6 +16,7 @@ interface CategoryPageProps {
 }
 
 export default function CategoryPage({ category, title, subtitle, headingExtra }: CategoryPageProps) {
+  usePageTitle(`${title}, Margin of Error`);
   const [allItems, setAllItems] = useState<ContentMeta[]>([]);
   const [loading, setLoading] = useState(true);
   const [view, setView] = useState<ViewMode>(() => readStoredView(VIEW_STORAGE_KEY, "list"));

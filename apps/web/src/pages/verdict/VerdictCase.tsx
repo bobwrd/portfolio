@@ -11,7 +11,7 @@ import { fetchCase, TIER_COLORS, TIER_BG, type VerdictCase } from "./types";
 function TierBadge({ tier }: { tier: string }) {
   return (
     <span
-      className="text-[0.65rem] font-mono font-bold tracking-widest px-2 py-0.5 rounded uppercase"
+      className="text-[0.65rem] font-mono font-bold px-2 py-0.5 rounded "
       style={{
         color: TIER_COLORS[tier] ?? "var(--verdict-muted)",
         backgroundColor: TIER_BG[tier] ?? "transparent",
@@ -164,7 +164,7 @@ export default function VerdictCasePage() {
     return (
       <div className="py-16 text-center">
         <p className="text-sm font-mono mb-4" style={{ color: "var(--verdict-muted)" }}>Case not found.</p>
-        <Link to="/mini/verdict" className="text-sm" style={{ color: "var(--verdict-accent)" }}>← All cases</Link>
+        <Link to="/mini/verdict" className="text-sm" style={{ color: "var(--verdict-accent)" }}>All cases</Link>
       </div>
     );
   }
@@ -178,7 +178,7 @@ export default function VerdictCasePage() {
     borderColor: "var(--verdict-border)",
   };
 
-  const labelStyle = "text-[0.65rem] font-mono tracking-widest uppercase mb-1";
+  const labelStyle = "text-[0.65rem] font-mono mb-1";
   const labelColor = { color: "var(--verdict-muted)" };
 
   return (
@@ -190,7 +190,7 @@ export default function VerdictCasePage() {
           className="text-xs font-mono transition-opacity hover:opacity-80"
           style={{ color: "var(--verdict-accent)" }}
         >
-          ← All cases
+          All cases
         </Link>
       </div>
 
@@ -201,13 +201,13 @@ export default function VerdictCasePage() {
             <div className="flex items-center gap-2 flex-wrap mb-3">
               <TierBadge tier={computed.tier} />
               <span
-                className="text-[0.65rem] font-mono tracking-wider uppercase px-2 py-0.5 rounded"
+                className="text-[0.65rem] font-mono px-2 py-0.5 rounded"
                 style={{ color: "var(--verdict-muted)", backgroundColor: "var(--verdict-surface-2)" }}
               >
                 {item.decision_type}
               </span>
               <span
-                className="text-[0.65rem] font-mono tracking-wider uppercase px-2 py-0.5 rounded"
+                className="text-[0.65rem] font-mono px-2 py-0.5 rounded"
                 style={{ color: "var(--verdict-muted)", backgroundColor: "var(--verdict-surface-2)" }}
               >
                 {item.jurisdiction}
@@ -226,7 +226,7 @@ export default function VerdictCasePage() {
 
           {/* EDI score */}
           <div className="text-right shrink-0">
-            <div className="text-[0.65rem] font-mono tracking-widest mb-1" style={{ color: "var(--verdict-muted)" }}>
+            <div className="text-[0.65rem] font-mono mb-1" style={{ color: "var(--verdict-muted)" }}>
               EDI SCORE
             </div>
             <div

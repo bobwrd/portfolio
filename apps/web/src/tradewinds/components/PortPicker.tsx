@@ -55,7 +55,7 @@ export default function PortPicker({ label, query, onChange, disabled, locked }:
 export function LockedBadge() {
   return (
     <span
-      className="rounded px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-white"
+      className="rounded px-1.5 py-0.5 text-[10px] font-semibold text-white"
       style={{ backgroundColor: "var(--tw-green)" }}
     >
       Locked

@@ -74,7 +74,7 @@ function Row({ origin, cellFn }: { origin: MobilityGroup; cellFn: (o: MobilityGr
           <div
             key={d}
             className="aspect-square rounded flex items-center justify-center text-[0.7rem] font-bold tabular-nums transition-colors duration-300"
-            style={{ backgroundColor: rampColor(p), color: p > 0.35 ? "#1a1205" : "var(--dl-text)" }}
+            style={{ backgroundColor: rampColor(p), color: p >= 0.39 ? "var(--dl-surface)" : "var(--dl-text)" }}
             title={`${Math.round(p * 100)}%`}
           >
             {Math.round(p * 100)}

@@ -58,16 +58,16 @@ export default function DocketLayout({ children }: { children: React.ReactNode }
     { label: "Bottlenecks", href: "#bottlenecks" },
     { label: "Tracker", href: "#tracker" },
     { label: "India vs SG", href: "#indosing" },
-    { label: "Method", href: "#methodology" },
+    { label: "Methodology", href: "#methodology" },
   ];
 
   return (
     <div style={{ minHeight: "100vh" }}>
-      <SectionSwitcher current="Mini Projects" />
+      <SectionSwitcher current="tools" />
       <header
         className="sticky top-0 z-50 border-b"
         style={{
-          backgroundColor: "rgba(240,250,243,0.92)",
+          backgroundColor: "color-mix(in srgb, var(--docket-bg) 92%, transparent)",
           borderColor: "var(--docket-border)",
           backdropFilter: "blur(8px)",
         }}
@@ -76,18 +76,17 @@ export default function DocketLayout({ children }: { children: React.ReactNode }
           <div className="flex items-center gap-4 shrink-0">
             <Link
               to="/mini"
-              className="text-xs font-mono tracking-wider opacity-40 hover:opacity-70 transition-opacity"
+              className="text-xs underline-offset-4 hover:underline"
               style={{ color: "var(--docket-muted)" }}
             >
-              ← Mini Projects
+              Research tools
             </Link>
             <a
               href="#intro"
               className="font-semibold tracking-tight text-sm flex items-center gap-2"
               style={{ color: "var(--docket-accent)" }}
             >
-              <span className="font-mono text-xs opacity-70">⚖</span>
-              THE DOCKET
+              The Docket
             </a>
           </div>
 
@@ -100,7 +99,7 @@ export default function DocketLayout({ children }: { children: React.ReactNode }
                   <a
                     key={link.href}
                     href={link.href}
-                    className="px-2.5 py-1.5 rounded text-xs font-mono tracking-wide transition-all duration-150"
+                    className="px-2.5 py-1.5 rounded text-xs transition-colors duration-150"
                     style={{
                       color: isActive ? "var(--docket-accent)" : "var(--docket-muted)",
                       backgroundColor: isActive ? "var(--docket-accent-dim)" : "transparent",
@@ -113,22 +112,22 @@ export default function DocketLayout({ children }: { children: React.ReactNode }
             {isMethodsPage && (
               <Link
                 to="/mini/docket"
-                className="px-2.5 py-1.5 rounded text-xs font-mono tracking-wide transition-all duration-150"
+                className="px-2.5 py-1.5 rounded text-xs transition-colors duration-150"
                 style={{ color: "var(--docket-muted)" }}
               >
-                ← The Docket
+                Back to the Docket
               </Link>
             )}
             <Link
               to="/mini/docket/methods"
-              className="px-2.5 py-1.5 rounded text-xs font-mono tracking-wide transition-all duration-150 border"
+              className="px-2.5 py-1.5 rounded text-xs transition-colors duration-150 border"
               style={{
                 borderColor: isMethodsPage ? "var(--docket-accent)" : "var(--docket-border)",
                 color: isMethodsPage ? "var(--docket-accent)" : "var(--docket-muted)",
                 backgroundColor: isMethodsPage ? "var(--docket-accent-dim)" : "transparent",
               }}
             >
-              Methods
+              Technical note
             </Link>
           </nav>
         </div>
@@ -139,24 +138,24 @@ export default function DocketLayout({ children }: { children: React.ReactNode }
       <footer className="border-t mt-20" style={{ borderColor: "var(--docket-border)" }}>
         <div className="max-w-6xl mx-auto px-4 sm:px-6 py-6">
           <div
-            className="flex items-center justify-between text-xs font-mono"
+            className="flex items-center justify-between text-xs"
             style={{ color: "var(--docket-muted)" }}
           >
-            <span>THE DOCKET · Arin Jain</span>
+            <span>The Docket, by Arin Jain</span>
             <div className="flex items-center gap-3">
               <a
                 href="#methodology"
                 className="hover:opacity-80 transition-opacity"
                 style={{ color: "var(--docket-muted)" }}
               >
-                Methodology ↑
+                Methodology
               </a>
               <Link
                 to="/mini/docket/methods"
                 className="hover:opacity-80 transition-opacity"
                 style={{ color: "var(--docket-accent)" }}
               >
-                Full methods →
+                Technical note
               </Link>
             </div>
           </div>

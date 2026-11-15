@@ -241,7 +241,7 @@ export default function Lab() {
 
       {/* Preset buttons */}
       <div className="mb-5">
-        <div className="text-[0.65rem] font-mono uppercase tracking-wider mb-2" style={{ color: "var(--obs-muted)" }}>
+        <div className="text-[0.65rem] font-mono mb-2" style={{ color: "var(--obs-muted)" }}>
           Named scenarios
         </div>
         <div className="flex flex-wrap gap-2">
@@ -369,7 +369,7 @@ export default function Lab() {
 
       {/* Dynamic narrative panel */}
       <div className="mt-5 rounded-xl border p-5" style={{ borderColor: "var(--obs-border)", backgroundColor: "var(--obs-surface)" }}>
-        <div className="text-[0.65rem] font-mono uppercase tracking-wider mb-3" style={{ color: "var(--obs-accent)" }}>
+        <div className="text-[0.65rem] font-mono mb-3" style={{ color: "var(--obs-accent)" }}>
           What this scenario implies
         </div>
         <div className="grid sm:grid-cols-3 gap-4">
@@ -388,7 +388,7 @@ export default function Lab() {
 
       {/* Paycheque calculator */}
       <div className="mt-5 rounded-xl border p-5" style={{ borderColor: "var(--obs-border)", backgroundColor: "var(--obs-surface)" }}>
-        <div className="text-[0.65rem] font-mono uppercase tracking-wider mb-1" style={{ color: "var(--obs-accent)" }}>
+        <div className="text-[0.65rem] font-mono mb-1" style={{ color: "var(--obs-accent)" }}>
           What this could feel like on a paycheque
         </div>
         <p className="text-xs mb-4 leading-relaxed" style={{ color: "var(--obs-muted)" }}>

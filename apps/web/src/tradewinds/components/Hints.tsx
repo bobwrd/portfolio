@@ -16,7 +16,7 @@ export default function Hints({ revealed, all, guessesUsed }: HintsProps) {
       className="rounded-lg border p-5"
       style={{ backgroundColor: "var(--tw-surface)", borderColor: "var(--tw-border)" }}
     >
-      <h2 className="text-sm font-semibold tracking-wide uppercase mb-3" style={{ color: "var(--tw-muted)" }}>
+      <h2 className="text-sm font-semibold mb-3" style={{ color: "var(--tw-muted)" }}>
         Hints
       </h2>
 

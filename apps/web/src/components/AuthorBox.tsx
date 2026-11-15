@@ -11,9 +11,9 @@ export default function AuthorBox() {
         <div>
           <p className="text-sm font-semibold text-foreground">{siteConfig.author}</p>
           <p className="text-sm text-muted-foreground mt-0.5">
-            Writing on economics, law, and policy from Singapore.{" "}
-            <Link to="/profile" className="underline underline-offset-2 hover:text-foreground transition-colors">
-              More about me →
+            Writing on economics, law and policy from Singapore.{" "}
+            <Link to="/" className="underline underline-offset-2 hover:text-foreground transition-colors">
+              More about me
             </Link>
           </p>
         </div>

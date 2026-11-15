@@ -88,7 +88,7 @@ export default function Bottlenecks() {
                 <button
                   key={key}
                   onClick={() => setSortBy(key)}
-                  className="px-2 py-0.5 rounded text-xs font-mono border transition-all"
+                  className="px-2 py-0.5 rounded text-xs font-mono border transition-colors"
                   style={{
                     borderColor: sortBy === key ? "var(--docket-accent)" : "var(--docket-border)",
                     color: sortBy === key ? "var(--docket-accent)" : "var(--docket-muted)",
@@ -282,7 +282,7 @@ export default function Bottlenecks() {
           },
         ].map(({ factor, stat, statLabel, body }) => (
           <Card key={factor}>
-            <div className="text-xs font-mono mb-2 uppercase tracking-wider" style={{ color: "var(--docket-accent)" }}>
+            <div className="text-xs font-mono mb-2 " style={{ color: "var(--docket-accent)" }}>
               {factor}
             </div>
             <div className="text-2xl font-bold font-mono mb-0.5" style={{ color: "var(--docket-text)" }}>

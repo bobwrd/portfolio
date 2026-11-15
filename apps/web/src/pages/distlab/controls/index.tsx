@@ -21,7 +21,7 @@ export function CountryPicker({
             className="px-3 py-1.5 rounded-md text-xs font-medium transition-colors duration-150"
             style={{
               backgroundColor: active ? "var(--dl-accent)" : "var(--dl-surface-2)",
-              color: active ? "#1a1205" : "var(--dl-muted)",
+              color: active ? "var(--dl-surface)" : "var(--dl-muted)",
             }}
           >
             {names[c] || c}
@@ -41,7 +41,7 @@ export function ModeToggle({ mode, onChange }: { mode: "history" | "playground";
           key={m}
           onClick={() => onChange(m)}
           className="px-4 py-1.5 rounded-md text-xs font-semibold capitalize transition-colors duration-150"
-          style={{ backgroundColor: mode === m ? "var(--dl-accent)" : "transparent", color: mode === m ? "#1a1205" : "var(--dl-muted)" }}
+          style={{ backgroundColor: mode === m ? "var(--dl-accent)" : "transparent", color: mode === m ? "var(--dl-surface)" : "var(--dl-muted)" }}
         >
           {m}
         </button>
@@ -148,7 +148,7 @@ export function EvidenceStrip({ result, names }: { result: MappingResult; names:
   return (
     <div className="flex items-center gap-3 flex-wrap">
       {result.extrapolating ? (
-        <span className="text-xs font-medium px-2 py-1 rounded" style={{ backgroundColor: "var(--dl-warn)", color: "#1a1205" }}>
+        <span className="text-xs font-medium px-2 py-1 rounded" style={{ backgroundColor: "var(--dl-warn)", color: "var(--dl-surface)" }}>
           No close real-world analogue — estimates are extrapolated
         </span>
       ) : (
@@ -172,7 +172,7 @@ export function EvidenceDrawer({
   const [open, setOpen] = useState(false);
   return (
     <div className="rounded-lg border" style={{ borderColor: "var(--dl-border)" }}>
-      <button onClick={() => setOpen((o) => !o)} className="w-full flex items-center justify-between px-3 py-2 text-[0.7rem] font-mono uppercase tracking-wider" style={{ color: "var(--dl-muted)" }} aria-expanded={open}>
+      <button onClick={() => setOpen((o) => !o)} className="w-full flex items-center justify-between px-3 py-2 text-[0.7rem] font-mono " style={{ color: "var(--dl-muted)" }} aria-expanded={open}>
         <span>Evidence — {result.contributors.length} contributing episodes</span>
         <ChevronDown className="h-4 w-4 transition-transform" style={{ transform: open ? "rotate(180deg)" : "none" }} />
       </button>

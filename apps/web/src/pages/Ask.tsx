@@ -1,4 +1,5 @@
 import SectionSwitcher from "@/components/SectionSwitcher";
+import { usePageTitle } from "@/hooks/use-page-title";
 
 const RELEASE_URL = "https://github.com/bobwrd/ask/releases/tag/v0.2.1";
 const DOWNLOAD_URL =
@@ -6,7 +7,7 @@ const DOWNLOAD_URL =
 
 function Code({ children }: { children: string }) {
   return (
-    <pre className="overflow-x-auto rounded-lg border border-neutral-200 bg-neutral-50 p-4 text-sm leading-relaxed text-neutral-800">
+    <pre className="overflow-x-auto rounded-lg border border-border bg-secondary p-4 text-sm leading-relaxed text-foreground">
       <code>{children}</code>
     </pre>
   );
@@ -18,9 +19,9 @@ function Screenshot({ src, caption }: { src: string; caption: string }) {
       <img
         src={src}
         alt={caption}
-        className="w-full rounded-lg border border-neutral-200"
+        className="w-full rounded-lg border border-border"
       />
-      <figcaption className="mt-2 text-sm italic text-neutral-500">
+      <figcaption className="mt-2 text-sm italic text-muted-foreground">
         {caption}
       </figcaption>
     </figure>
@@ -100,18 +101,19 @@ const REFERENCE: { section: string; rows: [string, string][] }[] = [
 ];
 
 export default function Ask() {
+  usePageTitle("Ask, a data language for beginners");
   return (
-    <div className="min-h-screen bg-white font-serif text-neutral-900">
-      <SectionSwitcher current="Ask" />
+    <div className="min-h-screen bg-background font-serif text-foreground">
+      <SectionSwitcher current="ask" />
 
       <main className="mx-auto max-w-3xl px-6 py-16">
         <header className="mb-14 text-center">
           <h1 className="text-4xl">Ask</h1>
-          <p className="mt-4 text-lg text-neutral-700">
-            A tiny, beginner-friendly language for asking your data questions —
-            with a built-in editor, table, and charts.
+          <p className="mt-4 text-lg text-foreground/85">
+            A small language for asking questions of your data, with a
+            built-in editor, table and charts.
           </p>
-          <p className="mt-6 font-sans text-base leading-relaxed text-neutral-600">
+          <p className="mt-6 font-sans text-base leading-relaxed text-muted-foreground">
             Ask is a data-analysis language designed to be <em>guessable</em>.
             You read a program top to bottom and it does exactly that, in
             order: load a file, clean it, filter it, group it, chart it. No
@@ -122,7 +124,7 @@ export default function Ask() {
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3 font-sans text-sm">
             <a
               href={DOWNLOAD_URL}
-              className="rounded-full bg-neutral-900 px-5 py-2.5 font-medium text-white hover:bg-neutral-700"
+              className="rounded-full bg-primary px-5 py-2.5 font-medium text-primary-foreground transition-colors duration-150 hover:bg-primary/85"
             >
               Download for macOS (arm64)
             </a>
@@ -130,7 +132,7 @@ export default function Ask() {
               href={RELEASE_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-full border border-neutral-300 px-5 py-2.5 font-medium text-neutral-700 hover:border-neutral-400"
+              className="rounded-full border border-border px-5 py-2.5 font-medium text-foreground transition-colors duration-150 hover:border-foreground/40"
             >
               v0.2.1 release notes
             </a>
@@ -138,7 +140,7 @@ export default function Ask() {
               href="https://github.com/bobwrd/ask"
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-full border border-neutral-300 px-5 py-2.5 font-medium text-neutral-700 hover:border-neutral-400"
+              className="rounded-full border border-border px-5 py-2.5 font-medium text-foreground transition-colors duration-150 hover:border-foreground/40"
             >
               Source on GitHub
             </a>
@@ -150,7 +152,7 @@ export default function Ask() {
   where region is "West"
   show total revenue as sales
   chart sales by region as bar`}</Code>
-          <p className="mt-3 text-center text-sm text-neutral-500">
+          <p className="mt-3 text-center text-sm text-muted-foreground">
             Press Run. You get a table and a chart.
           </p>
         </section>
@@ -167,7 +169,7 @@ export default function Ask() {
             {PRINCIPLES.map((p) => (
               <div key={p.title}>
                 <dt className="font-bold">{p.title}</dt>
-                <dd className="mt-1 text-neutral-700">{p.body}</dd>
+                <dd className="mt-1 text-foreground/85">{p.body}</dd>
               </div>
             ))}
           </dl>
@@ -210,8 +212,8 @@ chart sales by region as bar
         <section className="mb-14">
           <h2 className="text-lg font-bold">Types can drive the chart</h2>
           <p className="mt-3 leading-relaxed">
-            Define an ordered type and the axis orders itself — Poor → Fair →
-            Good → Great, not alphabetically.
+            Define an ordered type and the axis follows it (Poor, Fair, Good,
+            Great) instead of sorting alphabetically.
           </p>
           <div className="mt-4">
             <Code>{`type Rating = Poor | Fair | Good | Great
@@ -239,7 +241,7 @@ load "reviews.csv"
   relate cost and revenue             # correlation + interpretation
   predict revenue from cost           # linear regression, in plain language`}</Code>
           </div>
-          <p className="mt-4 leading-relaxed text-neutral-700">
+          <p className="mt-4 leading-relaxed text-foreground/85">
             You get findings like <em>"cost and revenue have a strong
             relationship (r = 0.88) - they tend to rise together. This is
             very unlikely to be chance (p &lt; 0.001)"</em> and <em>"each 1
@@ -305,12 +307,12 @@ Try: clean price`}</Code>
                       {group.rows.map(([cmd, behavior]) => (
                         <tr
                           key={cmd}
-                          className="border-b border-neutral-100"
+                          className="border-b border-border/60"
                         >
-                          <td className="whitespace-nowrap py-2 pr-4 align-top font-mono text-xs text-neutral-800">
+                          <td className="whitespace-nowrap py-2 pr-4 align-top font-mono text-xs text-foreground">
                             {cmd}
                           </td>
-                          <td className="py-2 text-neutral-600">
+                          <td className="py-2 text-muted-foreground">
                             {behavior}
                           </td>
                         </tr>
@@ -321,14 +323,14 @@ Try: clean price`}</Code>
               </div>
             ))}
           </div>
-          <p className="mt-6 font-sans text-sm text-neutral-500">
+          <p className="mt-6 font-sans text-sm text-muted-foreground">
             This is a subset — the full reference (text extraction, cleaning,
             every chart modifier, join kinds) lives in the{" "}
             <a
               href="https://github.com/bobwrd/ask#language-reference"
               target="_blank"
               rel="noopener noreferrer"
-              className="underline decoration-neutral-300 underline-offset-4"
+              className="underline decoration-border underline-offset-4"
             >
               repo README
             </a>
@@ -336,7 +338,7 @@ Try: clean price`}</Code>
           </p>
         </section>
 
-        <section className="border-t border-neutral-200 pt-8">
+        <section className="border-t border-border pt-8">
           <h2 className="text-lg font-bold">Get it</h2>
           <p className="mt-3 leading-relaxed">
             Requires Python 3.10+ if running from source. The macOS build
@@ -345,12 +347,12 @@ Try: clean price`}</Code>
           <div className="mt-4 flex flex-wrap gap-3 font-sans text-sm">
             <a
               href={DOWNLOAD_URL}
-              className="rounded-full bg-neutral-900 px-5 py-2.5 font-medium text-white hover:bg-neutral-700"
+              className="rounded-full bg-primary px-5 py-2.5 font-medium text-primary-foreground transition-colors duration-150 hover:bg-primary/85"
             >
               Ask-macOS-arm64.zip
             </a>
           </div>
-          <p className="mt-4 text-sm text-neutral-500">
+          <p className="mt-4 text-sm text-muted-foreground">
             MIT licensed. v0.2.1.
           </p>
         </section>

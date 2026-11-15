@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
 import SectionSwitcher from "@/components/SectionSwitcher";
+import { usePageTitle } from "@/hooks/use-page-title";
 
 const ANCHORS = [
   { href: "#snapshot", label: "Snapshot" },
-  { href: "#who-i-am", label: "Who I Am" },
+  { href: "#who-i-am", label: "Who I am" },
   { href: "#academics", label: "Academics" },
   { href: "#awards", label: "Awards" },
   { href: "#research", label: "Research" },
@@ -23,17 +24,18 @@ function List({ items }: { items: React.ReactNode[] }) {
 }
 
 export default function Landing() {
+  usePageTitle();
   return (
-    <div className="min-h-screen bg-white font-serif text-neutral-900">
-      <SectionSwitcher current="About Me" />
+    <div className="min-h-screen bg-background font-serif text-foreground">
+      <SectionSwitcher current="about" />
 
-      <nav className="sticky top-0 z-40 border-b border-neutral-200 bg-white/95 backdrop-blur">
+      <nav aria-label="On this page" className="sticky top-0 z-40 border-b border-border bg-background/95 backdrop-blur">
         <div className="mx-auto flex max-w-3xl justify-center gap-5 overflow-x-auto px-6 py-3 font-sans text-sm">
           {ANCHORS.map((a) => (
             <a
               key={a.href}
               href={a.href}
-              className="whitespace-nowrap text-neutral-700 underline decoration-neutral-300 underline-offset-4 hover:text-neutral-950"
+              className="whitespace-nowrap text-muted-foreground hover:text-foreground transition-colors duration-150"
             >
               {a.label}
             </a>
@@ -45,30 +47,27 @@ export default function Landing() {
         {/* Title block */}
         <header className="mb-14 text-center">
           <h1 className="text-4xl leading-tight">Arin Jain</h1>
-          <p className="mt-3 text-base text-neutral-600">He/him · Singapore</p>
-          <p className="mt-1 text-sm text-neutral-500">
-            Overseas Family School — Grade 11
+          <p className="mt-3 text-base text-muted-foreground">
+            Grade 11 (IB Year 1), Overseas Family School, Singapore
           </p>
-          <p className="mt-1 text-sm text-neutral-500">Updated July 2026</p>
-          <p className="mt-3 font-sans text-sm text-neutral-700">
+          <p className="mt-1 text-sm text-muted-foreground">He/him. Updated July 2026.</p>
+          <p className="mt-4 flex flex-wrap justify-center gap-x-5 gap-y-1 font-sans text-sm">
             <a
-              className="underline decoration-neutral-300 underline-offset-4"
+              className="underline decoration-border underline-offset-4"
               href="mailto:arinjain.mail@gmail.com"
             >
               arinjain.mail@gmail.com
-            </a>{" "}
-            |{" "}
+            </a>
             <a
-              className="underline decoration-neutral-300 underline-offset-4"
+              className="underline decoration-border underline-offset-4"
               href="https://github.com/bobwrd"
               target="_blank"
               rel="noopener noreferrer"
             >
               github.com/bobwrd
-            </a>{" "}
-            |{" "}
+            </a>
             <a
-              className="underline decoration-neutral-300 underline-offset-4"
+              className="underline decoration-border underline-offset-4"
               href="https://linkedin.com/in/arin-jain-69a954270"
               target="_blank"
               rel="noopener noreferrer"
@@ -80,26 +79,35 @@ export default function Landing() {
 
         {/* Snapshot */}
         <section id="snapshot" className="scroll-mt-16">
-          <h2 className="text-center text-lg font-bold">Snapshot</h2>
+          <h2 className="text-lg font-bold">Snapshot</h2>
           <p className="mt-4 leading-relaxed">
-            Aspiring economist and future legal scholar combining strong
-            quantitative rigor, policy leadership, and real-world impact
-            across law, economics, and global affairs.
+            I study economics and law, and I build research around one
+            question: where do legal systems and economic policy fail the
+            people they are meant to serve? This site holds that work: essays,
+            six interactive research tools, and two software projects.
           </p>
-          <List
-            items={[
-              "Name: Arin Jain (he/him)",
-              "Location: Singapore",
-              "School: Overseas Family School (OFS), Singapore — Grade 11 (attending since Aug 2017)",
-            ]}
-          />
+          <p className="mt-4 font-sans text-sm leading-relaxed">
+            Start with the{" "}
+            <Link to="/mini" className="underline decoration-warm-accent underline-offset-4">
+              research tools
+            </Link>
+            , the{" "}
+            <Link to="/writing" className="underline decoration-warm-accent underline-offset-4">
+              writing
+            </Link>
+            , or the{" "}
+            <Link to="/overview" className="underline decoration-warm-accent underline-offset-4">
+              site guide
+            </Link>
+            . At Overseas Family School since August 2017.
+          </p>
         </section>
 
-        <hr className="my-10 border-neutral-200" />
+        <hr className="my-10 border-border" />
 
         {/* Who I Am */}
         <section id="who-i-am" className="scroll-mt-16">
-          <h2 className="text-lg font-bold">1 Who I Am</h2>
+          <h2 className="text-lg font-bold">1. Who I am</h2>
           <p className="mt-4 leading-relaxed">
             I'm a Grade 11 student at Overseas Family School in Singapore. I
             plan to study economics at the undergraduate level and law at the
@@ -112,11 +120,11 @@ export default function Landing() {
           </p>
         </section>
 
-        <hr className="my-10 border-neutral-200" />
+        <hr className="my-10 border-border" />
 
         {/* Academics */}
         <section id="academics" className="scroll-mt-16">
-          <h2 className="text-lg font-bold">2 Academics</h2>
+          <h2 className="text-lg font-bold">2. Academics</h2>
           <List
             items={[
               "GPA: 4.00/4.00 current (Grade 10, Sem 2); 3.93/4.00 cumulative (Grades 9–10)",
@@ -126,7 +134,7 @@ export default function Landing() {
                 <List
                   items={[
                     "Higher Level: Economics; Mathematics: Analysis & Approaches (AA); Physics",
-                    "Standard Level: Global Politics; French B (also listed elsewhere as Spanish Ab Initio); English A Language & Literature",
+                    "Standard Level: Global Politics; Spanish Ab Initio; English A Language & Literature",
                   ]}
                 />
               </>,
@@ -135,11 +143,11 @@ export default function Landing() {
           />
         </section>
 
-        <hr className="my-10 border-neutral-200" />
+        <hr className="my-10 border-border" />
 
         {/* Awards */}
         <section id="awards" className="scroll-mt-16">
-          <h2 className="text-lg font-bold">3 Awards &amp; Achievements</h2>
+          <h2 className="text-lg font-bold">3. Awards and achievements</h2>
           <List
             items={[
               <>
@@ -157,9 +165,9 @@ export default function Landing() {
                 participants; essay on{" "}
                 <Link
                   to="/writing/personal/us-economy-cheap-imports-china"
-                  className="underline decoration-neutral-300 underline-offset-4"
+                  className="underline decoration-border underline-offset-4"
                 >
-                  the impact of cheap Chinese imports on the US economy →
+                  the impact of cheap Chinese imports on the US economy
                 </Link>
               </>,
               "SASMO 2026 — 1st in school; 126th in award category (~45,000 students).",
@@ -172,47 +180,48 @@ export default function Landing() {
           />
         </section>
 
-        <hr className="my-10 border-neutral-200" />
+        <hr className="my-10 border-border" />
 
         {/* Research */}
         <section id="research" className="scroll-mt-16">
-          <h2 className="text-lg font-bold">4 Research &amp; Projects</h2>
+          <h2 className="text-lg font-bold">4. Research and projects</h2>
           <List
             items={[
               <>
                 Margin of Error — self-directed, full-stack research project
                 (economics + law + development) built around one question:
                 where do legal systems, economic policy, and regulatory
-                frameworks fail the people they serve, and why? Six
-                subprojects:
+                frameworks fail the people they serve, and why? On this site it
+                takes two forms: the writing, and six interactive research
+                tools:
                 <List
                   items={[
                     "The Verdict — reproducible Enforcement-Driven Index (EDI) scoring AI legal/regulatory events on five factors, updated weekly (EU AI Act scored highest at 87.3).",
                     "The Ledger — hand-built database of Monetary Authority of Singapore enforcement actions.",
-                    "The Observatory — interactive macro model tracing AI adoption → productivity, wages, prices, using live World Bank and FRED data.",
+                    "The Observatory — interactive macro model tracing how AI adoption feeds through to productivity, wages and prices, using live World Bank and FRED data.",
                     "The Arena — interactive industrial-organization models (Bertrand, Cournot, innovation/tournament incentives).",
                     "The Distribution Lab — 465-country-year panel (1990–2020) mapping institutional configurations to distributional outcomes via kernel weighting.",
                     "The Docket — map of India's 49-million-case court backlog with a prototype citizen case-tracking dashboard and an India–Singapore comparison.",
                   ]}
                 />
                 <p className="mt-2">
-                  Live in this site's{" "}
+                  Explore the{" "}
                   <Link
                     to="/mini"
-                    className="underline decoration-neutral-300 underline-offset-4"
+                    className="underline decoration-border underline-offset-4"
                   >
-                    Mini Projects
+                    research tools
                   </Link>{" "}
-                  and{" "}
+                  and the{" "}
                   <Link
                     to="/writing"
-                    className="underline decoration-neutral-300 underline-offset-4"
+                    className="underline decoration-border underline-offset-4"
                   >
-                    Margin of Error
-                  </Link>{" "}
-                  sections; source at{" "}
+                    writing
+                  </Link>
+                  ; source code at{" "}
                   <a
-                    className="underline decoration-neutral-300 underline-offset-4"
+                    className="underline decoration-border underline-offset-4"
                     href="https://github.com/bobwrd/portfolio"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -229,22 +238,22 @@ export default function Landing() {
                 accepted at NTSS above).{" "}
                 <Link
                   to="/writing/others/issue-002-india-labour"
-                  className="underline decoration-neutral-300 underline-offset-4"
+                  className="underline decoration-border underline-offset-4"
                 >
-                  Early findings →
+                  Read the early findings
                 </Link>
               </>,
               "Supervised literature review — reviewing the South Asian gig economy under Dr. Shreshti Rawat of the Meghnad Desai Academy of Economics (MDAE) / Indira Gandhi Institute of Development Research.",
-              "CivicAid — a legal literacy app informing the public about key Singapore laws; on Google Play, partnering with the Center for Domestic Employees (100,000+ workers/year) to expand reach.",
+              "CivicAid — a legal literacy app informing the public about key Singapore laws; live on Google Play, with It's Raining Raincoats as partner to expand its reach.",
             ]}
           />
         </section>
 
-        <hr className="my-10 border-neutral-200" />
+        <hr className="my-10 border-border" />
 
         {/* Leadership */}
         <section id="leadership" className="scroll-mt-16">
-          <h2 className="text-lg font-bold">5 Leadership</h2>
+          <h2 className="text-lg font-bold">5. Leadership</h2>
           <List
             items={[
               "Under-Secretary-General, MUN@OFS (executive team) — organize MY-MUNOFS (~413 attendees) and MUNOFS (~550 attendees); help lead a ~70–80 delegate club; 19+ conferences as delegate, chaired 9+, focused on international law, human rights, and global governance.",
@@ -255,12 +264,12 @@ export default function Landing() {
                 select and mentor speakers, run rehearsals for a live
                 audience of 100+. My own talk:{" "}
                 <a
-                  className="underline decoration-neutral-300 underline-offset-4"
+                  className="underline decoration-border underline-offset-4"
                   href="https://www.youtube.com/watch?v=GucwscPHSGs"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  "Do Our Dreams Belong to Us?" →
+                  "Do Our Dreams Belong to Us?"
                 </a>{" "}
                 on how society shapes ambition.
               </>,
@@ -271,11 +280,11 @@ export default function Landing() {
           />
         </section>
 
-        <hr className="my-10 border-neutral-200" />
+        <hr className="my-10 border-border" />
 
         {/* Volunteering */}
         <section id="volunteering" className="scroll-mt-16">
-          <h2 className="text-lg font-bold">6 Volunteering &amp; Impact</h2>
+          <h2 className="text-lg font-bold">6. Volunteering</h2>
           <List
             items={[
               <>
@@ -285,7 +294,7 @@ export default function Landing() {
                 challenged students; conceptualized and built the school's
                 e-commerce site (
                 <a
-                  className="underline decoration-neutral-300 underline-offset-4"
+                  className="underline decoration-border underline-offset-4"
                   href="https://jodhpurblindschool.in"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -302,11 +311,11 @@ export default function Landing() {
           />
         </section>
 
-        <hr className="my-10 border-neutral-200" />
+        <hr className="my-10 border-border" />
 
         {/* Skills */}
         <section id="skills" className="scroll-mt-16">
-          <h2 className="text-lg font-bold">7 Skills, Languages &amp; Interests</h2>
+          <h2 className="text-lg font-bold">7. Skills, languages and interests</h2>
           <List
             items={[
               "Languages: English (native/bilingual); Hindi (fluent/full professional); French (conversational).",
@@ -318,52 +327,49 @@ export default function Landing() {
           />
         </section>
 
-        <hr className="my-10 border-neutral-200" />
+        <hr className="my-10 border-border" />
 
         {/* Appendix */}
         <section id="appendix" className="scroll-mt-16 pb-16">
-          <h2 className="text-lg font-bold">8 Appendix</h2>
+          <h2 className="text-lg font-bold">8. Links</h2>
           <ul className="mt-4 list-disc space-y-2 pl-5 leading-relaxed">
             <li>
               <a
-                className="underline decoration-neutral-300 underline-offset-4"
+                className="underline decoration-border underline-offset-4"
                 href="https://github.com/bobwrd"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                GitHub — github.com/bobwrd
+                GitHub: github.com/bobwrd
               </a>
             </li>
             <li>
               <a
-                className="underline decoration-neutral-300 underline-offset-4"
+                className="underline decoration-border underline-offset-4"
                 href="https://linkedin.com/in/arin-jain-69a954270"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                LinkedIn — linkedin.com/in/arin-jain-69a954270
+                LinkedIn: linkedin.com/in/arin-jain-69a954270
               </a>
             </li>
             <li>
               <Link
                 to="/overview"
-                className="underline decoration-neutral-300 underline-offset-4"
+                className="underline decoration-border underline-offset-4"
               >
-                Site overview — what this portfolio is and how it's built →
+                Site guide: what is here and why it is built this way
               </Link>
             </li>
             <li>
               <Link
                 to="/writing/about"
-                className="underline decoration-neutral-300 underline-offset-4"
+                className="underline decoration-border underline-offset-4"
               >
-                Full project overview →
+                About Margin of Error, the research project
               </Link>
             </li>
           </ul>
-          <p className="mt-8 text-sm text-neutral-500">
-            Last updated July 2026.
-          </p>
         </section>
       </main>
     </div>

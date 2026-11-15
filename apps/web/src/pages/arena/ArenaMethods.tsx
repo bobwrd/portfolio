@@ -36,7 +36,7 @@ function Mono({ children }: { children: React.ReactNode }) {
 
 export default function ArenaMethods() {
   useEffect(() => {
-    document.title = "Technical Note — The Arena · Arin Jain";
+    document.title = "The Arena: technical note — Arin Jain";
     window.scrollTo(0, 0);
   }, []);
 
@@ -44,28 +44,28 @@ export default function ArenaMethods() {
     <div className="max-w-3xl mx-auto px-4 sm:px-6 py-14">
       <Link
         to="/mini/arena"
-        className="text-xs font-mono tracking-wider mb-8 inline-block transition-opacity hover:opacity-70"
+        className="text-xs font-mono mb-8 inline-block transition-opacity hover:opacity-70"
         style={{ color: "var(--arena-muted)" }}
       >
-        ← Back to The Arena
+        Back to the Arena
       </Link>
 
       {/* Title block */}
       <div className="mt-4 mb-10 border-b pb-8" style={{ borderColor: "var(--arena-border)" }}>
-        <div className="text-[0.65rem] font-mono uppercase tracking-[0.2em] mb-3" style={{ color: "var(--arena-accent)" }}>
-          Technical Note · Methods Appendix
+        <div className="text-[0.65rem] font-mono mb-3" style={{ color: "var(--arena-accent)" }}>
+          The Arena: technical note
         </div>
         <h1 className="text-2xl sm:text-3xl font-bold tracking-tight mb-4" style={{ color: "var(--arena-text)" }}>
           The Arena — Competition and Efficiency: Behavioural Curves, Outcome Functions, and Policy Thresholds
         </h1>
         <p className="text-xs font-mono mb-6" style={{ color: "var(--arena-muted)" }}>
-          Arin Jain · {new Date().getFullYear()}
+          By Arin Jain, {new Date().getFullYear()}
         </p>
         <div
           className="rounded-lg p-4 text-sm leading-relaxed border"
           style={{ borderColor: "var(--arena-border)", backgroundColor: "var(--arena-surface)", color: "var(--arena-text)" }}
         >
-          <strong className="text-xs font-mono uppercase tracking-wider block mb-2" style={{ color: "var(--arena-muted)" }}>
+          <strong className="text-xs font-mono block mb-2" style={{ color: "var(--arena-muted)" }}>
             Abstract
           </strong>
           The Arena is an interactive sandbox on a single question: when does more competition raise efficiency,
@@ -195,7 +195,7 @@ export default function ArenaMethods() {
 
       {/* Footer */}
       <div className="mt-12 pt-6 border-t text-xs font-mono" style={{ borderColor: "var(--arena-border)", color: "var(--arena-muted)" }}>
-        <p>THE ARENA · Arin Jain · Technical Note</p>
+        <p>The Arena technical note, by Arin Jain</p>
         <p className="mt-1">
           Models: <Mono>model.ts</Mono>. Sources: Bresnahan-Reiss (1991), Aghion et al. (2005), Leibenstein
           (1966), Bertrand-Mullainathan (2003), Mankiw-Whinston (1986), Harbring-Irlenbusch (2011), Lazear
@@ -204,7 +204,7 @@ export default function ArenaMethods() {
           Not investment, financial, or policy advice.
         </p>
         <Link to="/mini/arena" className="mt-3 inline-block hover:opacity-70 transition-opacity" style={{ color: "var(--arena-accent)" }}>
-          ← Return to The Arena
+          Return to the Arena
         </Link>
       </div>
     </div>

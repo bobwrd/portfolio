@@ -4,8 +4,8 @@ export default function Others() {
   return (
     <CategoryPage
       category="other"
-      title="Others"
-      subtitle="Everything that doesn't fit the weekly briefing or a personal piece."
+      title="Analysis"
+      subtitle="Research notes and shorter analysis: early findings, data and working arguments."
     />
   );
 }

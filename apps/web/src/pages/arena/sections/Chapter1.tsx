@@ -85,7 +85,7 @@ export default function Chapter1() {
         <div className="lg:col-span-3 lg:sticky lg:top-20">
           <Card>
             {/* Firm strip */}
-            <div className="text-xs font-mono mb-3 uppercase tracking-wider" style={{ color: "var(--arena-muted)" }}>
+            <div className="text-xs font-mono mb-3 " style={{ color: "var(--arena-muted)" }}>
               The market · {firms} {firms === 1 ? "firm" : "firms"}
             </div>
             <div className="flex flex-wrap gap-2 mb-5 min-h-[3.5rem]">
@@ -114,7 +114,7 @@ export default function Chapter1() {
               className="h-6 w-full rounded-md flex items-center px-3 mb-6"
               style={{ backgroundColor: "var(--arena-surface-2)" }}
             >
-              <span className="text-[0.6rem] font-mono uppercase tracking-wider" style={{ color: "var(--arena-muted)" }}>
+              <span className="text-[0.6rem] font-mono " style={{ color: "var(--arena-muted)" }}>
                 consumers
               </span>
             </div>

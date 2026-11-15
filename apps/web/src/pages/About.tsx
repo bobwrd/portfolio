@@ -1,8 +1,10 @@
 import Layout from "@/components/Layout";
 import { Link } from "react-router-dom";
 import { Linkedin, Youtube, FileText } from "lucide-react";
+import { usePageTitle } from "@/hooks/use-page-title";
 
 export default function About() {
+  usePageTitle("About Margin of Error");
   return (
     <Layout>
       <div className="mb-10">
@@ -10,7 +12,7 @@ export default function About() {
           About
         </h1>
         <p className="text-muted-foreground text-base">
-          What Margin of Error is, who's behind it, and what else I'm building.
+          What Margin of Error is, who writes it, and what else I am building.
         </p>
       </div>
 
@@ -29,19 +31,19 @@ export default function About() {
           </p>
           <ul className="space-y-2 text-muted-foreground">
             <li>
-              <strong className="text-foreground">Personal essays</strong> — longer, argued pieces on specific
+              <strong className="text-foreground">Essays</strong>: longer, argued pieces on specific
               economic or legal questions. These usually start with a research question, engage with the evidence, and
               land somewhere opinionated. Most have an accompanying PDF.
             </li>
             <li>
-              <strong className="text-foreground">Weekly briefing</strong> — a short weekly digest synthesising
+              <strong className="text-foreground">Weekly Briefing</strong>: a short weekly digest synthesising
               developments across three themes: development and access to justice; everyday microeconomics;
-              and technology, AI, and political economy. Auto-generated from a curated set of sources and published
-              every Saturday.
+              and technology, AI, and political economy. Generated from a curated set of sources and published
+              each weekend.
             </li>
             <li>
-              <strong className="text-foreground">Others</strong> — analysis pieces and research notes that don't
-              fit neatly into either category above.
+              <strong className="text-foreground">Analysis</strong>: research notes and shorter pieces that don't
+              fit either category above.
             </li>
           </ul>
         </section>
@@ -50,14 +52,14 @@ export default function About() {
         <section>
           <h2 className="text-xl font-semibold text-foreground mb-3">CivicAid</h2>
           <p className="text-muted-foreground leading-relaxed mb-3">
-            CivicAid is a legal literacy tool I'm building for Singapore. It is designed for people who encounter legal
+            CivicAid is a legal literacy app I built for Singapore, now on Google Play. It is designed for people who encounter legal
             problems — employment disputes, tenancy issues, consumer rights — but don't know where to start or can't
             afford a lawyer.
           </p>
           <p className="text-muted-foreground leading-relaxed">
             The premise is that legal information should be navigable without a law degree. CivicAid structures
             Singapore's legal aid landscape, relevant statutes, and practical next steps into something a non-expert
-            can actually use. MVP in progress.
+            can actually use. It's Raining Raincoats is partnering on it to reach more people.
           </p>
         </section>
 
@@ -73,7 +75,7 @@ export default function About() {
           <p className="text-muted-foreground leading-relaxed">
             Early findings on informal sector persistence and non-uniform gender gaps are in the{" "}
             <Link to="/writing/others/issue-002-india-labour" className="text-warm-accent hover:underline">
-              research notes →
+              research notes
             </Link>
           </p>
         </section>
@@ -82,7 +84,7 @@ export default function About() {
         <section>
           <h2 className="text-xl font-semibold text-foreground mb-3">About me</h2>
           <p className="text-muted-foreground leading-relaxed mb-5">
-            I'm Arin Jain, currently in IB Year 1. I study economics and law and am interested in the gap between how
+            I'm Arin Jain, in Grade 11 (IB Year 1). I study economics and law and am interested in the gap between how
             institutions are designed and how they actually function — especially for people who have the least access
             to them. Margin of Error has been running since early 2025. The technical side covers data work in Python
             and R, basic econometrics, interactive model implementation in TypeScript, and full-stack web development.
@@ -92,7 +94,7 @@ export default function About() {
               href="https://linkedin.com/in/arin-jain-69a954270"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-sm font-medium text-foreground hover:border-primary/40 hover:bg-card/80 transition-all duration-200 no-underline"
+              className="flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-sm font-medium text-foreground hover:border-primary/40 transition-colors duration-150 no-underline"
             >
               <Linkedin className="size-4" />
               LinkedIn
@@ -101,7 +103,7 @@ export default function About() {
               href="https://www.youtube.com/watch?v=GucwscPHSGs"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-sm font-medium text-foreground hover:border-primary/40 hover:bg-card/80 transition-all duration-200 no-underline"
+              className="flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-sm font-medium text-foreground hover:border-primary/40 transition-colors duration-150 no-underline"
             >
               <Youtube className="size-4" />
               TEDx Talk
@@ -110,7 +112,7 @@ export default function About() {
               href="https://drive.google.com/file/d/17Zxrc2eKob4WHcAnGsNgLUb-xrgRgJQ_/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-sm font-medium text-foreground hover:border-primary/40 hover:bg-card/80 transition-all duration-200 no-underline"
+              className="flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-sm font-medium text-foreground hover:border-primary/40 transition-colors duration-150 no-underline"
             >
               <FileText className="size-4" />
               Download CV
@@ -139,7 +141,7 @@ export default function About() {
               rel="noopener noreferrer"
               className="text-warm-accent hover:underline"
             >
-              GitHub →
+              GitHub
             </a>
           </p>
         </section>
@@ -149,13 +151,13 @@ export default function About() {
           <h2 className="text-xl font-semibold text-foreground mb-3">More</h2>
           <div className="flex flex-col gap-2">
             <Link to="/writing/why" className="text-sm text-warm-accent hover:underline">
-              Why this question — the origin of the institutional-gap question →
+              Why this question: where the institutional-gap question came from
             </Link>
             <Link to="/writing/changed-my-mind" className="text-sm text-warm-accent hover:underline">
-              What I've changed my mind about — positions, evidence, and where I moved →
+              What I've changed my mind about: positions, evidence and where I moved
             </Link>
             <Link to="/writing/changelog" className="text-sm text-warm-accent hover:underline">
-              Changelog — what has been added or changed, and when →
+              Changelog: what changed on the site, and when
             </Link>
           </div>
         </section>

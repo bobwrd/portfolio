@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { marked } from "marked";
+import { usePageTitle } from "@/hooks/use-page-title";
 import Layout from "@/components/Layout";
 import LikeButton from "@/components/LikeButton";
 import AuthorBox from "@/components/AuthorBox";
@@ -17,6 +18,7 @@ function readTime(wordCount: number): string {
 export default function ArticlePage() {
   const { slug } = useParams<{ slug: string }>();
   const [item, setItem] = useState<ContentItem | null>(null);
+  usePageTitle(item?.title ?? null);
   const [loading, setLoading] = useState(true);
   const [notFound, setNotFound] = useState(false);
 
@@ -45,9 +47,9 @@ export default function ArticlePage() {
     return (
       <Layout>
         <div className="py-16 text-center">
-          <p className="text-muted-foreground mb-4">Not found.</p>
-          <Link to="/writing" className="text-sm underline underline-offset-2">
-            ← Home
+          <p className="text-muted-foreground mb-4">This piece doesn't exist, or it has moved.</p>
+          <Link to="/writing" className="text-sm underline decoration-warm-accent underline-offset-4">
+            Browse all writing
           </Link>
         </div>
       </Layout>
@@ -68,11 +70,19 @@ export default function ArticlePage() {
     switch (item.category) {
       case "short": return "Short-form";
       case "weekly": return "Weekly Briefing";
-      case "personal": return "Personal Pieces";
+      case "personal": return "Essays";
       default: return "Analysis";
     }
   })();
   const categoryLabel = backLabel;
+  const backText = (() => {
+    switch (item.category) {
+      case "short": return "All short-form pieces";
+      case "weekly": return "All weekly briefings";
+      case "personal": return "All essays";
+      default: return "All analysis";
+    }
+  })();
 
   return (
     <Layout>
@@ -83,7 +93,7 @@ export default function ArticlePage() {
           to={backHref}
           className="text-sm text-muted-foreground hover:text-warm-accent transition-colors duration-150"
         >
-          ← {backLabel}
+          {backText}
         </Link>
       </div>
 
@@ -91,7 +101,7 @@ export default function ArticlePage() {
       <header className="mb-10 pb-8 border-b border-border">
         <div className="flex items-center gap-2.5 mb-4">
           <span
-            className="text-xs px-2.5 py-0.5 rounded-full font-medium tracking-wide bg-secondary text-muted-foreground"
+            className="text-xs px-2.5 py-0.5 rounded-full font-medium bg-secondary text-muted-foreground"
           >
             {categoryLabel}
           </span>

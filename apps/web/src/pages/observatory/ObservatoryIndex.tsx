@@ -12,7 +12,7 @@ export default function ObservatoryIndex() {
   const [error, setError] = useState(false);
 
   useEffect(() => {
-    document.title = "Arin Jain — AI, Productivity and Prices";
+    document.title = "The Observatory, AI, productivity and prices — Arin Jain";
     fetchObservatory()
       .then((d) => {
         setData(d);
@@ -41,16 +41,16 @@ export default function ObservatoryIndex() {
         <p className="text-xs mb-3" style={{ color: "var(--obs-muted)" }}>Related work:</p>
         <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm">
           <a href="/mini/verdict" className="hover:underline" style={{ color: "var(--obs-accent)" }}>
-            The Verdict — tracking AI regulation as it happens →
+            The Verdict — tracking AI regulation as it happens
           </a>
           <a href="/mini/arena" className="hover:underline" style={{ color: "var(--obs-accent)" }}>
-            The Arena — when competition helps and when it wastes →
+            The Arena — when competition helps and when it wastes
           </a>
           <a href="/others/access-to-justice-the-gap-nobody-measures" className="hover:underline" style={{ color: "var(--obs-accent)" }}>
-            Access to Justice — The Gap Nobody Measures →
+            Access to Justice — The Gap Nobody Measures
           </a>
           <a href="/why" className="hover:underline" style={{ color: "var(--obs-accent)" }}>
-            Why this question →
+            Why this question
           </a>
         </div>
       </div>

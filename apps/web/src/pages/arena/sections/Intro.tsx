@@ -4,7 +4,7 @@ export default function Intro() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 pt-16 pb-14">
         <div className="max-w-3xl">
           <div
-            className="text-[0.7rem] font-mono uppercase tracking-[0.2em] mb-4"
+            className="text-[0.7rem] font-mono mb-4"
             style={{ color: "var(--arena-accent)" }}
           >
             The Arena
@@ -40,10 +40,10 @@ export default function Intro() {
 
           <div className="mt-8 flex flex-wrap gap-2">
             {[
-              { href: "#firms", label: "1 · How many firms" },
-              { href: "#lab", label: "2 · Effort lab" },
-              { href: "#outcomes", label: "3 · Market outcomes" },
-              { href: "#lenses", label: "4 · Policy lenses" },
+              { href: "#firms", label: "1. How many firms" },
+              { href: "#lab", label: "2. Effort lab" },
+              { href: "#outcomes", label: "3. Market outcomes" },
+              { href: "#lenses", label: "4. Policy lenses" },
             ].map((c) => (
               <a
                 key={c.href}

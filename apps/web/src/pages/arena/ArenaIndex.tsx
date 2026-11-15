@@ -8,7 +8,7 @@ import Methodology from "./sections/Methodology";
 
 export default function ArenaIndex() {
   useEffect(() => {
-    document.title = "Arin Jain — The Arena: Competition and Efficiency";
+    document.title = "The Arena, competition and market structure — Arin Jain";
   }, []);
 
   return (
@@ -25,13 +25,13 @@ export default function ArenaIndex() {
         <p className="text-xs mb-3" style={{ color: "var(--arena-muted)" }}>Related work:</p>
         <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm">
           <a href="/mini/observatory" className="hover:underline" style={{ color: "var(--arena-accent)" }}>
-            The Observatory — AI, productivity and prices →
+            The Observatory — AI, productivity and prices
           </a>
           <a href="/mini/verdict" className="hover:underline" style={{ color: "var(--arena-accent)" }}>
-            The Verdict — tracking AI regulation as it happens →
+            The Verdict — tracking AI regulation as it happens
           </a>
           <a href="/why" className="hover:underline" style={{ color: "var(--arena-accent)" }}>
-            Why this question →
+            Why this question
           </a>
         </div>
       </div>

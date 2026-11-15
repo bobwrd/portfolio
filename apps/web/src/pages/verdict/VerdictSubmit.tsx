@@ -31,7 +31,7 @@ function ScoreInput({ label, name, value, onChange }: {
 }) {
   return (
     <div>
-      <label className="block text-[0.65rem] font-mono tracking-widest uppercase mb-1" style={{ color: "var(--verdict-muted)" }}>
+      <label className="block text-[0.65rem] font-mono mb-1" style={{ color: "var(--verdict-muted)" }}>
         {label}
       </label>
       <input
@@ -69,7 +69,7 @@ function TextInput({ label, name, value, onChange, placeholder, multiline = fals
 
   return (
     <div>
-      <label className="block text-[0.65rem] font-mono tracking-widest uppercase mb-1" style={{ color: "var(--verdict-muted)" }}>
+      <label className="block text-[0.65rem] font-mono mb-1" style={{ color: "var(--verdict-muted)" }}>
         {label}
       </label>
       {multiline
@@ -159,7 +159,7 @@ export default function VerdictSubmit() {
         </p>
         <button
           onClick={() => setStatus("idle")}
-          className="mt-6 px-4 py-2 rounded text-sm font-mono border transition-all duration-150"
+          className="mt-6 px-4 py-2 rounded text-sm font-mono border transition-colors duration-150"
           style={{ borderColor: "var(--verdict-accent)", color: "var(--verdict-accent)" }}
         >
           Submit another
@@ -182,14 +182,14 @@ export default function VerdictSubmit() {
       <form onSubmit={handleSubmit} className="space-y-5">
         {/* Basic info */}
         <div className="rounded-lg border p-5 space-y-4" style={inputGroupStyle}>
-          <div className="text-[0.65rem] font-mono tracking-widest uppercase" style={{ color: "var(--verdict-muted)" }}>
+          <div className="text-[0.65rem] font-mono " style={{ color: "var(--verdict-muted)" }}>
             Case details
           </div>
           <TextInput label="Title" name="title" value={form.title} onChange={update} placeholder="Full case or decision name" />
           <div className="grid grid-cols-2 gap-4">
             <TextInput label="Date (YYYY-MM-DD)" name="date" value={form.date} onChange={update} placeholder="2024-08-01" />
             <div>
-              <label className="block text-[0.65rem] font-mono tracking-widest uppercase mb-1" style={{ color: "var(--verdict-muted)" }}>
+              <label className="block text-[0.65rem] font-mono mb-1" style={{ color: "var(--verdict-muted)" }}>
                 Decision type
               </label>
               <select
@@ -209,7 +209,7 @@ export default function VerdictSubmit() {
 
         {/* Content */}
         <div className="rounded-lg border p-5 space-y-4" style={inputGroupStyle}>
-          <div className="text-[0.65rem] font-mono tracking-widest uppercase" style={{ color: "var(--verdict-muted)" }}>
+          <div className="text-[0.65rem] font-mono " style={{ color: "var(--verdict-muted)" }}>
             Content
           </div>
           <TextInput label="Summary" name="summary" value={form.summary} onChange={update} multiline placeholder="2–4 sentence summary of the decision and its significance." />
@@ -219,7 +219,7 @@ export default function VerdictSubmit() {
 
         {/* Scores */}
         <div className="rounded-lg border p-5" style={inputGroupStyle}>
-          <div className="text-[0.65rem] font-mono tracking-widest uppercase mb-4" style={{ color: "var(--verdict-muted)" }}>
+          <div className="text-[0.65rem] font-mono mb-4" style={{ color: "var(--verdict-muted)" }}>
             Raw scores (1–10)
           </div>
           <div className="grid grid-cols-5 gap-3">
@@ -236,7 +236,7 @@ export default function VerdictSubmit() {
 
         {/* Sources + contributor */}
         <div className="rounded-lg border p-5 space-y-4" style={inputGroupStyle}>
-          <div className="text-[0.65rem] font-mono tracking-widest uppercase" style={{ color: "var(--verdict-muted)" }}>
+          <div className="text-[0.65rem] font-mono " style={{ color: "var(--verdict-muted)" }}>
             Attribution
           </div>
           <TextInput
@@ -252,11 +252,11 @@ export default function VerdictSubmit() {
 
         {/* Password */}
         <div className="rounded-lg border p-5" style={inputGroupStyle}>
-          <div className="text-[0.65rem] font-mono tracking-widest uppercase mb-3" style={{ color: "var(--verdict-muted)" }}>
+          <div className="text-[0.65rem] font-mono mb-3" style={{ color: "var(--verdict-muted)" }}>
             Access
           </div>
           <div>
-            <label className="block text-[0.65rem] font-mono tracking-widest uppercase mb-1" style={{ color: "var(--verdict-muted)" }}>
+            <label className="block text-[0.65rem] font-mono mb-1" style={{ color: "var(--verdict-muted)" }}>
               Password
             </label>
             <input
@@ -282,7 +282,7 @@ export default function VerdictSubmit() {
         <button
           type="submit"
           disabled={status === "loading"}
-          className="w-full rounded py-3 text-sm font-mono font-bold tracking-wider transition-all duration-150 disabled:opacity-50"
+          className="w-full rounded py-3 text-sm font-mono font-bold transition-colors duration-150 disabled:opacity-50"
           style={{
             backgroundColor: "var(--verdict-accent)",
             color: "var(--verdict-bg)",

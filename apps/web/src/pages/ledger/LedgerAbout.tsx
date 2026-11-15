@@ -19,7 +19,7 @@ function DownloadButton({ href, label, sub }: { href: string; label: string; sub
 }
 
 function H({ children }: { children: React.ReactNode }) {
-  return <h2 className="text-sm font-mono font-bold uppercase tracking-wider mt-10 mb-3" style={{ color: "var(--ledger-accent)" }}>{children}</h2>;
+  return <h2 className="text-sm font-mono font-bold mt-10 mb-3" style={{ color: "var(--ledger-accent)" }}>{children}</h2>;
 }
 
 export default function LedgerAbout() {
@@ -40,7 +40,7 @@ export default function LedgerAbout() {
         className="mt-6 rounded-lg border p-4 text-xs leading-relaxed"
         style={{ borderColor: "var(--ledger-sev-1)", backgroundColor: "var(--ledger-surface)", color: "var(--ledger-muted)" }}
       >
-        <span className="font-mono font-bold uppercase tracking-wider" style={{ color: "var(--ledger-sev-1)" }}>Disclaimer.</span>{" "}
+        <span className="font-mono font-bold " style={{ color: "var(--ledger-sev-1)" }}>Disclaimer.</span>{" "}
         The Ledger is an independent research project by Arin Jain. It is <span style={{ color: "var(--ledger-text)" }}>not affiliated with,
         endorsed by, or produced in conjunction with the Monetary Authority of Singapore, the Singapore Government, or
         any of their agencies</span>. All information is compiled from public sources and reproduced in good faith for research

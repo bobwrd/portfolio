@@ -2,6 +2,14 @@ import { useEffect, useRef, useState } from "react";
 import { ChevronDown, Lock } from "lucide-react";
 
 // Section wrapper (used by the methods page; the app body is a fixed grid, not
+/* Section labels used to sit above each heading as a small accent line
+   ("Chapter 1 · The Docket"), repeating the nav. Only the chapter number
+   is kept, as a prefix on the heading itself. */
+function chapterNumber(label: string): string | null {
+  const m = label.match(/^(?:Chapter\s+)?(\d+)\b/);
+  return m ? m[1] : null;
+}
+
 // a stack of sections).
 export function Section({
   id, eyebrow, title, children,
@@ -10,10 +18,10 @@ export function Section({
     <section id={id} className="scroll-mt-16 border-t" style={{ borderColor: "var(--dl-border)" }}>
       <div className="max-w-5xl mx-auto px-4 sm:px-6 py-14">
         <div className="mb-8">
-          <div className="text-[0.7rem] font-mono uppercase tracking-[0.2em] mb-2" style={{ color: "var(--dl-accent)" }}>
-            {eyebrow}
-          </div>
           <h2 className="text-2xl sm:text-3xl font-bold tracking-tight" style={{ color: "var(--dl-text)" }}>
+            {chapterNumber(eyebrow) && (
+              <span style={{ color: "var(--dl-accent)" }}>{chapterNumber(eyebrow)}. </span>
+            )}
             {title}
           </h2>
         </div>
@@ -30,7 +38,7 @@ export function Card({
     <div className={`rounded-xl border p-4 sm:p-5 ${className}`} style={{ borderColor: "var(--dl-border)", backgroundColor: "var(--dl-surface)" }}>
       {(title || right) && (
         <div className="flex items-center justify-between mb-3 gap-2">
-          {title && <div className="text-xs font-mono uppercase tracking-wider" style={{ color: "var(--dl-muted)" }}>{title}</div>}
+          {title && <div className="text-xs font-mono " style={{ color: "var(--dl-muted)" }}>{title}</div>}
           {right}
         </div>
       )}
@@ -45,7 +53,7 @@ export function Details({ summary, children }: { summary: string; children: Reac
     <div className="mt-4 rounded-lg border" style={{ borderColor: "var(--dl-border)" }}>
       <button
         onClick={() => setOpen((o) => !o)}
-        className="w-full flex items-center justify-between gap-2 px-4 py-2.5 text-left text-xs font-mono uppercase tracking-wider"
+        className="w-full flex items-center justify-between gap-2 px-4 py-2.5 text-left text-xs font-mono "
         style={{ color: "var(--dl-muted)" }}
         aria-expanded={open}
       >
@@ -77,7 +85,7 @@ export function Eq({ children }: { children: React.ReactNode }) {
 export function SourceTag({ src, interp }: { src: string; interp?: boolean }) {
   return (
     <span
-      className="inline-flex items-center gap-1 rounded px-1.5 py-0.5 text-[0.6rem] font-mono uppercase tracking-wide"
+      className="inline-flex items-center gap-1 rounded px-1.5 py-0.5 text-[0.6rem] font-mono "
       style={{ color: "var(--dl-muted)", backgroundColor: "var(--dl-surface-2)" }}
       title={interp ? `${src} (interpolated)` : src}
     >

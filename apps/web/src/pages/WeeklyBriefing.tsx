@@ -5,7 +5,7 @@ export default function WeeklyBriefing() {
     <CategoryPage
       category="weekly"
       title="Weekly Briefing"
-      subtitle="The week's economics, law, and policy signals — written every Monday."
+      subtitle="The week in economics, law and policy, published each weekend."
     />
   );
 }

@@ -63,7 +63,7 @@ export default function GuessBuilder({ ports, disabled, locks, onSubmit }: Guess
       className="rounded-lg border p-5 space-y-5"
       style={{ backgroundColor: "var(--tw-surface)", borderColor: "var(--tw-border)" }}
     >
-      <h2 className="text-sm font-semibold tracking-wide uppercase" style={{ color: "var(--tw-muted)" }}>
+      <h2 className="text-sm font-semibold " style={{ color: "var(--tw-muted)" }}>
         Make a guess
       </h2>
 

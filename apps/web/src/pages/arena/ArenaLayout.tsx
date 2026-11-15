@@ -59,16 +59,16 @@ export default function ArenaLayout({ children }: { children: React.ReactNode })
     { label: "Lab", href: "#lab" },
     { label: "Outcomes", href: "#outcomes" },
     { label: "Lenses", href: "#lenses" },
-    { label: "Method", href: "#methodology" },
+    { label: "Methodology", href: "#methodology" },
   ];
 
   return (
     <div style={{ minHeight: "100vh" }}>
-      <SectionSwitcher current="Mini Projects" />
+      <SectionSwitcher current="tools" />
       <header
         className="sticky top-0 z-50 border-b"
         style={{
-          backgroundColor: "rgba(247,245,251,0.92)",
+          backgroundColor: "color-mix(in srgb, var(--arena-bg) 92%, transparent)",
           borderColor: "var(--arena-border)",
           backdropFilter: "blur(8px)",
         }}
@@ -77,18 +77,17 @@ export default function ArenaLayout({ children }: { children: React.ReactNode })
           <div className="flex items-center gap-4 shrink-0">
             <Link
               to="/mini"
-              className="text-xs font-mono tracking-wider opacity-40 hover:opacity-70 transition-opacity"
+              className="text-xs underline-offset-4 hover:underline"
               style={{ color: "var(--arena-muted)" }}
             >
-              ← Mini Projects
+              Research tools
             </Link>
             <a
               href="#intro"
               className="font-semibold tracking-tight text-sm flex items-center gap-2"
               style={{ color: "var(--arena-accent)" }}
             >
-              <span className="font-mono text-xs opacity-70">⚔</span>
-              THE ARENA
+              The Arena
             </a>
           </div>
 
@@ -101,7 +100,7 @@ export default function ArenaLayout({ children }: { children: React.ReactNode })
                   <a
                     key={link.href}
                     href={link.href}
-                    className="px-2.5 py-1.5 rounded text-xs font-mono tracking-wide transition-all duration-150"
+                    className="px-2.5 py-1.5 rounded text-xs transition-colors duration-150"
                     style={{
                       color: isActive ? "var(--arena-accent)" : "var(--arena-muted)",
                       backgroundColor: isActive ? "var(--arena-accent-dim)" : "transparent",
@@ -114,22 +113,22 @@ export default function ArenaLayout({ children }: { children: React.ReactNode })
             {isMethodsPage && (
               <Link
                 to="/mini/arena"
-                className="px-2.5 py-1.5 rounded text-xs font-mono tracking-wide transition-all duration-150"
+                className="px-2.5 py-1.5 rounded text-xs transition-colors duration-150"
                 style={{ color: "var(--arena-muted)" }}
               >
-                ← The Arena
+                Back to the Arena
               </Link>
             )}
             <Link
               to="/mini/arena/methods"
-              className="px-2.5 py-1.5 rounded text-xs font-mono tracking-wide transition-all duration-150 border"
+              className="px-2.5 py-1.5 rounded text-xs transition-colors duration-150 border"
               style={{
                 borderColor: isMethodsPage ? "var(--arena-accent)" : "var(--arena-border)",
                 color: isMethodsPage ? "var(--arena-accent)" : "var(--arena-muted)",
                 backgroundColor: isMethodsPage ? "var(--arena-accent-dim)" : "transparent",
               }}
             >
-              Tech note
+              Technical note
             </Link>
           </nav>
         </div>
@@ -139,14 +138,14 @@ export default function ArenaLayout({ children }: { children: React.ReactNode })
 
       <footer className="border-t mt-20" style={{ borderColor: "var(--arena-border)" }}>
         <div className="max-w-6xl mx-auto px-4 sm:px-6 py-6">
-          <div className="flex items-center justify-between text-xs font-mono" style={{ color: "var(--arena-muted)" }}>
-            <span>THE ARENA · Arin Jain</span>
+          <div className="flex items-center justify-between text-xs" style={{ color: "var(--arena-muted)" }}>
+            <span>The Arena, by Arin Jain</span>
             <div className="flex items-center gap-3">
               <a href="#methodology" className="hover:opacity-80 transition-opacity" style={{ color: "var(--arena-muted)" }}>
-                Methodology ↑
+                Methodology
               </a>
               <Link to="/mini/arena/methods" className="hover:opacity-80 transition-opacity" style={{ color: "var(--arena-accent)" }}>
-                Technical note →
+                Technical note
               </Link>
             </div>
           </div>

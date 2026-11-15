@@ -266,7 +266,7 @@ export default function LedgerIndex() {
         >
           {/* header row */}
           <div
-            className="hidden sm:grid grid-cols-[88px_1fr_140px_120px_90px] gap-3 px-4 py-2.5 text-[0.65rem] font-mono uppercase tracking-wider border-b"
+            className="hidden sm:grid grid-cols-[88px_1fr_140px_120px_90px] gap-3 px-4 py-2.5 text-[0.65rem] font-mono border-b"
             style={{ color: "var(--ledger-muted)", borderColor: "var(--ledger-border)" }}
           >
             <span>Date</span><span>Respondent</span><span>Action</span><span>Violation</span><span className="text-right">Penalty</span>

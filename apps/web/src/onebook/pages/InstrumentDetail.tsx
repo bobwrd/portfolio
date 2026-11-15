@@ -74,7 +74,7 @@ export function InstrumentDetail() {
       <div className="page-head">
         <h2>{symbol}</h2>
         <Link to={onebookPath("/instruments")} className="sidebar-link">
-          ← All instruments
+          All instruments
         </Link>
       </div>
 

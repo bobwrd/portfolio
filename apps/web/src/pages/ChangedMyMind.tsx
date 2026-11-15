@@ -168,7 +168,7 @@ export default function ChangedMyMind() {
             the gateway." That is a harder policy problem with fewer obvious levers, and it is what
             the research paper is trying to be precise about.{" "}
             <Link to="/writing/others/issue-002-india-labour" className="text-warm-accent hover:underline">
-              Early findings →
+              Early findings
             </Link>
           </p>
         </section>

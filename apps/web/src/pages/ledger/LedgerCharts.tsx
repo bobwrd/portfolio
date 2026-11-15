@@ -17,7 +17,7 @@ const VIOLATION_COLORS: Record<string, string> = {
 function ChartCard({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div className="rounded-lg border p-5 mb-8" style={{ borderColor: "var(--ledger-border)", backgroundColor: "var(--ledger-surface)" }}>
-      <div className="text-xs font-mono mb-4 uppercase tracking-wider" style={{ color: "var(--ledger-muted)" }}>{title}</div>
+      <div className="text-xs font-mono mb-4 " style={{ color: "var(--ledger-muted)" }}>{title}</div>
       {children}
     </div>
   );

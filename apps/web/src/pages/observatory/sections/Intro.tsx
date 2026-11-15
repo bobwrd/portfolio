@@ -4,7 +4,7 @@ export default function Intro() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 pt-16 pb-14">
         <div className="max-w-3xl">
           <div
-            className="text-[0.7rem] font-mono uppercase tracking-[0.2em] mb-4"
+            className="text-[0.7rem] font-mono mb-4"
             style={{ color: "var(--obs-accent)" }}
           >
             The Observatory
@@ -42,9 +42,9 @@ export default function Intro() {
 
           <div className="mt-8 flex flex-wrap gap-2">
             {[
-              { href: "#walkthrough", label: "1 · Walkthrough" },
-              { href: "#atlas", label: "2 · Data atlas" },
-              { href: "#lab", label: "3 · Lab" },
+              { href: "#walkthrough", label: "1. Walkthrough" },
+              { href: "#atlas", label: "2. Data atlas" },
+              { href: "#lab", label: "3. Lab" },
             ].map((c) => (
               <a
                 key={c.href}

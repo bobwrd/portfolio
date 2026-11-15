@@ -142,7 +142,7 @@ export default function BacklogMap() {
               <button
                 key={v}
                 onClick={() => setStateView(v)}
-                className="px-2.5 py-1 rounded text-xs font-mono transition-all border"
+                className="px-2.5 py-1 rounded text-xs font-mono transition-colors border"
                 style={{
                   backgroundColor: stateView === v ? "var(--docket-accent-dim)" : "transparent",
                   borderColor: stateView === v ? "var(--docket-accent)" : "var(--docket-border)",
@@ -245,7 +245,7 @@ export default function BacklogMap() {
               <button
                 key={v}
                 onClick={() => setTrendView(v)}
-                className="px-2.5 py-1 rounded text-xs font-mono transition-all border"
+                className="px-2.5 py-1 rounded text-xs font-mono transition-colors border"
                 style={{
                   backgroundColor: trendView === v ? "var(--docket-accent-dim)" : "transparent",
                   borderColor: trendView === v ? "var(--docket-accent)" : "var(--docket-border)",

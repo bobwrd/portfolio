@@ -8,10 +8,8 @@ export default function VerdictAbout() {
   };
   const headingStyle = {
     color: "var(--verdict-text)",
-    fontFamily: "monospace",
-    letterSpacing: "0.05em",
-    textTransform: "uppercase" as const,
-    fontSize: "0.65rem",
+    fontSize: "0.9375rem",
+    fontWeight: 600,
     marginBottom: "0.75rem",
   };
   const bodyStyle = {
@@ -226,7 +224,7 @@ export default function VerdictAbout() {
           className="inline-block text-xs font-mono px-3 py-2 rounded transition-opacity hover:opacity-80"
           style={{ color: "var(--verdict-bg)", backgroundColor: "var(--verdict-accent)" }}
         >
-          How we score: EU AI Act →
+          How we score: EU AI Act
         </Link>
       </div>
     </div>

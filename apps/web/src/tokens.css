@@ -1,0 +1,259 @@
+/* Hallmark · tokens for every section of the portfolio. The shared base
+   (--background, --foreground, --warm-accent ...) lives on :root in
+   styles.css; this file holds each section's own palette so every colour
+   decision in the site sits in one of two token blocks. */
+
+.verdict-section,
+.ledger-section,
+.obs-section,
+.arena-section,
+.distlab-section,
+.docket-section {
+  --paper-bg: #faf8f3;
+  --paper-surface: #fffdf9;
+  --paper-surface-2: #f2eee5;
+  --paper-text: #1f1b16;
+  --paper-muted: #645c51;
+  --paper-warn: #b4232c;
+  --paper-good: #2f6f4e;
+  --paper-c-blue: #2f5f8a;
+  --paper-c-green: #3f7a52;
+  --paper-c-rose: #a8325e;
+  --paper-c-ochre: #9a6a08;
+  --paper-c-plum: #74507f;
+  --paper-c-teal: #1f7a72;
+}
+
+/* The Verdict: AI regulation index. Deep teal-blue. */
+.verdict-section.verdict-light {
+  --verdict-bg: var(--paper-bg);
+  --verdict-surface: var(--paper-surface);
+  --verdict-surface-2: var(--paper-surface-2);
+  --verdict-border: rgba(14, 94, 116, 0.16);
+  --verdict-border-hover: rgba(14, 94, 116, 0.4);
+  --verdict-accent: #0e5e74;
+  --verdict-accent-dim: rgba(14, 94, 116, 0.07);
+  --verdict-text: var(--paper-text);
+  --verdict-muted: var(--paper-muted);
+  --verdict-seismic: #b4232c;
+  --verdict-major: #b4541a;
+  --verdict-moderate: #9a6a08;
+  --verdict-marginal: #7a7266;
+}
+
+/* The Ledger: MAS enforcement register. Burnt amber. */
+.ledger-section.ledger-light {
+  --ledger-bg: var(--paper-bg);
+  --ledger-surface: var(--paper-surface);
+  --ledger-surface-2: var(--paper-surface-2);
+  --ledger-border: rgba(146, 72, 14, 0.18);
+  --ledger-border-hover: rgba(146, 72, 14, 0.42);
+  --ledger-accent: #9c4a0e;
+  --ledger-accent-dim: rgba(156, 74, 14, 0.08);
+  --ledger-text: var(--paper-text);
+  --ledger-muted: var(--paper-muted);
+  --ledger-sev-1: #a8232a;
+  --ledger-sev-2: #9c4a0e;
+  --ledger-sev-3: #b0681c;
+  --ledger-sev-4: #8f7020;
+  --ledger-sev-5: #6b6152;
+}
+
+/* The Observatory: AI, productivity and prices. Sea green. */
+.obs-section.obs-light {
+  --obs-bg: var(--paper-bg);
+  --obs-surface: var(--paper-surface);
+  --obs-surface-2: var(--paper-surface-2);
+  --obs-border: rgba(20, 110, 100, 0.16);
+  --obs-border-hover: rgba(20, 110, 100, 0.42);
+  --obs-accent: #146e64;
+  --obs-accent-2: var(--paper-c-blue);
+  --obs-accent-dim: rgba(20, 110, 100, 0.08);
+  --obs-text: var(--paper-text);
+  --obs-muted: var(--paper-muted);
+  --obs-c1: #146e64;
+  --obs-c2: var(--paper-c-ochre);
+  --obs-c3: var(--paper-c-blue);
+  --obs-c4: var(--paper-c-rose);
+  --obs-c5: var(--paper-c-green);
+  --obs-warn: var(--paper-warn);
+}
+
+/* The Arena: competition and market structure. Claret. */
+.arena-section.arena-light {
+  --arena-bg: var(--paper-bg);
+  --arena-surface: var(--paper-surface);
+  --arena-surface-2: var(--paper-surface-2);
+  --arena-border: rgba(150, 40, 80, 0.16);
+  --arena-border-hover: rgba(150, 40, 80, 0.42);
+  --arena-accent: #962850;
+  --arena-accent-2: var(--paper-c-blue);
+  --arena-accent-dim: rgba(150, 40, 80, 0.07);
+  --arena-text: var(--paper-text);
+  --arena-muted: var(--paper-muted);
+  --arena-c1: #962850;
+  --arena-c2: var(--paper-c-blue);
+  --arena-c3: var(--paper-c-green);
+  --arena-c4: var(--paper-c-ochre);
+  --arena-c5: var(--paper-c-teal);
+  --arena-warn: var(--paper-warn);
+  --arena-good: var(--paper-good);
+}
+
+/* The Distribution Lab: inequality and institutions. Brick. */
+.distlab-section.distlab-light {
+  --dl-bg: var(--paper-bg);
+  --dl-surface: var(--paper-surface);
+  --dl-surface-2: var(--paper-surface-2);
+  --dl-border: rgba(160, 64, 40, 0.18);
+  --dl-border-hover: rgba(160, 64, 40, 0.45);
+  --dl-accent: #a04028;
+  --dl-accent-2: #b4541a;
+  --dl-accent-dim: rgba(160, 64, 40, 0.08);
+  --dl-text: var(--paper-text);
+  --dl-muted: var(--paper-muted);
+  /* sequential ramp, low to high */
+  --dl-s1: #f3dcb8;
+  --dl-s2: #e6b77e;
+  --dl-s3: #cf8a4c;
+  --dl-s4: #b05a2e;
+  --dl-s5: #7e3218;
+  --dl-c1: #a04028;
+  --dl-c2: var(--paper-c-blue);
+  --dl-c3: var(--paper-c-green);
+  --dl-c4: var(--paper-c-ochre);
+  --dl-c5: var(--paper-c-plum);
+  --dl-warn: var(--paper-warn);
+  --dl-good: var(--paper-good);
+}
+
+/* The Docket: Indian court backlogs. Forest green. */
+.docket-section.docket-light {
+  --docket-bg: var(--paper-bg);
+  --docket-surface: var(--paper-surface);
+  --docket-surface-2: var(--paper-surface-2);
+  --docket-border: rgba(40, 100, 64, 0.18);
+  --docket-border-hover: rgba(40, 100, 64, 0.42);
+  --docket-accent: #2a6a44;
+  --docket-accent-dim: rgba(42, 106, 68, 0.08);
+  --docket-text: var(--paper-text);
+  --docket-muted: var(--paper-muted);
+  --docket-crit: #a8232a;
+  --docket-high: #b4541a;
+  --docket-mod: #9a6a08;
+  --docket-low: #2a6a44;
+  --docket-c1: #2a6a44;
+  --docket-c2: var(--paper-c-blue);
+  --docket-c3: var(--paper-c-rose);
+  --docket-c4: var(--paper-c-ochre);
+  --docket-c5: var(--paper-c-plum);
+}
+
+.tradewinds-section {
+  --tw-bg: #f7f1e1;
+  --tw-surface: #fffdf7;
+  --tw-surface-2: #efe4cb;
+  --tw-border: rgba(90, 74, 46, 0.2);
+  --tw-border-hover: rgba(90, 74, 46, 0.42);
+  --tw-accent: #1d3557;
+  --tw-accent-dim: rgba(29, 53, 87, 0.08);
+  --tw-text: #2b2117;
+  --tw-muted: #6b5b45;
+  --tw-green: #2f6f4e;
+  --tw-yellow: #9a6a08;
+  --tw-grey: #8a8272;
+  --tw-ocean: #d3e3ea;
+  --tw-land: #e8ddc8;
+  --tw-land-border: #b9ab8c;
+}
+
+/* Shared base, dark mode (the writing section's reader toggle). */
+.dark {
+  --background: oklch(0.14 0.006 48);
+  --foreground: oklch(0.96 0.003 100);
+  --card: oklch(0.19 0.007 50);
+  --card-foreground: oklch(0.96 0.003 100);
+  --popover: oklch(0.19 0.007 50);
+  --popover-foreground: oklch(0.96 0.003 100);
+  --primary: oklch(0.92 0.004 46);
+  --primary-foreground: oklch(0.19 0.007 50);
+  --secondary: oklch(0.25 0.007 42);
+  --secondary-foreground: oklch(0.96 0.003 100);
+  --muted: oklch(0.25 0.007 42);
+  --muted-foreground: oklch(0.68 0.012 58);
+  --accent: oklch(0.25 0.007 42);
+  --accent-foreground: oklch(0.96 0.003 100);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 9%);
+  --input: oklch(1 0 0 / 13%);
+  --ring: oklch(0.55 0.014 56);
+
+  /* Warm accent in dark — amber gold */
+  --warm-accent: oklch(0.76 0.13 60);
+  --warm-accent-muted: oklch(0.76 0.13 60 / 14%);
+  --warm-accent-foreground: oklch(0.14 0.006 48);
+
+  --chart-1: oklch(0.76 0.13 60);
+  --chart-2: oklch(0.70 0.09 184);
+  --chart-3: oklch(0.68 0.08 240);
+  --chart-4: oklch(0.72 0.10 130);
+  --chart-5: oklch(0.66 0.12 25);
+  --sidebar: oklch(0.19 0.007 50);
+  --sidebar-foreground: oklch(0.96 0.003 100);
+  --sidebar-primary: oklch(0.76 0.13 60);
+  --sidebar-primary-foreground: oklch(0.96 0.003 100);
+  --sidebar-accent: oklch(0.25 0.007 42);
+  --sidebar-accent-foreground: oklch(0.96 0.003 100);
+  --sidebar-border: oklch(1 0 0 / 9%);
+  --sidebar-ring: oklch(0.55 0.014 56);
+}
+
+/* OneBook */
+.onebook-app {
+  --bg: oklch(0.995 0.004 110);
+  --surface: oklch(0.967 0.006 110);
+  --surface-hover: oklch(0.952 0.009 110);
+  --surface-active: oklch(0.935 0.013 110);
+  --border: oklch(0.875 0.013 110);
+  --border-subtle: oklch(0.92 0.008 110);
+
+  --ink: oklch(0.14 0.012 110);
+  --ink-muted: oklch(0.38 0.02 110);
+  --ink-faint: oklch(0.45 0.018 110);
+
+  --primary: oklch(0.43 0.085 110);
+  --primary-dim: oklch(0.56 0.06 110);
+  --primary-subtle: oklch(0.43 0.085 110 / 0.12);
+
+  /* Reserved for P&L. Never used for categorical encoding. */
+  --gain: oklch(0.34 0.135 155);
+  --gain-subtle: oklch(0.34 0.135 155 / 0.1);
+  --loss: oklch(0.43 0.165 25);
+  --loss-subtle: oklch(0.43 0.165 25 / 0.1);
+
+  --chart-line: oklch(0.37 0.12 205);
+  --chart-fill: oklch(0.37 0.12 205 / 0.09);
+  --chart-grid: oklch(0.875 0.013 110);
+
+  /* Correlation: violet/amber, deliberately distinct from the P&L pair. */
+  --corr-pos: oklch(0.45 0.17 300);
+  --corr-neg: oklch(0.55 0.14 70);
+
+  --warn: oklch(0.52 0.13 75);
+  --backdrop: oklch(0.14 0.012 110 / 0.65);
+
+  --s1: 0.25rem;
+  --s2: 0.5rem;
+  --s3: 0.75rem;
+  --s4: 1rem;
+  --s5: 1.25rem;
+  --s6: 1.5rem;
+  --s8: 2rem;
+
+  --rail-w: 264px;
+  --sidebar-w: 216px;
+  --topbar-h: 52px;
+
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  --sans: -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}

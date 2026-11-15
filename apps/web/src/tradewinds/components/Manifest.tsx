@@ -13,7 +13,7 @@ export default function Manifest({ rows, currencyName, totalRows }: ManifestProp
       style={{ backgroundColor: "var(--tw-surface)", borderColor: "var(--tw-border)" }}
     >
       <div className="flex items-baseline justify-between gap-2 mb-3">
-        <h2 className="text-sm font-semibold tracking-wide uppercase" style={{ color: "var(--tw-muted)" }}>
+        <h2 className="text-sm font-semibold " style={{ color: "var(--tw-muted)" }}>
           Cargo manifest
         </h2>
         <span className="text-xs" style={{ color: "var(--tw-muted)" }}>

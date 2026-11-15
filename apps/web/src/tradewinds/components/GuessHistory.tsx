@@ -26,7 +26,7 @@ function Cell({ level, glyph, title, detail }: { level: FeedbackLevel; glyph: st
     <div className="rounded px-3 py-2 text-white" style={{ backgroundColor: levelColor(level) }}>
       <div className="flex items-baseline gap-2">
         <span aria-hidden="true">{glyph}</span>
-        <span className="text-xs uppercase tracking-wide opacity-90">{title}</span>
+        <span className="text-xs opacity-90">{title}</span>
         <span className="text-xs opacity-90 ml-auto">{LEVEL_LABEL[level]}</span>
       </div>
       <div className="text-sm font-medium mt-0.5">{detail}</div>

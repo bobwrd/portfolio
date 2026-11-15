@@ -146,7 +146,7 @@ export default function Tracker() {
             <button
               key={s}
               onClick={() => setFilterStatus(s)}
-              className="px-2 py-0.5 rounded text-xs font-mono border transition-all"
+              className="px-2 py-0.5 rounded text-xs font-mono border transition-colors"
               style={{
                 borderColor: filterStatus === s ? "var(--docket-accent)" : "var(--docket-border)",
                 color: filterStatus === s ? "var(--docket-accent)" : "var(--docket-muted)",
@@ -163,7 +163,7 @@ export default function Tracker() {
             <button
               key={p}
               onClick={() => setFilterPriority(p)}
-              className="px-2 py-0.5 rounded text-xs font-mono border transition-all"
+              className="px-2 py-0.5 rounded text-xs font-mono border transition-colors"
               style={{
                 borderColor: filterPriority === p ? "var(--docket-accent)" : "var(--docket-border)",
                 color: filterPriority === p
@@ -181,7 +181,7 @@ export default function Tracker() {
 
         <button
           onClick={() => setShowForm((v) => !v)}
-          className="ml-auto flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono border transition-all"
+          className="ml-auto flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono border transition-colors"
           style={{
             borderColor: "var(--docket-accent)",
             color: "var(--docket-accent)",
@@ -196,7 +196,7 @@ export default function Tracker() {
       {/* Add case form */}
       {showForm && (
         <Card className="mb-5">
-          <div className="text-xs font-mono mb-3 uppercase tracking-wider" style={{ color: "var(--docket-accent)" }}>
+          <div className="text-xs font-mono mb-3 " style={{ color: "var(--docket-accent)" }}>
             New case
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -264,7 +264,7 @@ export default function Tracker() {
           <div className="flex gap-2 mt-4">
             <button
               onClick={addCase}
-              className="px-4 py-1.5 rounded text-xs font-mono font-semibold border transition-all"
+              className="px-4 py-1.5 rounded text-xs font-mono font-semibold border transition-colors"
               style={{
                 borderColor: "var(--docket-accent)",
                 color: "var(--docket-accent)",
@@ -275,7 +275,7 @@ export default function Tracker() {
             </button>
             <button
               onClick={() => setShowForm(false)}
-              className="px-3 py-1.5 rounded text-xs font-mono border transition-all"
+              className="px-3 py-1.5 rounded text-xs font-mono border transition-colors"
               style={{ borderColor: "var(--docket-border)", color: "var(--docket-muted)" }}
             >
               Cancel
@@ -299,7 +299,7 @@ export default function Tracker() {
           return (
             <div
               key={c.id}
-              className="rounded-xl border transition-all"
+              className="rounded-xl border transition-colors"
               style={{
                 borderColor: isUrgent ? "var(--docket-crit)" : "var(--docket-border)",
                 backgroundColor: "var(--docket-surface)",
@@ -367,7 +367,7 @@ export default function Tracker() {
                     <button
                       title="Mark resolved"
                       onClick={() => resolveCase(c.id)}
-                      className="p-1.5 rounded border transition-all"
+                      className="p-1.5 rounded border transition-colors"
                       style={{ borderColor: "var(--docket-border)", color: "var(--docket-low)" }}
                     >
                       <Check className="h-3.5 w-3.5" />
@@ -376,7 +376,7 @@ export default function Tracker() {
                   <button
                     title="Remove"
                     onClick={() => removeCase(c.id)}
-                    className="p-1.5 rounded border transition-all"
+                    className="p-1.5 rounded border transition-colors"
                     style={{ borderColor: "var(--docket-border)", color: "var(--docket-muted)" }}
                   >
                     <X className="h-3.5 w-3.5" />
@@ -392,7 +392,7 @@ export default function Tracker() {
                 >
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-3">
                     <div>
-                      <span className="font-mono uppercase tracking-wide text-[0.6rem]" style={{ color: "var(--docket-muted)" }}>
+                      <span className="font-mono text-[0.6rem]" style={{ color: "var(--docket-muted)" }}>
                         Filed
                       </span>
                       <div style={{ color: "var(--docket-text)" }}>
@@ -400,14 +400,14 @@ export default function Tracker() {
                       </div>
                     </div>
                     <div>
-                      <span className="font-mono uppercase tracking-wide text-[0.6rem]" style={{ color: "var(--docket-muted)" }}>
+                      <span className="font-mono text-[0.6rem]" style={{ color: "var(--docket-muted)" }}>
                         Court
                       </span>
                       <div style={{ color: "var(--docket-text)" }}>{c.courtLevel}</div>
                     </div>
                     {c.judge && (
                       <div>
-                        <span className="font-mono uppercase tracking-wide text-[0.6rem]" style={{ color: "var(--docket-muted)" }}>
+                        <span className="font-mono text-[0.6rem]" style={{ color: "var(--docket-muted)" }}>
                           Judge / note
                         </span>
                         <div style={{ color: "var(--docket-text)" }}>{c.judge}</div>
@@ -415,7 +415,7 @@ export default function Tracker() {
                     )}
                     {c.nextHearing && (
                       <div>
-                        <span className="font-mono uppercase tracking-wide text-[0.6rem]" style={{ color: "var(--docket-muted)" }}>
+                        <span className="font-mono text-[0.6rem]" style={{ color: "var(--docket-muted)" }}>
                           Next hearing
                         </span>
                         <div style={{ color: "var(--docket-text)" }}>
@@ -450,7 +450,7 @@ export default function Tracker() {
         className="mt-8 rounded-xl border p-5"
         style={{ borderColor: "var(--docket-accent)", backgroundColor: "var(--docket-accent-dim)" }}
       >
-        <div className="text-xs font-mono uppercase tracking-wider mb-2" style={{ color: "var(--docket-accent)" }}>
+        <div className="text-xs font-mono mb-2" style={{ color: "var(--docket-accent)" }}>
           What this prototype argues
         </div>
         <p className="text-sm leading-relaxed" style={{ color: "var(--docket-text)" }}>

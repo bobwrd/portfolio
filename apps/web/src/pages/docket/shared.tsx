@@ -1,6 +1,14 @@
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 
+/* Section labels used to sit above each heading as a small accent line
+   ("Chapter 1 · The Docket"), repeating the nav. Only the chapter number
+   is kept, as a prefix on the heading itself. */
+function chapterNumber(label: string): string | null {
+  const m = label.match(/^(?:Chapter\s+)?(\d+)\b/);
+  return m ? m[1] : null;
+}
+
 // Section wrapper — matches observatory/arena pattern but uses docket CSS vars.
 export function Section({
   id,
@@ -17,13 +25,10 @@ export function Section({
     <section id={id} className="scroll-mt-16 border-t" style={{ borderColor: "var(--docket-border)" }}>
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-14">
         <div className="mb-8">
-          <div
-            className="text-[0.7rem] font-mono uppercase tracking-[0.2em] mb-2"
-            style={{ color: "var(--docket-accent)" }}
-          >
-            {eyebrow}
-          </div>
           <h2 className="text-2xl sm:text-3xl font-bold tracking-tight" style={{ color: "var(--docket-text)" }}>
+            {chapterNumber(eyebrow) && (
+              <span style={{ color: "var(--docket-accent)" }}>{chapterNumber(eyebrow)}. </span>
+            )}
             {title}
           </h2>
         </div>
@@ -50,7 +55,7 @@ export function Card({
     >
       {title && (
         <div
-          className="text-xs font-mono mb-4 uppercase tracking-wider"
+          className="text-xs font-mono mb-4 "
           style={{ color: "var(--docket-muted)" }}
         >
           {title}
@@ -68,7 +73,7 @@ export function Details({ summary, children }: { summary: string; children: Reac
     <div className="mt-4 rounded-lg border" style={{ borderColor: "var(--docket-border)" }}>
       <button
         onClick={() => setOpen((o) => !o)}
-        className="w-full flex items-center justify-between gap-2 px-4 py-2.5 text-left text-xs font-mono uppercase tracking-wider transition-colors"
+        className="w-full flex items-center justify-between gap-2 px-4 py-2.5 text-left text-xs font-mono transition-colors"
         style={{ color: "var(--docket-muted)" }}
         aria-expanded={open}
       >
@@ -140,7 +145,7 @@ export function TierBadge({ tier }: { tier: "Critical" | "High" | "Moderate" | "
   };
   return (
     <span
-      className="inline-block px-2 py-0.5 rounded text-[0.68rem] font-mono font-semibold uppercase tracking-wide"
+      className="inline-block px-2 py-0.5 rounded text-[0.68rem] font-mono font-semibold "
       style={{ color: color[tier], backgroundColor: `${color[tier]}18` }}
     >
       {tier}

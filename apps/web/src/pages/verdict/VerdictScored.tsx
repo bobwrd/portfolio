@@ -7,7 +7,7 @@ export default function VerdictScored() {
     backgroundColor: "var(--verdict-surface)",
     borderColor: "var(--verdict-border)",
   };
-  const labelStyle = "text-[0.65rem] font-mono tracking-widest uppercase mb-2";
+  const labelStyle = "text-[0.65rem] font-mono mb-2";
   const labelColor = { color: "var(--verdict-muted)" };
   const bodyStyle = "text-sm leading-relaxed mb-3";
   const bodyColor = { color: "var(--verdict-text)" };
@@ -70,14 +70,14 @@ export default function VerdictScored() {
           className="text-xs font-mono transition-opacity hover:opacity-80"
           style={{ color: "var(--verdict-accent)" }}
         >
-          ← Methodology
+          Back to methodology
         </Link>
         <Link
           to="/mini/verdict/1"
           className="text-xs font-mono transition-opacity hover:opacity-80"
           style={{ color: "var(--verdict-muted)" }}
         >
-          Full case record →
+          Full case record
         </Link>
       </div>
 
@@ -202,13 +202,13 @@ export default function VerdictScored() {
         style={{ borderColor: "var(--verdict-border)", color: "var(--verdict-muted)" }}
       >
         <Link to="/mini/verdict/1" className="hover:underline" style={{ color: "var(--verdict-accent)" }}>
-          Full case record with data →
+          Full case record with data
         </Link>
         <Link to="/mini/verdict/about" className="hover:underline" style={{ color: "var(--verdict-accent)" }}>
-          Full methodology →
+          Full methodology
         </Link>
         <Link to="/mini/verdict" className="hover:underline" style={{ color: "var(--verdict-accent)" }}>
-          ← All cases
+          All cases
         </Link>
       </div>
     </div>

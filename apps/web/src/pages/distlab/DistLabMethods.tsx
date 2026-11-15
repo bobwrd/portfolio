@@ -3,12 +3,12 @@ import { Section, Card, Eq, Details } from "./shared";
 import { REGIME_KEYS, REGIME_META } from "./types";
 
 export default function DistLabMethods() {
-  useEffect(() => { document.title = "Arin Jain — The Distribution Lab: Methods"; }, []);
+  useEffect(() => { document.title = "The Distribution Lab: technical note — Arin Jain"; }, []);
   return (
     <div>
       <div className="max-w-5xl mx-auto px-4 sm:px-6 pt-12 pb-2">
-        <div className="text-[0.7rem] font-mono uppercase tracking-[0.2em] mb-2" style={{ color: "var(--dl-accent)" }}>
-          Technical note · Arin Jain
+        <div className="text-[0.7rem] font-mono mb-2" style={{ color: "var(--dl-accent)" }}>
+          Technical note by Arin Jain
         </div>
         <h1 className="text-3xl sm:text-4xl font-bold tracking-tight" style={{ color: "var(--dl-text)" }}>
           The Distribution Lab: data, indices and mapping
@@ -82,7 +82,7 @@ export default function DistLabMethods() {
         </Details>
       </Section>
 
-      <Section id="mapping" eyebrow="Playground" title="From sliders to outcomes">
+      <Section id="mapping" eyebrow="Playground" title="Playground: from sliders to outcomes">
         <p className="text-sm leading-relaxed mb-3" style={{ color: "var(--dl-text)" }}>
           Every observed country-year is a point in 8-dimensional regime space. For a slider configuration: measure
           distance to each point, weight by a Gaussian kernel, take weighted means.
@@ -112,7 +112,7 @@ export default function DistLabMethods() {
         </p>
       </Section>
 
-      <Section id="mobility" eyebrow="Mobility" title="The sparsest panel">
+      <Section id="mobility" eyebrow="Mobility" title="Mobility: the sparsest panel">
         <p className="text-sm leading-relaxed mb-3" style={{ color: "var(--dl-text)" }}>
           The mobility panel is the least complete. GDIM reports intergenerational education mobility by 10-year birth
           cohort — not income decile transitions. Two GDIM numbers (absolute upward mobility and persistence) generate a
@@ -136,7 +136,7 @@ export default function DistLabMethods() {
       </Section>
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 py-12 border-t" style={{ borderColor: "var(--dl-border)" }}>
-        <a href="/mini/lab" className="text-sm hover:underline" style={{ color: "var(--dl-accent)" }}>← Back to the Lab</a>
+        <a href="/mini/lab" className="text-sm hover:underline" style={{ color: "var(--dl-accent)" }}>Back to the Lab</a>
       </div>
     </div>
   );

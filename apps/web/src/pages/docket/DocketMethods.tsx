@@ -3,7 +3,7 @@ import { Eq } from "./shared";
 
 export default function DocketMethods() {
   useEffect(() => {
-    document.title = "The Docket — Methods · Arin Jain";
+    document.title = "The Docket: technical note — Arin Jain";
   }, []);
 
   const h2 = "text-lg font-semibold mb-3 mt-8 first:mt-0";
@@ -16,10 +16,10 @@ export default function DocketMethods() {
     <div className="max-w-6xl mx-auto px-4 sm:px-6 py-14">
       <div className="max-w-3xl">
         <div
-          className="text-[0.7rem] font-mono uppercase tracking-[0.2em] mb-3"
+          className="text-[0.7rem] font-mono mb-3"
           style={{ color: "var(--docket-accent)" }}
         >
-          Methods appendix · The Docket
+          The Docket: technical note
         </div>
         <h1
           className="text-3xl sm:text-4xl font-bold tracking-tight mb-2"
@@ -28,7 +28,7 @@ export default function DocketMethods() {
           Indian Court Backlogs: Data Sources, Scoring and Design
         </h1>
         <p className="text-xs font-mono mb-8" style={{ color: muted }}>
-          Working Paper · Arin Jain · 2024
+          Working paper by Arin Jain, 2024
         </p>
 
         <h2 className={h2} style={{ color: text }}>Abstract</h2>
@@ -41,7 +41,7 @@ export default function DocketMethods() {
           general audience.
         </p>
 
-        <h2 className={h2} style={{ color: text }}>1 · Data sources</h2>
+        <h2 className={h2} style={{ color: text }}>1. Data sources</h2>
 
         <h3 className={h3} style={{ color: text }}>1.1 Pending case counts</h3>
         <p className={p} style={{ color: muted }}>
@@ -82,7 +82,7 @@ export default function DocketMethods() {
           closures reducing disposal while filings continued.
         </p>
 
-        <h2 className={h2} style={{ color: text }}>2 · Backlog Severity Index</h2>
+        <h2 className={h2} style={{ color: text }}>2. Backlog severity index</h2>
         <p className={p} style={{ color: muted }}>
           The Backlog Severity Index (BSI) is a descriptive index intended to make state-level
           variation legible, not to serve as a precise quantitative ranking. It is not calibrated
@@ -140,7 +140,7 @@ export default function DocketMethods() {
           decisions without adjustment by a domain expert.
         </p>
 
-        <h2 className={h2} style={{ color: text }}>3 · India–Singapore comparison</h2>
+        <h2 className={h2} style={{ color: text }}>3. India–Singapore comparison</h2>
         <p className={p} style={{ color: muted }}>
           Ten dimensions are scored as constructed indices, not official cross-country rankings.
           Each score reflects a qualitative assessment of deployment completeness — from 0 (no
@@ -161,7 +161,7 @@ export default function DocketMethods() {
           the system-wide picture, not penalise early adopters.
         </p>
 
-        <h2 className={h2} style={{ color: text }}>4 · The tracker prototype</h2>
+        <h2 className={h2} style={{ color: text }}>4. The tracker prototype</h2>
         <p className={p} style={{ color: muted }}>
           The interactive case tracking dashboard uses entirely fabricated illustrative cases. No
           individual case data from real courts is used anywhere in this subproject. The schema
@@ -174,7 +174,7 @@ export default function DocketMethods() {
           functional case management system.
         </p>
 
-        <h2 className={h2} style={{ color: text }}>5 · Limitations and honest gaps</h2>
+        <h2 className={h2} style={{ color: text }}>5. Limitations and honest gaps</h2>
         <ul className="list-disc list-inside text-sm space-y-1.5 mb-4" style={{ color: muted }}>
           <li>Adjournment estimates are extrapolated from limited sampling and are the weakest part of the BSI.</li>
           <li>Tribunal, arbitration, and consumer forum backlogs are excluded entirely.</li>
@@ -189,7 +189,7 @@ export default function DocketMethods() {
           style={{ borderColor: "var(--docket-border)", color: muted }}
         >
           <p>
-            The Docket · Arin Jain · 2024
+            The Docket, by Arin Jain, 2024
           </p>
           <p className="mt-1">
             Student research project. Not legal or policy advice. Errors and corrections welcome:{" "}

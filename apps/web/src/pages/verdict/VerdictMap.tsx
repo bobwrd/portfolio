@@ -13,10 +13,10 @@ import type { VerdictCase } from "./types";
 import { WORLD_PATH, MAP_W, MAP_H, LAT_TOP, LAT_BOTTOM } from "./world-map-path";
 
 const TIER_HEX: Record<string, string> = {
-  Seismic: "#f87171",
-  Major: "#fb923c",
-  Moderate: "#facc15",
-  Marginal: "#94a3b8",
+  Seismic: "var(--verdict-seismic)",
+  Major: "var(--verdict-major)",
+  Moderate: "var(--verdict-moderate)",
+  Marginal: "var(--verdict-marginal)",
 };
 
 function getCoords(jurisdiction: string): [number, number] {
@@ -203,8 +203,8 @@ export default function VerdictMap({ cases }: { cases: VerdictCase[] }) {
     setHover({ entry, px: e.clientX - rect.left, py: e.clientY - rect.top });
   }, []);
 
-  const land = "#b9d9e6";
-  const landStroke = "#8fbccf";
+  const land = "var(--verdict-surface-2)";
+  const landStroke = "var(--verdict-border-hover)";
   const sea = "transparent";
 
   return (
@@ -231,13 +231,13 @@ export default function VerdictMap({ cases }: { cases: VerdictCase[] }) {
           {points.map((p) => (
             <g key={p.id}>
               {/* Soft halo */}
-              <circle cx={p.x} cy={p.y} r={r * 1.9} fill={TIER_HEX[p.tier] ?? "#22d3ee"} opacity={0.18} />
+              <circle cx={p.x} cy={p.y} r={r * 1.9} fill={TIER_HEX[p.tier] ?? "var(--verdict-accent)"} opacity={0.18} />
               <circle
                 cx={p.x}
                 cy={p.y}
                 r={r}
-                fill={TIER_HEX[p.tier] ?? "#22d3ee"}
-                stroke={"#ffffff"}
+                fill={TIER_HEX[p.tier] ?? "var(--verdict-accent)"}
+                stroke={"var(--verdict-surface)"}
                 strokeWidth={r * 0.28}
                 className="cursor-pointer"
                 onClick={() => openCase(p.id)}
@@ -280,26 +280,26 @@ export default function VerdictMap({ cases }: { cases: VerdictCase[] }) {
               top: hover.py + 12,
               maxWidth: 220,
               backgroundColor: "#fff",
-              borderColor: "rgba(14,116,144,0.25)",
-              color: "#0f172a",
-              boxShadow: "0 4px 20px rgba(0,0,0,0.3)",
+              borderColor: "var(--verdict-border-hover)",
+              color: "var(--verdict-text)",
+              boxShadow: "0 4px 16px rgba(31,27,22,0.12)",
             }}
           >
             <div className="text-[11px] font-semibold mb-1.5">{hover.entry.name}</div>
             <div className="flex items-center gap-2">
               <span
                 className="inline-block w-2 h-2 rounded-full"
-                style={{ backgroundColor: TIER_HEX[hover.entry.tier] ?? "#22d3ee" }}
+                style={{ backgroundColor: TIER_HEX[hover.entry.tier] ?? "var(--verdict-accent)" }}
               />
-              <span className="text-[13px] font-bold" style={{ color: "#0e7490" }}>
+              <span className="text-[13px] font-bold" style={{ color: "var(--verdict-accent)" }}>
                 EDI {hover.entry.edi}
               </span>
               <span className="text-[10px]" style={{ color: TIER_HEX[hover.entry.tier] }}>
                 {hover.entry.tier}
               </span>
             </div>
-            <div className="text-[10px] mt-1.5" style={{ color: "#64748b" }}>
-              Click to open →
+            <div className="text-[10px] mt-1.5" style={{ color: "var(--verdict-muted)" }}>
+              Click to open
             </div>
           </div>
         )}
@@ -308,7 +308,7 @@ export default function VerdictMap({ cases }: { cases: VerdictCase[] }) {
       {/* Legend */}
       <div className="flex items-center justify-between mt-3 flex-wrap gap-2">
         <span className="text-[0.6rem] font-mono" style={{ color: "var(--verdict-muted)" }}>
-          Click any point to open that verdict · drag to pan · scroll to zoom
+          Click a point to open its case. Drag to pan, scroll to zoom.
         </span>
         <div className="flex items-center gap-4 flex-wrap">
           {(["Seismic", "Major", "Moderate", "Marginal"] as const).map((tier) => (

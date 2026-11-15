@@ -107,7 +107,7 @@ export default function Chapter3() {
               { label: "Deadweight loss", v: now.deadweight, tone: "var(--arena-warn)" },
             ].map((m) => (
               <div key={m.label} className="rounded-lg p-2.5" style={{ backgroundColor: "var(--arena-surface-2)" }}>
-                <div className="text-[0.6rem] font-mono uppercase tracking-wider mb-0.5" style={{ color: "var(--arena-muted)" }}>
+                <div className="text-[0.6rem] font-mono mb-0.5" style={{ color: "var(--arena-muted)" }}>
                   {m.label}
                 </div>
                 <div className="text-lg font-mono font-semibold" style={{ color: m.tone }}>
