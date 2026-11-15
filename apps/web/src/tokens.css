@@ -3,17 +3,24 @@
    styles.css; this file holds each section's own palette so every colour
    decision in the site sits in one of two token blocks. */
 
+/* Series band colours for sections without their own theme block. */
+:root {
+  --ask-band: #3b3f8f;
+  --onebook-band: #55611a;
+}
+
 .verdict-section,
 .ledger-section,
 .obs-section,
 .arena-section,
 .distlab-section,
-.docket-section {
-  --paper-bg: #faf8f3;
-  --paper-surface: #fffdf9;
-  --paper-surface-2: #f2eee5;
-  --paper-text: #1f1b16;
-  --paper-muted: #645c51;
+.docket-section,
+.tradewinds-section {
+  --paper-bg: #fdfdfc;
+  --paper-surface: #ffffff;
+  --paper-surface-2: #f4f2ee;
+  --paper-text: #1a1816;
+  --paper-muted: #57524b;
   --paper-warn: #b4232c;
   --paper-good: #2f6f4e;
   --paper-c-blue: #2f5f8a;
@@ -150,15 +157,15 @@
 }
 
 .tradewinds-section {
-  --tw-bg: #f7f1e1;
-  --tw-surface: #fffdf7;
-  --tw-surface-2: #efe4cb;
+  --tw-bg: var(--paper-bg);
+  --tw-surface: var(--paper-surface);
+  --tw-surface-2: #f2efe8;
   --tw-border: rgba(90, 74, 46, 0.2);
   --tw-border-hover: rgba(90, 74, 46, 0.42);
   --tw-accent: #1d3557;
   --tw-accent-dim: rgba(29, 53, 87, 0.08);
-  --tw-text: #2b2117;
-  --tw-muted: #6b5b45;
+  --tw-text: var(--paper-text);
+  --tw-muted: var(--paper-muted);
   --tw-green: #2f6f4e;
   --tw-yellow: #9a6a08;
   --tw-grey: #8a8272;
@@ -169,7 +176,7 @@
 
 /* Shared base, dark mode (the writing section's reader toggle). */
 .dark {
-  --background: oklch(0.14 0.006 48);
+  --background: oklch(0.16 0.004 60);
   --foreground: oklch(0.96 0.003 100);
   --card: oklch(0.19 0.007 50);
   --card-foreground: oklch(0.96 0.003 100);
@@ -186,11 +193,11 @@
   --destructive: oklch(0.704 0.191 22.216);
   --border: oklch(1 0 0 / 9%);
   --input: oklch(1 0 0 / 13%);
-  --ring: oklch(0.55 0.014 56);
+  --ring: oklch(0.76 0.10 255);
 
-  /* Warm accent in dark — amber gold */
-  --warm-accent: oklch(0.76 0.13 60);
-  --warm-accent-muted: oklch(0.76 0.13 60 / 14%);
+  /* Series oxblood in dark mode, lightened for contrast */
+  --warm-accent: oklch(0.74 0.10 25);
+  --warm-accent-muted: oklch(0.74 0.10 25 / 14%);
   --warm-accent-foreground: oklch(0.14 0.006 48);
 
   --chart-1: oklch(0.76 0.13 60);
@@ -206,6 +213,7 @@
   --sidebar-accent-foreground: oklch(0.96 0.003 100);
   --sidebar-border: oklch(1 0 0 / 9%);
   --sidebar-ring: oklch(0.55 0.014 56);
+  --link: oklch(0.76 0.10 255);
 }
 
 /* OneBook */
@@ -255,5 +263,5 @@
   --topbar-h: 52px;
 
   --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
-  --sans: -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --sans: var(--font-sans-face);
 }

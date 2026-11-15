@@ -67,30 +67,29 @@ export default function DocketLayout({ children }: { children: React.ReactNode }
       <header
         className="sticky top-0 z-50 border-b"
         style={{
-          backgroundColor: "color-mix(in srgb, var(--docket-bg) 92%, transparent)",
-          borderColor: "var(--docket-border)",
-          backdropFilter: "blur(8px)",
+          backgroundColor: "var(--docket-bg)",
+          borderBottomColor: "var(--docket-border)",
         }}
       >
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between gap-4">
+        <div className="max-w-6xl mx-auto px-5 sm:px-8 py-2 min-h-14 flex flex-wrap items-center justify-between gap-x-4 gap-y-1">
           <div className="flex items-center gap-4 shrink-0">
             <Link
               to="/mini"
-              className="text-xs underline-offset-4 hover:underline"
+              className="font-sans text-[0.875rem] underline-offset-4 hover:underline"
               style={{ color: "var(--docket-muted)" }}
             >
               Research tools
             </Link>
             <a
               href="#intro"
-              className="font-semibold tracking-tight text-sm flex items-center gap-2"
-              style={{ color: "var(--docket-accent)" }}
+              className="font-serif text-xl leading-none"
+              style={{ color: "var(--docket-text)" }}
             >
               The Docket
             </a>
           </div>
 
-          <nav className="hidden md:flex items-center gap-0.5">
+          <nav aria-label="Sections of this tool" className="-mx-1.5 flex w-full items-center gap-0.5 overflow-x-auto scrollbar-none whitespace-nowrap md:mx-0 md:w-auto">
             {!isMethodsPage &&
               navLinks.map((link) => {
                 const id = link.href.slice(1);
@@ -99,10 +98,10 @@ export default function DocketLayout({ children }: { children: React.ReactNode }
                   <a
                     key={link.href}
                     href={link.href}
-                    className="px-2.5 py-1.5 rounded text-xs transition-colors duration-150"
+                    className="px-1.5 py-1.5 font-sans text-[0.875rem] transition-colors duration-150"
                     style={{
                       color: isActive ? "var(--docket-accent)" : "var(--docket-muted)",
-                      backgroundColor: isActive ? "var(--docket-accent-dim)" : "transparent",
+                      textDecoration: isActive ? "underline" : "none", textDecorationThickness: "2px", textUnderlineOffset: "0.4em",
                     }}
                   >
                     {link.label}
@@ -112,7 +111,7 @@ export default function DocketLayout({ children }: { children: React.ReactNode }
             {isMethodsPage && (
               <Link
                 to="/mini/docket"
-                className="px-2.5 py-1.5 rounded text-xs transition-colors duration-150"
+                className="px-1.5 py-1.5 font-sans text-[0.875rem] transition-colors duration-150"
                 style={{ color: "var(--docket-muted)" }}
               >
                 Back to the Docket
@@ -120,11 +119,11 @@ export default function DocketLayout({ children }: { children: React.ReactNode }
             )}
             <Link
               to="/mini/docket/methods"
-              className="px-2.5 py-1.5 rounded text-xs transition-colors duration-150 border"
+              className="px-1.5 py-1.5 font-sans text-[0.875rem] transition-colors duration-150 border"
               style={{
                 borderColor: isMethodsPage ? "var(--docket-accent)" : "var(--docket-border)",
                 color: isMethodsPage ? "var(--docket-accent)" : "var(--docket-muted)",
-                backgroundColor: isMethodsPage ? "var(--docket-accent-dim)" : "transparent",
+                textDecoration: isMethodsPage ? "underline" : "none", textDecorationThickness: "2px", textUnderlineOffset: "0.4em",
               }}
             >
               Technical note
@@ -136,9 +135,9 @@ export default function DocketLayout({ children }: { children: React.ReactNode }
       <main>{children}</main>
 
       <footer className="border-t mt-20" style={{ borderColor: "var(--docket-border)" }}>
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-6">
+        <div className="max-w-6xl mx-auto px-5 sm:px-8 py-6">
           <div
-            className="flex items-center justify-between text-xs"
+            className="flex items-center justify-between font-sans text-[0.875rem]"
             style={{ color: "var(--docket-muted)" }}
           >
             <span>The Docket, by Arin Jain</span>
@@ -159,7 +158,7 @@ export default function DocketLayout({ children }: { children: React.ReactNode }
               </Link>
             </div>
           </div>
-          <p className="mt-3 text-[0.65rem] leading-relaxed" style={{ color: "var(--docket-muted)" }}>
+          <p className="mt-3 font-sans text-[0.8125rem] leading-relaxed" style={{ color: "var(--docket-muted)" }}>
             Data sourced from NJDG, eCourts project reports, Ministry of Law &amp; Justice annual
             reports, DAKSH India, and Supreme Court annual reports. Figures are approximate and
             aggregated; individual case data is not used. Singapore comparison from Singapore

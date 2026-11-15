@@ -100,7 +100,7 @@ export default function TradewindsGame() {
     <TradewindsShell>
       <div className="flex items-center justify-between gap-3 mb-6 flex-wrap">
         <div>
-          <h1 className="text-2xl font-bold" style={{ color: "var(--tw-text)" }}>
+          <h1 className="text-2xl" style={{ color: "var(--tw-text)" }}>
             Today's voyage
           </h1>
           <p className="text-sm" style={{ color: "var(--tw-muted)" }}>
@@ -176,7 +176,7 @@ export default function TradewindsGame() {
             <WorldMap origin={originPort} destination={destinationPort} revealed={finished} />
 
             <div>
-              <h2 className="text-sm font-semibold mb-2" style={{ color: "var(--tw-muted)" }}>
+              <h2 className="text-sm mb-2" style={{ color: "var(--tw-muted)" }}>
                 Guess log
               </h2>
               <GuessHistory history={progress.history} ports={ports} />

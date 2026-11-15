@@ -1,5 +1,6 @@
 import SectionSwitcher from "@/components/SectionSwitcher";
 import { usePageTitle } from "@/hooks/use-page-title";
+import PaperHeader from "@/components/PaperHeader";
 
 const RELEASE_URL = "https://github.com/bobwrd/ask/releases/tag/v0.2.1";
 const DOWNLOAD_URL =
@@ -7,7 +8,7 @@ const DOWNLOAD_URL =
 
 function Code({ children }: { children: string }) {
   return (
-    <pre className="overflow-x-auto rounded-lg border border-border bg-secondary p-4 text-sm leading-relaxed text-foreground">
+    <pre className="overflow-x-auto border border-border bg-secondary px-5 py-4 font-mono text-[0.875rem] leading-relaxed text-foreground">
       <code>{children}</code>
     </pre>
   );
@@ -19,9 +20,9 @@ function Screenshot({ src, caption }: { src: string; caption: string }) {
       <img
         src={src}
         alt={caption}
-        className="w-full rounded-lg border border-border"
+        className="w-full border border-border"
       />
-      <figcaption className="mt-2 text-sm italic text-muted-foreground">
+      <figcaption className="mt-2 font-sans text-[0.875rem] text-muted-foreground">
         {caption}
       </figcaption>
     </figure>
@@ -103,62 +104,54 @@ const REFERENCE: { section: string; rows: [string, string][] }[] = [
 export default function Ask() {
   usePageTitle("Ask, a data language for beginners");
   return (
-    <div className="min-h-screen bg-background font-serif text-foreground">
+    <div className="min-h-screen bg-background text-foreground">
       <SectionSwitcher current="ask" />
 
-      <main className="mx-auto max-w-3xl px-6 py-16">
-        <header className="mb-14 text-center">
-          <h1 className="text-4xl">Ask</h1>
-          <p className="mt-4 text-lg text-foreground/85">
-            A small language for asking questions of your data, with a
-            built-in editor, table and charts.
-          </p>
-          <p className="mt-6 font-sans text-base leading-relaxed text-muted-foreground">
-            Ask is a data-analysis language designed to be <em>guessable</em>.
-            You read a program top to bottom and it does exactly that, in
-            order: load a file, clean it, filter it, group it, chart it. No
-            query planner, no hidden magic, no Python to learn. Under the hood
-            it runs on pandas + matplotlib, but you never see them — you write
-            Ask.
-          </p>
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-3 font-sans text-sm">
-            <a
-              href={DOWNLOAD_URL}
-              className="rounded-full bg-primary px-5 py-2.5 font-medium text-primary-foreground transition-colors duration-150 hover:bg-primary/85"
-            >
-              Download for macOS (arm64)
-            </a>
-            <a
-              href={RELEASE_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-full border border-border px-5 py-2.5 font-medium text-foreground transition-colors duration-150 hover:border-foreground/40"
-            >
-              v0.2.1 release notes
-            </a>
-            <a
-              href="https://github.com/bobwrd/ask"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-full border border-border px-5 py-2.5 font-medium text-foreground transition-colors duration-150 hover:border-foreground/40"
-            >
-              Source on GitHub
-            </a>
-          </div>
-        </header>
+      <main className="mx-auto max-w-6xl px-5 pt-12 pb-24 sm:px-8">
+        <PaperHeader
+          series="Working Paper Series, No. 05"
+          meta="v0.2.1, MIT licensed"
+          color="var(--ask-band)"
+          title="Ask"
+          byline="A small language for asking questions of your data, with a built-in editor, table and charts."
+          abstract={
+            <p>
+              Ask is a data-analysis language designed to be <em>guessable</em>.
+              You read a program top to bottom and it does exactly that, in
+              order: load a file, clean it, filter it, group it, chart it. No
+              query planner, no hidden steps, no Python to learn. It runs on
+              pandas and matplotlib underneath, but you only ever write Ask.
+            </p>
+          }
+        />
+        <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 font-sans text-[0.9375rem]">
+          <a
+            href={DOWNLOAD_URL}
+            className="bg-foreground px-5 py-2.5 font-medium text-background transition-colors duration-150 hover:bg-foreground/85"
+          >
+            Download for macOS (arm64)
+          </a>
+          <a href={RELEASE_URL} target="_blank" rel="noopener noreferrer" className="text-link underline">
+            v0.2.1 release notes
+          </a>
+          <a href="https://github.com/bobwrd/ask" target="_blank" rel="noopener noreferrer" className="text-link underline">
+            Source on GitHub
+          </a>
+        </div>
 
+        <div className="paper-body mt-16 max-w-[42rem] font-serif text-[1.0625rem]">
         <section className="mb-14">
           <Code>{`load "sales.csv"
   where region is "West"
   show total revenue as sales
   chart sales by region as bar`}</Code>
-          <p className="mt-3 text-center text-sm text-muted-foreground">
+          <p className="mt-3 font-sans text-[0.875rem] text-muted-foreground">
             Press Run. You get a table and a chart.
           </p>
         </section>
 
         <section className="mb-14">
-          <h2 className="text-lg font-bold">Why Ask</h2>
+          <h2 className="text-[1.75rem] leading-tight">Why Ask</h2>
           <p className="mt-3 leading-relaxed">
             Most data tools ask beginners to learn either a spreadsheet's
             mouse-maze or a programming language's syntax before they can
@@ -168,7 +161,7 @@ export default function Ask() {
           <dl className="mt-6 flex flex-col gap-4">
             {PRINCIPLES.map((p) => (
               <div key={p.title}>
-                <dt className="font-bold">{p.title}</dt>
+                <dt className="font-semibold">{p.title}</dt>
                 <dd className="mt-1 text-foreground/85">{p.body}</dd>
               </div>
             ))}
@@ -181,7 +174,7 @@ export default function Ask() {
         </section>
 
         <section className="mb-14">
-          <h2 className="text-lg font-bold">A two-minute tour</h2>
+          <h2 className="text-[1.75rem] leading-tight">A two-minute tour</h2>
           <p className="mt-3 leading-relaxed">
             Load a file, add a computed column, bucket it into named ranges,
             group and summarize, then chart it — five steps, read top to
@@ -210,7 +203,7 @@ chart sales by region as bar
         </section>
 
         <section className="mb-14">
-          <h2 className="text-lg font-bold">Types can drive the chart</h2>
+          <h2 className="text-[1.75rem] leading-tight">Types can drive the chart</h2>
           <p className="mt-3 leading-relaxed">
             Define an ordered type and the axis follows it (Poor, Fair, Good,
             Great) instead of sorting alphabetically.
@@ -230,7 +223,7 @@ load "reviews.csv"
         </section>
 
         <section className="mb-14">
-          <h2 className="text-lg font-bold">Statistics, in plain English</h2>
+          <h2 className="text-[1.75rem] leading-tight">Statistics, in plain English</h2>
           <p className="mt-3 leading-relaxed">
             R makes you know which test to run. Ask picks the right one and
             answers in words, with uncertainty by default.
@@ -251,7 +244,7 @@ load "reviews.csv"
         </section>
 
         <section className="mb-14">
-          <h2 className="text-lg font-bold">Errors that teach</h2>
+          <h2 className="text-[1.75rem] leading-tight">Errors that teach</h2>
           <p className="mt-3 leading-relaxed">
             Ask never shows a Python traceback. A mistake produces three
             parts — what, where, and a fix.
@@ -264,7 +257,7 @@ Try: clean price`}</Code>
         </section>
 
         <section className="mb-14">
-          <h2 className="text-lg font-bold">The ILOStat acceptance test</h2>
+          <h2 className="text-[1.75rem] leading-tight">The ILOStat acceptance test</h2>
           <p className="mt-3 leading-relaxed">
             Real, messy government data — the economic activity is buried
             inside a free-text notes field under three classification
@@ -291,7 +284,7 @@ Try: clean price`}</Code>
         </section>
 
         <section className="mb-14">
-          <h2 className="text-lg font-bold">Language reference</h2>
+          <h2 className="text-[1.75rem] leading-tight">Language reference</h2>
           <p className="mt-3 leading-relaxed">
             A program is a sequence of statements in a fixed canonical order:
             load, transforms, group by, show, sort, chart, save. Out-of-order
@@ -300,7 +293,7 @@ Try: clean price`}</Code>
           <div className="mt-6 flex flex-col gap-8">
             {REFERENCE.map((group) => (
               <div key={group.section}>
-                <h3 className="font-bold">{group.section}</h3>
+                <h3 className="text-xl">{group.section}</h3>
                 <div className="mt-2 overflow-x-auto">
                   <table className="w-full text-left text-sm">
                     <tbody>
@@ -330,7 +323,7 @@ Try: clean price`}</Code>
               href="https://github.com/bobwrd/ask#language-reference"
               target="_blank"
               rel="noopener noreferrer"
-              className="underline decoration-border underline-offset-4"
+              className="text-link underline"
             >
               repo README
             </a>
@@ -339,7 +332,7 @@ Try: clean price`}</Code>
         </section>
 
         <section className="border-t border-border pt-8">
-          <h2 className="text-lg font-bold">Get it</h2>
+          <h2 className="text-[1.75rem] leading-tight">Get it</h2>
           <p className="mt-3 leading-relaxed">
             Requires Python 3.10+ if running from source. The macOS build
             below is a self-contained app bundle — no Python install needed.
@@ -347,7 +340,7 @@ Try: clean price`}</Code>
           <div className="mt-4 flex flex-wrap gap-3 font-sans text-sm">
             <a
               href={DOWNLOAD_URL}
-              className="rounded-full bg-primary px-5 py-2.5 font-medium text-primary-foreground transition-colors duration-150 hover:bg-primary/85"
+              className="bg-foreground px-5 py-2.5 font-medium text-background transition-colors duration-150 hover:bg-foreground/85"
             >
               Ask-macOS-arm64.zip
             </a>
@@ -356,6 +349,7 @@ Try: clean price`}</Code>
             MIT licensed. v0.2.1.
           </p>
         </section>
+        </div>
       </main>
     </div>
   );

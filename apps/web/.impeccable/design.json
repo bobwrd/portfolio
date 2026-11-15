@@ -1,0 +1,538 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-15T17:09:20.911467+00:00",
+  "title": "Design System: Arin Jain, Working Paper Series",
+  "extensions": {
+    "colorMeta": {
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "oklch(0.18 0.004 60)",
+        "tonalRamp": [
+          "oklch(0.15 0.002 60)",
+          "oklch(0.27 0.003 60)",
+          "oklch(0.39 0.003 60)",
+          "oklch(0.51 0.004 60)",
+          "oklch(0.63 0.003 60)",
+          "oklch(0.75 0.003 60)",
+          "oklch(0.86 0.002 60)",
+          "oklch(0.95 0.002 60)"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Paper",
+        "canonical": "oklch(0.995 0.002 90)",
+        "tonalRamp": [
+          "oklch(0.15 0.002 90)",
+          "oklch(0.27 0.003 90)",
+          "oklch(0.39 0.003 90)",
+          "oklch(0.51 0.004 90)",
+          "oklch(0.63 0.003 90)",
+          "oklch(0.75 0.003 90)",
+          "oklch(0.86 0.002 90)",
+          "oklch(0.95 0.002 90)"
+        ]
+      },
+      "ink-muted": {
+        "role": "neutral",
+        "displayName": "Muted Ink",
+        "canonical": "oklch(0.45 0.008 60)",
+        "tonalRamp": [
+          "oklch(0.15 0.005 60)",
+          "oklch(0.27 0.006 60)",
+          "oklch(0.39 0.007 60)",
+          "oklch(0.51 0.008 60)",
+          "oklch(0.63 0.007 60)",
+          "oklch(0.75 0.006 60)",
+          "oklch(0.86 0.005 60)",
+          "oklch(0.95 0.004 60)"
+        ]
+      },
+      "hairline": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "canonical": "oklch(0.87 0.008 80)",
+        "tonalRamp": [
+          "oklch(0.15 0.005 80)",
+          "oklch(0.27 0.006 80)",
+          "oklch(0.39 0.007 80)",
+          "oklch(0.51 0.008 80)",
+          "oklch(0.63 0.007 80)",
+          "oklch(0.75 0.006 80)",
+          "oklch(0.86 0.005 80)",
+          "oklch(0.95 0.004 80)"
+        ]
+      },
+      "input-rule": {
+        "role": "neutral",
+        "displayName": "Input Rule",
+        "canonical": "oklch(0.80 0.008 80)",
+        "tonalRamp": [
+          "oklch(0.15 0.005 80)",
+          "oklch(0.27 0.006 80)",
+          "oklch(0.39 0.007 80)",
+          "oklch(0.51 0.008 80)",
+          "oklch(0.63 0.007 80)",
+          "oklch(0.75 0.006 80)",
+          "oklch(0.86 0.005 80)",
+          "oklch(0.95 0.004 80)"
+        ]
+      },
+      "paper-tint": {
+        "role": "neutral",
+        "displayName": "Paper Tint",
+        "canonical": "oklch(0.965 0.004 80)",
+        "tonalRamp": [
+          "oklch(0.15 0.002 80)",
+          "oklch(0.27 0.003 80)",
+          "oklch(0.39 0.003 80)",
+          "oklch(0.51 0.004 80)",
+          "oklch(0.63 0.003 80)",
+          "oklch(0.75 0.003 80)",
+          "oklch(0.86 0.002 80)",
+          "oklch(0.95 0.002 80)"
+        ]
+      },
+      "series-oxblood": {
+        "role": "primary",
+        "displayName": "Series Oxblood",
+        "canonical": "oklch(0.40 0.12 25)",
+        "tonalRamp": [
+          "oklch(0.15 0.070 25)",
+          "oklch(0.27 0.087 25)",
+          "oklch(0.39 0.104 25)",
+          "oklch(0.51 0.119 25)",
+          "oklch(0.63 0.101 25)",
+          "oklch(0.75 0.084 25)",
+          "oklch(0.86 0.068 25)",
+          "oklch(0.95 0.055 25)"
+        ]
+      },
+      "link-blue": {
+        "role": "secondary",
+        "displayName": "Academic Link Blue",
+        "canonical": "oklch(0.45 0.13 255)",
+        "tonalRamp": [
+          "oklch(0.15 0.075 255)",
+          "oklch(0.27 0.094 255)",
+          "oklch(0.39 0.113 255)",
+          "oklch(0.51 0.128 255)",
+          "oklch(0.63 0.110 255)",
+          "oklch(0.75 0.091 255)",
+          "oklch(0.86 0.074 255)",
+          "oklch(0.95 0.060 255)"
+        ]
+      },
+      "destructive": {
+        "role": "error",
+        "displayName": "Destructive Red",
+        "canonical": "oklch(0.50 0.17 27)",
+        "tonalRamp": [
+          "oklch(0.15 0.099 27)",
+          "oklch(0.27 0.123 27)",
+          "oklch(0.39 0.148 27)",
+          "oklch(0.51 0.168 27)",
+          "oklch(0.63 0.143 27)",
+          "oklch(0.75 0.119 27)",
+          "oklch(0.86 0.097 27)",
+          "oklch(0.95 0.078 27)"
+        ]
+      },
+      "band-ask-indigo": {
+        "role": "tertiary",
+        "displayName": "Ask Indigo",
+        "canonical": "#3b3f8f",
+        "tonalRamp": [
+          "oklch(0.15 0.075 280)",
+          "oklch(0.27 0.094 280)",
+          "oklch(0.39 0.113 280)",
+          "oklch(0.51 0.128 280)",
+          "oklch(0.63 0.110 280)",
+          "oklch(0.75 0.091 280)",
+          "oklch(0.86 0.074 280)",
+          "oklch(0.95 0.060 280)"
+        ]
+      },
+      "band-onebook-olive": {
+        "role": "tertiary",
+        "displayName": "OneBook Olive",
+        "canonical": "#55611a",
+        "tonalRamp": [
+          "oklch(0.15 0.058 120)",
+          "oklch(0.27 0.072 120)",
+          "oklch(0.39 0.087 120)",
+          "oklch(0.51 0.099 120)",
+          "oklch(0.63 0.084 120)",
+          "oklch(0.75 0.070 120)",
+          "oklch(0.86 0.057 120)",
+          "oklch(0.95 0.046 120)"
+        ]
+      },
+      "tool-paper-bg": {
+        "role": "neutral",
+        "displayName": "Tool Paper",
+        "canonical": "#fdfdfc",
+        "tonalRamp": [
+          "oklch(0.15 0.001 100)",
+          "oklch(0.27 0.001 100)",
+          "oklch(0.39 0.002 100)",
+          "oklch(0.51 0.002 100)",
+          "oklch(0.63 0.002 100)",
+          "oklch(0.75 0.001 100)",
+          "oklch(0.86 0.001 100)",
+          "oklch(0.95 0.001 100)"
+        ]
+      },
+      "tool-paper-surface-2": {
+        "role": "neutral",
+        "displayName": "Tool Paper Tint",
+        "canonical": "#f4f2ee",
+        "tonalRamp": [
+          "oklch(0.15 0.003 80)",
+          "oklch(0.27 0.004 80)",
+          "oklch(0.39 0.005 80)",
+          "oklch(0.51 0.006 80)",
+          "oklch(0.63 0.005 80)",
+          "oklch(0.75 0.004 80)",
+          "oklch(0.86 0.003 80)",
+          "oklch(0.95 0.003 80)"
+        ]
+      },
+      "tool-paper-text": {
+        "role": "neutral",
+        "displayName": "Tool Ink",
+        "canonical": "#1a1816",
+        "tonalRamp": [
+          "oklch(0.15 0.002 60)",
+          "oklch(0.27 0.003 60)",
+          "oklch(0.39 0.003 60)",
+          "oklch(0.51 0.004 60)",
+          "oklch(0.63 0.003 60)",
+          "oklch(0.75 0.003 60)",
+          "oklch(0.86 0.002 60)",
+          "oklch(0.95 0.002 60)"
+        ]
+      },
+      "tool-paper-muted": {
+        "role": "neutral",
+        "displayName": "Tool Muted Ink",
+        "canonical": "#57524b",
+        "tonalRamp": [
+          "oklch(0.15 0.007 70)",
+          "oklch(0.27 0.009 70)",
+          "oklch(0.39 0.010 70)",
+          "oklch(0.51 0.012 70)",
+          "oklch(0.63 0.010 70)",
+          "oklch(0.75 0.008 70)",
+          "oklch(0.86 0.007 70)",
+          "oklch(0.95 0.006 70)"
+        ]
+      },
+      "verdict-teal": {
+        "role": "tertiary",
+        "displayName": "Verdict Teal",
+        "canonical": "#0e5e74",
+        "tonalRamp": [
+          "oklch(0.15 0.052 220)",
+          "oklch(0.27 0.065 220)",
+          "oklch(0.39 0.078 220)",
+          "oklch(0.51 0.089 220)",
+          "oklch(0.63 0.076 220)",
+          "oklch(0.75 0.063 220)",
+          "oklch(0.86 0.051 220)",
+          "oklch(0.95 0.041 220)"
+        ]
+      },
+      "ledger-amber": {
+        "role": "tertiary",
+        "displayName": "Ledger Burnt Amber",
+        "canonical": "#9c4a0e",
+        "tonalRamp": [
+          "oklch(0.15 0.075 50)",
+          "oklch(0.27 0.094 50)",
+          "oklch(0.39 0.113 50)",
+          "oklch(0.51 0.128 50)",
+          "oklch(0.63 0.110 50)",
+          "oklch(0.75 0.091 50)",
+          "oklch(0.86 0.074 50)",
+          "oklch(0.95 0.060 50)"
+        ]
+      },
+      "obs-sea-green": {
+        "role": "tertiary",
+        "displayName": "Observatory Sea Green",
+        "canonical": "#146e64",
+        "tonalRamp": [
+          "oklch(0.15 0.052 180)",
+          "oklch(0.27 0.065 180)",
+          "oklch(0.39 0.078 180)",
+          "oklch(0.51 0.089 180)",
+          "oklch(0.63 0.076 180)",
+          "oklch(0.75 0.063 180)",
+          "oklch(0.86 0.051 180)",
+          "oklch(0.95 0.041 180)"
+        ]
+      },
+      "arena-claret": {
+        "role": "tertiary",
+        "displayName": "Arena Claret",
+        "canonical": "#962850",
+        "tonalRamp": [
+          "oklch(0.15 0.087 5)",
+          "oklch(0.27 0.109 5)",
+          "oklch(0.39 0.130 5)",
+          "oklch(0.51 0.148 5)",
+          "oklch(0.63 0.127 5)",
+          "oklch(0.75 0.105 5)",
+          "oklch(0.86 0.085 5)",
+          "oklch(0.95 0.069 5)"
+        ]
+      },
+      "distlab-brick": {
+        "role": "tertiary",
+        "displayName": "Distribution Lab Brick",
+        "canonical": "#a04028",
+        "tonalRamp": [
+          "#7e3218",
+          "#b05a2e",
+          "#cf8a4c",
+          "#e6b77e",
+          "#f3dcb8"
+        ]
+      },
+      "docket-forest": {
+        "role": "tertiary",
+        "displayName": "Docket Forest",
+        "canonical": "#2a6a44",
+        "tonalRamp": [
+          "oklch(0.15 0.052 155)",
+          "oklch(0.27 0.065 155)",
+          "oklch(0.39 0.078 155)",
+          "oklch(0.51 0.089 155)",
+          "oklch(0.63 0.076 155)",
+          "oklch(0.75 0.063 155)",
+          "oklch(0.86 0.051 155)",
+          "oklch(0.95 0.041 155)"
+        ]
+      },
+      "tradewinds-navy": {
+        "role": "tertiary",
+        "displayName": "Tradewinds Navy",
+        "canonical": "#1d3557",
+        "tonalRamp": [
+          "oklch(0.15 0.041 260)",
+          "oklch(0.27 0.051 260)",
+          "oklch(0.39 0.061 260)",
+          "oklch(0.51 0.069 260)",
+          "oklch(0.63 0.059 260)",
+          "oklch(0.75 0.049 260)",
+          "oklch(0.86 0.040 260)",
+          "oklch(0.95 0.032 260)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Cover-sheet title, one per page; 2.25rem mobile, 3rem sm, 3.5rem lg."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Numbered paper sections, number in muted ink."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Contents-row titles, article-list titles, tool name in the tool bar."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Reading prose, abstracts, tool intros; 42rem measure."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Series lines, keywords, row numbers and meta, site bar, footers."
+      },
+      "label-heading": {
+        "displayName": "Label Heading",
+        "purpose": "The only semibold: 'Contents' and 'Abstract' headings."
+      },
+      "small": {
+        "displayName": "Small",
+        "purpose": "Article meta, tool navs and footers."
+      },
+      "mono": {
+        "displayName": "Mono",
+        "purpose": "Code and figures only."
+      }
+    },
+    "shadows": [
+      {
+        "name": "edge-stroke",
+        "value": "inset 2px 0 0 var(--primary)",
+        "purpose": "OneBook only: a 2px left rule marking an active or warning row; a rule, not elevation."
+      }
+    ],
+    "motion": [
+      {
+        "name": "color-150",
+        "value": "150ms ease",
+        "purpose": "Colour transitions on tool nav links and toggles."
+      },
+      {
+        "name": "progress-80",
+        "value": "transform 80ms linear",
+        "purpose": "Article reading progress bar, scaled not resized."
+      },
+      {
+        "name": "focus-instant",
+        "value": "none",
+        "purpose": "Focus ring appears with no transition. Reduced motion collapses all tool transitions to 0.01ms."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Site Bar",
+      "kind": "nav",
+      "refersTo": "site-bar",
+      "description": "The one top bar on every page: name left, sections right, current marked by an ink underline.",
+      "html": "<div class=\"ds-sitebar\"><a class=\"ds-sitebar-name\" href=\"#\">Arin Jain</a><nav><a href=\"#\" aria-current=\"page\">About</a><a href=\"#\">Writing</a><a href=\"#\">Research tools</a><a href=\"#\">Site guide</a></nav></div>",
+      "css": ".ds-sitebar{display:flex;align-items:center;gap:32px;height:56px;padding:0 32px;background:var(--background);border-bottom:1px solid var(--border);font-family:var(--font-sans-face);font-size:.9375rem}.ds-sitebar-name{font-family:var(--font-serif-face);font-size:1.0625rem;color:var(--foreground);text-decoration:none}.ds-sitebar nav{margin-left:auto;display:flex;gap:24px}.ds-sitebar nav a{color:var(--muted-foreground);text-decoration:none;padding:4px 0;text-underline-offset:.4em}.ds-sitebar nav a:hover{color:var(--foreground)}.ds-sitebar nav a[aria-current=page]{color:var(--foreground);text-decoration:underline;text-decoration-thickness:2px}.ds-sitebar a:focus-visible{outline:2px solid var(--link);outline-offset:2px}"
+    },
+    {
+      "name": "Series Band Cover Sheet",
+      "kind": "custom",
+      "refersTo": "series-band",
+      "description": "Signature opener for every section: 6px band in the section colour, series line, title, byline, keywords.",
+      "html": "<header class=\"ds-cover\"><div class=\"ds-band\"><span>Working Paper Series, No. 00</span><span>Updated July 2026</span></div><h1>Arin Jain</h1><p class=\"ds-byline\">Economics and law.</p><p class=\"ds-keywords\">Keywords: development economics, governance.</p></header>",
+      "css": ".ds-cover{color:var(--foreground)}.ds-band{display:flex;justify-content:space-between;gap:24px;padding:10px 0;border-top:6px solid var(--warm-accent);border-bottom:1px solid var(--border);font-family:var(--font-sans-face);font-size:.9375rem;color:var(--muted-foreground)}.ds-cover h1{font-family:var(--font-serif-face);font-weight:400;font-size:3.5rem;line-height:1.08;margin:40px 0 0}.ds-byline{font-family:var(--font-serif-face);font-size:1.25rem;color:var(--muted-foreground);margin:20px 0 0}.ds-keywords{font-family:var(--font-sans-face);font-size:.9375rem;color:var(--muted-foreground);margin:16px 0 0}"
+    },
+    {
+      "name": "Abstract Box",
+      "kind": "card",
+      "refersTo": "abstract-box",
+      "description": "Square ink-ruled box beside the title on wide screens.",
+      "html": "<aside class=\"ds-abstract\"><h2>Abstract</h2><p>I study economics and law, and build research around one question.</p></aside>",
+      "css": ".ds-abstract{max-width:26rem;border:1px solid var(--foreground);padding:20px 24px;border-radius:0}.ds-abstract h2{font-family:var(--font-sans-face);font-size:.9375rem;font-weight:600;margin:0}.ds-abstract p{font-family:var(--font-serif-face);font-size:1.0625rem;line-height:1.625;margin:8px 0 0}"
+    },
+    {
+      "name": "Contents Row",
+      "kind": "custom",
+      "refersTo": "contents-row",
+      "description": "Numbered hairline-ruled row; used for every index instead of cards.",
+      "html": "<ol class=\"ds-contents\"><li><a href=\"#\"><span class=\"ds-num\">1</span><span class=\"ds-t\">Who I am<small>Interests and plans</small></span><span class=\"ds-meta\">Essay</span></a></li><li><a href=\"#\"><span class=\"ds-num\">2</span><span class=\"ds-t\">Academics</span><span class=\"ds-meta\">Grades, courses</span></a></li></ol>",
+      "css": ".ds-contents{list-style:none;margin:0;padding:0;border-top:1px solid var(--border);max-width:48rem}.ds-contents li{border-bottom:1px solid var(--border)}.ds-contents a{display:grid;grid-template-columns:2.5rem minmax(0,1fr) 15rem;column-gap:16px;padding:16px 0;color:var(--foreground);text-decoration:none}.ds-num,.ds-meta{font-family:var(--font-sans-face);font-size:.9375rem;color:var(--muted-foreground);padding-top:4px;font-variant-numeric:tabular-nums}.ds-meta{text-align:right}.ds-t{font-family:var(--font-serif-face);font-size:1.25rem;line-height:1.375}.ds-t small{display:block;margin-top:4px;font-family:var(--font-sans-face);font-size:.9375rem;color:var(--muted-foreground)}.ds-contents a:hover .ds-t{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px}.ds-contents a:focus-visible{outline:2px solid var(--link);outline-offset:2px}"
+    },
+    {
+      "name": "Inline Link",
+      "kind": "custom",
+      "refersTo": "link",
+      "description": "Academic-homepage link: blue, underlined.",
+      "html": "<p class=\"ds-p\">Explore the <a class=\"ds-link\" href=\"#\">research tools</a> and the <a class=\"ds-link\" href=\"#\">writing</a>.</p>",
+      "css": ".ds-p{font-family:var(--font-serif-face);font-size:1.0625rem;color:var(--foreground)}.ds-link{color:var(--link);text-decoration:underline;text-underline-offset:.18em}.ds-link:hover{text-decoration-thickness:2px}.ds-link:focus-visible{outline:2px solid var(--link);outline-offset:2px}"
+    },
+    {
+      "name": "Tool Toggle",
+      "kind": "button",
+      "refersTo": "tool-toggle",
+      "description": "Small 4px pill toggle inside a tool; selected takes the tool accent.",
+      "html": "<div class=\"ds-toggles\"><button class=\"ds-toggle\" aria-pressed=\"true\">By date</button><button class=\"ds-toggle\" aria-pressed=\"false\">By penalty</button></div>",
+      "css": ".ds-toggles{display:flex;gap:4px}.ds-toggle{padding:4px 10px;border-radius:4px;font-family:var(--font-sans-face);font-size:.75rem;background:transparent;color:#57524b;border:1px solid rgba(146,72,14,.18);cursor:pointer;transition:color 150ms,background-color 150ms,border-color 150ms}.ds-toggle:hover{border-color:rgba(146,72,14,.42)}.ds-toggle[aria-pressed=true]{color:#9c4a0e;background:rgba(156,74,14,.08);border-color:#9c4a0e}.ds-toggle:focus-visible{outline:2px solid var(--link);outline-offset:2px}"
+    },
+    {
+      "name": "Filter Select",
+      "kind": "input",
+      "refersTo": "select-filter",
+      "description": "Square hairline select used in tool registers.",
+      "html": "<select class=\"ds-select\"><option>All actions</option><option>Composition penalty</option></select>",
+      "css": ".ds-select{appearance:none;background:transparent;border:1px solid rgba(146,72,14,.18);border-radius:0;padding:4px 8px;font-family:var(--font-sans-face);font-size:.75rem;color:#1a1816;cursor:pointer}.ds-select:hover{border-color:rgba(146,72,14,.42)}.ds-select:focus-visible{outline:2px solid var(--link);outline-offset:2px}"
+    },
+    {
+      "name": "Article Entry",
+      "kind": "card",
+      "refersTo": "contents-row",
+      "description": "Writing list entry: ruled row with sans meta, serif title, sans summary.",
+      "html": "<article class=\"ds-entry\"><p class=\"ds-entry-meta\"><span>Weekly Briefing</span><span>12 July 2026</span><span>6 min read</span></p><a href=\"#\"><h2>Where formal institutions fall short</h2></a><p class=\"ds-entry-sum\">A short summary of the piece.</p></article>",
+      "css": ".ds-entry{border-bottom:1px solid var(--border);padding:28px 0}.ds-entry-meta{display:flex;gap:16px;margin:0;font-family:var(--font-sans-face);font-size:.875rem;color:var(--muted-foreground)}.ds-entry a{color:var(--foreground);text-decoration:none}.ds-entry h2{font-family:var(--font-serif-face);font-weight:400;font-size:1.5rem;line-height:1.375;margin:8px 0 0}.ds-entry a:hover h2{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px}.ds-entry-sum{max-width:42rem;margin:8px 0 0;font-family:var(--font-sans-face);font-size:.9375rem;line-height:1.625;color:var(--muted-foreground)}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Working Paper Series",
+    "overview": "Every section of the site is issued like a paper in one series: a coloured series band carrying the series line and a number, a Caslon title, an author line, keywords, a ruled abstract box, and a numbered contents list. The look borrows from two plain sources at once: the cover sheet of an economics working paper and the unstyled academic homepage, with blue underlined links. The site's credibility comes from how plain it is. Nothing is shown off. Everything is filed.\n\nThe paper is white, the ink is warm near-black, and structure comes from warm grey hairlines rather than from boxes, fills or shadows. Colour is spent in one place per section, the 6px band above the title, plus that section's figures and its active navigation. The site and the writing take oxblood. Each research tool has its own accent, all tuned to a similar mid-dark weight so none of them shouts. Density is that of a reading page: generous line height and a 42rem prose measure. Inside the tools, data rows run dense with tabular figures.\n\nReading surfaces (About, guide, writing, Ask) use the reading face throughout. Operating surfaces (the six tools, OneBook, Tradewinds) keep the same cover sheet and chrome, but their controls stay standard and use the system sans.",
+    "keyCharacteristics": [
+      "A 6px series band in the section's colour opens every section, with the series line (\"Working Paper Series, No. NN\") and a date or scope on a hairline-ruled strip.",
+      "Libre Caslon Text for titles and prose, the system sans for navigation, labels and tool UI, IBM Plex Mono only for code and figures.",
+      "Indexes are numbered, hairline-ruled rows. Never cards.",
+      "Flat: no shadows, square or near-square corners, hairline borders.",
+      "Blue underlined links, offset 0.18em, as on an academic homepage."
+    ],
+    "rules": [
+      {
+        "name": "The One Band Rule",
+        "body": "A section owns exactly one colour. It appears on the 6px band, the contents numbers, the active nav and the lead data series. It never appears as a fill behind text or as a page background.",
+        "section": "colors"
+      },
+      {
+        "name": "The Ink Marks Place Rule",
+        "body": "The site bar shows the current section with an ink underline (2px, offset 0.4em), never a colour. Section navs use their own band colour for the underline.",
+        "section": "colors"
+      },
+      {
+        "name": "The Severity Is Not Accent Rule",
+        "body": "Severity and P&L colours (seismic red, gain, loss, critical) are reserved for encoding data. OneBook's gain and loss are never used as categorical colours.",
+        "section": "colors"
+      },
+      {
+        "name": "The Weight 400 Rule",
+        "body": "h1 to h3 are Caslon at 400. Emphasis comes from size and placement. The only semibold on the site is the sans label heading.",
+        "section": "typography"
+      },
+      {
+        "name": "The Sentence-Case Rule",
+        "body": "No uppercase, no tracked-out labels, no kickers. Section labels are plain sentence-case sans at label size.",
+        "section": "typography"
+      },
+      {
+        "name": "The Tabular Figures Rule",
+        "body": "Tables and every tool section set `font-variant-numeric: tabular-nums`, so figures line up.",
+        "section": "typography"
+      },
+      {
+        "name": "The Ruled Not Raised Rule",
+        "body": "Never lift a surface with a shadow. If something needs separation, give it a hairline. If it needs emphasis, give it an ink rule (the abstract box) or the section's band.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "open every new section or tool with the cover sheet: a 6px band in the section's colour, \"Working Paper Series, No. NN\", title, byline, keywords, and a ruled abstract.",
+      "list any index as numbered hairline rows (2.5rem number column, 16px row padding, right meta column).",
+      "set titles and prose in Libre Caslon Text at 400, and UI, labels and controls in the system sans.",
+      "give a new tool one accent at the same mid-dark weight as the others, with border, hover-border and dim variants derived from it at about 16%, 42% and 8% alpha, sitting on the shared tool paper.",
+      "make inline links blue and underlined. Mark the current place with a 2px underline.",
+      "keep tool figures tabular, and respect `prefers-reduced-motion` in every tool scope."
+    ],
+    "donts": [
+      "use cards, shadows or rounded panels for indexes or content blocks.",
+      "use uppercase labels, tracked-out kickers or eyebrows above titles.",
+      "spend a section's colour on fills or backgrounds. It belongs to the band, the numbers, the active nav and the lead series.",
+      "use bold for headings. Caslon stays at 400.",
+      "use severity, gain or loss colours for categories.",
+      "hard-code hex values in components when a section token exists."
+    ]
+  }
+}

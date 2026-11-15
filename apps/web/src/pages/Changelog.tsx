@@ -1,4 +1,5 @@
 import Layout from "@/components/Layout";
+import PaperHeader from "@/components/PaperHeader";
 
 type ChangeEntry = {
   date: string;
@@ -60,27 +61,19 @@ const entries: ChangeEntry[] = [
 export default function Changelog() {
   return (
     <Layout>
-      <div className="mb-10">
-        <h1 className="text-3xl font-bold text-foreground tracking-tight mb-2">
-          Changelog
-        </h1>
-        <p className="text-muted-foreground text-base">
-          What has been added or changed, and when.
-        </p>
+      <div className="mb-12">
+        <PaperHeader series="Margin of Error" title="Changelog" byline="What has been added or changed, and when." />
       </div>
 
-      <div className="space-y-10">
+      <div className="max-w-3xl border-t border-border">
         {entries.map((entry) => (
-          <section key={entry.date}>
-            <h2 className="text-sm font-mono font-semibold text-foreground mb-3">
+          <section key={entry.date} className="grid gap-x-8 gap-y-2 border-b border-border py-6 sm:grid-cols-[10rem_minmax(0,1fr)]">
+            <h2 className="font-sans text-[0.9375rem] font-semibold text-foreground">
               {entry.date}
             </h2>
-            <ul className="space-y-2">
+            <ul className="list-disc space-y-2 pl-5 font-serif text-[1.0625rem] leading-relaxed marker:text-muted-foreground">
               {entry.items.map((item, i) => (
-                <li key={i} className="flex gap-3 text-sm text-muted-foreground leading-relaxed">
-                  <span className="text-warm-accent mt-0.5 shrink-0">—</span>
-                  <span>{item}</span>
-                </li>
+                <li key={i}>{item}</li>
               ))}
             </ul>
           </section>

@@ -16,9 +16,9 @@ export function Section({
 }: { id: string; eyebrow: string; title: string; children: React.ReactNode }) {
   return (
     <section id={id} className="scroll-mt-16 border-t" style={{ borderColor: "var(--dl-border)" }}>
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 py-14">
+      <div className="max-w-5xl mx-auto px-5 sm:px-8 py-14">
         <div className="mb-8">
-          <h2 className="text-2xl sm:text-3xl font-bold tracking-tight" style={{ color: "var(--dl-text)" }}>
+          <h2 className="text-2xl sm:text-3xl" style={{ color: "var(--dl-text)" }}>
             {chapterNumber(eyebrow) && (
               <span style={{ color: "var(--dl-accent)" }}>{chapterNumber(eyebrow)}. </span>
             )}
@@ -35,10 +35,10 @@ export function Card({
   title, children, className = "", right,
 }: { title?: string; children: React.ReactNode; className?: string; right?: React.ReactNode }) {
   return (
-    <div className={`rounded-xl border p-4 sm:p-5 ${className}`} style={{ borderColor: "var(--dl-border)", backgroundColor: "var(--dl-surface)" }}>
+    <div className={`rounded-sm border p-4 sm:p-5 ${className}`} style={{ borderColor: "var(--dl-border)", backgroundColor: "var(--dl-surface)" }}>
       {(title || right) && (
         <div className="flex items-center justify-between mb-3 gap-2">
-          {title && <div className="text-xs font-mono " style={{ color: "var(--dl-muted)" }}>{title}</div>}
+          {title && <div className="text-xs" style={{ color: "var(--dl-muted)" }}>{title}</div>}
           {right}
         </div>
       )}
@@ -50,10 +50,10 @@ export function Card({
 export function Details({ summary, children }: { summary: string; children: React.ReactNode }) {
   const [open, setOpen] = useState(false);
   return (
-    <div className="mt-4 rounded-lg border" style={{ borderColor: "var(--dl-border)" }}>
+    <div className="mt-4 rounded-sm border" style={{ borderColor: "var(--dl-border)" }}>
       <button
         onClick={() => setOpen((o) => !o)}
-        className="w-full flex items-center justify-between gap-2 px-4 py-2.5 text-left text-xs font-mono "
+        className="w-full flex items-center justify-between gap-2 px-4 py-2.5 text-left text-xs"
         style={{ color: "var(--dl-muted)" }}
         aria-expanded={open}
       >
@@ -61,7 +61,7 @@ export function Details({ summary, children }: { summary: string; children: Reac
         <ChevronDown className="h-4 w-4 transition-transform duration-200" style={{ transform: open ? "rotate(180deg)" : "none" }} />
       </button>
       {open && (
-        <div className="px-4 pb-4 pt-1 text-sm leading-relaxed border-t" style={{ color: "var(--dl-text)", borderColor: "var(--dl-border)" }}>
+        <div className="font-serif px-4 pb-4 pt-1 text-[1rem] leading-relaxed border-t" style={{ color: "var(--dl-text)", borderColor: "var(--dl-border)" }}>
           {children}
         </div>
       )}
@@ -85,7 +85,7 @@ export function Eq({ children }: { children: React.ReactNode }) {
 export function SourceTag({ src, interp }: { src: string; interp?: boolean }) {
   return (
     <span
-      className="inline-flex items-center gap-1 rounded px-1.5 py-0.5 text-[0.6rem] font-mono "
+      className="inline-flex items-center gap-1 rounded px-1.5 py-0.5 text-xs"
       style={{ color: "var(--dl-muted)", backgroundColor: "var(--dl-surface-2)" }}
       title={interp ? `${src} (interpolated)` : src}
     >
@@ -110,7 +110,7 @@ export function Slider({
   return (
     <div className="select-none">
       <div className="flex items-center justify-between gap-2 mb-1">
-        <span className="text-[0.7rem] font-medium" style={{ color: "var(--dl-text)" }}>{label}</span>
+        <span className="text-[0.8125rem] font-medium" style={{ color: "var(--dl-text)" }}>{label}</span>
         {onToggleLock && (
           <button onClick={onToggleLock} title={locked ? "Unlock" : "Lock this dimension"} className="p-0.5 rounded" style={{ color: locked ? "var(--dl-accent)" : "var(--dl-muted)" }}>
             <Lock className="h-3 w-3" style={{ opacity: locked ? 1 : 0.4 }} />
@@ -122,7 +122,7 @@ export function Slider({
         onChange={(e) => onChange(Number(e.target.value))}
         className="dl-range w-full"
       />
-      <div className="mt-0.5 text-[0.6rem] font-mono" style={{ color: "var(--dl-muted)" }}>
+      <div className="mt-0.5 text-xs" style={{ color: "var(--dl-muted)" }}>
         {level != null && levelLabels ? levelLabels[Math.min(levelLabels.length - 1, Math.max(0, level - 1))] : `${Math.round(value * 100)}`}
       </div>
     </div>
@@ -158,7 +158,7 @@ export function useAnimatedNumber(target: number | null, ms = 500): number | nul
 
 export function useChartTheme() {
   return {
-    tick: { fill: "var(--dl-muted)", fontSize: 10, fontFamily: "ui-monospace, monospace" },
+    tick: { fill: "var(--dl-muted)", fontSize: 10, fontFamily: "var(--font-sans-face)" },
     grid: "var(--dl-border)",
   };
 }

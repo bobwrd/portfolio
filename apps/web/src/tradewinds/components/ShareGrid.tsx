@@ -25,7 +25,7 @@ export default function ShareGrid({ runDate, history, status }: ShareGridProps) 
   return (
     <div className="space-y-3">
       <pre
-        className="rounded-md border p-4 text-sm leading-relaxed whitespace-pre-wrap font-mono"
+        className="rounded-sm border p-4 text-sm leading-relaxed whitespace-pre-wrap"
         style={{ borderColor: "var(--tw-border)", backgroundColor: "var(--tw-surface-2)", color: "var(--tw-text)" }}
       >
         {text}

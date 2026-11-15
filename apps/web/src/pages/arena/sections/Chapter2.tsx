@@ -45,25 +45,25 @@ function TeamPanel({ name, controls, size }: { name: string; controls: Ch2Contro
         ))}
       </div>
       <div className="grid grid-cols-2 gap-3">
-        <div className="rounded-lg p-3" style={{ backgroundColor: "var(--arena-surface-2)" }}>
-          <div className="text-[0.6rem] font-mono mb-1" style={{ color: "var(--arena-muted)" }}>
+        <div className="rounded-sm p-3" style={{ backgroundColor: "var(--arena-surface-2)" }}>
+          <div className="text-xs mb-1" style={{ color: "var(--arena-muted)" }}>
             Measured output
           </div>
-          <div className="text-xl font-mono font-semibold" style={{ color: "var(--arena-c2)" }}>
+          <div className="text-xl font-serif" style={{ color: "var(--arena-c2)" }}>
             {t.measuredOutput.toFixed(0)}
           </div>
         </div>
-        <div className="rounded-lg p-3" style={{ backgroundColor: "var(--arena-surface-2)" }}>
-          <div className="text-[0.6rem] font-mono mb-1" style={{ color: "var(--arena-muted)" }}>
+        <div className="rounded-sm p-3" style={{ backgroundColor: "var(--arena-surface-2)" }}>
+          <div className="text-xs mb-1" style={{ color: "var(--arena-muted)" }}>
             True efficiency
           </div>
-          <div className="text-xl font-mono font-semibold" style={{ color: "var(--arena-good)" }}>
+          <div className="text-xl font-serif" style={{ color: "var(--arena-good)" }}>
             {t.trueEfficiency.toFixed(0)}
           </div>
         </div>
       </div>
       {wedge > 1 && (
-        <div className="mt-2 text-[0.65rem] font-mono" style={{ color: "var(--arena-warn)" }}>
+        <div className="mt-2 text-xs" style={{ color: "var(--arena-warn)" }}>
           {wedge}-point gap is gaming the metric, not real work.
         </div>
       )}
@@ -107,7 +107,7 @@ export default function Chapter2() {
 
   return (
     <Section id="lab" eyebrow="2 · Effort lab" title="What competition does to effort">
-      <div className="max-w-3xl mb-6 text-sm sm:text-base leading-relaxed" style={{ color: "var(--arena-text)" }}>
+      <div className="font-serif max-w-3xl mb-6 text-[1rem] sm:text-[1.0625rem] leading-relaxed" style={{ color: "var(--arena-text)" }}>
         Move inside the firm. Each worker has a fixed budget of effort and splits it three ways: real work,
         sabotage or gaming the metric, and rest. The incentive design decides the split.
       </div>
@@ -150,7 +150,7 @@ export default function Chapter2() {
                 setTouched(true);
                 setAutoplay(true);
               }}
-              className="inline-flex items-center gap-1.5 rounded-md border px-2.5 py-1.5 text-xs font-mono transition-colors"
+              className="inline-flex items-center gap-1.5 rounded-sm border px-2.5 py-1.5 text-xs transition-colors"
               style={{ borderColor: "var(--arena-border)", color: "var(--arena-accent)" }}
             >
               <Play className="h-3 w-3" /> Play sequence
@@ -162,7 +162,7 @@ export default function Chapter2() {
                 setAutoplay(false);
                 setStepNote(null);
               }}
-              className="rounded-md border px-2.5 py-1.5 text-xs font-mono transition-colors"
+              className="rounded-sm border px-2.5 py-1.5 text-xs transition-colors"
               style={{ borderColor: "var(--arena-border)", color: "var(--arena-muted)" }}
             >
               Reset
@@ -174,7 +174,7 @@ export default function Chapter2() {
             {SEG.map((s) => (
               <div key={s.key} className="flex items-center gap-1.5">
                 <span className="inline-block h-2.5 w-2.5 rounded-sm" style={{ backgroundColor: s.color }} />
-                <span className="text-[0.65rem] font-mono" style={{ color: "var(--arena-muted)" }}>
+                <span className="text-xs" style={{ color: "var(--arena-muted)" }}>
                   {s.label}
                 </span>
               </div>
@@ -186,7 +186,7 @@ export default function Chapter2() {
         <div className="lg:col-span-3 space-y-4">
           {stepNote && (
             <div
-              className="rounded-lg px-4 py-2.5 text-sm border"
+              className="rounded-sm px-4 py-2.5 text-sm border"
               style={{ borderColor: "var(--arena-accent)", backgroundColor: "var(--arena-accent-dim)", color: "var(--arena-text)" }}
             >
               {stepNote}
@@ -197,7 +197,7 @@ export default function Chapter2() {
             <TeamPanel name="Team B" controls={controls} size={5} />
           </div>
           <div
-            className="rounded-lg p-4 text-sm leading-relaxed border"
+            className="font-serif rounded-sm p-4 text-[1rem] leading-relaxed border"
             style={{ borderColor: "var(--arena-border)", backgroundColor: "var(--arena-surface)", color: "var(--arena-text)" }}
           >
             {narrative}

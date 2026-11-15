@@ -1,5 +1,6 @@
 import { useState, useEffect, useMemo } from "react";
 import Layout from "@/components/Layout";
+import PaperHeader from "@/components/PaperHeader";
 import ContentCard from "@/components/ContentCard";
 import NewsletterSignup from "@/components/NewsletterSignup";
 import ViewToggle, { readStoredView, type ViewMode } from "@/components/ViewToggle";
@@ -86,17 +87,20 @@ export default function CategoryPage({ category, title, subtitle, headingExtra }
       key={item.slug}
       item={item}
       variant={item.verdictId ? "list" : view}
+      hideCategory
     />
   );
 
   return (
     <Layout>
-      <div className="mb-8 flex items-start justify-between gap-4 flex-wrap">
-        <div>
-          <h1 className="text-2xl font-bold text-foreground tracking-tight mb-1">{title}</h1>
-          <p className="text-sm text-muted-foreground">{subtitle}</p>
-        </div>
-        {headingExtra}
+      <div className="mb-10">
+        <PaperHeader
+          series="Margin of Error"
+          meta={loading ? undefined : `${allItems.length} ${allItems.length === 1 ? "piece" : "pieces"}`}
+          title={title}
+          byline={subtitle}
+        />
+        {headingExtra && <div className="mt-4">{headingExtra}</div>}
       </div>
 
       {category === "short" && (
@@ -106,16 +110,16 @@ export default function CategoryPage({ category, title, subtitle, headingExtra }
       )}
 
       {loading ? (
-        <div className="py-12 text-center text-sm text-muted-foreground">Loading…</div>
+        <div className="py-12 font-sans text-[0.9375rem] text-muted-foreground">Loading…</div>
       ) : (
         <>
           {/* Tag filter */}
           <div className="mb-6">
-            <div className="flex flex-wrap items-center gap-2 border border-border rounded-lg px-3 py-2 bg-background focus-within:border-warm-accent transition-colors">
+            <div className="flex max-w-xl flex-wrap items-center gap-2 border border-input bg-background px-3 py-2 font-sans focus-within:border-foreground transition-colors">
               {activeTags.map((tag) => (
                 <span
                   key={tag}
-                  className="inline-flex items-center gap-1 text-xs font-medium bg-warm-accent/10 text-warm-accent rounded-md px-2 py-0.5"
+                  className="inline-flex items-center gap-1 border border-foreground px-2 py-0.5 text-[0.8125rem]"
                 >
                   {tag}
                   <button
@@ -132,8 +136,9 @@ export default function CategoryPage({ category, title, subtitle, headingExtra }
                 value={tagQuery}
                 onChange={(e) => setTagQuery(e.target.value)}
                 onKeyDown={handleKeyDown}
-                placeholder={activeTags.length === 0 ? "Filter by tag…" : ""}
-                className="flex-1 min-w-[120px] text-sm bg-transparent outline-none text-foreground placeholder:text-muted-foreground"
+                placeholder={activeTags.length === 0 ? "Filter by tag" : ""}
+                aria-label="Filter by tag"
+                className="flex-1 min-w-[120px] text-[0.9375rem] bg-transparent outline-none text-foreground placeholder:text-muted-foreground"
               />
             </div>
 
@@ -144,7 +149,7 @@ export default function CategoryPage({ category, title, subtitle, headingExtra }
                   <button
                     key={tag}
                     onClick={() => addTag(tag)}
-                    className="text-xs px-2 py-0.5 rounded-md border border-border text-muted-foreground hover:border-warm-accent hover:text-warm-accent transition-colors"
+                    className="border border-border px-2 py-0.5 font-sans text-[0.8125rem] text-muted-foreground hover:border-foreground hover:text-foreground transition-colors"
                   >
                     {tag}
                   </button>
@@ -154,14 +159,14 @@ export default function CategoryPage({ category, title, subtitle, headingExtra }
           </div>
 
           {items.length === 0 ? (
-            <div className="py-12 text-center text-sm text-muted-foreground">
+            <div className="py-12 font-sans text-[0.9375rem] text-muted-foreground">
               {allItems.length === 0 ? "Nothing published yet." : "No articles match those tags."}
             </div>
           ) : (
             <>
               <div className="mb-6 flex items-center justify-between">
                 {activeTags.length > 0 ? (
-                  <span className="text-xs text-muted-foreground">
+                  <span className="font-sans text-[0.9375rem] text-muted-foreground">
                     {items.length} {items.length === 1 ? "result" : "results"}
                   </span>
                 ) : (
@@ -169,7 +174,7 @@ export default function CategoryPage({ category, title, subtitle, headingExtra }
                 )}
                 <ViewToggle value={view} onChange={setView} storageKey={VIEW_STORAGE_KEY} />
               </div>
-              <div className={view === "grid" ? "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" : ""}>
+              <div className={view === "grid" ? "grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3" : "border-t border-border"}>
                 {items.map(renderItem)}
               </div>
             </>

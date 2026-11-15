@@ -4,7 +4,7 @@ import { Eq } from "./shared";
 
 function H2({ children }: { children: React.ReactNode }) {
   return (
-    <h2 className="text-base font-semibold mt-10 mb-3 tracking-tight" style={{ color: "var(--arena-text)" }}>
+    <h2 className="text-base mt-10 mb-3" style={{ color: "var(--arena-text)" }}>
       {children}
     </h2>
   );
@@ -12,7 +12,7 @@ function H2({ children }: { children: React.ReactNode }) {
 
 function H3({ children }: { children: React.ReactNode }) {
   return (
-    <h3 className="text-sm font-semibold mt-6 mb-2" style={{ color: "var(--arena-accent)" }}>
+    <h3 className="text-sm mt-6 mb-2" style={{ color: "var(--arena-accent)" }}>
       {children}
     </h3>
   );
@@ -20,7 +20,7 @@ function H3({ children }: { children: React.ReactNode }) {
 
 function P({ children }: { children: React.ReactNode }) {
   return (
-    <p className="text-sm leading-relaxed mb-4" style={{ color: "var(--arena-text)" }}>
+    <p className="font-serif text-[1rem] leading-relaxed mb-4" style={{ color: "var(--arena-text)" }}>
       {children}
     </p>
   );
@@ -28,7 +28,7 @@ function P({ children }: { children: React.ReactNode }) {
 
 function Mono({ children }: { children: React.ReactNode }) {
   return (
-    <code className="text-xs px-1 py-0.5 rounded font-mono" style={{ backgroundColor: "var(--arena-surface-2)", color: "var(--arena-accent)" }}>
+    <code className="text-xs px-1 py-0.5 rounded" style={{ backgroundColor: "var(--arena-surface-2)", color: "var(--arena-accent)" }}>
       {children}
     </code>
   );
@@ -41,10 +41,10 @@ export default function ArenaMethods() {
   }, []);
 
   return (
-    <div className="max-w-3xl mx-auto px-4 sm:px-6 py-14">
+    <div className="max-w-3xl mx-auto px-5 sm:px-8 py-14">
       <Link
         to="/mini/arena"
-        className="text-xs font-mono mb-8 inline-block transition-opacity hover:opacity-70"
+        className="text-xs mb-8 inline-block transition-opacity hover:opacity-70"
         style={{ color: "var(--arena-muted)" }}
       >
         Back to the Arena
@@ -52,20 +52,20 @@ export default function ArenaMethods() {
 
       {/* Title block */}
       <div className="mt-4 mb-10 border-b pb-8" style={{ borderColor: "var(--arena-border)" }}>
-        <div className="text-[0.65rem] font-mono mb-3" style={{ color: "var(--arena-accent)" }}>
+        <div className="text-xs mb-3" style={{ color: "var(--arena-accent)" }}>
           The Arena: technical note
         </div>
-        <h1 className="text-2xl sm:text-3xl font-bold tracking-tight mb-4" style={{ color: "var(--arena-text)" }}>
+        <h1 className="text-2xl sm:text-3xl mb-4" style={{ color: "var(--arena-text)" }}>
           The Arena — Competition and Efficiency: Behavioural Curves, Outcome Functions, and Policy Thresholds
         </h1>
-        <p className="text-xs font-mono mb-6" style={{ color: "var(--arena-muted)" }}>
+        <p className="text-xs mb-6" style={{ color: "var(--arena-muted)" }}>
           By Arin Jain, {new Date().getFullYear()}
         </p>
         <div
-          className="rounded-lg p-4 text-sm leading-relaxed border"
+          className="font-serif rounded-sm p-4 text-[1rem] leading-relaxed border"
           style={{ borderColor: "var(--arena-border)", backgroundColor: "var(--arena-surface)", color: "var(--arena-text)" }}
         >
-          <strong className="text-xs font-mono block mb-2" style={{ color: "var(--arena-muted)" }}>
+          <strong className="text-xs block mb-2" style={{ color: "var(--arena-muted)" }}>
             Abstract
           </strong>
           The Arena is an interactive sandbox on a single question: when does more competition raise efficiency,
@@ -194,7 +194,7 @@ export default function ArenaMethods() {
       </P>
 
       {/* Footer */}
-      <div className="mt-12 pt-6 border-t text-xs font-mono" style={{ borderColor: "var(--arena-border)", color: "var(--arena-muted)" }}>
+      <div className="mt-12 pt-6 border-t text-xs" style={{ borderColor: "var(--arena-border)", color: "var(--arena-muted)" }}>
         <p>The Arena technical note, by Arin Jain</p>
         <p className="mt-1">
           Models: <Mono>model.ts</Mono>. Sources: Bresnahan-Reiss (1991), Aghion et al. (2005), Leibenstein

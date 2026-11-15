@@ -31,17 +31,16 @@ export default function DistLabLayout({ children }: { children: React.ReactNode 
       <header
         className="sticky top-0 z-50 border-b shrink-0"
         style={{
-          backgroundColor: "color-mix(in srgb, var(--dl-bg) 92%, transparent)",
-          borderColor: "var(--dl-border)",
-          backdropFilter: "blur(8px)",
+          backgroundColor: "var(--dl-bg)",
+          borderBottomColor: "var(--dl-border)",
         }}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between gap-4">
+        <div className="max-w-6xl mx-auto px-5 sm:px-8 py-2 min-h-14 flex flex-wrap items-center justify-between gap-x-4 gap-y-1">
           <div className="flex items-center gap-4 shrink-0">
-            <Link to="/mini" className="text-xs underline-offset-4 hover:underline" style={{ color: "var(--dl-muted)" }}>
+            <Link to="/mini" className="font-sans text-[0.875rem] underline-offset-4 hover:underline" style={{ color: "var(--dl-muted)" }}>
               Research tools
             </Link>
-            <Link to="/mini/lab" className="font-semibold tracking-tight text-sm flex items-center gap-2" style={{ color: "var(--dl-accent)" }}>
+            <Link to="/mini/lab" className="font-serif text-xl leading-none" style={{ color: "var(--dl-text)" }}>
               The Distribution Lab
             </Link>
           </div>
@@ -49,11 +48,11 @@ export default function DistLabLayout({ children }: { children: React.ReactNode 
           <nav className="flex items-center gap-1">
             <Link
               to={isMethods ? "/mini/lab" : "/mini/lab/methods"}
-              className="px-2.5 py-1.5 rounded text-xs border transition-colors duration-150"
+              className="px-1.5 py-1.5 font-sans text-[0.875rem] border transition-colors duration-150"
               style={{
                 borderColor: isMethods ? "var(--dl-accent)" : "var(--dl-border)",
                 color: isMethods ? "var(--dl-accent)" : "var(--dl-muted)",
-                backgroundColor: isMethods ? "var(--dl-accent-dim)" : "transparent",
+                textDecoration: isMethods ? "underline" : "none", textDecorationThickness: "2px", textUnderlineOffset: "0.4em",
               }}
             >
               {isMethods ? "Back to the lab" : "Technical note"}

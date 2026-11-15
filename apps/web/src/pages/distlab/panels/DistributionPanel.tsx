@@ -30,7 +30,7 @@ function Stat({ label, value, suffix, decimals = 1, src, interp }: {
   const animated = useAnimatedNumber(value);
   return (
     <div>
-      <div className="text-[0.65rem] font-mono mb-0.5" style={{ color: "var(--dl-muted)" }}>{label}</div>
+      <div className="text-xs mb-0.5" style={{ color: "var(--dl-muted)" }}>{label}</div>
       <div className="text-2xl font-bold tabular-nums" style={{ color: "var(--dl-text)" }}>
         {animated == null ? <span style={{ color: "var(--dl-muted)" }}>n/a</span> : <>{animated.toFixed(decimals)}<span className="text-sm font-normal" style={{ color: "var(--dl-muted)" }}>{suffix}</span></>}
       </div>
@@ -77,9 +77,9 @@ export default function DistributionPanel({
           )}
           {path && <path d={path} fill="none" stroke="var(--dl-accent)" strokeWidth="2.5" />}
           {topAnchor && <circle cx={topAnchor.x} cy={topAnchor.y} r="3" fill="var(--dl-accent-2)" />}
-          <text x={W - PAD} y={H - PAD + 14} textAnchor="end" fontSize="8" fontFamily="ui-monospace,monospace" fill="var(--dl-muted)">population</text>
+          <text x={W - PAD} y={H - PAD + 14} textAnchor="end" fontSize="8" fontFamily="var(--font-sans-face)" fill="var(--dl-muted)">population</text>
         </svg>
-        <p className="text-[0.6rem] -mt-1 mb-3" style={{ color: "var(--dl-muted)" }}>
+        <p className="text-xs -mt-1 mb-3" style={{ color: "var(--dl-muted)" }}>
           Lorenz curve derived from Gini; dot marks the top-10% income share.
         </p>
         <div className="grid grid-cols-3 gap-3">

@@ -34,7 +34,7 @@ export default function StatsPanel({ onClose }: { onClose: () => void }) {
         </div>
       </div>
 
-      <h3 className="text-sm font-semibold mb-2" style={{ color: "var(--tw-text)" }}>
+      <h3 className="text-sm mb-2" style={{ color: "var(--tw-text)" }}>
         Guess distribution
       </h3>
       <div className="space-y-1">

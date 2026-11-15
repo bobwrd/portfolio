@@ -40,7 +40,7 @@ export default function MobilityPanel({
 
   return (
     <Card title="Mobility" className="h-full">
-      <div className="text-[0.65rem] font-mono mb-2" style={{ color: "var(--dl-muted)" }}>
+      <div className="text-xs mb-2" style={{ color: "var(--dl-muted)" }}>
         Parent education → child education · cohort {matrix.cohort}
         {estimatedFrom && <span style={{ color: "var(--dl-accent-2)" }}> · est. from {estimatedFrom}</span>}
       </div>
@@ -48,7 +48,7 @@ export default function MobilityPanel({
       <div className="grid" style={{ gridTemplateColumns: "auto 1fr 1fr 1fr", gap: 2 }}>
         <div />
         {GROUPS.map((d) => (
-          <div key={d} className="text-[0.6rem] font-mono text-center pb-1" style={{ color: "var(--dl-muted)" }}>{GLABEL[d]}</div>
+          <div key={d} className="text-xs text-center pb-1" style={{ color: "var(--dl-muted)" }}>{GLABEL[d]}</div>
         ))}
         {GROUPS.map((o) => (
           <Row key={o} origin={o} cellFn={cell} />
@@ -56,10 +56,10 @@ export default function MobilityPanel({
       </div>
 
       <div className="flex items-center justify-between mt-3">
-        <span className="text-[0.6rem]" style={{ color: "var(--dl-muted)" }}>rows = parent group, sum to 100%</span>
+        <span className="text-xs" style={{ color: "var(--dl-muted)" }}>rows = parent group, sum to 100%</span>
         <SourceTag src={matrix.source_family} />
       </div>
-      <p className="text-[0.6rem] mt-2 leading-relaxed" style={{ color: "var(--dl-muted)" }}>{matrix.notes}</p>
+      <p className="text-xs mt-2 leading-relaxed" style={{ color: "var(--dl-muted)" }}>{matrix.notes}</p>
     </Card>
   );
 }
@@ -67,13 +67,13 @@ export default function MobilityPanel({
 function Row({ origin, cellFn }: { origin: MobilityGroup; cellFn: (o: MobilityGroup, d: MobilityGroup) => number }) {
   return (
     <>
-      <div className="text-[0.6rem] font-mono flex items-center pr-1" style={{ color: "var(--dl-muted)" }}>{GLABEL[origin]}</div>
+      <div className="text-xs flex items-center pr-1" style={{ color: "var(--dl-muted)" }}>{GLABEL[origin]}</div>
       {GROUPS.map((d) => {
         const p = cellFn(origin, d);
         return (
           <div
             key={d}
-            className="aspect-square rounded flex items-center justify-center text-[0.7rem] font-bold tabular-nums transition-colors duration-300"
+            className="aspect-square rounded flex items-center justify-center text-[0.8125rem] font-bold tabular-nums transition-colors duration-300"
             style={{ backgroundColor: rampColor(p), color: p >= 0.39 ? "var(--dl-surface)" : "var(--dl-text)" }}
             title={`${Math.round(p * 100)}%`}
           >

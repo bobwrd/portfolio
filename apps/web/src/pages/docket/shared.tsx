@@ -23,9 +23,9 @@ export function Section({
 }) {
   return (
     <section id={id} className="scroll-mt-16 border-t" style={{ borderColor: "var(--docket-border)" }}>
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-14">
+      <div className="max-w-6xl mx-auto px-5 sm:px-8 py-14">
         <div className="mb-8">
-          <h2 className="text-2xl sm:text-3xl font-bold tracking-tight" style={{ color: "var(--docket-text)" }}>
+          <h2 className="text-2xl sm:text-3xl" style={{ color: "var(--docket-text)" }}>
             {chapterNumber(eyebrow) && (
               <span style={{ color: "var(--docket-accent)" }}>{chapterNumber(eyebrow)}. </span>
             )}
@@ -50,12 +50,12 @@ export function Card({
 }) {
   return (
     <div
-      className={`rounded-xl border p-5 ${className}`}
+      className={`rounded-sm border p-5 ${className}`}
       style={{ borderColor: "var(--docket-border)", backgroundColor: "var(--docket-surface)" }}
     >
       {title && (
         <div
-          className="text-xs font-mono mb-4 "
+          className="text-xs mb-4"
           style={{ color: "var(--docket-muted)" }}
         >
           {title}
@@ -70,10 +70,10 @@ export function Card({
 export function Details({ summary, children }: { summary: string; children: React.ReactNode }) {
   const [open, setOpen] = useState(false);
   return (
-    <div className="mt-4 rounded-lg border" style={{ borderColor: "var(--docket-border)" }}>
+    <div className="mt-4 rounded-sm border" style={{ borderColor: "var(--docket-border)" }}>
       <button
         onClick={() => setOpen((o) => !o)}
-        className="w-full flex items-center justify-between gap-2 px-4 py-2.5 text-left text-xs font-mono transition-colors"
+        className="w-full flex items-center justify-between gap-2 px-4 py-2.5 text-left text-xs transition-colors"
         style={{ color: "var(--docket-muted)" }}
         aria-expanded={open}
       >
@@ -85,7 +85,7 @@ export function Details({ summary, children }: { summary: string; children: Reac
       </button>
       {open && (
         <div
-          className="px-4 pb-4 pt-1 text-sm leading-relaxed border-t"
+          className="font-serif px-4 pb-4 pt-1 text-[1rem] leading-relaxed border-t"
           style={{ color: "var(--docket-text)", borderColor: "var(--docket-border)" }}
         >
           {children}
@@ -119,17 +119,17 @@ export function Eq({ children }: { children: React.ReactNode }) {
 export function useChartTheme(theme: "dark" | "light") {
   return {
     tooltip: {
-      backgroundColor: theme === "dark" ? "#121e12" : "#ffffff",
+      backgroundColor: "var(--docket-surface)",
       border: "1px solid var(--docket-border)",
       borderRadius: 8,
-      fontFamily: "ui-monospace, monospace",
+      fontFamily: "var(--font-sans-face)",
       fontSize: 12,
       color: "var(--docket-text)",
     } as React.CSSProperties,
     tick: {
       fill: "var(--docket-muted)",
       fontSize: 10,
-      fontFamily: "ui-monospace, monospace",
+      fontFamily: "var(--font-sans-face)",
     },
     grid: "var(--docket-border)",
   };
@@ -145,7 +145,7 @@ export function TierBadge({ tier }: { tier: "Critical" | "High" | "Moderate" | "
   };
   return (
     <span
-      className="inline-block px-2 py-0.5 rounded text-[0.68rem] font-mono font-semibold "
+      className="inline-block px-2 py-0.5 rounded text-xs font-semibold"
       style={{ color: color[tier], backgroundColor: `${color[tier]}18` }}
     >
       {tier}

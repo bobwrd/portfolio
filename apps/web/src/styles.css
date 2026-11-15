@@ -1,7 +1,7 @@
-/* Hallmark · v2.0.0 · built: the project · redesign: polish · scope: site · genre: editorial · theme: brand (the warm-paper tokens already in :root) */
-/* critique: four colour systems folded into one warm paper; per-tool accents kept but de-neoned; floating switcher replaced by an in-flow site bar; tracked caps, glued arrows, transition-all removed */
+/* Hallmark · v2.0.0 · built: the project · redesign: full (impeccable) · scope: site · world: working-paper series fused with a plain academic homepage */
+/* critique: one series for the whole site: white paper, ink, hairline rules, a coloured series band per section; Libre Caslon Text for titles and prose, system sans for UI; numbered ruled rows replace cards */
 /* Hallmark · waive 37 · Georgia and Courier New in [data-font] .prose · they are reader-chosen fonts in the article reading preferences, not page faces */
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap");
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "./onebook/styles.css";
@@ -17,51 +17,59 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  --radius: 0.625rem;
+  --radius: 0.25rem;
 
-  --font-reading-serif: Georgia, "Times New Roman", serif;
-  --font-reading-sans: system-ui, -apple-system, sans-serif;
-  --font-reading-mono: "Courier New", monospace;
+  /* Type: Caslon for titles and reading prose, the system sans for
+     navigation, labels and tool UI, mono only for code and figures. */
+  --font-serif-face: "Libre Caslon Text", Georgia, "Times New Roman", serif;
+  --font-sans-face: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  --font-mono-face: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  --font-reading-serif: var(--font-serif-face);
+  --font-reading-sans: var(--font-sans-face);
+  --font-reading-mono: var(--font-mono-face);
 
-  /* Warm off-white background — barely perceptible tint */
-  --background: oklch(0.985 0.006 80);
-  --foreground: oklch(0.14 0.008 50);
-  --card: oklch(0.99 0.004 75);
-  --card-foreground: oklch(0.14 0.008 50);
-  --popover: oklch(0.99 0.004 75);
-  --popover-foreground: oklch(0.14 0.008 50);
-  --primary: oklch(0.22 0.008 54);
-  --primary-foreground: oklch(0.985 0.002 100);
-  --secondary: oklch(0.95 0.006 72);
-  --secondary-foreground: oklch(0.22 0.008 54);
-  --muted: oklch(0.95 0.006 72);
-  --muted-foreground: oklch(0.52 0.016 58);
-  --accent: oklch(0.95 0.006 72);
-  --accent-foreground: oklch(0.22 0.008 54);
-  --destructive: oklch(0.577 0.245 27.325);
-  /* Softer, warmer border */
-  --border: oklch(0.90 0.008 65);
-  --input: oklch(0.90 0.008 65);
-  --ring: oklch(0.70 0.012 58);
+  /* Working-paper series: white paper, ink, warm grey hairlines. */
+  --background: oklch(0.995 0.002 90);
+  --foreground: oklch(0.18 0.004 60);
+  --card: oklch(0.995 0.002 90);
+  --card-foreground: oklch(0.18 0.004 60);
+  --popover: oklch(0.995 0.002 90);
+  --popover-foreground: oklch(0.18 0.004 60);
+  --primary: oklch(0.18 0.004 60);
+  --primary-foreground: oklch(0.995 0.002 90);
+  --secondary: oklch(0.965 0.004 80);
+  --secondary-foreground: oklch(0.18 0.004 60);
+  --muted: oklch(0.965 0.004 80);
+  --muted-foreground: oklch(0.45 0.008 60);
+  --accent: oklch(0.965 0.004 80);
+  --accent-foreground: oklch(0.18 0.004 60);
+  --destructive: oklch(0.50 0.17 27);
+  --border: oklch(0.87 0.008 80);
+  --input: oklch(0.80 0.008 80);
+  --ring: oklch(0.45 0.13 255);
 
-  /* Warm accent — terracotta/amber */
-  --warm-accent: oklch(0.60 0.14 42);
-  --warm-accent-muted: oklch(0.60 0.14 42 / 12%);
-  --warm-accent-foreground: oklch(0.985 0.002 100);
+  /* The series band colour for the site itself and the writing.
+     (Token name kept from the previous system so components need no rename.) */
+  --warm-accent: oklch(0.40 0.12 25);
+  --warm-accent-muted: oklch(0.40 0.12 25 / 10%);
+  --warm-accent-foreground: oklch(0.995 0.002 90);
 
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.975 0.005 78);
-  --sidebar-foreground: oklch(0.14 0.008 50);
-  --sidebar-primary: oklch(0.22 0.008 54);
-  --sidebar-primary-foreground: oklch(0.985 0.002 100);
-  --sidebar-accent: oklch(0.95 0.006 72);
-  --sidebar-accent-foreground: oklch(0.22 0.008 54);
-  --sidebar-border: oklch(0.90 0.008 65);
-  --sidebar-ring: oklch(0.70 0.012 58);
+  /* Links, as on an academic homepage. */
+  --link: oklch(0.45 0.13 255);
+
+  --chart-1: oklch(0.40 0.12 25);
+  --chart-2: oklch(0.45 0.08 190);
+  --chart-3: oklch(0.45 0.13 255);
+  --chart-4: oklch(0.55 0.10 85);
+  --chart-5: oklch(0.45 0.10 140);
+  --sidebar: oklch(0.985 0.003 80);
+  --sidebar-foreground: oklch(0.18 0.004 60);
+  --sidebar-primary: oklch(0.18 0.004 60);
+  --sidebar-primary-foreground: oklch(0.995 0.002 90);
+  --sidebar-accent: oklch(0.965 0.004 80);
+  --sidebar-accent-foreground: oklch(0.18 0.004 60);
+  --sidebar-border: oklch(0.87 0.008 80);
+  --sidebar-ring: oklch(0.45 0.13 255);
 }
 
 
@@ -94,6 +102,10 @@ body {
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
+  --font-serif: var(--font-serif-face);
+  --font-sans: var(--font-sans-face);
+  --font-mono: var(--font-mono-face);
+  --color-link: var(--link);
   --color-warm-accent: var(--warm-accent);
   --color-warm-accent-muted: var(--warm-accent-muted);
   --color-warm-accent-foreground: var(--warm-accent-foreground);
@@ -118,23 +130,43 @@ body {
   }
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-sans-face);
     line-height: 1.6;
   }
   h1,
-  h2 {
+  h2,
+  h3 {
+    font-family: var(--font-serif-face);
+    font-weight: 400;
     text-wrap: balance;
     overflow-wrap: break-word;
     min-width: 0;
   }
+  .prose {
+    font-family: var(--font-serif-face);
+  }
+  table {
+    font-variant-numeric: tabular-nums;
+  }
+  a {
+    text-underline-offset: 0.18em;
+  }
   ::selection {
-    background: var(--warm-accent-muted);
+    background: oklch(0.45 0.13 255 / 18%);
+  }
+  ::placeholder {
+    color: var(--muted-foreground);
+  }
+  input,
+  textarea {
+    caret-color: var(--link);
   }
   html {
     scrollbar-color: var(--border) transparent;
   }
   /* One focus ring for the whole portfolio. Appears instantly. */
   :where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
-    outline: 2px solid var(--warm-accent);
+    outline: 2px solid var(--link);
     outline-offset: 2px;
     transition: none;
   }
@@ -191,6 +223,17 @@ body {
 
 
 
+
+  /* Figures line up in every tool. */
+  .verdict-section,
+  .ledger-section,
+  .obs-section,
+  .arena-section,
+  .distlab-section,
+  .docket-section,
+  .tradewinds-section {
+    font-variant-numeric: tabular-nums;
+  }
 
   /* Range sliders, themed per tool. */
   .obs-section .obs-range,

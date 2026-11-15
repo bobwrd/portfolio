@@ -16,8 +16,8 @@ const VIOLATION_COLORS: Record<string, string> = {
 
 function ChartCard({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <div className="rounded-lg border p-5 mb-8" style={{ borderColor: "var(--ledger-border)", backgroundColor: "var(--ledger-surface)" }}>
-      <div className="text-xs font-mono mb-4 " style={{ color: "var(--ledger-muted)" }}>{title}</div>
+    <div className="rounded-sm border p-5 mb-8" style={{ borderColor: "var(--ledger-border)", backgroundColor: "var(--ledger-surface)" }}>
+      <div className="text-xs mb-4" style={{ color: "var(--ledger-muted)" }}>{title}</div>
       {children}
     </div>
   );
@@ -53,16 +53,16 @@ export default function LedgerCharts() {
     backgroundColor: "#fff",
     border: "1px solid var(--ledger-border)",
     borderRadius: 6,
-    fontFamily: "monospace",
+    fontFamily: "var(--font-sans-face)",
     fontSize: 12,
     color: "var(--ledger-text)",
   };
-  const tick = { fill: "var(--ledger-muted)", fontSize: 10, fontFamily: "monospace" };
+  const tick = { fill: "var(--ledger-muted)", fontSize: 10, fontFamily: "var(--font-sans-face)" };
 
   return (
     <div>
-      <h1 className="text-2xl font-bold tracking-tight mb-2" style={{ color: "var(--ledger-text)" }}>Charts</h1>
-      <p className="text-sm leading-relaxed max-w-2xl mb-8" style={{ color: "var(--ledger-muted)" }}>
+      <h1 className="text-2xl mb-2" style={{ color: "var(--ledger-text)" }}>Charts</h1>
+      <p className="font-serif text-[1rem] leading-relaxed max-w-2xl mb-8" style={{ color: "var(--ledger-muted)" }}>
         Aggregate views over the coded actions. Penalty totals are dominated by a few large cases (the 1MDB-era bank
         penalties and the 2020 Goldman Sachs payment), so read totals alongside action counts.
       </p>

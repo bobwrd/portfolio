@@ -1,4 +1,5 @@
 import Layout from "@/components/Layout";
+import PaperHeader from "@/components/PaperHeader";
 import { Link } from "react-router-dom";
 import { Linkedin, Youtube, FileText } from "lucide-react";
 import { usePageTitle } from "@/hooks/use-page-title";
@@ -7,29 +8,24 @@ export default function About() {
   usePageTitle("About Margin of Error");
   return (
     <Layout>
-      <div className="mb-10">
-        <h1 className="text-3xl font-bold text-foreground tracking-tight mb-2">
-          About
-        </h1>
-        <p className="text-muted-foreground text-base">
-          What Margin of Error is, who writes it, and what else I am building.
-        </p>
+      <div className="mb-12">
+        <PaperHeader series="Margin of Error" title="About Margin of Error" byline="What Margin of Error is, who writes it, and what else I am building." />
       </div>
 
-      <div className="prose prose-sm max-w-none text-foreground space-y-10">
+      <div className="max-w-[42rem] space-y-12 font-serif text-[1.0625rem] text-foreground">
 
         {/* MOE */}
         <section>
-          <h2 className="text-xl font-semibold text-foreground mb-3">Margin of Error</h2>
-          <p className="text-muted-foreground leading-relaxed mb-3">
+          <h2 className="text-[1.625rem] leading-tight text-foreground mb-3">Margin of Error</h2>
+          <p className="leading-relaxed mb-3">
             Margin of Error is a self-directed, multi-year writing project combining economics, law, and coding.
             The central question running through it: where do formal institutions — legal systems,
             economic policy, regulatory frameworks — fall short of the people they are supposed to serve, and why?
           </p>
-          <p className="text-muted-foreground leading-relaxed mb-3">
+          <p className="leading-relaxed mb-3">
             The writing itself takes three forms:
           </p>
-          <ul className="space-y-2 text-muted-foreground">
+          <ul className="list-disc space-y-2.5 pl-5 leading-relaxed marker:text-muted-foreground">
             <li>
               <strong className="text-foreground">Essays</strong>: longer, argued pieces on specific
               economic or legal questions. These usually start with a research question, engage with the evidence, and
@@ -50,13 +46,13 @@ export default function About() {
 
         {/* CivicAid */}
         <section>
-          <h2 className="text-xl font-semibold text-foreground mb-3">CivicAid</h2>
-          <p className="text-muted-foreground leading-relaxed mb-3">
+          <h2 className="text-[1.625rem] leading-tight text-foreground mb-3">CivicAid</h2>
+          <p className="leading-relaxed mb-3">
             CivicAid is a legal literacy app I built for Singapore, now on Google Play. It is designed for people who encounter legal
             problems — employment disputes, tenancy issues, consumer rights — but don't know where to start or can't
             afford a lawyer.
           </p>
-          <p className="text-muted-foreground leading-relaxed">
+          <p className="leading-relaxed">
             The premise is that legal information should be navigable without a law degree. CivicAid structures
             Singapore's legal aid landscape, relevant statutes, and practical next steps into something a non-expert
             can actually use. It's Raining Raincoats is partnering on it to reach more people.
@@ -65,16 +61,16 @@ export default function About() {
 
         {/* Research */}
         <section>
-          <h2 className="text-xl font-semibold text-foreground mb-3">Research</h2>
-          <p className="text-muted-foreground leading-relaxed mb-3">
+          <h2 className="text-[1.625rem] leading-tight text-foreground mb-3">Research</h2>
+          <p className="leading-relaxed mb-3">
             I'm working on an economics paper analysing sectoral employment trends in India using PLFS
             (Periodic Labour Force Survey) data from 2017 to 2024. The paper looks at structural shifts between formal
             and informal sectors, across agriculture, manufacturing, and services, and how those shifts map onto policy
             interventions over the period.
           </p>
-          <p className="text-muted-foreground leading-relaxed">
+          <p className="leading-relaxed">
             Early findings on informal sector persistence and non-uniform gender gaps are in the{" "}
-            <Link to="/writing/others/issue-002-india-labour" className="text-warm-accent hover:underline">
+            <Link to="/writing/others/issue-002-india-labour" className="text-link underline">
               research notes
             </Link>
           </p>
@@ -82,19 +78,19 @@ export default function About() {
 
         {/* About me */}
         <section>
-          <h2 className="text-xl font-semibold text-foreground mb-3">About me</h2>
-          <p className="text-muted-foreground leading-relaxed mb-5">
+          <h2 className="text-[1.625rem] leading-tight text-foreground mb-3">About me</h2>
+          <p className="leading-relaxed mb-5">
             I'm Arin Jain, in Grade 11 (IB Year 1). I study economics and law and am interested in the gap between how
             institutions are designed and how they actually function — especially for people who have the least access
             to them. Margin of Error has been running since early 2025. The technical side covers data work in Python
             and R, basic econometrics, interactive model implementation in TypeScript, and full-stack web development.
           </p>
-          <div className="flex flex-wrap items-center gap-3">
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
             <a
               href="https://linkedin.com/in/arin-jain-69a954270"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-sm font-medium text-foreground hover:border-primary/40 transition-colors duration-150 no-underline"
+              className="inline-flex items-center gap-2 font-sans text-[0.9375rem] text-link underline"
             >
               <Linkedin className="size-4" />
               LinkedIn
@@ -103,7 +99,7 @@ export default function About() {
               href="https://www.youtube.com/watch?v=GucwscPHSGs"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-sm font-medium text-foreground hover:border-primary/40 transition-colors duration-150 no-underline"
+              className="inline-flex items-center gap-2 font-sans text-[0.9375rem] text-link underline"
             >
               <Youtube className="size-4" />
               TEDx Talk
@@ -112,7 +108,7 @@ export default function About() {
               href="https://drive.google.com/file/d/17Zxrc2eKob4WHcAnGsNgLUb-xrgRgJQ_/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-sm font-medium text-foreground hover:border-primary/40 transition-colors duration-150 no-underline"
+              className="inline-flex items-center gap-2 font-sans text-[0.9375rem] text-link underline"
             >
               <FileText className="size-4" />
               Download CV
@@ -122,8 +118,8 @@ export default function About() {
 
         {/* Currently reading */}
         <section>
-          <h2 className="text-xl font-semibold text-foreground mb-3">Currently reading</h2>
-          <p className="text-muted-foreground leading-relaxed">
+          <h2 className="text-[1.625rem] leading-tight text-foreground mb-3">Currently reading</h2>
+          <p className="leading-relaxed">
             Acemoglu and Restrepo on AI, automation, and the task model of labour. Working through
             New Keynesian macro slowly — specifically how the standard model handles productivity shocks.
           </p>
@@ -131,15 +127,15 @@ export default function About() {
 
         {/* How this site is built */}
         <section>
-          <h2 className="text-xl font-semibold text-foreground mb-3">How this site is built</h2>
-          <p className="text-muted-foreground leading-relaxed">
+          <h2 className="text-[1.625rem] leading-tight text-foreground mb-3">How this site is built</h2>
+          <p className="leading-relaxed">
             Vite + React + TypeScript, deployed on Cloudflare Workers with a D1 database for dynamic data.
             Weekly content pipelines run automatically via GitHub Actions. Source is public on{" "}
             <a
               href="https://github.com/bobwrd/portfolio"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-warm-accent hover:underline"
+              className="text-link underline"
             >
               GitHub
             </a>
@@ -148,15 +144,15 @@ export default function About() {
 
         {/* More */}
         <section>
-          <h2 className="text-xl font-semibold text-foreground mb-3">More</h2>
+          <h2 className="text-[1.625rem] leading-tight text-foreground mb-3">More</h2>
           <div className="flex flex-col gap-2">
-            <Link to="/writing/why" className="text-sm text-warm-accent hover:underline">
+            <Link to="/writing/why" className="font-sans text-[0.9375rem] text-link underline">
               Why this question: where the institutional-gap question came from
             </Link>
-            <Link to="/writing/changed-my-mind" className="text-sm text-warm-accent hover:underline">
+            <Link to="/writing/changed-my-mind" className="font-sans text-[0.9375rem] text-link underline">
               What I've changed my mind about: positions, evidence and where I moved
             </Link>
-            <Link to="/writing/changelog" className="text-sm text-warm-accent hover:underline">
+            <Link to="/writing/changelog" className="font-sans text-[0.9375rem] text-link underline">
               Changelog: what changed on the site, and when
             </Link>
           </div>

@@ -68,7 +68,7 @@ export default function WorldMap({ origin, destination, revealed }: WorldMapProp
   return (
     <svg
       viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
-      className="w-full h-auto rounded-md"
+      className="w-full h-auto rounded-sm"
       role="img"
       aria-label={label}
     >

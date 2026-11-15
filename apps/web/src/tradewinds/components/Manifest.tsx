@@ -9,11 +9,11 @@ interface ManifestProps {
 export default function Manifest({ rows, currencyName, totalRows }: ManifestProps) {
   return (
     <div
-      className="rounded-lg border p-5"
+      className="rounded-sm border p-5"
       style={{ backgroundColor: "var(--tw-surface)", borderColor: "var(--tw-border)" }}
     >
       <div className="flex items-baseline justify-between gap-2 mb-3">
-        <h2 className="text-sm font-semibold " style={{ color: "var(--tw-muted)" }}>
+        <h2 className="text-sm" style={{ color: "var(--tw-muted)" }}>
           Cargo manifest
         </h2>
         <span className="text-xs" style={{ color: "var(--tw-muted)" }}>

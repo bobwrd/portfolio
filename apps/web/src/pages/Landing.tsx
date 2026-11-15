@@ -1,21 +1,23 @@
 import { Link } from "react-router-dom";
 import SectionSwitcher from "@/components/SectionSwitcher";
+import PaperHeader from "@/components/PaperHeader";
+import ContentsList, { type ContentsEntry } from "@/components/ContentsList";
 import { usePageTitle } from "@/hooks/use-page-title";
 
-const ANCHORS = [
-  { href: "#snapshot", label: "Snapshot" },
-  { href: "#who-i-am", label: "Who I am" },
-  { href: "#academics", label: "Academics" },
-  { href: "#awards", label: "Awards" },
-  { href: "#research", label: "Research" },
-  { href: "#leadership", label: "Leadership" },
-  { href: "#volunteering", label: "Volunteering" },
-  { href: "#skills", label: "Skills" },
+const CONTENTS: ContentsEntry[] = [
+  { href: "#who-i-am", title: "Who I am", meta: "Interests and plans" },
+  { href: "#academics", title: "Academics", meta: "Grades, courses, tests" },
+  { href: "#awards", title: "Awards and achievements", meta: "Competitions, papers" },
+  { href: "#research", title: "Research and projects", meta: "Margin of Error, PLFS, CivicAid" },
+  { href: "#leadership", title: "Leadership", meta: "MUN, Law Academy, TEDx" },
+  { href: "#volunteering", title: "Volunteering", meta: "Outreach, literacy" },
+  { href: "#skills", title: "Skills, languages and interests" },
+  { href: "#appendix", title: "Links" },
 ];
 
 function List({ items }: { items: React.ReactNode[] }) {
   return (
-    <ul className="mt-3 list-disc space-y-2 pl-5 leading-relaxed">
+    <ul className="mt-4 list-disc space-y-2.5 pl-5 leading-relaxed marker:text-muted-foreground">
       {items.map((item, i) => (
         <li key={i}>{item}</li>
       ))}
@@ -26,88 +28,68 @@ function List({ items }: { items: React.ReactNode[] }) {
 export default function Landing() {
   usePageTitle();
   return (
-    <div className="min-h-screen bg-background font-serif text-foreground">
+    <div className="min-h-screen bg-background text-foreground">
       <SectionSwitcher current="about" />
 
-      <nav aria-label="On this page" className="sticky top-0 z-40 border-b border-border bg-background/95 backdrop-blur">
-        <div className="mx-auto flex max-w-3xl justify-center gap-5 overflow-x-auto px-6 py-3 font-sans text-sm">
-          {ANCHORS.map((a) => (
-            <a
-              key={a.href}
-              href={a.href}
-              className="whitespace-nowrap text-muted-foreground hover:text-foreground transition-colors duration-150"
-            >
-              {a.label}
-            </a>
-          ))}
-        </div>
-      </nav>
+      <main className="mx-auto max-w-6xl px-5 pt-12 pb-24 sm:px-8">
+        <PaperHeader
+          series="Working Paper Series, No. 00"
+          meta="Updated July 2026"
+          title="Arin Jain"
+          byline="Economics and law. Grade 11 (IB Year 1), Overseas Family School, Singapore. He/him."
+          keywords={
+            <span className="flex flex-col gap-2">
+            <span>
+              Keywords: development economics, governance, legal systems,
+              access to justice, financial inclusion.
+            </span>
+            <span className="flex flex-wrap gap-x-5 gap-y-1">
+              <a className="text-link underline" href="mailto:arinjain.mail@gmail.com">
+                arinjain.mail@gmail.com
+              </a>
+              <a className="text-link underline" href="https://github.com/bobwrd" target="_blank" rel="noopener noreferrer">
+                github.com/bobwrd
+              </a>
+              <a
+                className="text-link underline"
+                href="https://linkedin.com/in/arin-jain-69a954270"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                LinkedIn
+              </a>
+            </span>
+            </span>
+          }
+          abstractLabel="Snapshot"
+          abstract={
+            <p id="snapshot" className="scroll-mt-20">
+              I study economics and law, and I build research around one
+              question: where do legal systems and economic policy fail the
+              people they are meant to serve? This site holds that work: essays,
+              six interactive research tools, and two software projects. At
+              Overseas Family School since August 2017.
+            </p>
+          }
+        />
 
-      <main className="mx-auto max-w-3xl px-6 py-16">
-        {/* Title block */}
-        <header className="mb-14 text-center">
-          <h1 className="text-4xl leading-tight">Arin Jain</h1>
-          <p className="mt-3 text-base text-muted-foreground">
-            Grade 11 (IB Year 1), Overseas Family School, Singapore
-          </p>
-          <p className="mt-1 text-sm text-muted-foreground">He/him. Updated July 2026.</p>
-          <p className="mt-4 flex flex-wrap justify-center gap-x-5 gap-y-1 font-sans text-sm">
-            <a
-              className="underline decoration-border underline-offset-4"
-              href="mailto:arinjain.mail@gmail.com"
-            >
-              arinjain.mail@gmail.com
-            </a>
-            <a
-              className="underline decoration-border underline-offset-4"
-              href="https://github.com/bobwrd"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              github.com/bobwrd
-            </a>
-            <a
-              className="underline decoration-border underline-offset-4"
-              href="https://linkedin.com/in/arin-jain-69a954270"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              linkedin.com/in/arin-jain-69a954270
-            </a>
-          </p>
-        </header>
-
-        {/* Snapshot */}
-        <section id="snapshot" className="scroll-mt-16">
-          <h2 className="text-lg font-bold">Snapshot</h2>
-          <p className="mt-4 leading-relaxed">
-            I study economics and law, and I build research around one
-            question: where do legal systems and economic policy fail the
-            people they are meant to serve? This site holds that work: essays,
-            six interactive research tools, and two software projects.
-          </p>
-          <p className="mt-4 font-sans text-sm leading-relaxed">
-            Start with the{" "}
-            <Link to="/mini" className="underline decoration-warm-accent underline-offset-4">
-              research tools
-            </Link>
-            , the{" "}
-            <Link to="/writing" className="underline decoration-warm-accent underline-offset-4">
-              writing
-            </Link>
-            , or the{" "}
-            <Link to="/overview" className="underline decoration-warm-accent underline-offset-4">
-              site guide
-            </Link>
-            . At Overseas Family School since August 2017.
+        <section aria-labelledby="contents-heading" className="mt-14 max-w-3xl">
+          <h2 id="contents-heading" className="font-sans text-[0.9375rem] font-semibold">
+            Contents
+          </h2>
+          <ContentsList className="mt-3" entries={CONTENTS} />
+          <p className="mt-6 font-sans text-[0.9375rem] leading-relaxed text-muted-foreground">
+            The work itself:{" "}
+            <Link to="/mini" className="text-link underline">research tools</Link>,{" "}
+            <Link to="/writing" className="text-link underline">writing</Link>, and the{" "}
+            <Link to="/overview" className="text-link underline">site guide</Link>.
           </p>
         </section>
 
-        <hr className="my-10 border-border" />
-
+        <div className="paper-body mt-16 max-w-[42rem] font-serif text-[1.0625rem]">
         {/* Who I Am */}
-        <section id="who-i-am" className="scroll-mt-16">
-          <h2 className="text-lg font-bold">1. Who I am</h2>
+        <section id="who-i-am" className="scroll-mt-20">
+          <h2 className="text-[1.75rem] leading-tight"><span className="text-muted-foreground">1.</span> Who I am</h2>
           <p className="mt-4 leading-relaxed">
             I'm a Grade 11 student at Overseas Family School in Singapore. I
             plan to study economics at the undergraduate level and law at the
@@ -120,11 +102,11 @@ export default function Landing() {
           </p>
         </section>
 
-        <hr className="my-10 border-border" />
+        <hr className="my-12 border-border" />
 
         {/* Academics */}
-        <section id="academics" className="scroll-mt-16">
-          <h2 className="text-lg font-bold">2. Academics</h2>
+        <section id="academics" className="scroll-mt-20">
+          <h2 className="text-[1.75rem] leading-tight"><span className="text-muted-foreground">2.</span> Academics</h2>
           <List
             items={[
               "GPA: 4.00/4.00 current (Grade 10, Sem 2); 3.93/4.00 cumulative (Grades 9–10)",
@@ -143,11 +125,11 @@ export default function Landing() {
           />
         </section>
 
-        <hr className="my-10 border-border" />
+        <hr className="my-12 border-border" />
 
         {/* Awards */}
-        <section id="awards" className="scroll-mt-16">
-          <h2 className="text-lg font-bold">3. Awards and achievements</h2>
+        <section id="awards" className="scroll-mt-20">
+          <h2 className="text-[1.75rem] leading-tight"><span className="text-muted-foreground">3.</span> Awards and achievements</h2>
           <List
             items={[
               <>
@@ -165,7 +147,7 @@ export default function Landing() {
                 participants; essay on{" "}
                 <Link
                   to="/writing/personal/us-economy-cheap-imports-china"
-                  className="underline decoration-border underline-offset-4"
+                  className="text-link underline"
                 >
                   the impact of cheap Chinese imports on the US economy
                 </Link>
@@ -180,11 +162,11 @@ export default function Landing() {
           />
         </section>
 
-        <hr className="my-10 border-border" />
+        <hr className="my-12 border-border" />
 
         {/* Research */}
-        <section id="research" className="scroll-mt-16">
-          <h2 className="text-lg font-bold">4. Research and projects</h2>
+        <section id="research" className="scroll-mt-20">
+          <h2 className="text-[1.75rem] leading-tight"><span className="text-muted-foreground">4.</span> Research and projects</h2>
           <List
             items={[
               <>
@@ -208,20 +190,20 @@ export default function Landing() {
                   Explore the{" "}
                   <Link
                     to="/mini"
-                    className="underline decoration-border underline-offset-4"
+                    className="text-link underline"
                   >
                     research tools
                   </Link>{" "}
                   and the{" "}
                   <Link
                     to="/writing"
-                    className="underline decoration-border underline-offset-4"
+                    className="text-link underline"
                   >
                     writing
                   </Link>
                   ; source code at{" "}
                   <a
-                    className="underline decoration-border underline-offset-4"
+                    className="text-link underline"
                     href="https://github.com/bobwrd/portfolio"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -238,7 +220,7 @@ export default function Landing() {
                 accepted at NTSS above).{" "}
                 <Link
                   to="/writing/others/issue-002-india-labour"
-                  className="underline decoration-border underline-offset-4"
+                  className="text-link underline"
                 >
                   Read the early findings
                 </Link>
@@ -249,11 +231,11 @@ export default function Landing() {
           />
         </section>
 
-        <hr className="my-10 border-border" />
+        <hr className="my-12 border-border" />
 
         {/* Leadership */}
-        <section id="leadership" className="scroll-mt-16">
-          <h2 className="text-lg font-bold">5. Leadership</h2>
+        <section id="leadership" className="scroll-mt-20">
+          <h2 className="text-[1.75rem] leading-tight"><span className="text-muted-foreground">5.</span> Leadership</h2>
           <List
             items={[
               "Under-Secretary-General, MUN@OFS (executive team) — organize MY-MUNOFS (~413 attendees) and MUNOFS (~550 attendees); help lead a ~70–80 delegate club; 19+ conferences as delegate, chaired 9+, focused on international law, human rights, and global governance.",
@@ -264,7 +246,7 @@ export default function Landing() {
                 select and mentor speakers, run rehearsals for a live
                 audience of 100+. My own talk:{" "}
                 <a
-                  className="underline decoration-border underline-offset-4"
+                  className="text-link underline"
                   href="https://www.youtube.com/watch?v=GucwscPHSGs"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -280,11 +262,11 @@ export default function Landing() {
           />
         </section>
 
-        <hr className="my-10 border-border" />
+        <hr className="my-12 border-border" />
 
         {/* Volunteering */}
-        <section id="volunteering" className="scroll-mt-16">
-          <h2 className="text-lg font-bold">6. Volunteering</h2>
+        <section id="volunteering" className="scroll-mt-20">
+          <h2 className="text-[1.75rem] leading-tight"><span className="text-muted-foreground">6.</span> Volunteering</h2>
           <List
             items={[
               <>
@@ -294,7 +276,7 @@ export default function Landing() {
                 challenged students; conceptualized and built the school's
                 e-commerce site (
                 <a
-                  className="underline decoration-border underline-offset-4"
+                  className="text-link underline"
                   href="https://jodhpurblindschool.in"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -311,11 +293,11 @@ export default function Landing() {
           />
         </section>
 
-        <hr className="my-10 border-border" />
+        <hr className="my-12 border-border" />
 
         {/* Skills */}
-        <section id="skills" className="scroll-mt-16">
-          <h2 className="text-lg font-bold">7. Skills, languages and interests</h2>
+        <section id="skills" className="scroll-mt-20">
+          <h2 className="text-[1.75rem] leading-tight"><span className="text-muted-foreground">7.</span> Skills, languages and interests</h2>
           <List
             items={[
               "Languages: English (native/bilingual); Hindi (fluent/full professional); French (conversational).",
@@ -327,15 +309,15 @@ export default function Landing() {
           />
         </section>
 
-        <hr className="my-10 border-border" />
+        <hr className="my-12 border-border" />
 
         {/* Appendix */}
-        <section id="appendix" className="scroll-mt-16 pb-16">
-          <h2 className="text-lg font-bold">8. Links</h2>
+        <section id="appendix" className="scroll-mt-20 pb-16">
+          <h2 className="text-[1.75rem] leading-tight"><span className="text-muted-foreground">8.</span> Links</h2>
           <ul className="mt-4 list-disc space-y-2 pl-5 leading-relaxed">
             <li>
               <a
-                className="underline decoration-border underline-offset-4"
+                className="text-link underline"
                 href="https://github.com/bobwrd"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -345,7 +327,7 @@ export default function Landing() {
             </li>
             <li>
               <a
-                className="underline decoration-border underline-offset-4"
+                className="text-link underline"
                 href="https://linkedin.com/in/arin-jain-69a954270"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -356,7 +338,7 @@ export default function Landing() {
             <li>
               <Link
                 to="/overview"
-                className="underline decoration-border underline-offset-4"
+                className="text-link underline"
               >
                 Site guide: what is here and why it is built this way
               </Link>
@@ -364,13 +346,14 @@ export default function Landing() {
             <li>
               <Link
                 to="/writing/about"
-                className="underline decoration-border underline-offset-4"
+                className="text-link underline"
               >
                 About Margin of Error, the research project
               </Link>
             </li>
           </ul>
         </section>
+        </div>
       </main>
     </div>
   );

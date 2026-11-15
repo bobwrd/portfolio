@@ -1,3 +1,4 @@
+import PaperHeader from "@/components/PaperHeader";
 import { useState, useEffect, useMemo } from "react";
 import { Download } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -49,7 +50,7 @@ function PenaltyTimeline({ actions }: { actions: LedgerAction[] }) {
     const d = payload[0].payload;
     return (
       <div
-        className="rounded border p-3 text-xs font-mono max-w-[220px]"
+        className="rounded border p-3 text-xs max-w-[220px]"
         style={{
           backgroundColor: "#fff",
           borderColor: "var(--ledger-border)",
@@ -75,13 +76,13 @@ function PenaltyTimeline({ actions }: { actions: LedgerAction[] }) {
           <XAxis
             dataKey="x" type="number" domain={["auto", "auto"]} ticks={monthTicks}
             tickFormatter={(v) => new Date(v).getUTCFullYear().toString()}
-            tick={{ fill: "var(--ledger-muted)", fontSize: 10, fontFamily: "monospace" }}
+            tick={{ fill: "var(--ledger-muted)", fontSize: 10, fontFamily: "var(--font-sans-face)" }}
             axisLine={{ stroke: "var(--ledger-border)" }} tickLine={false} scale="time"
           />
           <YAxis
             dataKey="y" type="number"
             tickFormatter={(v) => `${v}m`}
-            tick={{ fill: "var(--ledger-muted)", fontSize: 10, fontFamily: "monospace" }}
+            tick={{ fill: "var(--ledger-muted)", fontSize: 10, fontFamily: "var(--font-sans-face)" }}
             axisLine={{ stroke: "var(--ledger-border)" }} tickLine={false}
           />
           <ZAxis range={[40, 40]} />
@@ -134,7 +135,7 @@ export default function LedgerIndex() {
     return { total, totalPenalty, indiv, span };
   }, [actions]);
 
-  const selectClass = "bg-transparent border rounded px-2 py-1 text-xs font-mono appearance-none cursor-pointer";
+  const selectClass = "bg-transparent border rounded-sm px-2 py-1 text-xs appearance-none cursor-pointer";
   const selectStyle = {
     borderColor: "var(--ledger-border)",
     color: "var(--ledger-muted)",
@@ -143,57 +144,45 @@ export default function LedgerIndex() {
 
   return (
     <div>
-      {/* Header */}
-      <div className="mb-8">
-        <h1 className="text-2xl font-bold tracking-tight mb-2" style={{ color: "var(--ledger-text)" }}>
-          The Ledger
-        </h1>
-        <p className="text-sm leading-relaxed max-w-2xl" style={{ color: "var(--ledger-muted)" }}>
-          A hand-built database of formal enforcement actions taken by the Monetary Authority of Singapore —
-          penalties, prohibition orders, criminal referrals, and licence revocations, coded by sector, violation
-          category, statute, and penalty size. Built from MAS's own notices; all entries are citable and auditable.
-          The structure is what makes it novel: it surfaces patterns over time in who gets penalised for what —
-          analysis that is not possible from the raw press releases. Coverage is a curated set, not yet the full
-          register.
-        </p>
+      {/* Cover sheet */}
+      <div className="mb-10">
+        <PaperHeader
+          series="Working Paper Series, No. 02.2"
+          meta="From MAS enforcement notices"
+          color="var(--ledger-accent)"
+          ink="var(--ledger-text)"
+          muted="var(--ledger-muted)"
+          rule="var(--ledger-border)"
+          title="The Ledger"
+          byline="A register of enforcement by the Monetary Authority of Singapore."
+          keywords={
+            !loading && actions.length > 0
+              ? `${stats.total} actions, ${formatSGD(stats.totalPenalty)} in total penalties, ${stats.indiv} against individuals, covering ${stats.span}.`
+              : undefined
+          }
+          abstract={
+            <p>
+              A hand-built database of formal enforcement actions by the
+              Monetary Authority of Singapore: penalties, prohibition orders,
+              criminal referrals and licence revocations, coded by sector,
+              violation category, statute and penalty size. Every entry comes
+              from MAS's own notices and can be cited and checked. Coded this
+              way, the actions show patterns over time in who is penalised for
+              what, which the press releases alone do not. Coverage is a
+              curated set, not yet the full register.
+            </p>
+          }
+        />
       </div>
-
-      {/* Stats bar */}
-      {!loading && actions.length > 0 && (
-        <div
-          className="flex items-center gap-6 flex-wrap rounded-lg border p-4 mb-8 text-xs font-mono"
-          style={{ borderColor: "var(--ledger-border)", backgroundColor: "var(--ledger-surface)" }}
-        >
-          <div>
-            <div className="text-lg font-bold" style={{ color: "var(--ledger-accent)" }}>{stats.total}</div>
-            <div style={{ color: "var(--ledger-muted)" }}>actions</div>
-          </div>
-          <div className="w-px h-8 self-center" style={{ backgroundColor: "var(--ledger-border)" }} />
-          <div>
-            <div className="text-lg font-bold" style={{ color: "var(--ledger-accent)" }}>{formatSGD(stats.totalPenalty)}</div>
-            <div style={{ color: "var(--ledger-muted)" }}>total penalties</div>
-          </div>
-          <div className="w-px h-8 self-center" style={{ backgroundColor: "var(--ledger-border)" }} />
-          <div>
-            <div className="text-lg font-bold" style={{ color: "var(--ledger-accent)" }}>{stats.indiv}</div>
-            <div style={{ color: "var(--ledger-muted)" }}>against individuals</div>
-          </div>
-          <div className="w-px h-8 self-center" style={{ backgroundColor: "var(--ledger-border)" }} />
-          <div>
-            <div className="text-lg font-bold" style={{ color: "var(--ledger-accent)" }}>{stats.span}</div>
-            <div style={{ color: "var(--ledger-muted)" }}>coverage</div>
-          </div>
-        </div>
-      )}
 
       {/* Penalty timeline */}
       {!loading && actions.length > 0 && (
         <div
-          className="rounded-lg border p-4 mb-8"
+          className="rounded-sm border p-4 mb-8"
           style={{ borderColor: "var(--ledger-border)", backgroundColor: "var(--ledger-surface)" }}
         >
-          <div className="text-xs font-mono mb-3" style={{ color: "var(--ledger-muted)" }}>
-            MONETARY PENALTIES OVER TIME (S$ millions, log-free scale)
+          <div className="text-xs mb-3" style={{ color: "var(--ledger-muted)" }}>
+            Monetary penalties over time (S$ millions, linear scale)
           </div>
           <PenaltyTimeline actions={filtered} />
         </div>
@@ -209,15 +198,15 @@ export default function LedgerIndex() {
           <a
             key={label}
             href={href} download
-            className="flex items-center gap-3 rounded-lg border px-4 py-3 transition-colors"
+            className="flex items-center gap-3 rounded-sm border px-4 py-3 transition-colors"
             style={{ borderColor: "var(--ledger-border)", backgroundColor: "var(--ledger-surface)" }}
             onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.borderColor = "var(--ledger-accent)")}
             onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.borderColor = "var(--ledger-border)")}
           >
             <Download className="h-4 w-4 shrink-0" style={{ color: "var(--ledger-accent)" }} />
             <div>
-              <div className="text-sm font-mono" style={{ color: "var(--ledger-text)" }}>{label}</div>
-              <div className="text-[0.65rem] font-mono" style={{ color: "var(--ledger-muted)" }}>{sub}</div>
+              <div className="text-sm" style={{ color: "var(--ledger-text)" }}>{label}</div>
+              <div className="text-xs" style={{ color: "var(--ledger-muted)" }}>{sub}</div>
             </div>
           </a>
         ))}
@@ -241,7 +230,7 @@ export default function LedgerIndex() {
           {(["date", "penalty"] as SortKey[]).map((s) => (
             <button
               key={s} onClick={() => setSort(s)}
-              className="px-2.5 py-1 rounded text-xs font-mono transition-colors duration-150"
+              className="px-2.5 py-1 rounded text-xs transition-colors duration-150"
               style={{
                 color: sort === s ? "var(--ledger-accent)" : "var(--ledger-muted)",
                 backgroundColor: sort === s ? "var(--ledger-accent-dim)" : "transparent",
@@ -256,17 +245,17 @@ export default function LedgerIndex() {
 
       {/* Register table */}
       {loading ? (
-        <div className="py-16 text-center text-sm font-mono" style={{ color: "var(--ledger-muted)" }}>Loading…</div>
+        <div className="py-16 text-center text-sm" style={{ color: "var(--ledger-muted)" }}>Loading…</div>
       ) : filtered.length === 0 ? (
-        <div className="py-16 text-center text-sm font-mono" style={{ color: "var(--ledger-muted)" }}>No actions match the current filters.</div>
+        <div className="py-16 text-center text-sm" style={{ color: "var(--ledger-muted)" }}>No actions match the current filters.</div>
       ) : (
         <div
-          className="rounded-lg border overflow-hidden"
+          className="rounded-sm border overflow-hidden"
           style={{ borderColor: "var(--ledger-border)", backgroundColor: "var(--ledger-surface)" }}
         >
           {/* header row */}
           <div
-            className="hidden sm:grid grid-cols-[88px_1fr_140px_120px_90px] gap-3 px-4 py-2.5 text-[0.65rem] font-mono border-b"
+            className="hidden sm:grid grid-cols-[88px_1fr_140px_120px_90px] gap-3 px-4 py-2.5 text-xs border-b"
             style={{ color: "var(--ledger-muted)", borderColor: "var(--ledger-border)" }}
           >
             <span>Date</span><span>Respondent</span><span>Action</span><span>Violation</span><span className="text-right">Penalty</span>
@@ -274,29 +263,29 @@ export default function LedgerIndex() {
           {filtered.map((a) => (
             <Link
               key={a.action_id}
-              to={`/ledger/${a.action_id}`}
+              to={`/mini/ledger/${a.action_id}`}
               className="grid grid-cols-1 sm:grid-cols-[88px_1fr_140px_120px_90px] gap-1 sm:gap-3 px-4 py-3 border-b last:border-b-0 transition-colors group"
               style={{ borderColor: "var(--ledger-border)" }}
               onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.backgroundColor = "var(--ledger-surface-2)")}
               onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.backgroundColor = "transparent")}
             >
-              <span className="text-xs font-mono whitespace-nowrap" style={{ color: "var(--ledger-muted)" }}>
+              <span className="text-xs whitespace-nowrap" style={{ color: "var(--ledger-muted)" }}>
                 {fmtDate(a.date_published)}
               </span>
-              <span className="text-sm leading-snug flex items-start gap-2" style={{ color: "var(--ledger-text)" }}>
+              <span className="font-serif text-[1.0625rem] leading-snug flex items-start gap-2 group-hover:underline decoration-1 underline-offset-4" style={{ color: "var(--ledger-text)" }}>
                 <SeverityDot actionType={a.action_type} />
                 <span>
                   {a.respondents.map((r) => r.name).join(", ")}
                   {a.repeat_offender && (
-                    <span className="ml-1.5 text-[0.6rem] font-mono align-middle px-1 py-0.5 rounded" style={{ color: "var(--ledger-sev-1)", border: "1px solid var(--ledger-sev-1)" }}>
+                    <span className="ml-1.5 text-xs align-middle px-1 py-0.5 rounded" style={{ color: "var(--ledger-sev-1)", border: "1px solid var(--ledger-sev-1)" }}>
                       repeat
                     </span>
                   )}
                 </span>
               </span>
-              <span className="text-xs font-mono" style={{ color: "var(--ledger-muted)" }}>{a.action_type}</span>
-              <span className="text-xs font-mono" style={{ color: "var(--ledger-muted)" }}>{a.violation_category}</span>
-              <span className="text-sm font-mono font-bold text-left sm:text-right" style={{ color: a.penalty_amount_sgd ? "var(--ledger-accent)" : "var(--ledger-muted)" }}>
+              <span className="text-xs" style={{ color: "var(--ledger-muted)" }}>{a.action_type}</span>
+              <span className="text-xs" style={{ color: "var(--ledger-muted)" }}>{a.violation_category}</span>
+              <span className="font-serif text-[1.0625rem] tabular-nums text-left sm:text-right" style={{ color: a.penalty_amount_sgd ? "var(--ledger-accent)" : "var(--ledger-muted)" }}>
                 {formatSGD(a.penalty_amount_sgd)}
               </span>
             </Link>

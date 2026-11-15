@@ -40,7 +40,7 @@ function Step1({ data, country }: { data: ObservatoryData | null; country: strin
 
   return (
     <div>
-      <p className="text-sm sm:text-base leading-relaxed max-w-3xl mb-6" style={{ color: "var(--obs-text)" }}>
+      <p className="font-serif text-[1rem] sm:text-[1.0625rem] leading-relaxed max-w-3xl mb-6" style={{ color: "var(--obs-text)" }}>
         <strong style={{ color: "var(--obs-accent)" }}>Step 1.</strong> Task-level studies find large AI
         productivity gains, often tens of percent. Yet economy-wide productivity growth still moves in the
         low single digits. The gap between the two is the whole puzzle: micro gains have to survive
@@ -180,7 +180,7 @@ function FlowDiagram() {
             <button
               key={c.key}
               onClick={() => setActive(c.key)}
-              className="rounded-full px-3.5 py-1.5 text-xs font-mono border transition-colors"
+              className="rounded-sm px-3.5 py-1.5 text-xs border transition-colors"
               style={{
                 borderColor: on ? "var(--obs-accent)" : "var(--obs-border)",
                 color: on ? "var(--obs-accent)" : "var(--obs-muted)",
@@ -242,7 +242,7 @@ function FlowDiagram() {
                       y={n.y + (i - (arr.length - 1) / 2) * 13 + 4}
                       textAnchor="middle"
                       fontSize="12"
-                      fontFamily="ui-monospace, monospace"
+                      fontFamily="var(--font-sans-face)"
                       fill={touched ? "var(--obs-accent)" : "var(--obs-text)"}
                     >
                       {line}
@@ -253,7 +253,7 @@ function FlowDiagram() {
             })}
           </svg>
         </div>
-        <p className="mt-3 text-sm leading-relaxed" style={{ color: "var(--obs-text)" }}>
+        <p className="font-serif mt-3 text-[1rem] leading-relaxed" style={{ color: "var(--obs-text)" }}>
           {channel.blurb}
         </p>
       </Card>
@@ -262,7 +262,7 @@ function FlowDiagram() {
         <div className="grid sm:grid-cols-2 gap-x-8 gap-y-2 text-sm">
           {NODE_VARS.map((r) => (
             <div key={r.node} className="flex gap-2 items-baseline">
-              <span className="font-mono text-xs shrink-0" style={{ color: "var(--obs-accent)" }}>{r.node}</span>
+              <span className="text-xs shrink-0" style={{ color: "var(--obs-accent)" }}>{r.node}</span>
               <span style={{ color: "var(--obs-muted)" }}>→ {r.example}</span>
             </div>
           ))}
@@ -319,7 +319,7 @@ function Step3() {
 
   return (
     <div>
-      <p className="text-sm sm:text-base leading-relaxed max-w-3xl mb-5" style={{ color: "var(--obs-text)" }}>
+      <p className="font-serif text-[1rem] sm:text-[1.0625rem] leading-relaxed max-w-3xl mb-5" style={{ color: "var(--obs-text)" }}>
         <strong style={{ color: "var(--obs-accent)" }}>Step 3.</strong> The same AI shock can look
         inflationary or disinflationary depending on expectations and how the central bank responds.
         Pick a story and watch three paths play out over ~12 years.
@@ -332,7 +332,7 @@ function Step3() {
             <button
               key={s.key}
               onClick={() => setKey(s.key)}
-              className="rounded-full px-3.5 py-1.5 text-xs font-mono border transition-colors"
+              className="rounded-sm px-3.5 py-1.5 text-xs border transition-colors"
               style={{
                 borderColor: on ? "var(--obs-accent)" : "var(--obs-border)",
                 color: on ? "var(--obs-accent)" : "var(--obs-muted)",
@@ -345,7 +345,7 @@ function Step3() {
         })}
       </div>
 
-      <p className="text-sm leading-relaxed max-w-3xl mb-5" style={{ color: "var(--obs-muted)" }}>
+      <p className="font-serif text-[1rem] leading-relaxed max-w-3xl mb-5" style={{ color: "var(--obs-muted)" }}>
         {scenario.blurb}
       </p>
 
@@ -389,7 +389,7 @@ export default function Walkthrough({ data, country }: { data: ObservatoryData |
       <div className="space-y-16">
         <Step1 data={data} country={country} />
         <div>
-          <p className="text-sm sm:text-base leading-relaxed max-w-3xl mb-6" style={{ color: "var(--obs-text)" }}>
+          <p className="font-serif text-[1rem] sm:text-[1.0625rem] leading-relaxed max-w-3xl mb-6" style={{ color: "var(--obs-text)" }}>
             <strong style={{ color: "var(--obs-accent)" }}>Step 2.</strong> If gains do show up, they reach prices
             through more than one channel — and the channels can point in opposite directions. Toggle each one to
             light up the path it travels.

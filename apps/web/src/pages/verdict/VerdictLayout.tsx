@@ -51,24 +51,23 @@ export default function VerdictLayout({ children }: { children: React.ReactNode 
       <header
         className="sticky top-0 z-50 border-b"
         style={{
-          backgroundColor: "color-mix(in srgb, var(--verdict-bg) 92%, transparent)",
-          borderColor: "var(--verdict-border)",
-          backdropFilter: "blur(8px)",
+          backgroundColor: "var(--verdict-bg)",
+          borderBottomColor: "var(--verdict-border)",
         }}
       >
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between gap-4">
+        <div className="max-w-6xl mx-auto px-5 sm:px-8 py-2 min-h-14 flex flex-wrap items-center justify-between gap-x-4 gap-y-1">
           <div className="flex items-center gap-4">
             <Link
               to="/mini"
-              className="text-xs underline-offset-4 hover:underline"
+              className="font-sans text-[0.875rem] underline-offset-4 hover:underline"
               style={{ color: "var(--verdict-muted)" }}
             >
               Research tools
             </Link>
             <Link
               to="/mini/verdict"
-              className="font-semibold tracking-tight text-sm flex items-center gap-2"
-              style={{ color: "var(--verdict-accent)" }}
+              className="font-serif text-xl leading-none"
+              style={{ color: "var(--verdict-text)" }}
             >
               The Verdict
             </Link>
@@ -83,10 +82,10 @@ export default function VerdictLayout({ children }: { children: React.ReactNode 
                 <Link
                   key={link.href}
                   to={link.href}
-                  className="px-2.5 py-1.5 rounded text-xs transition-colors duration-150"
+                  className="px-1.5 py-1.5 font-sans text-[0.875rem] transition-colors duration-150"
                   style={{
                     color: active ? "var(--verdict-accent)" : "var(--verdict-muted)",
-                    backgroundColor: active ? "var(--verdict-accent-dim)" : "transparent",
+                    textDecoration: active ? "underline" : "none", textDecorationThickness: "2px", textUnderlineOffset: "0.4em",
                   }}
                 >
                   {link.label}
@@ -98,7 +97,7 @@ export default function VerdictLayout({ children }: { children: React.ReactNode 
       </header>
 
       {/* Main */}
-      <main className="max-w-5xl mx-auto px-4 sm:px-6 py-10">
+      <main className="max-w-6xl mx-auto px-5 sm:px-8 py-10">
         {children}
       </main>
 
@@ -108,7 +107,7 @@ export default function VerdictLayout({ children }: { children: React.ReactNode 
         style={{ borderColor: "var(--verdict-border)" }}
       >
         <div
-          className="max-w-5xl mx-auto px-4 sm:px-6 py-6 flex items-center justify-between text-xs"
+          className="max-w-6xl mx-auto px-5 sm:px-8 py-6 flex items-center justify-between font-sans text-[0.875rem]"
           style={{ color: "var(--verdict-muted)" }}
         >
           <span>The Verdict, by Arin Jain</span>

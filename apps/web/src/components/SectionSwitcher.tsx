@@ -10,6 +10,7 @@ export type SiteSection =
   | "tradewinds";
 
 const SECTIONS: { key: SiteSection; to: string; label: string }[] = [
+  { key: "about", to: "/", label: "About" },
   { key: "writing", to: "/writing", label: "Writing" },
   { key: "tools", to: "/mini", label: "Research tools" },
   { key: "onebook", to: "/onebook", label: "OneBook" },
@@ -19,24 +20,19 @@ const SECTIONS: { key: SiteSection; to: string; label: string }[] = [
 ];
 
 /**
- * The portfolio's one shared strip. It sits in normal flow above each
- * section's own header, so it never covers that header's controls, and it
- * looks the same everywhere so the sections read as one site. Each section
- * keeps its own chrome below it.
+ * The portfolio's one top bar: the name on the left, the sections on the
+ * right, the current one marked by a rule rather than a colour. It sits in
+ * normal flow above each section's own header, identical everywhere.
  */
 export default function SectionSwitcher({ current }: { current?: SiteSection }) {
   return (
-    <div className="site-bar border-b border-border bg-background font-sans text-[0.8125rem] text-muted-foreground">
-      <div className="mx-auto flex h-10 max-w-6xl items-center gap-5 px-4 sm:px-6">
-        <Link
-          to="/"
-          aria-current={current === "about" ? "page" : undefined}
-          className="shrink-0 font-semibold text-foreground hover:text-warm-accent transition-colors duration-150"
-        >
+    <div className="site-bar border-b border-border bg-background font-sans text-[0.9375rem] text-foreground">
+      <div className="mx-auto flex h-14 max-w-6xl items-center gap-8 px-5 sm:px-8">
+        <Link to="/" className="shrink-0 font-serif text-[1.0625rem]">
           Arin Jain
         </Link>
-        <nav aria-label="Portfolio sections" className="min-w-0 flex-1 overflow-x-auto scrollbar-none">
-          <ul className="flex items-center gap-4 whitespace-nowrap">
+        <nav aria-label="Portfolio sections" className="ml-auto min-w-0 overflow-x-auto scrollbar-none [mask-image:linear-gradient(to_right,black_80%,transparent)] md:[mask-image:none]">
+          <ul className="flex items-center gap-6 whitespace-nowrap pr-10 md:pr-0">
             {SECTIONS.map((s) => {
               const active = s.key === current;
               return (
@@ -44,10 +40,10 @@ export default function SectionSwitcher({ current }: { current?: SiteSection }) 
                   <Link
                     to={s.to}
                     aria-current={active ? "page" : undefined}
-                    className={`transition-colors duration-150 underline-offset-4 ${
+                    className={`inline-block py-1 underline-offset-[0.4em] ${
                       active
-                        ? "text-foreground underline decoration-warm-accent decoration-2"
-                        : "hover:text-foreground"
+                        ? "underline decoration-2 decoration-foreground"
+                        : "text-muted-foreground hover:text-foreground"
                     }`}
                   >
                     {s.label}

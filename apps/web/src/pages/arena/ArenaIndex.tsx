@@ -21,7 +21,7 @@ export default function ArenaIndex() {
       <Methodology />
 
       {/* Cross-links */}
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 pb-16 pt-4 border-t" style={{ borderColor: "var(--arena-border)" }}>
+      <div className="max-w-6xl mx-auto px-5 sm:px-8 pb-16 pt-4 border-t" style={{ borderColor: "var(--arena-border)" }}>
         <p className="text-xs mb-3" style={{ color: "var(--arena-muted)" }}>Related work:</p>
         <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm">
           <a href="/mini/observatory" className="hover:underline" style={{ color: "var(--arena-accent)" }}>

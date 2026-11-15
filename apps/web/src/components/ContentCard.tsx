@@ -4,6 +4,8 @@ import type { ContentMeta, ContentCategory } from "@/lib/api";
 interface ContentCardProps {
   item: ContentMeta;
   variant?: "list" | "grid";
+  /** Hide the category label, e.g. on that category's own page. */
+  hideCategory?: boolean;
 }
 
 function readTime(wordCount: number): string {
@@ -19,21 +21,8 @@ const CATEGORY_LABEL: Record<ContentCategory, string> = {
   other: "Analysis",
 };
 
-const CATEGORY_STYLE: Record<ContentCategory, string> = {
-  short: "bg-warm-accent-muted text-warm-accent",
-  weekly: "bg-secondary text-muted-foreground",
-  personal: "bg-secondary text-foreground",
-  other: "bg-secondary text-muted-foreground",
-};
-
 function CategoryBadge({ category }: { category: ContentCategory }) {
-  return (
-    <span
-      className={`text-xs px-2.5 py-0.5 rounded-full font-medium ${CATEGORY_STYLE[category]}`}
-    >
-      {CATEGORY_LABEL[category]}
-    </span>
-  );
+  return <span className="text-foreground">{CATEGORY_LABEL[category]}</span>;
 }
 
 // Route each category to its own slug-prefixed URL.
@@ -46,7 +35,7 @@ function categoryHref(category: ContentCategory, slug: string): string {
   }
 }
 
-export default function ContentCard({ item, variant = "list" }: ContentCardProps) {
+export default function ContentCard({ item, variant = "list", hideCategory = false }: ContentCardProps) {
   const articleHref = categoryHref(item.category, item.slug);
 
   const formattedDate = item.date
@@ -57,95 +46,50 @@ export default function ContentCard({ item, variant = "list" }: ContentCardProps
       })
     : null;
 
+  const meta = (
+    <p className="flex flex-wrap gap-x-4 gap-y-1 font-sans text-[0.875rem] text-muted-foreground">
+      {!hideCategory && <CategoryBadge category={item.category} />}
+      {formattedDate && <time dateTime={item.date}>{formattedDate}</time>}
+      <span>{readTime(item.wordCount)}</span>
+    </p>
+  );
+  const tags =
+    item.tags.length > 0 ? (
+      <p className="font-sans text-[0.875rem] text-muted-foreground">
+        Tags: {item.tags.join(", ")}
+      </p>
+    ) : null;
+
   if (variant === "grid") {
     return (
-      <Link
-        to={articleHref}
-        className="group relative flex flex-col h-full p-5 rounded-lg border border-border bg-card hover:border-warm-accent/40 hover:shadow-sm transition-colors duration-200"
-      >
-        <div className="flex items-center gap-2 mb-3 flex-wrap">
-          <CategoryBadge category={item.category} />
-          {formattedDate && (
-            <time className="text-xs text-muted-foreground">{formattedDate}</time>
-          )}
-        </div>
-
-        <h2 className="text-base font-semibold text-foreground group-hover:text-warm-accent transition-colors duration-150 leading-snug mb-2 line-clamp-3">
+      <Link to={articleHref} className="group flex h-full flex-col border-t border-foreground pt-4">
+        {meta}
+        <h2 className="mt-3 font-serif text-xl leading-snug decoration-1 underline-offset-4 group-hover:underline line-clamp-3">
           {item.title}
         </h2>
-
         {item.summary && (
-          <p className="text-sm text-muted-foreground leading-relaxed mb-4 line-clamp-3">
+          <p className="mt-2 font-sans text-[0.9375rem] leading-relaxed text-muted-foreground line-clamp-3">
             {item.summary}
           </p>
         )}
-
-        <div className="mt-auto flex items-center justify-between gap-2 flex-wrap">
-          {item.tags.length > 0 ? (
-            <div className="flex flex-wrap gap-1.5">
-              {item.tags.slice(0, 2).map((tag) => (
-                <span
-                  key={tag}
-                  className="text-xs text-muted-foreground/80 bg-secondary px-2.5 py-0.5 rounded-full"
-                >
-                  {tag}
-                </span>
-              ))}
-              {item.tags.length > 2 && (
-                <span className="text-xs text-muted-foreground/60">+{item.tags.length - 2}</span>
-              )}
-            </div>
-          ) : (
-            <span />
-          )}
-          <span className="text-xs text-muted-foreground/70">{readTime(item.wordCount)}</span>
-        </div>
       </Link>
     );
   }
 
   return (
-    <article className="group py-7 border-b border-border last:border-0 transition-colors duration-200">
-      <div className="flex items-center gap-2.5 mb-3">
-        <CategoryBadge category={item.category} />
-        {item.date && (
-          <time className="text-xs text-muted-foreground">
-            {new Date(item.date).toLocaleDateString("en-SG", {
-              year: "numeric",
-              month: "long",
-              day: "numeric",
-            })}
-          </time>
-        )}
-        <span className="text-xs text-muted-foreground/70">
-          {readTime(item.wordCount)}
-        </span>
-      </div>
-
-      <Link to={articleHref} className="block">
-        <h2 className="text-lg font-semibold text-foreground group-hover:text-warm-accent transition-colors duration-150 leading-snug mb-2">
+    <article className="border-b border-border py-7">
+      {meta}
+      <Link to={articleHref} className="group mt-2 block">
+        <h2 className="font-serif text-2xl leading-snug decoration-1 underline-offset-4 group-hover:underline">
           {item.title}
         </h2>
       </Link>
-
       {item.summary && (
-        <p className="text-sm text-muted-foreground leading-relaxed mb-4 max-w-prose">
+        <p className="mt-2 max-w-[42rem] font-sans text-[0.9375rem] leading-relaxed text-muted-foreground">
           {item.summary}
         </p>
       )}
-
-      {item.tags.length > 0 && (
-        <div className="flex flex-wrap gap-1.5">
-          {item.tags.map((tag) => (
-            <span
-              key={tag}
-              className="text-xs text-muted-foreground/80 bg-secondary px-2.5 py-0.5 rounded-full transition-colors duration-150 hover:bg-secondary/80"
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
-      )}
+      {tags && <div className="mt-3">{tags}</div>}
     </article>
   );
 }

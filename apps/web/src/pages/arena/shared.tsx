@@ -23,9 +23,9 @@ export function Section({
 }) {
   return (
     <section id={id} className="scroll-mt-16 border-t" style={{ borderColor: "var(--arena-border)" }}>
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-14">
+      <div className="max-w-6xl mx-auto px-5 sm:px-8 py-14">
         <div className="mb-8">
-          <h2 className="text-2xl sm:text-3xl font-bold tracking-tight" style={{ color: "var(--arena-text)" }}>
+          <h2 className="text-2xl sm:text-3xl" style={{ color: "var(--arena-text)" }}>
             {chapterNumber(eyebrow) && (
               <span style={{ color: "var(--arena-accent)" }}>{chapterNumber(eyebrow)}. </span>
             )}
@@ -50,11 +50,11 @@ export function Card({
 }) {
   return (
     <div
-      className={`rounded-xl border p-5 ${className}`}
+      className={`rounded-sm border p-5 ${className}`}
       style={{ borderColor: "var(--arena-border)", backgroundColor: "var(--arena-surface)" }}
     >
       {title && (
-        <div className="text-xs font-mono mb-4 " style={{ color: "var(--arena-muted)" }}>
+        <div className="text-xs mb-4" style={{ color: "var(--arena-muted)" }}>
           {title}
         </div>
       )}
@@ -67,10 +67,10 @@ export function Card({
 export function Details({ summary, children }: { summary: string; children: React.ReactNode }) {
   const [open, setOpen] = useState(false);
   return (
-    <div className="mt-4 rounded-lg border" style={{ borderColor: "var(--arena-border)" }}>
+    <div className="mt-4 rounded-sm border" style={{ borderColor: "var(--arena-border)" }}>
       <button
         onClick={() => setOpen((o) => !o)}
-        className="w-full flex items-center justify-between gap-2 px-4 py-2.5 text-left text-xs font-mono transition-colors"
+        className="w-full flex items-center justify-between gap-2 px-4 py-2.5 text-left text-xs transition-colors"
         style={{ color: "var(--arena-muted)" }}
         aria-expanded={open}
       >
@@ -79,7 +79,7 @@ export function Details({ summary, children }: { summary: string; children: Reac
       </button>
       {open && (
         <div
-          className="px-4 pb-4 pt-1 text-sm leading-relaxed border-t"
+          className="font-serif px-4 pb-4 pt-1 text-[1rem] leading-relaxed border-t"
           style={{ color: "var(--arena-text)", borderColor: "var(--arena-border)" }}
         >
           {children}
@@ -133,7 +133,7 @@ export function Slider({
         </label>
         {badge && (
           <span
-            className="text-xs font-mono px-1.5 py-0.5 rounded"
+            className="text-xs px-1.5 py-0.5 rounded"
             style={{ color: "var(--arena-accent)", backgroundColor: "var(--arena-accent-dim)" }}
           >
             {badge}
@@ -149,7 +149,7 @@ export function Slider({
         onChange={(e) => onChange(parseFloat(e.target.value))}
         className="arena-range w-full"
       />
-      <div className="flex justify-between text-[0.65rem] font-mono mt-0.5" style={{ color: "var(--arena-muted)" }}>
+      <div className="flex justify-between text-xs mt-0.5" style={{ color: "var(--arena-muted)" }}>
         <span>{lo}</span>
         <span>{hi}</span>
       </div>
@@ -161,14 +161,14 @@ export function Slider({
 export function useChartTheme(theme: "dark" | "light") {
   return {
     tooltip: {
-      backgroundColor: theme === "dark" ? "#211a36" : "#ffffff",
+      backgroundColor: "var(--arena-surface)",
       border: "1px solid var(--arena-border)",
       borderRadius: 8,
-      fontFamily: "ui-monospace, monospace",
+      fontFamily: "var(--font-sans-face)",
       fontSize: 12,
       color: "var(--arena-text)",
     } as React.CSSProperties,
-    tick: { fill: "var(--arena-muted)", fontSize: 10, fontFamily: "ui-monospace, monospace" },
+    tick: { fill: "var(--arena-muted)", fontSize: 10, fontFamily: "var(--font-sans-face)" },
     grid: "var(--arena-border)",
   };
 }

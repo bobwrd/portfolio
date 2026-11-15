@@ -71,7 +71,7 @@ export default function Chapter3() {
 
   return (
     <Section id="outcomes" eyebrow="3 · Market outcomes" title="Structure, behaviour, and what comes out">
-      <div className="max-w-3xl mb-6 text-sm sm:text-base leading-relaxed" style={{ color: "var(--arena-text)" }}>
+      <div className="font-serif max-w-3xl mb-6 text-[1rem] sm:text-[1.0625rem] leading-relaxed" style={{ color: "var(--arena-text)" }}>
         Two dials now. Market concentration sets how few firms hold the market. Behavioural distortion is the
         share of effort burned on waste, the thing Chapter 2 produced. Watch all four outcomes move at once.
       </div>
@@ -106,17 +106,17 @@ export default function Chapter3() {
               { label: "Consumer surplus", v: now.surplus, tone: "var(--arena-accent)" },
               { label: "Deadweight loss", v: now.deadweight, tone: "var(--arena-warn)" },
             ].map((m) => (
-              <div key={m.label} className="rounded-lg p-2.5" style={{ backgroundColor: "var(--arena-surface-2)" }}>
-                <div className="text-[0.6rem] font-mono mb-0.5" style={{ color: "var(--arena-muted)" }}>
+              <div key={m.label} className="rounded-sm p-2.5" style={{ backgroundColor: "var(--arena-surface-2)" }}>
+                <div className="text-xs mb-0.5" style={{ color: "var(--arena-muted)" }}>
                   {m.label}
                 </div>
-                <div className="text-lg font-mono font-semibold" style={{ color: m.tone }}>
+                <div className="text-lg font-semibold" style={{ color: m.tone }}>
                   {m.v.toFixed(0)}
                 </div>
               </div>
             ))}
           </div>
-          <p className="mt-3 text-[0.65rem] leading-relaxed" style={{ color: "var(--arena-muted)" }}>
+          <p className="mt-3 text-xs leading-relaxed" style={{ color: "var(--arena-muted)" }}>
             X-axis on each chart is concentration (0 to 100). The dashed line marks your current setting.
             Distortion shifts the whole quality, innovation, and surplus curves down.
           </p>

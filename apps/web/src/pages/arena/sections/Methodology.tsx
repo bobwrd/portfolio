@@ -84,7 +84,7 @@ const GROUPS: { chapter: string; refs: Ref[] }[] = [
 export default function Methodology() {
   return (
     <Section id="methodology" eyebrow="Method" title="Methodology and sources">
-      <div className="max-w-3xl space-y-4 text-sm sm:text-base leading-relaxed" style={{ color: "var(--arena-text)" }}>
+      <div className="font-serif max-w-3xl space-y-4 text-[1rem] sm:text-[1.0625rem] leading-relaxed" style={{ color: "var(--arena-text)" }}>
         <p>
           Every curve here is a simple teaching function. The numbers are rescaled to 0 to 100 indices for
           legibility. What comes from the literature is the direction and rough shape of each relationship, not
@@ -97,7 +97,7 @@ export default function Methodology() {
         {GROUPS.map((g) => (
           <div
             key={g.chapter}
-            className="rounded-xl border p-5"
+            className="rounded-sm border p-5"
             style={{ borderColor: "var(--arena-border)", backgroundColor: "var(--arena-surface)" }}
           >
             <div className="text-sm font-semibold mb-3" style={{ color: "var(--arena-accent)" }}>
@@ -106,7 +106,7 @@ export default function Methodology() {
             <ul className="space-y-3">
               {g.refs.map((r) => (
                 <li key={r.cite}>
-                  <div className="text-xs font-mono leading-snug" style={{ color: "var(--arena-text)" }}>
+                  <div className="text-xs leading-snug" style={{ color: "var(--arena-text)" }}>
                     {r.cite}
                   </div>
                   <div className="text-xs leading-relaxed mt-0.5" style={{ color: "var(--arena-muted)" }}>
@@ -119,7 +119,7 @@ export default function Methodology() {
         ))}
       </div>
 
-      <p className="mt-6 text-sm leading-relaxed max-w-3xl" style={{ color: "var(--arena-muted)" }}>
+      <p className="font-serif mt-6 text-[1rem] leading-relaxed max-w-3xl" style={{ color: "var(--arena-muted)" }}>
         Relationships and comparative statics come from real work; the magnitudes are simplified. For the full
         write-up of every function, parameter, and limitation, see the{" "}
         <Link to="/mini/arena/methods" className="hover:underline" style={{ color: "var(--arena-accent)" }}>

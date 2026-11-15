@@ -199,7 +199,7 @@ export default function TradewindsAdmin() {
     return (
       <TradewindsShell>
         <div className="max-w-sm mx-auto">
-          <h1 className="text-xl font-bold mb-4" style={{ color: "var(--tw-text)" }}>
+          <h1 className="text-xl mb-4" style={{ color: "var(--tw-text)" }}>
             Puzzle editor
           </h1>
           <form onSubmit={handleUnlock} className="space-y-3">
@@ -227,13 +227,13 @@ export default function TradewindsAdmin() {
 
   return (
     <TradewindsShell>
-      <h1 className="text-2xl font-bold mb-6" style={{ color: "var(--tw-text)" }}>
+      <h1 className="text-2xl mb-6" style={{ color: "var(--tw-text)" }}>
         Tradewinds puzzle editor
       </h1>
 
       <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)] gap-6 items-start">
         <form onSubmit={handleSubmit} className="space-y-5">
-          <div className="rounded-lg border p-5 space-y-4" style={{ borderColor: "var(--tw-border)", backgroundColor: "var(--tw-surface)" }}>
+          <div className="rounded-sm border p-5 space-y-4" style={{ borderColor: "var(--tw-border)", backgroundColor: "var(--tw-surface)" }}>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div>
                 <label className="block text-xs font-medium mb-1" style={{ color: "var(--tw-muted)" }}>
@@ -275,8 +275,8 @@ export default function TradewindsAdmin() {
             </div>
           </div>
 
-          <div className="rounded-lg border p-5 space-y-4" style={{ borderColor: "var(--tw-border)", backgroundColor: "var(--tw-surface)" }}>
-            <h2 className="text-sm font-semibold " style={{ color: "var(--tw-muted)" }}>
+          <div className="rounded-sm border p-5 space-y-4" style={{ borderColor: "var(--tw-border)", backgroundColor: "var(--tw-surface)" }}>
+            <h2 className="text-sm" style={{ color: "var(--tw-muted)" }}>
               Manifest rows
             </h2>
             <PortDatalist ports={ports} />
@@ -348,8 +348,8 @@ export default function TradewindsAdmin() {
             </button>
           </div>
 
-          <div className="rounded-lg border p-5 space-y-4" style={{ borderColor: "var(--tw-border)", backgroundColor: "var(--tw-surface)" }}>
-            <h2 className="text-sm font-semibold " style={{ color: "var(--tw-muted)" }}>
+          <div className="rounded-sm border p-5 space-y-4" style={{ borderColor: "var(--tw-border)", backgroundColor: "var(--tw-surface)" }}>
+            <h2 className="text-sm" style={{ color: "var(--tw-muted)" }}>
               Answer
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -422,8 +422,8 @@ export default function TradewindsAdmin() {
         </form>
 
         <div className="space-y-6">
-          <div className="rounded-lg border p-5" style={{ borderColor: "var(--tw-border)", backgroundColor: "var(--tw-surface)" }}>
-            <h2 className="text-sm font-semibold mb-3" style={{ color: "var(--tw-muted)" }}>
+          <div className="rounded-sm border p-5" style={{ borderColor: "var(--tw-border)", backgroundColor: "var(--tw-surface)" }}>
+            <h2 className="text-sm mb-3" style={{ color: "var(--tw-muted)" }}>
               How to author a good puzzle
             </h2>
             <ul className="text-sm space-y-2 list-disc pl-4" style={{ color: "var(--tw-text)" }}>
@@ -434,8 +434,8 @@ export default function TradewindsAdmin() {
             </ul>
           </div>
 
-          <div className="rounded-lg border p-5" style={{ borderColor: "var(--tw-border)", backgroundColor: "var(--tw-surface)" }}>
-            <h2 className="text-sm font-semibold mb-3" style={{ color: "var(--tw-muted)" }}>
+          <div className="rounded-sm border p-5" style={{ borderColor: "var(--tw-border)", backgroundColor: "var(--tw-surface)" }}>
+            <h2 className="text-sm mb-3" style={{ color: "var(--tw-muted)" }}>
               Scheduled puzzles
             </h2>
             <ul className="text-sm space-y-1">
@@ -457,10 +457,10 @@ export default function TradewindsAdmin() {
 
           <form
             onSubmit={handleAddPort}
-            className="rounded-lg border p-5 space-y-2"
+            className="rounded-sm border p-5 space-y-2"
             style={{ borderColor: "var(--tw-border)", backgroundColor: "var(--tw-surface)" }}
           >
-            <h2 className="text-sm font-semibold mb-1" style={{ color: "var(--tw-muted)" }}>
+            <h2 className="text-sm mb-1" style={{ color: "var(--tw-muted)" }}>
               Add a new port
             </h2>
             <input

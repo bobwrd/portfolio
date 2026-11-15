@@ -1,3 +1,4 @@
+import PaperHeader from "@/components/PaperHeader";
 import { useState, useEffect, useMemo } from "react";
 import { Link } from "react-router-dom";
 import {
@@ -12,7 +13,7 @@ import VerdictMap from "./VerdictMap";
 function TierBadge({ tier }: { tier: string }) {
   return (
     <span
-      className="text-[0.65rem] font-mono font-bold px-2 py-0.5 rounded "
+      className="font-sans text-[0.8125rem] font-semibold px-1.5 py-px rounded-sm"
       style={{
         color: TIER_COLORS[tier] ?? "var(--verdict-muted)",
         backgroundColor: TIER_BG[tier] ?? "transparent",
@@ -67,7 +68,7 @@ function CompactTimeline({ cases }: { cases: VerdictCase[] }) {
     const d = payload[0].payload;
     return (
       <div
-        className="rounded border p-3 text-xs font-mono"
+        className="rounded border p-3 text-xs"
         style={{
           backgroundColor: "#fff",
           borderColor: "var(--verdict-border)",
@@ -75,7 +76,7 @@ function CompactTimeline({ cases }: { cases: VerdictCase[] }) {
         }}
       >
         <div style={{ color: TIER_COLORS[d.tier] }} className="font-bold mb-1">{d.tier}</div>
-        <div className="text-[0.7rem] mb-1 max-w-[180px] leading-snug">{d.title}</div>
+        <div className="text-[0.8125rem] mb-1 max-w-[180px] leading-snug">{d.title}</div>
         <div>EDI: <span style={{ color: "var(--verdict-accent)" }}>{d.y.toFixed(1)}</span></div>
         <div style={{ color: "var(--verdict-muted)" }}>{new Date(d.x).toLocaleDateString("en-SG", { year: "numeric", month: "short" })}</div>
       </div>
@@ -94,7 +95,7 @@ function CompactTimeline({ cases }: { cases: VerdictCase[] }) {
             domain={["auto", "auto"]}
             ticks={monthTicks}
             tickFormatter={tickFormatter}
-            tick={{ fill: "var(--verdict-muted)", fontSize: 10, fontFamily: "monospace" }}
+            tick={{ fill: "var(--verdict-muted)", fontSize: 10, fontFamily: "var(--font-sans-face)" }}
             axisLine={{ stroke: "var(--verdict-border)" }}
             tickLine={false}
             scale="time"
@@ -103,7 +104,7 @@ function CompactTimeline({ cases }: { cases: VerdictCase[] }) {
           <YAxis
             dataKey="y"
             domain={[1, 10]}
-            tick={{ fill: "var(--verdict-muted)", fontSize: 10, fontFamily: "monospace" }}
+            tick={{ fill: "var(--verdict-muted)", fontSize: 10, fontFamily: "var(--font-sans-face)" }}
             axisLine={{ stroke: "var(--verdict-border)" }}
             tickLine={false}
             name="EDI"
@@ -125,66 +126,38 @@ function CaseCard({ c }: { c: VerdictCase }) {
   const band = computed.uncertainty_band;
 
   return (
-    <Link to={`/verdict/${c.case_id}`} className="block group">
-      <article
-        className="rounded-lg border p-5 transition-colors duration-200"
-        style={{
-          backgroundColor: "var(--verdict-surface)",
-          borderColor: "var(--verdict-border)",
-        }}
-        onMouseEnter={(e) => {
-          (e.currentTarget as HTMLElement).style.borderColor = "var(--verdict-border-hover)";
-          (e.currentTarget as HTMLElement).style.boxShadow = `0 0 20px var(--verdict-accent-dim)`;
-        }}
-        onMouseLeave={(e) => {
-          (e.currentTarget as HTMLElement).style.borderColor = "var(--verdict-border)";
-          (e.currentTarget as HTMLElement).style.boxShadow = "none";
-        }}
-      >
-        {/* Header row */}
-        <div className="flex items-start justify-between gap-4 mb-3">
-          <div className="flex items-center gap-2 flex-wrap">
-            <TierBadge tier={computed.tier} />
-            <span
-              className="text-[0.65rem] font-mono px-2 py-0.5 rounded"
-              style={{ color: "var(--verdict-muted)", backgroundColor: "var(--verdict-surface-2)" }}
-            >
-              {c.decision_type}
-            </span>
-          </div>
-          <div className="text-right shrink-0">
-            <div
-              className="text-2xl font-mono font-bold"
-              style={{ color: "var(--verdict-accent)" }}
-            >
-              {computed.EDI.toFixed(1)}
-            </div>
-            <div className="text-[0.6rem] font-mono" style={{ color: "var(--verdict-muted)" }}>
-              ±[{band[0].toFixed(1)}, {band[1].toFixed(1)}]
-            </div>
-          </div>
-        </div>
-
-        {/* Title */}
+    <Link
+      to={`/mini/verdict/${c.case_id}`}
+      className="group grid grid-cols-[minmax(0,1fr)_auto] gap-x-6 border-b py-5"
+      style={{ borderColor: "var(--verdict-border)" }}
+    >
+      <div className="min-w-0">
+        <p className="flex flex-wrap items-center gap-x-4 gap-y-1 font-sans text-[0.875rem]" style={{ color: "var(--verdict-muted)" }}>
+          <TierBadge tier={computed.tier} />
+          <span>{c.decision_type}</span>
+          <time dateTime={c.date}>
+            {new Date(c.date).toLocaleDateString("en-SG", { year: "numeric", month: "short", day: "numeric" })}
+          </time>
+          <span>{c.jurisdiction}</span>
+        </p>
         <h3
-          className="font-semibold text-base leading-snug mb-1 group-hover:opacity-90 transition-opacity"
+          className="mt-2 font-serif text-xl leading-snug decoration-1 underline-offset-4 group-hover:underline"
           style={{ color: "var(--verdict-text)" }}
         >
           {c.title}
         </h3>
-
-        {/* Meta */}
-        <div className="flex items-center gap-3 mb-3 text-xs font-mono" style={{ color: "var(--verdict-muted)" }}>
-          <time>{new Date(c.date).toLocaleDateString("en-SG", { year: "numeric", month: "short", day: "numeric" })}</time>
-          <span>·</span>
-          <span>{c.jurisdiction}</span>
-        </div>
-
-        {/* Summary */}
-        <p className="text-sm leading-relaxed line-clamp-3" style={{ color: "var(--verdict-muted)" }}>
+        <p className="mt-1.5 max-w-[42rem] font-serif text-[1rem] leading-relaxed line-clamp-3" style={{ color: "var(--verdict-text)" }}>
           {c.summary}
         </p>
-      </article>
+      </div>
+      <div className="text-right">
+        <div className="font-serif text-3xl leading-none tabular-nums" style={{ color: "var(--verdict-accent)" }}>
+          {computed.EDI.toFixed(1)}
+        </div>
+        <div className="mt-1 font-sans text-[0.8125rem] tabular-nums" style={{ color: "var(--verdict-muted)" }}>
+          EDI, range {band[0].toFixed(1)} to {band[1].toFixed(1)}
+        </div>
+      </div>
     </Link>
   );
 }
@@ -227,7 +200,7 @@ export default function VerdictIndex() {
     return { total, avgEDI, byTier };
   }, [cases]);
 
-  const selectClass = "bg-transparent border rounded px-2 py-1 text-xs font-mono appearance-none cursor-pointer";
+  const selectClass = "bg-transparent border rounded-sm px-2 py-1 text-xs appearance-none cursor-pointer";
   const selectStyle = {
     borderColor: "var(--verdict-border)",
     color: "var(--verdict-muted)",
@@ -236,66 +209,56 @@ export default function VerdictIndex() {
 
   return (
     <div>
-      {/* Header */}
-      <div className="mb-8">
-        <h1 className="text-2xl font-bold tracking-tight mb-2" style={{ color: "var(--verdict-text)" }}>
-          The Verdict
-        </h1>
-        <p className="text-sm leading-relaxed max-w-2xl" style={{ color: "var(--verdict-muted)" }}>
-          A methodology-driven index of AI-related court rulings, regulatory decisions, and major corporate actions —
-          each case scored on five factors to produce an Enforcement-Driven Index (EDI). The scoring framework is
-          transparent and fully documented; scores are normalised across the full database, so they shift as more
-          cases are added. Built for cross-jurisdictional comparison: the EDI is what makes it possible to ask
-          which decisions actually matter, not just which ones made the news.
-        </p>
+      {/* Cover sheet */}
+      <div className="mb-10">
+        <PaperHeader
+          series="Working Paper Series, No. 02.1"
+          meta="Updated weekly"
+          color="var(--verdict-accent)"
+          ink="var(--verdict-text)"
+          muted="var(--verdict-muted)"
+          rule="var(--verdict-border)"
+          title="The Verdict"
+          byline="An index of AI regulation, scored case by case."
+          keywords={
+            !loading && cases.length > 0 ? (
+              <>
+                {stats.total} cases, average EDI {stats.avgEDI.toFixed(2)}.{" "}
+                {Object.entries(stats.byTier)
+                  .map(([tier, count]) => `${tier} ${count}`)
+                  .join(", ")}
+                .
+              </>
+            ) : undefined
+          }
+          abstract={
+            <p>
+              An index of AI-related court rulings, regulatory decisions and
+              major corporate actions. Each case is scored on five factors to
+              produce an Enforcement-Driven Index (EDI). The scoring framework
+              is documented in full, and scores are normalised across the whole
+              database, so they shift as cases are added. The EDI is built for
+              comparing jurisdictions: it ranks decisions by consequence rather
+              than by press coverage.
+            </p>
+          }
+        />
       </div>
-
-      {/* Stats bar */}
-      {!loading && cases.length > 0 && (
-        <div
-          className="flex items-center gap-6 flex-wrap rounded-lg border p-4 mb-8 text-xs font-mono"
-          style={{ borderColor: "var(--verdict-border)", backgroundColor: "var(--verdict-surface)" }}
-        >
-          <div>
-            <div className="text-lg font-bold" style={{ color: "var(--verdict-accent)" }}>{stats.total}</div>
-            <div style={{ color: "var(--verdict-muted)" }}>cases</div>
-          </div>
-          <div className="w-px h-8 self-center" style={{ backgroundColor: "var(--verdict-border)" }} />
-          <div>
-            <div className="text-lg font-bold" style={{ color: "var(--verdict-accent)" }}>
-              {stats.avgEDI.toFixed(2)}
-            </div>
-            <div style={{ color: "var(--verdict-muted)" }}>avg EDI</div>
-          </div>
-          <div className="w-px h-8 self-center" style={{ backgroundColor: "var(--verdict-border)" }} />
-          <div className="flex items-center gap-3 flex-wrap">
-            {Object.entries(stats.byTier).map(([tier, count]) => (
-              <div key={tier} className="flex items-center gap-1.5">
-                <span
-                  className="inline-block w-2 h-2 rounded-full"
-                  style={{ backgroundColor: TIER_COLORS[tier] ?? "var(--verdict-muted)" }}
-                />
-                <span style={{ color: "var(--verdict-muted)" }}>{tier}: {count}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
 
       {/* Map — plain SVG, light enough to render inline (no load-on-demand needed) */}
       {!loading && cases.length > 0 && (
         <div
-          className="rounded-lg border p-4 mb-8"
+          className="rounded-sm border p-4 mb-8"
           style={{ borderColor: "var(--verdict-border)", backgroundColor: "var(--verdict-surface)" }}
         >
-          <div className="text-xs font-mono mb-3" style={{ color: "var(--verdict-muted)" }}>
-            GLOBAL DISTRIBUTION — click a point to open that verdict
+          <div className="text-xs mb-3" style={{ color: "var(--verdict-muted)" }}>
+            Global distribution. Click a point to open its case.
           </div>
           <ErrorBoundary
             fallback={
               <div className="h-80 flex flex-col items-center justify-center gap-2 rounded text-center px-4" style={{ backgroundColor: "var(--verdict-surface-2)", color: "var(--verdict-muted)" }}>
-                <span className="text-xs font-mono">The map couldn’t load in this browser.</span>
-                <span className="text-[0.65rem] font-mono">All cases are available in the timeline and list below.</span>
+                <span className="text-xs">The map couldn’t load in this browser.</span>
+                <span className="text-xs">All cases are available in the timeline and list below.</span>
               </div>
             }
           >
@@ -307,11 +270,11 @@ export default function VerdictIndex() {
       {/* Timeline */}
       {!loading && cases.length > 0 && (
         <div
-          className="rounded-lg border p-4 mb-8 mt-12"
+          className="rounded-sm border p-4 mb-8 mt-12"
           style={{ borderColor: "var(--verdict-border)", backgroundColor: "var(--verdict-surface)" }}
         >
-          <div className="text-xs font-mono mb-3" style={{ color: "var(--verdict-muted)" }}>
-            TIMELINE — EDI by date
+          <div className="text-xs mb-3" style={{ color: "var(--verdict-muted)" }}>
+            Timeline: EDI by date
           </div>
           <CompactTimeline cases={filtered} />
         </div>
@@ -354,7 +317,7 @@ export default function VerdictIndex() {
             <button
               key={s}
               onClick={() => setSort(s)}
-              className="px-2.5 py-1 rounded text-xs font-mono transition-colors duration-150"
+              className="px-2.5 py-1 rounded text-xs transition-colors duration-150"
               style={{
                 color: sort === s ? "var(--verdict-accent)" : "var(--verdict-muted)",
                 backgroundColor: sort === s ? "var(--verdict-accent-dim)" : "transparent",
@@ -369,15 +332,15 @@ export default function VerdictIndex() {
 
       {/* Cases */}
       {loading ? (
-        <div className="py-16 text-center text-sm font-mono" style={{ color: "var(--verdict-muted)" }}>
+        <div className="py-16 text-center text-sm" style={{ color: "var(--verdict-muted)" }}>
           Loading…
         </div>
       ) : filtered.length === 0 ? (
-        <div className="py-16 text-center text-sm font-mono" style={{ color: "var(--verdict-muted)" }}>
+        <div className="py-16 text-center text-sm" style={{ color: "var(--verdict-muted)" }}>
           No cases match the current filters.
         </div>
       ) : (
-        <div className="flex flex-col gap-4">
+        <div className="border-t" style={{ borderColor: "var(--verdict-border)" }}>
           {filtered.map((c) => <CaseCard key={c.case_id} c={c} />)}
         </div>
       )}

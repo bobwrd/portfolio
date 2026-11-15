@@ -13,21 +13,21 @@ export default function DocketMethods() {
   const text = "var(--docket-text)";
 
   return (
-    <div className="max-w-6xl mx-auto px-4 sm:px-6 py-14">
+    <div className="max-w-6xl mx-auto px-5 sm:px-8 py-14">
       <div className="max-w-3xl">
         <div
-          className="text-[0.7rem] font-mono mb-3"
+          className="text-[0.8125rem] mb-3"
           style={{ color: "var(--docket-accent)" }}
         >
           The Docket: technical note
         </div>
         <h1
-          className="text-3xl sm:text-4xl font-bold tracking-tight mb-2"
+          className="text-3xl sm:text-4xl mb-2"
           style={{ color: text }}
         >
           Indian Court Backlogs: Data Sources, Scoring and Design
         </h1>
-        <p className="text-xs font-mono mb-8" style={{ color: muted }}>
+        <p className="text-xs mb-8" style={{ color: muted }}>
           Working paper by Arin Jain, 2024
         </p>
 

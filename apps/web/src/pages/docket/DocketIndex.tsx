@@ -1,3 +1,4 @@
+import { Download } from "lucide-react";
 import { useEffect } from "react";
 import Intro from "./sections/Intro";
 import BacklogMap from "./sections/BacklogMap";
@@ -127,7 +128,7 @@ function buildHTML(): string {
   const stateRows = statePending.map((s) => {
     const b = bottleneckData.find((x) => x.state === s.state);
     const tierColor: Record<string, string> = {
-      Critical: "#a8232a", High: "#b4541a", Moderate: "#9a6a08", Low: "#2a6a44",
+      Critical: "var(--crit)", High: "var(--high)", Moderate: "var(--mod)", Low: "var(--accent)",
     };
     const tier = b?.tier ?? "";
     const tStyle = tier ? `color:${tierColor[tier]};font-weight:600` : "";
@@ -149,7 +150,7 @@ function buildHTML(): string {
     `<tr>
       <td>${esc(c.level)}</td>
       <td>${c.pending}${c.pendingUnit === "M" ? "M" : "k"}</td>
-      <td>${c.judgesActual}/${c.judgesSanctioned} <span style="color:#a8232a">(${c.vacancyPct}% vacant)</span></td>
+      <td>${c.judgesActual}/${c.judgesSanctioned} <span style="color:var(--crit)">(${c.vacancyPct}% vacant)</span></td>
       <td>${c.avgDisposalYears} yrs</td>
       <td>${c.disposalRate}%</td>
     </tr>`
@@ -161,14 +162,14 @@ function buildHTML(): string {
       <td>${esc(c.dimension)}</td>
       <td>${esc(c.india)}</td>
       <td>${esc(c.singapore)}</td>
-      <td style="color:#b4541a">${c.indiaRaw}</td>
-      <td style="color:#2a6a44">${c.singaporeRaw}</td>
-      <td style="color:#a8232a">+${diff} gap</td>
+      <td style="color:var(--high)">${c.indiaRaw}</td>
+      <td style="color:var(--accent)">${c.singaporeRaw}</td>
+      <td style="color:var(--crit)">+${diff} gap</td>
     </tr>`;
   }).join("\n");
 
   const costRows = delaysCost.map((d) =>
-    `<tr><td>${esc(d.label)}</td><td>${esc(d.cost)}</td><td style="color:#645c51">${esc(d.source)}</td></tr>`
+    `<tr><td>${esc(d.label)}</td><td>${esc(d.cost)}</td><td style="color:var(--muted)">${esc(d.source)}</td></tr>`
   ).join("\n");
 
   return `<!DOCTYPE html>
@@ -178,19 +179,20 @@ function buildHTML(): string {
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>The Docket — Data Export</title>
   <style>
+ :root{--paper:#fdfdfc;--ink:#1a1816;--muted:#57524b;--tint:#f4f2ee;--row:#f8f7f4;--row-hover:#efece6;--accent:#2a6a44;--crit:#a8232a;--high:#b4541a;--mod:#9a6a08}
     *{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:system-ui,sans-serif;background:#faf8f3;color:#1f1b16;padding:2rem 1.5rem}
-    h1{font-size:1.05rem;color:#2a6a44;font-weight:700;margin-bottom:.3rem}
-    .meta{font-size:.72rem;color:#645c51;margin-bottom:2rem}
-    h2{font-size:.9rem;color:#2a6a44; margin:2rem 0 .75rem;font-weight:700}
+    body{font-family:system-ui,sans-serif;background:var(--paper);color:var(--ink);padding:2rem 1.5rem}
+    h1{font-size:1.05rem;color:var(--accent);font-weight:700;margin-bottom:.3rem}
+    .meta{font-size:.72rem;color:var(--muted);margin-bottom:2rem}
+    h2{font-size:.9rem;color:var(--accent); margin:2rem 0 .75rem;font-weight:700}
     .wrap{overflow-x:auto;margin-bottom:.5rem}
     table{border-collapse:collapse;width:100%;font-size:.71rem;white-space:nowrap}
-    thead th{background:#f2eee5;color:#2a6a44;padding:.45rem .7rem;text-align:left;font-weight:600;border-bottom:1px solid rgba(40,100,64,.18)}
-    tbody td{padding:.32rem .7rem;border-bottom:1px solid rgba(40,100,64,.08);color:#1f1b16}
-    tbody tr:nth-child(even) td{background:#f6f3ec}
-    tbody tr:hover td{background:#efe9de}
-    .src{margin-top:2rem;font-size:.7rem;color:#645c51;border-top:1px solid rgba(40,100,64,.18);padding-top:.75rem}
-    a{color:#2a6a44}
+    thead th{background:var(--tint);color:var(--accent);padding:.45rem .7rem;text-align:left;font-weight:600;border-bottom:1px solid rgba(40,100,64,.18)}
+    tbody td{padding:.32rem .7rem;border-bottom:1px solid rgba(40,100,64,.08);color:var(--ink)}
+    tbody tr:nth-child(even) td{background:var(--row)}
+    tbody tr:hover td{background:var(--row-hover)}
+    .src{margin-top:2rem;font-size:.7rem;color:var(--muted);border-top:1px solid rgba(40,100,64,.18);padding-top:.75rem}
+    a{color:var(--accent)}
   </style>
 </head>
 <body>
@@ -264,9 +266,9 @@ function DownloadStrip() {
 
   return (
     <div className="border-b" style={{ borderColor: "var(--docket-border)", backgroundColor: "var(--docket-surface)" }}>
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-2.5 flex items-center gap-3 flex-wrap">
+      <div className="max-w-6xl mx-auto px-5 sm:px-8 py-2.5 flex items-center gap-3 flex-wrap">
         <span
-          className="text-[0.6rem] font-mono "
+          className="text-xs"
           style={{ color: "var(--docket-muted)", opacity: 0.7 }}
         >
           Download raw data
@@ -276,7 +278,7 @@ function DownloadStrip() {
             key={label}
             onClick={action}
             title={title}
-            className="text-[0.65rem] font-mono px-2.5 py-1 rounded border transition-colors duration-150"
+            className="inline-flex items-center gap-1.5 rounded-sm border px-2.5 py-1 text-xs transition-colors duration-150"
             style={{ borderColor: "var(--docket-border)", color: "var(--docket-muted)", backgroundColor: "transparent" }}
             onMouseEnter={(e) => {
               (e.currentTarget as HTMLButtonElement).style.borderColor = "var(--docket-accent)";
@@ -287,14 +289,14 @@ function DownloadStrip() {
               (e.currentTarget as HTMLButtonElement).style.color = "var(--docket-muted)";
             }}
           >
-            ↓ {label}
+            <Download className="size-3.5" aria-hidden="true" /> {label}
           </button>
         ))}
         <span
-          className="text-[0.6rem] font-mono hidden sm:block ml-auto"
-          style={{ color: "var(--docket-muted)", opacity: 0.4 }}
+          className="text-xs hidden sm:block ml-auto"
+          style={{ color: "var(--docket-muted)" }}
         >
-          {statePending.length} states · {trendData.length} years · {today}
+          {statePending.length} states and {trendData.length} years of data, exported {today}
         </span>
       </div>
     </div>
@@ -318,7 +320,7 @@ export default function DocketIndex() {
 
       {/* Cross-links */}
       <div
-        className="max-w-6xl mx-auto px-4 sm:px-6 pb-16 pt-4 border-t"
+        className="max-w-6xl mx-auto px-5 sm:px-8 pb-16 pt-4 border-t"
         style={{ borderColor: "var(--docket-border)" }}
       >
         <p className="text-xs mb-3" style={{ color: "var(--docket-muted)" }}>

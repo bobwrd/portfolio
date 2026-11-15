@@ -5,14 +5,11 @@ export default function AuthorBox() {
   return (
     <div className="mt-10 pt-8 border-t border-border">
       <div className="flex items-start gap-4">
-        <div className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center flex-shrink-0 text-sm font-semibold text-muted-foreground">
-          AJ
-        </div>
         <div>
-          <p className="text-sm font-semibold text-foreground">{siteConfig.author}</p>
-          <p className="text-sm text-muted-foreground mt-0.5">
+          <p className="font-serif text-lg text-foreground">{siteConfig.author}</p>
+          <p className="mt-1 font-sans text-[0.9375rem] text-muted-foreground">
             Writing on economics, law and policy from Singapore.{" "}
-            <Link to="/" className="underline underline-offset-2 hover:text-foreground transition-colors">
+            <Link to="/" className="text-link underline">
               More about me
             </Link>
           </p>

@@ -29,15 +29,15 @@ export default function ObservatoryIndex() {
       <Lab />
       <Methodology data={data} />
       {error && (
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 pb-10">
-          <p className="text-xs font-mono" style={{ color: "var(--obs-warn)" }}>
+        <div className="max-w-6xl mx-auto px-5 sm:px-8 pb-10">
+          <p className="text-xs" style={{ color: "var(--obs-warn)" }}>
             Live data is temporarily unavailable; the walkthrough and lab still work.
           </p>
         </div>
       )}
 
       {/* Cross-links */}
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 pb-16 pt-4 border-t" style={{ borderColor: "var(--obs-border)" }}>
+      <div className="max-w-6xl mx-auto px-5 sm:px-8 pb-16 pt-4 border-t" style={{ borderColor: "var(--obs-border)" }}>
         <p className="text-xs mb-3" style={{ color: "var(--obs-muted)" }}>Related work:</p>
         <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm">
           <a href="/mini/verdict" className="hover:underline" style={{ color: "var(--obs-accent)" }}>

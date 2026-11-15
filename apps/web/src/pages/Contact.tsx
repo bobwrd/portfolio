@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Layout from "@/components/Layout";
+import PaperHeader from "@/components/PaperHeader";
 import { submitContact } from "@/lib/api";
 
 interface FormData {
@@ -44,9 +45,9 @@ export default function Contact() {
     return (
       <Layout>
         <div className="mb-8">
-          <h1 className="text-2xl font-bold text-foreground tracking-tight mb-1">Contact</h1>
+          <PaperHeader series="Margin of Error" title="Contact" />
         </div>
-        <div className="rounded-xl border border-border p-8 text-center bg-secondary/20">
+        <div className="border-t border-foreground pt-6">
           <p className="text-lg font-semibold text-foreground mb-2">Message sent.</p>
           <p className="text-sm text-muted-foreground">Thanks — I will get back to you.</p>
           <button
@@ -64,7 +65,7 @@ export default function Contact() {
     <Layout>
       <div className="mb-8 flex items-start justify-between gap-4 flex-wrap">
         <div>
-          <h1 className="text-2xl font-bold text-foreground tracking-tight mb-1">Contact</h1>
+          <PaperHeader series="Margin of Error" title="Contact" />
           <p className="text-sm text-muted-foreground">
             Questions, feedback, or just want to talk economics or law — reach out.
           </p>
@@ -125,7 +126,7 @@ export default function Contact() {
           <button
             type="submit"
             disabled={status === "loading"}
-            className="px-6 py-2.5 rounded-lg bg-foreground text-background text-sm font-medium hover:opacity-80 transition-opacity disabled:opacity-50"
+            className="px-6 py-2.5 bg-foreground text-background font-sans text-[0.9375rem] font-medium hover:bg-foreground/85 transition-colors disabled:opacity-50"
           >
             {status === "loading" ? "Sending…" : "Send message"}
           </button>
@@ -136,7 +137,7 @@ export default function Contact() {
 }
 
 const inputClass =
-  "w-full px-3 py-2 text-sm rounded-lg border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 transition-shadow";
+  "w-full px-3 py-2 font-sans text-[0.9375rem] border border-input bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 transition-shadow";
 
 function Field({
   label,

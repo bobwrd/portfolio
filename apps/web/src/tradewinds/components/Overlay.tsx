@@ -26,12 +26,12 @@ export default function Overlay({ title, onClose, children }: OverlayProps) {
       onClick={onClose}
     >
       <div
-        className="w-full max-w-lg rounded-lg border p-6"
+        className="w-full max-w-lg rounded-sm border p-6"
         style={{ backgroundColor: "var(--tw-surface)", borderColor: "var(--tw-border)" }}
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex items-center justify-between mb-4">
-          <h2 className="text-lg font-semibold" style={{ color: "var(--tw-text)" }}>
+          <h2 className="text-lg" style={{ color: "var(--tw-text)" }}>
             {title}
           </h2>
           <button

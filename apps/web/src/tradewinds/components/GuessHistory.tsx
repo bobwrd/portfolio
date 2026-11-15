@@ -67,7 +67,7 @@ export default function GuessHistory({ history, ports }: { history: StoredGuess[
         return (
           <div
             key={i}
-            className="rounded-lg border p-3"
+            className="rounded-sm border p-3"
             style={{ borderColor: "var(--tw-border)", backgroundColor: "var(--tw-surface)" }}
           >
             <div className="text-xs mb-2" style={{ color: "var(--tw-muted)" }}>

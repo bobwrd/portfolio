@@ -1,13 +1,8 @@
 import { Link } from "react-router-dom";
 import SectionSwitcher from "@/components/SectionSwitcher";
+import PaperHeader from "@/components/PaperHeader";
+import ContentsList from "@/components/ContentsList";
 import { usePageTitle } from "@/hooks/use-page-title";
-
-const ANCHORS = [
-  { href: "#abstract", label: "Abstract" },
-  { href: "#focus-areas", label: "Focus areas" },
-  { href: "#projects", label: "Projects" },
-  { href: "#appendix", label: "Appendix" },
-];
 
 const SECTION_CARDS = [
   {
@@ -83,68 +78,37 @@ const SELECTED_WORK = [
 export default function Overview() {
   usePageTitle("Site guide");
   return (
-    <div className="min-h-screen bg-background font-serif text-foreground">
+    <div className="min-h-screen bg-background text-foreground">
       <SectionSwitcher current="guide" />
 
-      <nav aria-label="On this page" className="sticky top-0 z-40 border-b border-border bg-background/95 backdrop-blur">
-        <div className="mx-auto flex max-w-3xl justify-center gap-6 px-6 py-3 font-sans text-sm">
-          {ANCHORS.map((a) => (
-            <a
-              key={a.href}
-              href={a.href}
-              className="text-muted-foreground hover:text-foreground transition-colors duration-150"
-            >
-              {a.label}
-            </a>
-          ))}
-        </div>
-      </nav>
+      <main className="mx-auto max-w-6xl px-5 pt-12 pb-24 sm:px-8">
+        <PaperHeader
+          series="Working Paper Series, No. 01"
+          meta="Updated July 2026"
+          title="Site guide"
+          byline="What this portfolio holds, and why it is built this way."
+          keywords="Keywords: institutional economics, regulatory analysis, applied econometrics, portfolio risk, programming language design."
+          abstract={
+            <p id="abstract" className="scroll-mt-20">
+              I'm 15 and study economics and law. Everything here comes from
+              one question: where do legal systems, economic policy and
+              regulation fall short of the people they are meant to serve, and
+              why? The site holds the research, tools and writing that question
+              has produced, plus two related projects: a portfolio-risk
+              dashboard, built because brokerages show retail investors a
+              fragmented, broker-by-broker view of risk, and a small
+              programming language that makes data analysis readable for
+              beginners.
+            </p>
+          }
+        />
 
-      <main className="mx-auto max-w-3xl px-6 py-16">
-        {/* Title block */}
-        <header className="mb-14 text-center">
-          <h1 className="text-4xl leading-tight">Site guide</h1>
-          <p className="mt-3 text-base text-muted-foreground">
-            What this portfolio holds, and why it is built this way.
-          </p>
-          <p className="mt-1 text-sm text-muted-foreground">Updated July 2026</p>
-          <p className="mt-3 font-sans text-sm">
-            <Link
-              className="underline decoration-warm-accent underline-offset-4"
-              to="/"
-            >
-              About Arin Jain
-            </Link>
-          </p>
-        </header>
-
-        {/* Abstract */}
-        <section id="abstract" className="scroll-mt-16">
-          <h2 className="text-lg font-bold">Abstract</h2>
-          <p className="mt-4 leading-relaxed">
-            I'm 15, studying economics and law. The question running through
-            everything here is where formal institutions — legal systems,
-            economic policy, regulatory frameworks — fall short of the people
-            they're supposed to serve, and why. This site collects the
-            research, tools, and writing that come out of chasing that
-            question, plus two things next to it: a portfolio-risk dashboard
-            built for a related institutional question — how a retail
-            investor is supposed to see risk when brokerages show fragmented,
-            broker-specific views — and a small programming language built to
-            make data analysis legible to beginners instead of powerful for
-            experts.
-          </p>
-          <p className="mt-4 text-sm italic text-muted-foreground">
-            Keywords: institutional economics, regulatory analysis, applied
-            econometrics, portfolio risk, programming language design.
-          </p>
-        </section>
-
-        <hr className="my-10 border-border" />
+        <div className="paper-body mt-16 max-w-[42rem] font-serif text-[1.0625rem]">
+        <hr className="my-12 border-border" />
 
         {/* Focus Areas */}
-        <section id="focus-areas" className="scroll-mt-16">
-          <h2 className="text-lg font-bold">1. Focus areas</h2>
+        <section id="focus-areas" className="scroll-mt-20">
+          <h2 className="text-[1.75rem] leading-tight"><span className="text-muted-foreground">1.</span> Focus areas</h2>
           <p className="mt-4 leading-relaxed">
             Economics is the thing I keep coming back to — not because it
             explains everything, but because it's the discipline most honest
@@ -171,65 +135,51 @@ export default function Overview() {
           </p>
         </section>
 
-        <hr className="my-10 border-border" />
+        <hr className="my-12 border-border" />
 
         {/* Projects */}
-        <section id="projects" className="scroll-mt-16">
-          <h2 className="text-lg font-bold">2. Projects</h2>
+        <section id="projects" className="scroll-mt-20">
+          <h2 className="text-[1.75rem] leading-tight"><span className="text-muted-foreground">2.</span> Projects</h2>
           <p className="mt-4 leading-relaxed">
             Five sections, described below. Each is linked from the bar at
             the top of every page.
           </p>
 
-          <div className="mt-8 flex flex-col gap-8">
-            {SECTION_CARDS.map((s) => (
-              <div key={s.to}>
-                <h3 className="font-bold">
-                  {s.number} {s.title}
-                </h3>
-                <p className="mt-2 leading-relaxed">{s.body}</p>
-                <Link
-                  to={s.to}
-                  className="mt-2 inline-block font-sans text-sm underline decoration-warm-accent underline-offset-4"
-                >
-                  Open {s.title}
-                </Link>
-              </div>
-            ))}
-          </div>
+          <ContentsList
+            className="mt-6 font-sans"
+            entries={SECTION_CARDS.map((c) => ({
+              href: c.to,
+              number: c.number,
+              title: c.title,
+              summary: c.body,
+            }))}
+          />
 
-          <h3 className="mt-10 font-bold">2.6 Start here</h3>
+          <h3 className="mt-12 text-xl"><span className="text-muted-foreground">2.6</span> Start here</h3>
           <p className="mt-2 leading-relaxed">
             Five pieces that show what the whole site is about.
           </p>
-          <div className="mt-4 flex flex-col gap-4">
-            {SELECTED_WORK.map((item) => (
-              <Link
-                key={item.href}
-                to={item.href}
-                className="group block rounded-lg border border-border px-5 py-4 transition-colors duration-150 hover:border-warm-accent"
-              >
-                <p className="font-sans text-sm text-muted-foreground">
-                  {item.tag}
-                </p>
-                <p className="mt-1 font-bold">{item.title}</p>
-                <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
-                  {item.summary}
-                </p>
-              </Link>
-            ))}
-          </div>
+          <ContentsList
+            className="mt-4"
+            entries={SELECTED_WORK.map((w, i) => ({
+              href: w.href,
+              number: `2.6.${i + 1}`,
+              title: w.title,
+              summary: w.summary,
+              meta: w.tag,
+            }))}
+          />
         </section>
 
-        <hr className="my-10 border-border" />
+        <hr className="my-12 border-border" />
 
         {/* Appendix */}
-        <section id="appendix" className="scroll-mt-16 pb-16">
-          <h2 className="text-lg font-bold">3. Links</h2>
+        <section id="appendix" className="scroll-mt-20 pb-16">
+          <h2 className="text-[1.75rem] leading-tight"><span className="text-muted-foreground">3.</span> Links</h2>
           <ul className="mt-4 list-disc space-y-2 pl-5 leading-relaxed">
             <li>
               <a
-                className="underline decoration-border underline-offset-4"
+                className="text-link underline"
                 href="https://github.com/bobwrd"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -239,7 +189,7 @@ export default function Overview() {
             </li>
             <li>
               <a
-                className="underline decoration-border underline-offset-4"
+                className="text-link underline"
                 href="https://linkedin.com/in/arin-jain-69a954270"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -250,13 +200,14 @@ export default function Overview() {
             <li>
               <Link
                 to="/writing/about"
-                className="underline decoration-border underline-offset-4"
+                className="text-link underline"
               >
                 About Margin of Error, the research project
               </Link>
             </li>
           </ul>
         </section>
+        </div>
       </main>
     </div>
   );

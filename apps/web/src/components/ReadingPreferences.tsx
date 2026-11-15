@@ -59,7 +59,7 @@ export default function ReadingPreferences() {
   return (
     <div className="flex items-center gap-1">
       {/* Font */}
-      <div className="flex items-center border border-border rounded-md overflow-hidden mr-1">
+      <div className="flex items-center border border-border overflow-hidden mr-1">
         {FONTS.map((f) => (
           <button
             key={f.value}
@@ -77,7 +77,7 @@ export default function ReadingPreferences() {
       </div>
 
       {/* Font size */}
-      <div className="flex items-center border border-border rounded-md overflow-hidden mr-1">
+      <div className="flex items-center border border-border overflow-hidden mr-1">
         {FONT_SIZES.map((size) => (
           <button
             key={size.value}
@@ -108,7 +108,7 @@ export default function ReadingPreferences() {
         {shareOpen && (
           <>
             <div className="fixed inset-0 z-40" onClick={() => setShareOpen(false)} />
-            <div className="absolute right-0 top-full mt-1 z-50 bg-popover border border-border rounded-md shadow-md w-44 overflow-hidden">
+            <div className="absolute right-0 top-full mt-1 z-50 bg-popover border border-border shadow-[0_4px_16px_rgb(0_0_0/0.08)] w-44 overflow-hidden">
               <button
                 onClick={handleCopyLink}
                 className="w-full flex items-center gap-2 px-3 py-2 text-sm text-popover-foreground hover:bg-secondary transition-colors"

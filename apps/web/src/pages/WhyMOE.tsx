@@ -1,19 +1,15 @@
 import Layout from "@/components/Layout";
+import PaperHeader from "@/components/PaperHeader";
 import { Link } from "react-router-dom";
 
 export default function WhyMOE() {
   return (
     <Layout>
-      <div className="mb-10">
-        <h1 className="text-3xl font-bold text-foreground tracking-tight mb-2">
-          Why this question
-        </h1>
-        <p className="text-muted-foreground text-base">
-          The question behind Margin of Error — where it came from and where it is going.
-        </p>
+      <div className="mb-12">
+        <PaperHeader series="Margin of Error" title="Why this question" byline="Where the question behind Margin of Error came from, and where it is going." />
       </div>
 
-      <div className="prose prose-sm max-w-none text-foreground space-y-6 text-muted-foreground leading-relaxed">
+      <div className="max-w-[42rem] space-y-6 font-serif text-[1.0625rem] leading-relaxed text-foreground">
 
         <p>
           The question I keep coming back to is a simple one: why do formal institutions so consistently
@@ -113,16 +109,16 @@ export default function WhyMOE() {
         </p>
 
         <div className="border-t border-border pt-6 mt-8 space-y-2">
-          <p className="text-sm">
+          <p className="font-sans text-[0.9375rem]">
             Currently working on:{" "}
-            <Link to="/writing/others/issue-002-india-labour" className="text-warm-accent hover:underline">
+            <Link to="/writing/others/issue-002-india-labour" className="text-link underline">
               PLFS research paper on Indian sectoral employment
             </Link>
             {" "}and CivicAid, now on Google Play.
           </p>
-          <p className="text-sm text-muted-foreground">
+          <p className="font-sans text-[0.9375rem] text-muted-foreground">
             See also:{" "}
-            <Link to="/writing/changed-my-mind" className="text-warm-accent hover:underline">
+            <Link to="/writing/changed-my-mind" className="text-link underline">
               What I've changed my mind about
             </Link>
           </p>

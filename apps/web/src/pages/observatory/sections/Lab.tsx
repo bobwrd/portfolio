@@ -1,3 +1,4 @@
+import { Download } from "lucide-react";
 import { useMemo, useState } from "react";
 import {
   LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid, ReferenceLine, Legend,
@@ -29,7 +30,7 @@ function Slider({
     <div>
       <div className="flex items-baseline justify-between mb-1.5">
         <label className="text-sm font-medium" style={{ color: "var(--obs-text)" }}>{label}</label>
-        <span className="text-xs font-mono px-1.5 py-0.5 rounded" style={{ color: "var(--obs-accent)", backgroundColor: "var(--obs-accent-dim)" }}>
+        <span className="text-xs px-1.5 py-0.5 rounded" style={{ color: "var(--obs-accent)", backgroundColor: "var(--obs-accent-dim)" }}>
           {labLabel(value)}
         </span>
       </div>
@@ -42,7 +43,7 @@ function Slider({
         onChange={(e) => onChange(parseFloat(e.target.value))}
         className="obs-range w-full"
       />
-      <div className="flex justify-between text-[0.65rem] font-mono mt-0.5" style={{ color: "var(--obs-muted)" }}>
+      <div className="flex justify-between text-xs mt-0.5" style={{ color: "var(--obs-muted)" }}>
         <span>{lo}</span>
         <span>{hi}</span>
       </div>
@@ -89,7 +90,7 @@ function OutChart({
             {target != null && (
               <ReferenceLine y={target} stroke="var(--obs-muted)" strokeDasharray="4 4" label={{ value: `${target}% target`, position: "insideTopRight", fontSize: 9, fill: "var(--obs-muted)" }} />
             )}
-            <Legend wrapperStyle={{ fontSize: 10, fontFamily: "ui-monospace, monospace" }} />
+            <Legend wrapperStyle={{ fontSize: 10, fontFamily: "var(--font-sans-face)" }} />
             {lines.map((l) => (
               <Line
                 key={l.key}
@@ -233,7 +234,7 @@ export default function Lab() {
 
   return (
     <Section id="lab" eyebrow="3 · Lab" title="Drive the model yourself">
-      <div className="max-w-3xl mb-6 text-sm sm:text-base leading-relaxed" style={{ color: "var(--obs-text)" }}>
+      <div className="font-serif max-w-3xl mb-6 text-[1rem] sm:text-[1.0625rem] leading-relaxed" style={{ color: "var(--obs-text)" }}>
         A toy model, not a prediction. Move the sliders and the paths recompute. Dashed lines show the baseline;
         solid lines show the current scenario. The point is to feel how adoption speed, who captures the gains,
         and the central bank's stance interact — not to read off numbers.
@@ -241,7 +242,7 @@ export default function Lab() {
 
       {/* Preset buttons */}
       <div className="mb-5">
-        <div className="text-[0.65rem] font-mono mb-2" style={{ color: "var(--obs-muted)" }}>
+        <div className="text-xs mb-2" style={{ color: "var(--obs-muted)" }}>
           Named scenarios
         </div>
         <div className="flex flex-wrap gap-2">
@@ -252,7 +253,7 @@ export default function Lab() {
                 key={p.key}
                 onClick={() => applyPreset(p)}
                 title={p.description}
-                className="rounded-md px-3 py-1.5 text-xs font-mono border transition-colors"
+                className="rounded-sm px-3 py-1.5 text-xs border transition-colors"
                 style={{
                   borderColor: on ? "var(--obs-accent)" : "var(--obs-border)",
                   color: on ? "var(--obs-accent)" : "var(--obs-muted)",
@@ -285,14 +286,14 @@ export default function Lab() {
           <div className="mt-5 flex flex-wrap gap-2">
             <button
               onClick={() => { setSliders(DEFAULT_SLIDERS); setBaseline(DEFAULT_SLIDERS); setActivePreset(null); }}
-              className="text-xs font-mono px-3 py-1.5 rounded border transition-colors"
+              className="text-xs px-3 py-1.5 rounded border transition-colors"
               style={{ borderColor: "var(--obs-border)", color: "var(--obs-muted)" }}
             >
               Reset to medium
             </button>
             <button
               onClick={() => setBaseline(sliders)}
-              className="text-xs font-mono px-3 py-1.5 rounded border transition-colors"
+              className="text-xs px-3 py-1.5 rounded border transition-colors"
               style={{ borderColor: "var(--obs-accent)", color: "var(--obs-accent)" }}
             >
               Set baseline = current
@@ -300,12 +301,12 @@ export default function Lab() {
           </div>
 
           {!baselineIsMedium && (
-            <p className="mt-2 text-[0.65rem] leading-relaxed" style={{ color: "var(--obs-muted)" }}>
+            <p className="mt-2 text-xs leading-relaxed" style={{ color: "var(--obs-muted)" }}>
               Custom baseline is set. "Reset to medium" restores both lines to the default.
             </p>
           )}
 
-          <div className="mt-5 rounded-lg p-3 text-sm leading-relaxed" style={{ backgroundColor: "var(--obs-surface-2)", color: "var(--obs-muted)", fontSize: "0.72rem" }}>
+          <div className="font-serif mt-5 rounded-sm p-3 text-[1rem] leading-relaxed" style={{ backgroundColor: "var(--obs-surface-2)", color: "var(--obs-muted)", fontSize: "0.72rem" }}>
             Dashed lines = baseline · Solid lines = scenario. Change sliders to move the scenario; use "Set baseline = current" to anchor a new dashed reference.
           </div>
         </Card>
@@ -335,7 +336,7 @@ export default function Lab() {
             caption="Index: both groups start at 100. Gap between lines is the distributional outcome."
           />
           <Card title="How to read this">
-            <p className="text-sm leading-relaxed" style={{ color: "var(--obs-muted)" }}>
+            <p className="font-serif text-[1rem] leading-relaxed" style={{ color: "var(--obs-muted)" }}>
               Watch the gap between the two wage lines: it widens when adoption is fast, gains tilt to profits,
               and AI is labour-replacing. Inflation and unemployment trade off through the central bank's
               reaction. Compare scenario (solid) to baseline (dashed) to isolate the effect of your settings.
@@ -343,7 +344,7 @@ export default function Lab() {
             </p>
 
             {/* Wage gap readout */}
-            <div className="mt-4 rounded-lg p-3 text-xs font-mono" style={{ backgroundColor: "var(--obs-surface-2)", color: "var(--obs-text)" }}>
+            <div className="mt-4 rounded-sm p-3 text-xs" style={{ backgroundColor: "var(--obs-surface-2)", color: "var(--obs-text)" }}>
               <div className="font-semibold mb-1" style={{ color: "var(--obs-muted)" }}>Wage gap at year 10</div>
               <div className="flex gap-4 flex-wrap">
                 <span>
@@ -368,8 +369,8 @@ export default function Lab() {
       </div>
 
       {/* Dynamic narrative panel */}
-      <div className="mt-5 rounded-xl border p-5" style={{ borderColor: "var(--obs-border)", backgroundColor: "var(--obs-surface)" }}>
-        <div className="text-[0.65rem] font-mono mb-3" style={{ color: "var(--obs-accent)" }}>
+      <div className="mt-5 rounded-sm border p-5" style={{ borderColor: "var(--obs-border)", backgroundColor: "var(--obs-surface)" }}>
+        <div className="text-xs mb-3" style={{ color: "var(--obs-accent)" }}>
           What this scenario implies
         </div>
         <div className="grid sm:grid-cols-3 gap-4">
@@ -379,16 +380,16 @@ export default function Lab() {
             { label: "Wage distribution", text: narrative.wageGap },
           ].map(({ label, text }) => (
             <div key={label}>
-              <div className="text-xs font-mono mb-1.5" style={{ color: "var(--obs-muted)" }}>{label}</div>
-              <p className="text-sm leading-relaxed" style={{ color: "var(--obs-text)" }}>{text}</p>
+              <div className="text-xs mb-1.5" style={{ color: "var(--obs-muted)" }}>{label}</div>
+              <p className="font-serif text-[1rem] leading-relaxed" style={{ color: "var(--obs-text)" }}>{text}</p>
             </div>
           ))}
         </div>
       </div>
 
       {/* Paycheque calculator */}
-      <div className="mt-5 rounded-xl border p-5" style={{ borderColor: "var(--obs-border)", backgroundColor: "var(--obs-surface)" }}>
-        <div className="text-[0.65rem] font-mono mb-1" style={{ color: "var(--obs-accent)" }}>
+      <div className="mt-5 rounded-sm border p-5" style={{ borderColor: "var(--obs-border)", backgroundColor: "var(--obs-surface)" }}>
+        <div className="text-xs mb-1" style={{ color: "var(--obs-accent)" }}>
           What this could feel like on a paycheque
         </div>
         <p className="text-xs mb-4 leading-relaxed" style={{ color: "var(--obs-muted)" }}>
@@ -397,7 +398,7 @@ export default function Lab() {
         </p>
         <div className="flex flex-wrap gap-4 items-end mb-4">
           <div>
-            <label className="block text-xs font-mono mb-1" style={{ color: "var(--obs-muted)" }}>
+            <label className="block text-xs mb-1" style={{ color: "var(--obs-muted)" }}>
               Starting annual wage
             </label>
             <input
@@ -406,7 +407,7 @@ export default function Lab() {
               step={1000}
               value={paychequeWage}
               onChange={(e) => setPaychequeWage(Math.max(0, parseInt(e.target.value) || 0))}
-              className="rounded border px-2.5 py-1.5 text-sm font-mono w-36"
+              className="rounded border px-2.5 py-1.5 text-sm w-36"
               style={{
                 borderColor: "var(--obs-border)",
                 backgroundColor: "var(--obs-surface-2)",
@@ -415,13 +416,13 @@ export default function Lab() {
             />
           </div>
           <div>
-            <label className="block text-xs font-mono mb-1" style={{ color: "var(--obs-muted)" }}>
+            <label className="block text-xs mb-1" style={{ color: "var(--obs-muted)" }}>
               Worker type
             </label>
             <select
               value={paychequeType}
               onChange={(e) => setPaychequeType(e.target.value as "high" | "low")}
-              className="rounded border px-2.5 py-1.5 text-sm font-mono"
+              className="rounded border px-2.5 py-1.5 text-sm"
               style={{
                 borderColor: "var(--obs-border)",
                 backgroundColor: "var(--obs-surface-2)",
@@ -438,12 +439,12 @@ export default function Lab() {
             { label: "Baseline — year 10", wage: yr10BaseWage, idx: yr10BaseIdx },
             { label: "Scenario — year 10", wage: yr10ScenWage, idx: yr10ScenIdx },
           ].map(({ label, wage, idx }) => (
-            <div key={label} className="rounded-lg p-3" style={{ backgroundColor: "var(--obs-surface-2)" }}>
-              <div className="text-xs font-mono mb-1" style={{ color: "var(--obs-muted)" }}>{label}</div>
-              <div className="text-xl font-mono font-semibold" style={{ color: "var(--obs-accent)" }}>
+            <div key={label} className="rounded-sm p-3" style={{ backgroundColor: "var(--obs-surface-2)" }}>
+              <div className="text-xs mb-1" style={{ color: "var(--obs-muted)" }}>{label}</div>
+              <div className="text-xl font-serif" style={{ color: "var(--obs-accent)" }}>
                 {wage.toLocaleString()}
               </div>
-              <div className="text-[0.65rem] font-mono mt-0.5" style={{ color: "var(--obs-muted)" }}>
+              <div className="text-xs mt-0.5" style={{ color: "var(--obs-muted)" }}>
                 wage index: {idx.toFixed(1)} · in today's dollars, roughly
               </div>
             </div>
@@ -452,7 +453,7 @@ export default function Lab() {
         {yr10ScenWage !== yr10BaseWage && (
           <p className="mt-3 text-xs leading-relaxed" style={{ color: "var(--obs-muted)" }}>
             The scenario implies a real-wage difference of{" "}
-            <span className="font-mono" style={{ color: yr10ScenWage > yr10BaseWage ? "var(--obs-accent)" : "var(--obs-warn)" }}>
+            <span className="" style={{ color: yr10ScenWage > yr10BaseWage ? "var(--obs-accent)" : "var(--obs-warn)" }}>
               {yr10ScenWage > yr10BaseWage ? "+" : ""}{(yr10ScenWage - yr10BaseWage).toLocaleString()}
             </span>{" "}
             relative to baseline at year 10 for a {paychequeType === "high" ? "higher-skill" : "lower-skill"} worker starting at {paychequeWage.toLocaleString()}.
@@ -465,10 +466,10 @@ export default function Lab() {
       <div className="mt-4 flex items-center gap-3">
         <button
           onClick={() => downloadCSV(baseSim, scenSim)}
-          className="text-xs font-mono px-3 py-1.5 rounded border transition-colors flex items-center gap-1.5"
+          className="text-xs px-3 py-1.5 rounded-sm border transition-colors flex items-center gap-1.5"
           style={{ borderColor: "var(--obs-accent)", color: "var(--obs-accent)" }}
         >
-          ↓ Download model paths (CSV)
+          <Download className="size-3.5" aria-hidden="true" /> Download model paths (CSV)
         </button>
         <span className="text-xs" style={{ color: "var(--obs-muted)" }}>
           Baseline + scenario paths for all four variables, 15 years.

@@ -1,26 +1,22 @@
 import Layout from "@/components/Layout";
+import PaperHeader from "@/components/PaperHeader";
 import { Link } from "react-router-dom";
 
 export default function ChangedMyMind() {
   return (
     <Layout>
-      <div className="mb-10">
-        <h1 className="text-3xl font-bold text-foreground tracking-tight mb-2">
-          What I've changed my mind about
-        </h1>
-        <p className="text-muted-foreground text-base">
-          Positions I held, evidence that pushed me off them, and what I think now.
-        </p>
+      <div className="mb-12">
+        <PaperHeader series="Margin of Error" title="What I've changed my mind about" byline="Positions I held, evidence that pushed me off them, and what I think now." />
       </div>
 
-      <div className="space-y-14 text-sm text-muted-foreground leading-relaxed max-w-prose">
+      <div className="max-w-[42rem] space-y-14 font-serif text-[1.0625rem] leading-relaxed text-foreground">
 
         {/* Entry — Distribution Lab */}
         <section>
-          <h2 className="text-lg font-semibold text-foreground mb-1">
+          <h2 className="text-[1.375rem] leading-tight text-foreground mb-1">
             On what policy levers actually predict in distribution data
           </h2>
-          <p className="text-xs text-muted-foreground mb-4">Updated June 2026</p>
+          <p className="font-sans text-[0.875rem] text-muted-foreground mb-4">Updated June 2026</p>
 
           <p className="mb-4">
             My assumption before working through the cross-country data was that three regime dimensions
@@ -53,10 +49,10 @@ export default function ChangedMyMind() {
 
         {/* Entry 0 — Arena */}
         <section>
-          <h2 className="text-lg font-semibold text-foreground mb-1">
+          <h2 className="text-[1.375rem] leading-tight text-foreground mb-1">
             On whether more competition always produces better outcomes
           </h2>
-          <p className="text-xs text-muted-foreground mb-4">Updated June 2026</p>
+          <p className="font-sans text-[0.875rem] text-muted-foreground mb-4">Updated June 2026</p>
 
           <p className="mb-4">
             My default assumption going into the IO literature was a clean version of the standard story:
@@ -103,10 +99,10 @@ export default function ChangedMyMind() {
 
         {/* Entry 1 */}
         <section>
-          <h2 className="text-lg font-semibold text-foreground mb-1">
+          <h2 className="text-[1.375rem] leading-tight text-foreground mb-1">
             On whether AI regulation can be genuinely cross-jurisdictional
           </h2>
-          <p className="text-xs text-muted-foreground mb-4">Updated May 2026</p>
+          <p className="font-sans text-[0.875rem] text-muted-foreground mb-4">Updated May 2026</p>
 
           <p className="mb-4">
             When I started building The Verdict, I assumed the most important regulatory events would be
@@ -141,10 +137,10 @@ export default function ChangedMyMind() {
 
         {/* Entry 2 */}
         <section>
-          <h2 className="text-lg font-semibold text-foreground mb-1">
+          <h2 className="text-[1.375rem] leading-tight text-foreground mb-1">
             On what the informal sector in India actually tells you
           </h2>
-          <p className="text-xs text-muted-foreground mb-4">Updated April 2026</p>
+          <p className="font-sans text-[0.875rem] text-muted-foreground mb-4">Updated April 2026</p>
 
           <p className="mb-4">
             My prior going into the PLFS data was that informal sector persistence was primarily a
@@ -167,7 +163,7 @@ export default function ChangedMyMind() {
             "what protections can be extended to informal workers without requiring formalisation as
             the gateway." That is a harder policy problem with fewer obvious levers, and it is what
             the research paper is trying to be precise about.{" "}
-            <Link to="/writing/others/issue-002-india-labour" className="text-warm-accent hover:underline">
+            <Link to="/writing/others/issue-002-india-labour" className="text-link underline">
               Early findings
             </Link>
           </p>
@@ -175,10 +171,10 @@ export default function ChangedMyMind() {
 
         {/* Entry 3 */}
         <section>
-          <h2 className="text-lg font-semibold text-foreground mb-1">
+          <h2 className="text-[1.375rem] leading-tight text-foreground mb-1">
             On whether access to justice is primarily a funding problem
           </h2>
-          <p className="text-xs text-muted-foreground mb-4">Updated February 2026</p>
+          <p className="font-sans text-[0.875rem] text-muted-foreground mb-4">Updated February 2026</p>
 
           <p className="mb-4">
             I started thinking about legal access as a resource allocation problem: not enough legal
@@ -205,7 +201,7 @@ export default function ChangedMyMind() {
         </section>
 
         <div className="border-t border-border pt-6">
-          <p className="text-xs text-muted-foreground">
+          <p className="font-sans text-[0.875rem] text-muted-foreground">
             Last updated: June 2026. I add to this when I notice I've actually moved, not just refined.
           </p>
         </div>

@@ -20,14 +20,14 @@ export default function ResultView({ puzzle, history, status }: ResultViewProps)
 
   return (
     <div
-      className="rounded-lg border p-6 space-y-4"
+      className="rounded-sm border p-6 space-y-4"
       style={{ backgroundColor: "var(--tw-surface)", borderColor: "var(--tw-border)" }}
     >
       <div>
-        <p className="text-xs font-medium " style={{ color: "var(--tw-muted)" }}>
+        <p className="text-xs font-medium" style={{ color: "var(--tw-muted)" }}>
           {status === "won" ? `Solved in ${history.length} of 10 guesses` : "Not solved this time"}
         </p>
-        <h2 className="text-xl font-bold mt-1" style={{ color: "var(--tw-text)" }}>
+        <h2 className="text-xl mt-1" style={{ color: "var(--tw-text)" }}>
           {puzzle.shipName}
         </h2>
       </div>

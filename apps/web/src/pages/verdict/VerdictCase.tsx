@@ -11,7 +11,7 @@ import { fetchCase, TIER_COLORS, TIER_BG, type VerdictCase } from "./types";
 function TierBadge({ tier }: { tier: string }) {
   return (
     <span
-      className="text-[0.65rem] font-mono font-bold px-2 py-0.5 rounded "
+      className="text-xs font-bold px-2 py-0.5 rounded"
       style={{
         color: TIER_COLORS[tier] ?? "var(--verdict-muted)",
         backgroundColor: TIER_BG[tier] ?? "transparent",
@@ -40,7 +40,7 @@ function FactorRadarChart({ scores }: { scores: { LI: number; SE: number; ER: nu
           <PolarGrid stroke="var(--verdict-border)" />
           <PolarAngleAxis
             dataKey="factor"
-            tick={{ fill: "var(--verdict-muted)", fontSize: 11, fontFamily: "monospace", fontWeight: 600 }}
+            tick={{ fill: "var(--verdict-muted)", fontSize: 11, fontFamily: "var(--font-sans-face)", fontWeight: 600 }}
           />
           <Radar
             name="Score"
@@ -58,7 +58,7 @@ function FactorRadarChart({ scores }: { scores: { LI: number; SE: number; ER: nu
               border: "1px solid var(--verdict-border)",
               borderRadius: "6px",
               fontSize: "12px",
-              fontFamily: "monospace",
+              fontFamily: "var(--font-sans-face)",
               color: "var(--verdict-text)",
             }}
             formatter={(value) => [Number(value).toFixed(0), "Score"]}
@@ -92,7 +92,7 @@ function UncertaintyChart({
     const d = payload[0].payload;
     return (
       <div
-        className="rounded border px-3 py-2 text-xs font-mono"
+        className="rounded border px-3 py-2 text-xs"
         style={{
           backgroundColor: "#fff",
           borderColor: "var(--verdict-border)",
@@ -113,7 +113,7 @@ function UncertaintyChart({
             dataKey="x"
             type="number"
             domain={[1, 10]}
-            tick={{ fill: "var(--verdict-muted)", fontSize: 10, fontFamily: "monospace" }}
+            tick={{ fill: "var(--verdict-muted)", fontSize: 10, fontFamily: "var(--font-sans-face)" }}
             axisLine={{ stroke: "var(--verdict-border)" }}
             tickLine={false}
             ticks={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}
@@ -154,7 +154,7 @@ export default function VerdictCasePage() {
 
   if (loading) {
     return (
-      <div className="py-16 text-center text-sm font-mono" style={{ color: "var(--verdict-muted)" }}>
+      <div className="py-16 text-center text-sm" style={{ color: "var(--verdict-muted)" }}>
         Loading…
       </div>
     );
@@ -163,7 +163,7 @@ export default function VerdictCasePage() {
   if (!item) {
     return (
       <div className="py-16 text-center">
-        <p className="text-sm font-mono mb-4" style={{ color: "var(--verdict-muted)" }}>Case not found.</p>
+        <p className="text-sm mb-4" style={{ color: "var(--verdict-muted)" }}>Case not found.</p>
         <Link to="/mini/verdict" className="text-sm" style={{ color: "var(--verdict-accent)" }}>All cases</Link>
       </div>
     );
@@ -172,13 +172,13 @@ export default function VerdictCasePage() {
   const { computed, scores } = item;
   const band = computed.uncertainty_band;
 
-  const sectionClass = "rounded-lg border p-5 mb-5";
+  const sectionClass = "rounded-sm border p-5 mb-5";
   const sectionStyle = {
     backgroundColor: "var(--verdict-surface)",
     borderColor: "var(--verdict-border)",
   };
 
-  const labelStyle = "text-[0.65rem] font-mono mb-1";
+  const labelStyle = "text-xs mb-1";
   const labelColor = { color: "var(--verdict-muted)" };
 
   return (
@@ -187,7 +187,7 @@ export default function VerdictCasePage() {
       <div className="mb-6">
         <Link
           to="/mini/verdict"
-          className="text-xs font-mono transition-opacity hover:opacity-80"
+          className="text-xs transition-opacity hover:opacity-80"
           style={{ color: "var(--verdict-accent)" }}
         >
           All cases
@@ -201,47 +201,47 @@ export default function VerdictCasePage() {
             <div className="flex items-center gap-2 flex-wrap mb-3">
               <TierBadge tier={computed.tier} />
               <span
-                className="text-[0.65rem] font-mono px-2 py-0.5 rounded"
+                className="text-xs px-2 py-0.5 rounded"
                 style={{ color: "var(--verdict-muted)", backgroundColor: "var(--verdict-surface-2)" }}
               >
                 {item.decision_type}
               </span>
               <span
-                className="text-[0.65rem] font-mono px-2 py-0.5 rounded"
+                className="text-xs px-2 py-0.5 rounded"
                 style={{ color: "var(--verdict-muted)", backgroundColor: "var(--verdict-surface-2)" }}
               >
                 {item.jurisdiction}
               </span>
             </div>
             <h1
-              className="text-xl font-bold leading-snug mb-2"
+              className="text-xl leading-snug mb-2"
               style={{ color: "var(--verdict-text)" }}
             >
               {item.title}
             </h1>
-            <time className="text-xs font-mono" style={{ color: "var(--verdict-muted)" }}>
+            <time className="text-xs" style={{ color: "var(--verdict-muted)" }}>
               {new Date(item.date).toLocaleDateString("en-SG", { year: "numeric", month: "long", day: "numeric" })}
             </time>
           </div>
 
           {/* EDI score */}
           <div className="text-right shrink-0">
-            <div className="text-[0.65rem] font-mono mb-1" style={{ color: "var(--verdict-muted)" }}>
-              EDI SCORE
+            <div className="text-xs mb-1" style={{ color: "var(--verdict-muted)" }}>
+              EDI score
             </div>
             <div
-              className="text-5xl font-mono font-bold leading-none"
+              className="text-5xl font-serif leading-none"
               style={{ color: "var(--verdict-accent)" }}
             >
               {computed.EDI.toFixed(1)}
             </div>
-            <div className="text-[0.6rem] font-mono mt-1" style={{ color: "var(--verdict-muted)" }}>
+            <div className="text-xs mt-1" style={{ color: "var(--verdict-muted)" }}>
               [{band[0].toFixed(1)}, {band[1].toFixed(1)}]
             </div>
           </div>
         </div>
 
-        <p className="text-sm leading-relaxed" style={{ color: "var(--verdict-muted)" }}>
+        <p className="font-serif text-[1rem] leading-relaxed" style={{ color: "var(--verdict-muted)" }}>
           {item.summary}
         </p>
       </div>
@@ -250,7 +250,7 @@ export default function VerdictCasePage() {
       <div className="grid grid-cols-2 gap-4 mb-5">
         <div className={sectionClass} style={{ ...sectionStyle, margin: 0 }}>
           <div className={labelStyle} style={labelColor}>Disruption Potential (DP)</div>
-          <div className="text-3xl font-mono font-bold" style={{ color: "var(--verdict-accent)" }}>
+          <div className="text-3xl font-serif" style={{ color: "var(--verdict-accent)" }}>
             {computed.DP.toFixed(2)}
           </div>
           <p className="text-xs leading-relaxed mt-2" style={{ color: "var(--verdict-muted)" }}>
@@ -259,7 +259,7 @@ export default function VerdictCasePage() {
         </div>
         <div className={sectionClass} style={{ ...sectionStyle, margin: 0 }}>
           <div className={labelStyle} style={labelColor}>Distributional Reach (DR)</div>
-          <div className="text-3xl font-mono font-bold" style={{ color: "var(--verdict-accent)" }}>
+          <div className="text-3xl font-serif" style={{ color: "var(--verdict-accent)" }}>
             {computed.DR.toFixed(2)}
           </div>
           <p className="text-xs leading-relaxed mt-2" style={{ color: "var(--verdict-muted)" }}>
@@ -275,7 +275,7 @@ export default function VerdictCasePage() {
           <div className="flex-1">
             <FactorRadarChart scores={scores} />
           </div>
-          <div className="shrink-0 space-y-2 text-xs font-mono pt-4">
+          <div className="shrink-0 space-y-2 text-xs pt-4">
             {[
               { key: "LI", label: "Legal Instrument", value: scores.LI },
               { key: "SE", label: "Societal Effect", value: scores.SE },
@@ -309,7 +309,7 @@ export default function VerdictCasePage() {
       <div className={sectionClass} style={sectionStyle}>
         <div className={labelStyle} style={labelColor}>Sensitivity analysis — scenario EDI scores</div>
         <UncertaintyChart edi={computed.EDI} scenarioScores={computed.scenario_scores} />
-        <div className="flex items-center gap-6 mt-2 text-xs font-mono" style={{ color: "var(--verdict-muted)" }}>
+        <div className="flex items-center gap-6 mt-2 text-xs" style={{ color: "var(--verdict-muted)" }}>
           <span>C = Conservative (ER-weighted)</span>
           <span>B = Balanced (equal weights)</span>
           <span>S = Structural (DP-weighted)</span>
@@ -325,7 +325,7 @@ export default function VerdictCasePage() {
       {/* Economic consequence */}
       <div className={sectionClass} style={sectionStyle}>
         <div className={labelStyle} style={labelColor}>Economic consequence</div>
-        <p className="text-sm leading-relaxed" style={{ color: "var(--verdict-text)" }}>
+        <p className="font-serif text-[1rem] leading-relaxed" style={{ color: "var(--verdict-text)" }}>
           {item.economic_consequence}
         </p>
       </div>
@@ -333,7 +333,7 @@ export default function VerdictCasePage() {
       {/* Legal mechanism */}
       <div className={sectionClass} style={sectionStyle}>
         <div className={labelStyle} style={labelColor}>Legal mechanism</div>
-        <p className="text-sm leading-relaxed" style={{ color: "var(--verdict-text)" }}>
+        <p className="font-serif text-[1rem] leading-relaxed" style={{ color: "var(--verdict-text)" }}>
           {item.legal_mechanism}
         </p>
       </div>
@@ -349,7 +349,7 @@ export default function VerdictCasePage() {
                   href={src}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-xs font-mono transition-opacity hover:opacity-80 underline underline-offset-2"
+                  className="text-xs transition-opacity hover:opacity-80 underline underline-offset-2"
                   style={{ color: "var(--verdict-accent)" }}
                 >
                   {src}
@@ -362,7 +362,7 @@ export default function VerdictCasePage() {
 
       {/* Contributor */}
       {item.contributor && (
-        <div className="text-xs font-mono text-right" style={{ color: "var(--verdict-muted)" }}>
+        <div className="text-xs text-right" style={{ color: "var(--verdict-muted)" }}>
           Contributed by {item.contributor}
         </div>
       )}

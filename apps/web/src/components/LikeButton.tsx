@@ -32,7 +32,7 @@ export default function LikeButton({ contentType, slug }: LikeButtonProps) {
     <button
       onClick={handleLike}
       disabled={liked || loading}
-      className={`inline-flex items-center gap-2 px-4 py-2 rounded-full border text-sm transition-colors ${
+      className={`inline-flex items-center gap-2 px-4 py-2 border font-sans text-[0.9375rem] transition-colors ${
         liked
           ? "border-warm-accent bg-warm-accent-muted text-warm-accent cursor-default"
           : "border-border text-muted-foreground hover:border-warm-accent hover:text-warm-accent"

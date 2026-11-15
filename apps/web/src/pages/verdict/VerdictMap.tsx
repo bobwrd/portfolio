@@ -195,7 +195,7 @@ export default function VerdictMap({ cases }: { cases: VerdictCase[] }) {
 
   const openCase = useCallback((id: number) => {
     if (lastDragDist.current > 6) return; // it was a pan, not a click
-    navigate(`/verdict/${id}`);
+    navigate(`/mini/verdict/${id}`);
   }, [navigate]);
 
   const showTooltip = useCallback((entry: PointEntry, e: React.PointerEvent) => {
@@ -211,7 +211,7 @@ export default function VerdictMap({ cases }: { cases: VerdictCase[] }) {
     <div>
       <div
         ref={containerRef}
-        className="rounded-lg border overflow-hidden relative select-none"
+        className="rounded-sm border overflow-hidden relative select-none"
         style={{ borderColor: "var(--verdict-border)", backgroundColor: "var(--verdict-surface)" }}
       >
         <svg
@@ -257,7 +257,7 @@ export default function VerdictMap({ cases }: { cases: VerdictCase[] }) {
                 key={label}
                 type="button"
                 onClick={fn}
-                className="w-7 h-7 rounded border font-mono text-sm leading-none transition-opacity hover:opacity-75"
+                className="w-7 h-7 rounded border text-sm leading-none transition-opacity hover:opacity-75"
                 style={{
                   borderColor: "var(--verdict-border)",
                   backgroundColor: "var(--verdict-surface)",
@@ -274,7 +274,7 @@ export default function VerdictMap({ cases }: { cases: VerdictCase[] }) {
         {/* Tooltip */}
         {hover && (
           <div
-            className="absolute pointer-events-none z-10 rounded-lg border px-3 py-2 font-mono"
+            className="absolute pointer-events-none z-10 rounded-sm border px-3 py-2"
             style={{
               left: Math.min(hover.px + 12, (containerRef.current?.clientWidth ?? 300) - 230),
               top: hover.py + 12,
@@ -285,7 +285,7 @@ export default function VerdictMap({ cases }: { cases: VerdictCase[] }) {
               boxShadow: "0 4px 16px rgba(31,27,22,0.12)",
             }}
           >
-            <div className="text-[11px] font-semibold mb-1.5">{hover.entry.name}</div>
+            <div className="text-xs font-semibold mb-1.5">{hover.entry.name}</div>
             <div className="flex items-center gap-2">
               <span
                 className="inline-block w-2 h-2 rounded-full"
@@ -294,11 +294,11 @@ export default function VerdictMap({ cases }: { cases: VerdictCase[] }) {
               <span className="text-[13px] font-bold" style={{ color: "var(--verdict-accent)" }}>
                 EDI {hover.entry.edi}
               </span>
-              <span className="text-[10px]" style={{ color: TIER_HEX[hover.entry.tier] }}>
+              <span className="text-xs" style={{ color: TIER_HEX[hover.entry.tier] }}>
                 {hover.entry.tier}
               </span>
             </div>
-            <div className="text-[10px] mt-1.5" style={{ color: "var(--verdict-muted)" }}>
+            <div className="text-xs mt-1.5" style={{ color: "var(--verdict-muted)" }}>
               Click to open
             </div>
           </div>
@@ -307,14 +307,14 @@ export default function VerdictMap({ cases }: { cases: VerdictCase[] }) {
 
       {/* Legend */}
       <div className="flex items-center justify-between mt-3 flex-wrap gap-2">
-        <span className="text-[0.6rem] font-mono" style={{ color: "var(--verdict-muted)" }}>
+        <span className="text-xs" style={{ color: "var(--verdict-muted)" }}>
           Click a point to open its case. Drag to pan, scroll to zoom.
         </span>
         <div className="flex items-center gap-4 flex-wrap">
           {(["Seismic", "Major", "Moderate", "Marginal"] as const).map((tier) => (
             <div key={tier} className="flex items-center gap-1.5">
               <span className="inline-block w-2.5 h-2.5 rounded-full" style={{ backgroundColor: TIER_HEX[tier] }} />
-              <span className="text-[0.6rem] font-mono" style={{ color: "var(--verdict-muted)" }}>
+              <span className="text-xs" style={{ color: "var(--verdict-muted)" }}>
                 {tier}
               </span>
             </div>

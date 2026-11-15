@@ -29,7 +29,7 @@ function Gauge({
         <span className="text-sm font-medium" style={{ color: "var(--arena-text)" }}>
           {label}
         </span>
-        <span className="text-sm font-mono" style={{ color }}>
+        <span className="text-sm" style={{ color }}>
           {value.toFixed(0)}
         </span>
       </div>
@@ -39,7 +39,7 @@ function Gauge({
           style={{ width: `${value}%`, backgroundColor: color, transition: "width 200ms ease, background-color 200ms ease" }}
         />
       </div>
-      <div className="text-[0.65rem] font-mono mt-1" style={{ color: "var(--arena-muted)" }}>
+      <div className="text-xs mt-1" style={{ color: "var(--arena-muted)" }}>
         {hint}
       </div>
     </div>
@@ -85,7 +85,7 @@ export default function Chapter1() {
         <div className="lg:col-span-3 lg:sticky lg:top-20">
           <Card>
             {/* Firm strip */}
-            <div className="text-xs font-mono mb-3 " style={{ color: "var(--arena-muted)" }}>
+            <div className="text-xs mb-3" style={{ color: "var(--arena-muted)" }}>
               The market · {firms} {firms === 1 ? "firm" : "firms"}
             </div>
             <div className="flex flex-wrap gap-2 mb-5 min-h-[3.5rem]">
@@ -94,7 +94,7 @@ export default function Chapter1() {
                 return (
                   <div
                     key={i}
-                    className="h-12 w-10 rounded-md flex items-end justify-center"
+                    className="h-12 w-10 rounded-sm flex items-end justify-center"
                     style={{
                       backgroundColor: on ? "var(--arena-accent)" : "var(--arena-surface-2)",
                       opacity: on ? 1 : 0.25,
@@ -102,7 +102,7 @@ export default function Chapter1() {
                       transition: "opacity 220ms ease, transform 220ms ease, background-color 220ms ease",
                     }}
                   >
-                    <span className="text-[0.55rem] font-mono mb-1" style={{ color: "var(--arena-bg)" }}>
+                    <span className="text-[0.55rem] mb-1" style={{ color: "var(--arena-bg)" }}>
                       {on ? i + 1 : ""}
                     </span>
                   </div>
@@ -111,10 +111,10 @@ export default function Chapter1() {
             </div>
             {/* Consumer bar */}
             <div
-              className="h-6 w-full rounded-md flex items-center px-3 mb-6"
+              className="h-6 w-full rounded-sm flex items-center px-3 mb-6"
               style={{ backgroundColor: "var(--arena-surface-2)" }}
             >
-              <span className="text-[0.6rem] font-mono " style={{ color: "var(--arena-muted)" }}>
+              <span className="text-xs" style={{ color: "var(--arena-muted)" }}>
                 consumers
               </span>
             </div>
@@ -144,7 +144,7 @@ export default function Chapter1() {
                   setTouched(true);
                   setAutoplay(true);
                 }}
-                className="mt-2 shrink-0 inline-flex items-center gap-1.5 rounded-md border px-2.5 py-1.5 text-xs font-mono transition-colors"
+                className="mt-2 shrink-0 inline-flex items-center gap-1.5 rounded-sm border px-2.5 py-1.5 text-xs transition-colors"
                 style={{ borderColor: "var(--arena-border)", color: "var(--arena-accent)" }}
                 title="Replay the sweep from one firm"
               >
@@ -156,16 +156,16 @@ export default function Chapter1() {
 
         {/* Scrolling explanation */}
         <div className="lg:col-span-2 space-y-4">
-          <p className="text-sm sm:text-base leading-relaxed" style={{ color: "var(--arena-text)" }}>
+          <p className="font-serif text-[1rem] sm:text-[1.0625rem] leading-relaxed" style={{ color: "var(--arena-text)" }}>
             Start with a monopoly and add rivals one at a time. Watch which gauge moves, and when.
           </p>
           <div
-            className="rounded-lg p-4 text-sm leading-relaxed border"
+            className="font-serif rounded-sm p-4 text-[1rem] leading-relaxed border"
             style={{ borderColor: "var(--arena-border)", backgroundColor: "var(--arena-surface)", color: "var(--arena-text)" }}
           >
             {chapter1Caption(firms)}
           </div>
-          <p className="text-sm leading-relaxed" style={{ color: "var(--arena-muted)" }}>
+          <p className="font-serif text-[1rem] leading-relaxed" style={{ color: "var(--arena-muted)" }}>
             Three things rarely peak together. Price keeps falling as firms enter, but most of that drop is
             done by the third or fourth rival. Quality is an inverted-U: best at a handful of competitors,
             worse at a monopoly and worse again when the market splinters. Slack is U-shaped: a lazy

@@ -9,7 +9,7 @@ function Row({ label, value, fmt, src, interp, bar }: {
   return (
     <div className="py-2 border-b last:border-b-0" style={{ borderColor: "var(--dl-border)" }}>
       <div className="flex items-baseline justify-between gap-2">
-        <span className="text-[0.7rem]" style={{ color: "var(--dl-muted)" }}>{label}</span>
+        <span className="text-[0.8125rem]" style={{ color: "var(--dl-muted)" }}>{label}</span>
         <span className="text-base font-bold tabular-nums" style={{ color: "var(--dl-text)" }}>
           {a == null ? <span style={{ color: "var(--dl-muted)" }} className="text-sm font-normal">n/a</span> : fmt(a)}
         </span>

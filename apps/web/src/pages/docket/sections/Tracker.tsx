@@ -124,10 +124,10 @@ export default function Tracker() {
         ].map(({ label, val, color }) => (
           <div
             key={label}
-            className="rounded-lg border p-3 text-center"
+            className="rounded-sm border p-3 text-center"
             style={{ borderColor: "var(--docket-border)", backgroundColor: "var(--docket-surface)" }}
           >
-            <div className="text-xl font-mono font-bold" style={{ color }}>
+            <div className="text-xl font-serif" style={{ color }}>
               {val}
             </div>
             <div className="text-xs mt-0.5" style={{ color: "var(--docket-muted)" }}>
@@ -146,7 +146,7 @@ export default function Tracker() {
             <button
               key={s}
               onClick={() => setFilterStatus(s)}
-              className="px-2 py-0.5 rounded text-xs font-mono border transition-colors"
+              className="px-2 py-0.5 rounded text-xs border transition-colors"
               style={{
                 borderColor: filterStatus === s ? "var(--docket-accent)" : "var(--docket-border)",
                 color: filterStatus === s ? "var(--docket-accent)" : "var(--docket-muted)",
@@ -163,7 +163,7 @@ export default function Tracker() {
             <button
               key={p}
               onClick={() => setFilterPriority(p)}
-              className="px-2 py-0.5 rounded text-xs font-mono border transition-colors"
+              className="px-2 py-0.5 rounded text-xs border transition-colors"
               style={{
                 borderColor: filterPriority === p ? "var(--docket-accent)" : "var(--docket-border)",
                 color: filterPriority === p
@@ -181,7 +181,7 @@ export default function Tracker() {
 
         <button
           onClick={() => setShowForm((v) => !v)}
-          className="ml-auto flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono border transition-colors"
+          className="ml-auto flex items-center gap-1.5 px-3 py-1.5 rounded-sm text-xs border transition-colors"
           style={{
             borderColor: "var(--docket-accent)",
             color: "var(--docket-accent)",
@@ -196,7 +196,7 @@ export default function Tracker() {
       {/* Add case form */}
       {showForm && (
         <Card className="mb-5">
-          <div className="text-xs font-mono mb-3 " style={{ color: "var(--docket-accent)" }}>
+          <div className="text-xs mb-3" style={{ color: "var(--docket-accent)" }}>
             New case
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -219,7 +219,7 @@ export default function Tracker() {
                   placeholder={placeholder}
                   value={(form as Record<string, string>)[field] ?? ""}
                   onChange={(e) => setForm((f) => ({ ...f, [field]: e.target.value }))}
-                  className="w-full px-2.5 py-1.5 rounded text-xs font-mono border bg-transparent outline-none focus:border-[var(--docket-accent)]"
+                  className="w-full px-2.5 py-1.5 rounded text-xs border bg-transparent outline-none focus:border-[var(--docket-accent)]"
                   style={{
                     borderColor: "var(--docket-border)",
                     color: "var(--docket-text)",
@@ -245,7 +245,7 @@ export default function Tracker() {
                 <select
                   value={(form as Record<string, string>)[field]}
                   onChange={(e) => setForm((f) => ({ ...f, [field]: e.target.value }))}
-                  className="w-full px-2.5 py-1.5 rounded text-xs font-mono border outline-none"
+                  className="w-full px-2.5 py-1.5 rounded text-xs border outline-none"
                   style={{
                     borderColor: "var(--docket-border)",
                     color: "var(--docket-text)",
@@ -264,7 +264,7 @@ export default function Tracker() {
           <div className="flex gap-2 mt-4">
             <button
               onClick={addCase}
-              className="px-4 py-1.5 rounded text-xs font-mono font-semibold border transition-colors"
+              className="px-4 py-1.5 rounded text-xs font-semibold border transition-colors"
               style={{
                 borderColor: "var(--docket-accent)",
                 color: "var(--docket-accent)",
@@ -275,7 +275,7 @@ export default function Tracker() {
             </button>
             <button
               onClick={() => setShowForm(false)}
-              className="px-3 py-1.5 rounded text-xs font-mono border transition-colors"
+              className="px-3 py-1.5 rounded text-xs border transition-colors"
               style={{ borderColor: "var(--docket-border)", color: "var(--docket-muted)" }}
             >
               Cancel
@@ -287,7 +287,7 @@ export default function Tracker() {
       {/* Case list */}
       <div className="flex flex-col gap-2">
         {filtered.length === 0 && (
-          <div className="text-xs font-mono py-8 text-center" style={{ color: "var(--docket-muted)" }}>
+          <div className="text-xs py-8 text-center" style={{ color: "var(--docket-muted)" }}>
             No cases match this filter.
           </div>
         )}
@@ -299,7 +299,7 @@ export default function Tracker() {
           return (
             <div
               key={c.id}
-              className="rounded-xl border transition-colors"
+              className="rounded-sm border transition-colors"
               style={{
                 borderColor: isUrgent ? "var(--docket-crit)" : "var(--docket-border)",
                 backgroundColor: "var(--docket-surface)",
@@ -314,11 +314,11 @@ export default function Tracker() {
                 <StatusIcon status={c.status} />
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2 flex-wrap">
-                    <span className="text-xs font-mono" style={{ color: "var(--docket-muted)" }}>
+                    <span className="text-xs" style={{ color: "var(--docket-muted)" }}>
                       {c.caseId}
                     </span>
                     <span
-                      className="text-[0.65rem] font-mono px-1.5 py-0.5 rounded"
+                      className="text-xs px-1.5 py-0.5 rounded"
                       style={{
                         color: PRIORITY_COLORS[c.priority],
                         backgroundColor: `${PRIORITY_COLORS[c.priority]}18`,
@@ -327,7 +327,7 @@ export default function Tracker() {
                       {c.priority}
                     </span>
                     <span
-                      className="text-[0.65rem] font-mono"
+                      className="text-xs"
                       style={{ color: "var(--docket-muted)" }}
                     >
                       {c.type} · {c.courtLevel}
@@ -348,7 +348,7 @@ export default function Tracker() {
                             days > 1460 ? "var(--docket-crit)"
                             : days > 730 ? "var(--docket-high)"
                             : "var(--docket-text)",
-                          fontFamily: "monospace",
+                          fontFamily: "var(--font-sans-face)",
                         }}
                       >
                         {formatDays(days)}
@@ -392,7 +392,7 @@ export default function Tracker() {
                 >
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-3">
                     <div>
-                      <span className="font-mono text-[0.6rem]" style={{ color: "var(--docket-muted)" }}>
+                      <span className="text-xs" style={{ color: "var(--docket-muted)" }}>
                         Filed
                       </span>
                       <div style={{ color: "var(--docket-text)" }}>
@@ -400,14 +400,14 @@ export default function Tracker() {
                       </div>
                     </div>
                     <div>
-                      <span className="font-mono text-[0.6rem]" style={{ color: "var(--docket-muted)" }}>
+                      <span className="text-xs" style={{ color: "var(--docket-muted)" }}>
                         Court
                       </span>
                       <div style={{ color: "var(--docket-text)" }}>{c.courtLevel}</div>
                     </div>
                     {c.judge && (
                       <div>
-                        <span className="font-mono text-[0.6rem]" style={{ color: "var(--docket-muted)" }}>
+                        <span className="text-xs" style={{ color: "var(--docket-muted)" }}>
                           Judge / note
                         </span>
                         <div style={{ color: "var(--docket-text)" }}>{c.judge}</div>
@@ -415,7 +415,7 @@ export default function Tracker() {
                     )}
                     {c.nextHearing && (
                       <div>
-                        <span className="font-mono text-[0.6rem]" style={{ color: "var(--docket-muted)" }}>
+                        <span className="text-xs" style={{ color: "var(--docket-muted)" }}>
                           Next hearing
                         </span>
                         <div style={{ color: "var(--docket-text)" }}>
@@ -426,7 +426,7 @@ export default function Tracker() {
                   </div>
                   {c.notes && (
                     <div
-                      className="rounded-lg px-3 py-2 text-xs leading-relaxed"
+                      className="rounded-sm px-3 py-2 text-xs leading-relaxed"
                       style={{ backgroundColor: "var(--docket-surface-2)", color: "var(--docket-muted)" }}
                     >
                       {c.notes}
@@ -447,13 +447,13 @@ export default function Tracker() {
 
       {/* Why this matters box */}
       <div
-        className="mt-8 rounded-xl border p-5"
+        className="mt-8 rounded-sm border p-5"
         style={{ borderColor: "var(--docket-accent)", backgroundColor: "var(--docket-accent-dim)" }}
       >
-        <div className="text-xs font-mono mb-2" style={{ color: "var(--docket-accent)" }}>
+        <div className="text-xs mb-2" style={{ color: "var(--docket-accent)" }}>
           What this prototype argues
         </div>
-        <p className="text-sm leading-relaxed" style={{ color: "var(--docket-text)" }}>
+        <p className="font-serif text-[1rem] leading-relaxed" style={{ color: "var(--docket-text)" }}>
           Nothing above requires new legislation or more judges. It requires a standardised data
           schema across courts, a public-facing status API, and automated notifications. Singapore
           built this in 2000. India's eCourts phase III is attempting it now — but rollout is

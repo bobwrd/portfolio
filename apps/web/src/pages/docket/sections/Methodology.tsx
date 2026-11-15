@@ -7,9 +7,9 @@ export default function Methodology() {
       eyebrow="Methodology · The Docket"
       title="What is and isn't in this analysis"
     >
-      <div className="max-w-2xl space-y-6 text-sm leading-relaxed" style={{ color: "var(--docket-muted)" }}>
+      <div className="font-serif max-w-2xl space-y-6 text-[1rem] leading-relaxed" style={{ color: "var(--docket-muted)" }}>
         <div>
-          <h3 className="text-base font-semibold mb-2" style={{ color: "var(--docket-text)" }}>
+          <h3 className="text-base mb-2" style={{ color: "var(--docket-text)" }}>
             Scope
           </h3>
           <p>
@@ -23,7 +23,7 @@ export default function Methodology() {
         </div>
 
         <div>
-          <h3 className="text-base font-semibold mb-2" style={{ color: "var(--docket-text)" }}>
+          <h3 className="text-base mb-2" style={{ color: "var(--docket-text)" }}>
             Data sources and their limits
           </h3>
           <p className="mb-2">
@@ -57,7 +57,7 @@ export default function Methodology() {
         </div>
 
         <div>
-          <h3 className="text-base font-semibold mb-2" style={{ color: "var(--docket-text)" }}>
+          <h3 className="text-base mb-2" style={{ color: "var(--docket-text)" }}>
             Backlog Severity Index (BSI) — construction
           </h3>
           <p className="mb-3">
@@ -80,7 +80,7 @@ export default function Methodology() {
         </div>
 
         <div>
-          <h3 className="text-base font-semibold mb-2" style={{ color: "var(--docket-text)" }}>
+          <h3 className="text-base mb-2" style={{ color: "var(--docket-text)" }}>
             India–Singapore comparison scores
           </h3>
           <p>
@@ -94,7 +94,7 @@ export default function Methodology() {
         </div>
 
         <div>
-          <h3 className="text-base font-semibold mb-2" style={{ color: "var(--docket-text)" }}>
+          <h3 className="text-base mb-2" style={{ color: "var(--docket-text)" }}>
             The tracker prototype
           </h3>
           <p>
@@ -106,7 +106,7 @@ export default function Methodology() {
         </div>
 
         <div>
-          <h3 className="text-base font-semibold mb-2" style={{ color: "var(--docket-text)" }}>
+          <h3 className="text-base mb-2" style={{ color: "var(--docket-text)" }}>
             What this analysis cannot tell you
           </h3>
           <ul className="list-disc list-inside space-y-1">

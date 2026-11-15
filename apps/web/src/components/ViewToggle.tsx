@@ -21,7 +21,7 @@ export default function ViewToggle({ value, onChange, storageKey }: ViewTogglePr
   };
 
   return (
-    <div className="flex items-center border border-border rounded-md overflow-hidden" title="View mode">
+    <div className="flex items-center border border-border overflow-hidden" title="View mode">
       <button
         onClick={() => handle("list")}
         aria-label="List view"

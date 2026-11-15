@@ -2,12 +2,12 @@ import { Link } from "react-router-dom";
 
 export default function VerdictScored() {
 
-  const sectionClass = "rounded-lg border p-5 mb-5";
+  const sectionClass = "rounded-sm border p-5 mb-5";
   const sectionStyle = {
     backgroundColor: "var(--verdict-surface)",
     borderColor: "var(--verdict-border)",
   };
-  const labelStyle = "text-[0.65rem] font-mono mb-2";
+  const labelStyle = "text-xs mb-2";
   const labelColor = { color: "var(--verdict-muted)" };
   const bodyStyle = "text-sm leading-relaxed mb-3";
   const bodyColor = { color: "var(--verdict-text)" };
@@ -67,14 +67,14 @@ export default function VerdictScored() {
       <div className="mb-6 flex items-center gap-4">
         <Link
           to="/mini/verdict/about"
-          className="text-xs font-mono transition-opacity hover:opacity-80"
+          className="text-xs transition-opacity hover:opacity-80"
           style={{ color: "var(--verdict-accent)" }}
         >
           Back to methodology
         </Link>
         <Link
           to="/mini/verdict/1"
-          className="text-xs font-mono transition-opacity hover:opacity-80"
+          className="text-xs transition-opacity hover:opacity-80"
           style={{ color: "var(--verdict-muted)" }}
         >
           Full case record
@@ -84,7 +84,7 @@ export default function VerdictScored() {
       {/* Intro */}
       <div className={sectionClass} style={sectionStyle}>
         <div className={labelStyle} style={labelColor}>How I score a case</div>
-        <h1 className="text-xl font-bold mb-3" style={{ color: "var(--verdict-text)" }}>
+        <h1 className="text-xl mb-3" style={{ color: "var(--verdict-text)" }}>
           EU AI Act — Full Entry into Force
         </h1>
         <p className={bodyStyle} style={bodyColor}>
@@ -106,7 +106,7 @@ export default function VerdictScored() {
               <div className={labelStyle} style={labelColor}>{f.key} — {f.name}</div>
             </div>
             <div
-              className="text-4xl font-mono font-bold shrink-0"
+              className="text-4xl font-serif shrink-0"
               style={{ color: "var(--verdict-accent)" }}
             >
               {f.score}
@@ -115,7 +115,7 @@ export default function VerdictScored() {
           </div>
           <p className={bodyStyle} style={bodyColor}>{f.why}</p>
           <p
-            className="text-xs font-mono px-3 py-2 rounded"
+            className="text-xs px-3 py-2 rounded"
             style={{
               color: "var(--verdict-accent)",
               backgroundColor: "rgba(13,148,136,0.06)",
@@ -135,7 +135,7 @@ export default function VerdictScored() {
         </p>
         <div className="space-y-3 mb-4">
           <div>
-            <p className="text-xs font-mono mb-1" style={{ color: "var(--verdict-muted)" }}>
+            <p className="text-xs mb-1" style={{ color: "var(--verdict-muted)" }}>
               DP (Disruption Potential) = (LI×0.30 + SF×0.35 + PS×0.35) = {dp}
             </p>
             <p className={mutedStyle} style={mutedColor}>
@@ -147,7 +147,7 @@ export default function VerdictScored() {
             </p>
           </div>
           <div>
-            <p className="text-xs font-mono mb-1" style={{ color: "var(--verdict-muted)" }}>
+            <p className="text-xs mb-1" style={{ color: "var(--verdict-muted)" }}>
               DR (Distributional Reach) = (SE×0.40 + ER×0.40 + PS×0.20) = {dr}
             </p>
             <p className={mutedStyle} style={mutedColor}>
@@ -157,7 +157,7 @@ export default function VerdictScored() {
             </p>
           </div>
           <div>
-            <p className="text-xs font-mono mb-1" style={{ color: "var(--verdict-muted)" }}>
+            <p className="text-xs mb-1" style={{ color: "var(--verdict-muted)" }}>
               EDI = normalised composite of DP and DR across all published cases = {edi}
             </p>
             <p className={mutedStyle} style={mutedColor}>
@@ -198,7 +198,7 @@ export default function VerdictScored() {
 
       {/* Footer links */}
       <div
-        className="text-xs font-mono pt-4 border-t flex flex-wrap gap-4"
+        className="text-xs pt-4 border-t flex flex-wrap gap-4"
         style={{ borderColor: "var(--verdict-border)", color: "var(--verdict-muted)" }}
       >
         <Link to="/mini/verdict/1" className="hover:underline" style={{ color: "var(--verdict-accent)" }}>

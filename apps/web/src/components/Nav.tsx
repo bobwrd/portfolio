@@ -5,15 +5,15 @@ export default function Nav() {
   const { pathname } = useLocation();
 
   return (
-    <header className="border-b border-border bg-background/95 backdrop-blur-sm sticky top-0 z-50">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between gap-4">
+    <header className="sticky top-0 z-50 border-b border-border bg-background">
+      <div className="mx-auto flex h-12 max-w-6xl items-center justify-between gap-6 px-5 font-sans text-[0.9375rem] sm:px-8">
         <Link
           to="/writing"
-          className="font-semibold text-foreground tracking-tight text-[0.9375rem] hover:text-warm-accent transition-colors duration-150 shrink-0"
+          className="shrink-0 font-serif text-[1.0625rem] text-foreground"
         >
           {siteConfig.title}
         </Link>
-        <nav className="flex items-center gap-0.5 overflow-x-auto scrollbar-none">
+        <nav aria-label="Margin of Error" className="flex items-center gap-5 overflow-x-auto scrollbar-none">
           {siteConfig.navItems.map((item) => {
             const active =
               item.href === "/writing"
@@ -23,10 +23,11 @@ export default function Nav() {
               <Link
                 key={item.href}
                 to={item.href}
-                className={`px-2.5 py-1.5 rounded-md text-sm whitespace-nowrap transition-colors duration-150 ${
+                aria-current={active ? "page" : undefined}
+                className={`whitespace-nowrap py-1 underline-offset-[0.4em] ${
                   active
-                    ? "bg-secondary text-foreground font-medium"
-                    : "text-muted-foreground hover:text-foreground hover:bg-secondary/60"
+                    ? "text-foreground underline decoration-2 decoration-warm-accent"
+                    : "text-muted-foreground hover:text-foreground"
                 }`}
               >
                 {item.label}

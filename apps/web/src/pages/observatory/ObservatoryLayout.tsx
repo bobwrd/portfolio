@@ -67,30 +67,29 @@ export default function ObservatoryLayout({ children }: { children: React.ReactN
       <header
         className="sticky top-0 z-50 border-b"
         style={{
-          backgroundColor: "color-mix(in srgb, var(--obs-bg) 92%, transparent)",
-          borderColor: "var(--obs-border)",
-          backdropFilter: "blur(8px)",
+          backgroundColor: "var(--obs-bg)",
+          borderBottomColor: "var(--obs-border)",
         }}
       >
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between gap-4">
+        <div className="max-w-6xl mx-auto px-5 sm:px-8 py-2 min-h-14 flex flex-wrap items-center justify-between gap-x-4 gap-y-1">
           <div className="flex items-center gap-4 shrink-0">
             <Link
               to="/mini"
-              className="text-xs underline-offset-4 hover:underline"
+              className="font-sans text-[0.875rem] underline-offset-4 hover:underline"
               style={{ color: "var(--obs-muted)" }}
             >
               Research tools
             </Link>
             <a
               href="#intro"
-              className="font-semibold tracking-tight text-sm flex items-center gap-2"
-              style={{ color: "var(--obs-accent)" }}
+              className="font-serif text-xl leading-none"
+              style={{ color: "var(--obs-text)" }}
             >
               The Observatory
             </a>
           </div>
 
-          <nav className="hidden md:flex items-center gap-0.5">
+          <nav aria-label="Sections of this tool" className="-mx-1.5 flex w-full items-center gap-0.5 overflow-x-auto scrollbar-none whitespace-nowrap md:mx-0 md:w-auto">
             {!isMethodsPage && navLinks.map((link) => {
               const id = link.href.slice(1);
               const isActive = active === id;
@@ -98,10 +97,10 @@ export default function ObservatoryLayout({ children }: { children: React.ReactN
                 <a
                   key={link.href}
                   href={link.href}
-                  className="px-2.5 py-1.5 rounded text-xs transition-colors duration-150"
+                  className="px-1.5 py-1.5 font-sans text-[0.875rem] transition-colors duration-150"
                   style={{
                     color: isActive ? "var(--obs-accent)" : "var(--obs-muted)",
-                    backgroundColor: isActive ? "var(--obs-accent-dim)" : "transparent",
+                    textDecoration: isActive ? "underline" : "none", textDecorationThickness: "2px", textUnderlineOffset: "0.4em",
                   }}
                 >
                   {link.label}
@@ -111,7 +110,7 @@ export default function ObservatoryLayout({ children }: { children: React.ReactN
             {isMethodsPage && (
               <Link
                 to="/mini/observatory"
-                className="px-2.5 py-1.5 rounded text-xs transition-colors duration-150"
+                className="px-1.5 py-1.5 font-sans text-[0.875rem] transition-colors duration-150"
                 style={{ color: "var(--obs-muted)" }}
               >
                 Back to the Observatory
@@ -119,11 +118,11 @@ export default function ObservatoryLayout({ children }: { children: React.ReactN
             )}
             <Link
               to="/mini/observatory/methods"
-              className="px-2.5 py-1.5 rounded text-xs transition-colors duration-150 border"
+              className="px-1.5 py-1.5 font-sans text-[0.875rem] transition-colors duration-150 border"
               style={{
                 borderColor: isMethodsPage ? "var(--obs-accent)" : "var(--obs-border)",
                 color: isMethodsPage ? "var(--obs-accent)" : "var(--obs-muted)",
-                backgroundColor: isMethodsPage ? "var(--obs-accent-dim)" : "transparent",
+                textDecoration: isMethodsPage ? "underline" : "none", textDecorationThickness: "2px", textUnderlineOffset: "0.4em",
               }}
             >
               Technical note
@@ -135,8 +134,8 @@ export default function ObservatoryLayout({ children }: { children: React.ReactN
       <main>{children}</main>
 
       <footer className="border-t mt-20" style={{ borderColor: "var(--obs-border)" }}>
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-6">
-          <div className="flex items-center justify-between text-xs" style={{ color: "var(--obs-muted)" }}>
+        <div className="max-w-6xl mx-auto px-5 sm:px-8 py-6">
+          <div className="flex items-center justify-between font-sans text-[0.875rem]" style={{ color: "var(--obs-muted)" }}>
             <span>The Observatory, by Arin Jain</span>
             <div className="flex items-center gap-3">
               <a href="#methodology" className="hover:opacity-80 transition-opacity" style={{ color: "var(--obs-muted)" }}>
@@ -147,7 +146,7 @@ export default function ObservatoryLayout({ children }: { children: React.ReactN
               </Link>
             </div>
           </div>
-          <p className="mt-3 text-[0.65rem] leading-relaxed" style={{ color: "var(--obs-muted)" }}>
+          <p className="mt-3 font-sans text-[0.8125rem] leading-relaxed" style={{ color: "var(--obs-muted)" }}>
             An exploratory tool, not a forecast. Charts use public data from the World Bank and FRED; the walkthrough
             and lab use deliberately simple, stylised models to illustrate mechanisms. Figures may lag or be revised at
             source. Nothing here is investment, financial, or policy advice.

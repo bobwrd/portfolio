@@ -30,7 +30,7 @@ export default function Chapter4() {
 
   return (
     <Section id="lenses" eyebrow="4 · Policy lenses" title="Same map, three referees">
-      <div className="max-w-3xl mb-6 text-sm sm:text-base leading-relaxed" style={{ color: "var(--arena-text)" }}>
+      <div className="font-serif max-w-3xl mb-6 text-[1rem] sm:text-[1.0625rem] leading-relaxed" style={{ color: "var(--arena-text)" }}>
         One space, three readings. The grid is the same concentration-by-distortion plane from Chapter 3.
         Each lens shades the region it cares about and reads the same point differently.
       </div>
@@ -43,7 +43,7 @@ export default function Chapter4() {
             <button
               key={l.key}
               onClick={() => setLensKey(l.key)}
-              className="rounded-md px-3.5 py-1.5 text-sm font-mono border transition-colors"
+              className="rounded-sm px-3.5 py-1.5 text-sm border transition-colors"
               style={{
                 borderColor: on ? "var(--arena-accent)" : "var(--arena-border)",
                 color: on ? "var(--arena-accent)" : "var(--arena-muted)",
@@ -63,20 +63,20 @@ export default function Chapter4() {
             <div className="flex">
               {/* Y axis label */}
               <div className="flex flex-col justify-between items-center mr-2 py-1">
-                <span className="text-[0.6rem] font-mono" style={{ color: "var(--arena-muted)" }}>40%</span>
+                <span className="text-xs" style={{ color: "var(--arena-muted)" }}>40%</span>
                 <span
-                  className="text-[0.6rem] font-mono"
+                  className="text-xs"
                   style={{ color: "var(--arena-muted)", writingMode: "vertical-rl", transform: "rotate(180deg)" }}
                 >
                   distortion
                 </span>
-                <span className="text-[0.6rem] font-mono" style={{ color: "var(--arena-muted)" }}>0%</span>
+                <span className="text-xs" style={{ color: "var(--arena-muted)" }}>0%</span>
               </div>
 
               {/* Grid */}
               <div className="flex-1">
                 <div
-                  className="relative w-full rounded-md overflow-hidden"
+                  className="relative w-full rounded-sm overflow-hidden"
                   style={{ aspectRatio: `${COLS} / ${ROWS}`, border: "1px solid var(--arena-border)" }}
                 >
                   <div
@@ -110,9 +110,9 @@ export default function Chapter4() {
                 </div>
                 {/* X axis */}
                 <div className="flex justify-between mt-1.5">
-                  <span className="text-[0.6rem] font-mono" style={{ color: "var(--arena-muted)" }}>competitive</span>
-                  <span className="text-[0.6rem] font-mono" style={{ color: "var(--arena-muted)" }}>concentration →</span>
-                  <span className="text-[0.6rem] font-mono" style={{ color: "var(--arena-muted)" }}>monopoly</span>
+                  <span className="text-xs" style={{ color: "var(--arena-muted)" }}>competitive</span>
+                  <span className="text-xs" style={{ color: "var(--arena-muted)" }}>concentration →</span>
+                  <span className="text-xs" style={{ color: "var(--arena-muted)" }}>monopoly</span>
                 </div>
               </div>
             </div>
@@ -127,7 +127,7 @@ export default function Chapter4() {
               ].map((x) => (
                 <div key={x.z} className="flex items-center gap-1.5">
                   <span className="inline-block h-2.5 w-2.5 rounded-sm" style={{ backgroundColor: ZONE_FILL[x.z], border: "1px solid var(--arena-border)" }} />
-                  <span className="text-[0.65rem] font-mono" style={{ color: "var(--arena-muted)" }}>{x.label}</span>
+                  <span className="text-xs" style={{ color: "var(--arena-muted)" }}>{x.label}</span>
                 </div>
               ))}
             </div>
@@ -137,18 +137,18 @@ export default function Chapter4() {
         {/* Commentary + point controls */}
         <div className="lg:col-span-2 space-y-4">
           <Card title={lens.label}>
-            <p className="text-sm leading-relaxed mb-3" style={{ color: "var(--arena-text)" }}>
+            <p className="font-serif text-[1rem] leading-relaxed mb-3" style={{ color: "var(--arena-text)" }}>
               {lens.blurb}
             </p>
-            <p className="text-sm leading-relaxed" style={{ color: "var(--arena-muted)" }}>
+            <p className="font-serif text-[1rem] leading-relaxed" style={{ color: "var(--arena-muted)" }}>
               {lens.commentary}
             </p>
 
-            <div className="mt-4 rounded-lg p-3" style={{ backgroundColor: "var(--arena-surface-2)" }}>
-              <div className="text-[0.6rem] font-mono mb-1" style={{ color: "var(--arena-muted)" }}>
+            <div className="mt-4 rounded-sm p-3" style={{ backgroundColor: "var(--arena-surface-2)" }}>
+              <div className="text-xs mb-1" style={{ color: "var(--arena-muted)" }}>
                 Your point
               </div>
-              <div className="text-sm font-mono" style={{ color: "var(--arena-text)" }}>
+              <div className="text-sm" style={{ color: "var(--arena-text)" }}>
                 HHI proxy <span style={{ color: "var(--arena-accent)" }}>{hhi.toLocaleString()}</span> · price{" "}
                 {now.price.toFixed(0)} · surplus {now.surplus.toFixed(0)} ·{" "}
                 <span style={{ color: markerZone === "danger" ? "var(--arena-warn)" : markerZone === "sweet" ? "var(--arena-good)" : "var(--arena-muted)" }}>

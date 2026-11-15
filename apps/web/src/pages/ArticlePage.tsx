@@ -6,6 +6,7 @@ import Layout from "@/components/Layout";
 import LikeButton from "@/components/LikeButton";
 import AuthorBox from "@/components/AuthorBox";
 import NewsletterSignup from "@/components/NewsletterSignup";
+import PaperHeader from "@/components/PaperHeader";
 import ReadingPreferences from "@/components/ReadingPreferences";
 import ReadingProgressBar from "@/components/ReadingProgressBar";
 import { getContentBySlug, type ContentItem } from "@/lib/api";
@@ -97,47 +98,27 @@ export default function ArticlePage() {
         </Link>
       </div>
 
-      {/* Article header */}
-      <header className="mb-10 pb-8 border-b border-border">
-        <div className="flex items-center gap-2.5 mb-4">
-          <span
-            className="text-xs px-2.5 py-0.5 rounded-full font-medium bg-secondary text-muted-foreground"
-          >
-            {categoryLabel}
-          </span>
-          <span className="text-xs text-muted-foreground/70">{readTime(item.wordCount)}</span>
+      {/* Article header: the series band, then the paper's title block. */}
+      <div className="mb-10">
+        <PaperHeader
+          series={`Margin of Error, ${categoryLabel}`}
+          meta={
+            item.date
+              ? new Date(item.date).toLocaleDateString("en-SG", { year: "numeric", month: "long", day: "numeric" })
+              : undefined
+          }
+          title={item.title}
+          byline={`Arin Jain. ${readTime(item.wordCount)}.`}
+          keywords={item.tags.length > 0 ? `Tags: ${item.tags.join(", ")}` : undefined}
+        />
+        <div className="mt-6 border-b border-border pb-6">
+          <ReadingPreferences />
         </div>
-
-        <h1 className="text-2xl sm:text-3xl font-bold text-foreground tracking-tight leading-snug mb-4">
-          {item.title}
-        </h1>
-
-        <div className="flex items-center gap-3 flex-wrap mb-4">
-          {item.date && (
-            <time className="text-sm text-muted-foreground">
-              {new Date(item.date).toLocaleDateString("en-SG", {
-                year: "numeric",
-                month: "long",
-                day: "numeric",
-              })}
-            </time>
-          )}
-          {item.tags.map((tag) => (
-            <span
-              key={tag}
-              className="text-xs bg-secondary text-muted-foreground px-2.5 py-0.5 rounded-full"
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
-
-        <ReadingPreferences />
-      </header>
+      </div>
 
       {/* Embedded PDF for long-form articles */}
       {item.pdf && (
-        <div className="mb-8 rounded-lg border border-border overflow-hidden" style={{ height: "75vh" }}>
+        <div className="mb-8 border border-border overflow-hidden" style={{ height: "75vh" }}>
           <iframe
             src={item.pdf}
             className="w-full h-full"
@@ -148,15 +129,16 @@ export default function ArticlePage() {
 
       {/* Article body */}
       <div
-        className="prose prose-neutral dark:prose-invert max-w-none
-          prose-p:text-[1.0625rem] prose-p:leading-[1.85] prose-p:mb-5
-          prose-headings:font-semibold prose-headings:tracking-tight prose-headings:mt-10 prose-headings:mb-4
-          prose-h2:text-xl prose-h3:text-lg
-          prose-a:text-warm-accent prose-a:underline-offset-2 prose-a:no-underline hover:prose-a:underline
-          prose-blockquote:border-l-warm-accent prose-blockquote:border-l-2 prose-blockquote:text-muted-foreground prose-blockquote:pl-4
-          prose-code:text-warm-accent prose-code:bg-secondary prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm prose-code:font-normal
-          prose-pre:bg-secondary prose-pre:border prose-pre:border-border
-          prose-img:rounded-lg prose-img:border prose-img:border-border
+        className="prose prose-neutral dark:prose-invert max-w-[42rem]
+          prose-p:text-[1.0625rem] prose-p:leading-[1.8] prose-p:mb-5
+          prose-headings:font-serif prose-headings:font-normal prose-headings:mt-12 prose-headings:mb-4
+          prose-h2:text-[1.625rem] prose-h3:text-xl
+          prose-a:text-link prose-a:underline prose-a:underline-offset-2
+          prose-blockquote:border-l prose-blockquote:border-l-foreground prose-blockquote:font-normal prose-blockquote:not-italic prose-blockquote:text-muted-foreground prose-blockquote:pl-5
+          prose-code:font-mono prose-code:bg-secondary prose-code:px-1 prose-code:py-0.5 prose-code:text-[0.9em] prose-code:font-normal prose-code:before:content-none prose-code:after:content-none
+          prose-pre:bg-secondary prose-pre:text-foreground prose-pre:border prose-pre:border-border prose-pre:rounded-none
+          prose-img:border prose-img:border-border
+          prose-table:font-sans prose-table:text-[0.9375rem]
           prose-hr:border-border"
         dangerouslySetInnerHTML={{ __html: htmlBody }}
       />

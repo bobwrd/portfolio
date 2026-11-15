@@ -18,7 +18,7 @@ export function CountryPicker({
           <button
             key={c}
             onClick={() => onChange(c)}
-            className="px-3 py-1.5 rounded-md text-xs font-medium transition-colors duration-150"
+            className="px-3 py-1.5 rounded-sm text-xs font-medium transition-colors duration-150"
             style={{
               backgroundColor: active ? "var(--dl-accent)" : "var(--dl-surface-2)",
               color: active ? "var(--dl-surface)" : "var(--dl-muted)",
@@ -35,12 +35,12 @@ export function CountryPicker({
 // --- Mode toggle -----------------------------------------------------------
 export function ModeToggle({ mode, onChange }: { mode: "history" | "playground"; onChange: (m: "history" | "playground") => void }) {
   return (
-    <div className="inline-flex rounded-lg p-0.5 border" style={{ borderColor: "var(--dl-border)", backgroundColor: "var(--dl-surface)" }}>
+    <div className="inline-flex rounded-sm p-0.5 border" style={{ borderColor: "var(--dl-border)", backgroundColor: "var(--dl-surface)" }}>
       {(["history", "playground"] as const).map((m) => (
         <button
           key={m}
           onClick={() => onChange(m)}
-          className="px-4 py-1.5 rounded-md text-xs font-semibold capitalize transition-colors duration-150"
+          className="px-4 py-1.5 rounded-sm text-xs font-semibold capitalize transition-colors duration-150"
           style={{ backgroundColor: mode === m ? "var(--dl-accent)" : "transparent", color: mode === m ? "var(--dl-surface)" : "var(--dl-muted)" }}
         >
           {m}
@@ -107,9 +107,9 @@ export function RegimeBar({
         const rawStr = raw ? Object.entries(raw).filter(([, v]) => v != null).map(([kk, v]) => `${kk}: ${v}`).join(", ") : "";
         return (
           <div key={k} title={`${meta.blurb}${rawStr ? ` (${rawStr})` : ""}${interp ? " · interpolated" : ""}`}>
-            <div className="text-[0.65rem] font-medium mb-1" style={{ color: "var(--dl-text)" }}>{meta.label}</div>
+            <div className="text-xs font-medium mb-1" style={{ color: "var(--dl-text)" }}>{meta.label}</div>
             <LevelDots level={level} interp={interp} />
-            <div className="mt-1 text-[0.55rem] font-mono" style={{ color: "var(--dl-muted)" }}>
+            <div className="mt-1 text-[0.55rem]" style={{ color: "var(--dl-muted)" }}>
               {level != null ? LEVEL_LABELS[Math.min(4, level - 1)] : "no data"}{interp ? " · est." : ""}
             </div>
           </div>
@@ -132,12 +132,12 @@ export function YearScrubber({ year, min, max, onChange }: { year: number; min: 
 
   return (
     <div className="flex items-center gap-3">
-      <button onClick={() => setPlaying((p) => !p)} className="p-2 rounded-md shrink-0" style={{ backgroundColor: "var(--dl-surface-2)", color: "var(--dl-accent)" }} title={playing ? "Pause" : "Play through years"}>
+      <button onClick={() => setPlaying((p) => !p)} className="p-2 rounded-sm shrink-0" style={{ backgroundColor: "var(--dl-surface-2)", color: "var(--dl-accent)" }} title={playing ? "Pause" : "Play through years"}>
         {playing ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4" />}
       </button>
       <span className="font-mono text-lg font-bold tabular-nums shrink-0" style={{ color: "var(--dl-accent)" }}>{year}</span>
       <input type="range" min={min} max={max} step={1} value={year} onChange={(e) => onChange(Number(e.target.value))} className="dl-range flex-1" />
-      <span className="font-mono text-[0.6rem] shrink-0" style={{ color: "var(--dl-muted)" }}>{min}–{max}</span>
+      <span className="text-xs shrink-0" style={{ color: "var(--dl-muted)" }}>{min}–{max}</span>
     </div>
   );
 }
@@ -171,8 +171,8 @@ export function EvidenceDrawer({
 }) {
   const [open, setOpen] = useState(false);
   return (
-    <div className="rounded-lg border" style={{ borderColor: "var(--dl-border)" }}>
-      <button onClick={() => setOpen((o) => !o)} className="w-full flex items-center justify-between px-3 py-2 text-[0.7rem] font-mono " style={{ color: "var(--dl-muted)" }} aria-expanded={open}>
+    <div className="rounded-sm border" style={{ borderColor: "var(--dl-border)" }}>
+      <button onClick={() => setOpen((o) => !o)} className="w-full flex items-center justify-between px-3 py-2 text-[0.8125rem]" style={{ color: "var(--dl-muted)" }} aria-expanded={open}>
         <span>Evidence — {result.contributors.length} contributing episodes</span>
         <ChevronDown className="h-4 w-4 transition-transform" style={{ transform: open ? "rotate(180deg)" : "none" }} />
       </button>
@@ -181,7 +181,7 @@ export function EvidenceDrawer({
           {result.contributors.map((c) => {
             const o = outcomeOf(c.country, c.year);
             return (
-              <div key={`${c.country}-${c.year}`} className="flex items-center justify-between text-[0.7rem] gap-2 py-1">
+              <div key={`${c.country}-${c.year}`} className="flex items-center justify-between text-[0.8125rem] gap-2 py-1">
                 <span style={{ color: "var(--dl-text)" }}>{names[c.country] || c.country} <span style={{ color: "var(--dl-muted)" }}>{c.year}</span></span>
                 <span className="font-mono tabular-nums" style={{ color: "var(--dl-muted)" }}>
                   w {(c.weight * 100).toFixed(0)}% · Gini {o.gini?.toFixed(0) ?? "–"} · HDI {o.well?.toFixed(2) ?? "–"}

@@ -1,3 +1,5 @@
+import PaperHeader from "@/components/PaperHeader";
+import { Download } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 import {
   fetchDistLab, baseAt, regimeAt, mobilityFor,
@@ -101,9 +103,32 @@ function Lab({ data }: { data: DistLabData }) {
 
   return (
     <div className="flex-1 flex flex-col min-h-0">
+      {/* Cover sheet */}
+      <div className="mx-auto w-full max-w-6xl px-5 pt-12 pb-10 sm:px-8">
+        <PaperHeader
+          series="Working Paper Series, No. 02.5"
+          meta="465 country-years, 1990–2020"
+          color="var(--dl-accent)"
+          ink="var(--dl-text)"
+          muted="var(--dl-muted)"
+          rule="var(--dl-border)"
+          title="The Distribution Lab"
+          byline="How institutions shape who gets what: inequality, mobility and wellbeing across countries."
+          abstract={
+            <p>
+              A panel of 465 country-years (1990 to 2020). History mode shows
+              the observed distributional data for each country. Playground maps
+              a chosen set of institutional settings to likely outcomes by
+              kernel weighting over the panel. Sources and method are in the
+              technical note.
+            </p>
+          }
+        />
+      </div>
+
       {/* Control strip */}
       <div className="border-b" style={{ borderColor: "var(--dl-border)" }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between gap-4 flex-wrap">
+        <div className="max-w-6xl mx-auto px-5 sm:px-8 py-3 flex items-center justify-between gap-4 flex-wrap">
           <ModeToggle mode={mode} onChange={(m) => dispatch({ type: "setMode", mode: m })} />
           <CountryPicker countries={data.visible_countries} names={names} value={country} onChange={(c) => dispatch({ type: "setCountry", country: c })} />
         </div>
@@ -111,13 +136,13 @@ function Lab({ data }: { data: DistLabData }) {
 
       {/* Regime bar */}
       <div className="border-b" style={{ borderColor: "var(--dl-border)", backgroundColor: "var(--dl-surface)" }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3">
+        <div className="max-w-6xl mx-auto px-5 sm:px-8 py-3">
           <div className="flex items-center justify-between mb-2">
-            <span className="text-[0.65rem] font-mono " style={{ color: "var(--dl-accent)" }}>
+            <span className="text-xs" style={{ color: "var(--dl-accent)" }}>
               Regime {mode === "playground" ? "controls" : `· ${names[country] || country} ${year}`}
             </span>
             {mode === "playground" && (
-              <button onClick={() => dispatch({ type: "loadRegime", regime: regimeToValues(regimeAt(data, country, year)) })} className="text-[0.65rem] font-mono px-2 py-1 rounded" style={{ color: "var(--dl-muted)", backgroundColor: "var(--dl-surface-2)" }}>
+              <button onClick={() => dispatch({ type: "loadRegime", regime: regimeToValues(regimeAt(data, country, year)) })} className="text-xs px-2 py-1 rounded" style={{ color: "var(--dl-muted)", backgroundColor: "var(--dl-surface-2)" }}>
                 reset to {names[country] || country} {year}
               </button>
             )}
@@ -135,7 +160,7 @@ function Lab({ data }: { data: DistLabData }) {
 
       {/* Three panels */}
       <div className="flex-1 min-h-0 overflow-auto">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 grid grid-cols-1 lg:grid-cols-3 gap-4">
+        <div className="max-w-6xl mx-auto px-5 sm:px-8 py-4 grid grid-cols-1 lg:grid-cols-3 gap-4">
           <DistributionPanel
             gini={dist.gini} top10={dist.top10} poverty={dist.poverty}
             uncertain={mode === "playground" && result.extrapolating}
@@ -153,7 +178,7 @@ function Lab({ data }: { data: DistLabData }) {
 
       {/* Bottom strip */}
       <div className="border-t shrink-0" style={{ borderColor: "var(--dl-border)", backgroundColor: "var(--dl-surface)" }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3">
+        <div className="max-w-6xl mx-auto px-5 sm:px-8 py-3">
           {mode === "history" ? (
             <YearScrubber year={year} min={data.year_min} max={data.year_max} onChange={(y) => dispatch({ type: "setYear", year: y })} />
           ) : (
@@ -272,18 +297,19 @@ function buildHTML(data: DistLabData): string {
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Distribution Lab — Data Export</title>
   <style>
+ :root{--paper:#fdfdfc;--ink:#1a1816;--muted:#57524b;--tint:#f4f2ee;--row:#f8f7f4;--row-hover:#efece6;--accent:#a04028}
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: system-ui, sans-serif; background: #faf8f3; color: #1f1b16; padding: 2rem 1.5rem; }
-    h1 { font-size: 1rem; color: #a04028; font-weight: 700; margin-bottom: 0.4rem; }
-    .meta { font-size: 0.75rem; color: #645c51; margin-bottom: 1.5rem; }
+    body { font-family: system-ui, sans-serif; background: var(--paper); color: var(--ink); padding: 2rem 1.5rem; }
+    h1 { font-size: 1rem; color: var(--accent); font-weight: 700; margin-bottom: 0.4rem; }
+    .meta { font-size: 0.75rem; color: var(--muted); margin-bottom: 1.5rem; }
     .wrap { overflow-x: auto; }
     table { border-collapse: collapse; width: 100%; font-size: 0.72rem; white-space: nowrap; }
-    thead th { background: #f2eee5; color: #a04028; padding: 0.5rem 0.7rem; text-align: left; font-weight: 600; position: sticky; top: 0; border-bottom: 1px solid rgba(160,64,40,.18); }
-    tbody td { padding: 0.35rem 0.7rem; border-bottom: 1px solid rgba(160,64,40,.08); color: #1f1b16; }
-    tbody tr:nth-child(even) td { background: #f6f3ec; }
-    tbody tr:hover td { background: #efe9de; }
-    .sources { margin-top: 1.5rem; font-size: 0.72rem; color: #645c51; }
-    .sources a { color: #a04028; text-decoration: none; }
+    thead th { background: var(--tint); color: var(--accent); padding: 0.5rem 0.7rem; text-align: left; font-weight: 600; position: sticky; top: 0; border-bottom: 1px solid rgba(160,64,40,.18); }
+    tbody td { padding: 0.35rem 0.7rem; border-bottom: 1px solid rgba(160,64,40,.08); color: var(--ink); }
+    tbody tr:nth-child(even) td { background: var(--row); }
+    tbody tr:hover td { background: var(--row-hover); }
+    .sources { margin-top: 1.5rem; font-size: 0.72rem; color: var(--muted); }
+    .sources a { color: var(--accent); text-decoration: none; }
     .sources a:hover { text-decoration: underline; }
   </style>
 </head>
@@ -331,8 +357,8 @@ function DownloadBar({ data }: { data: DistLabData }) {
 
   return (
     <div className="border-t shrink-0" style={{ borderColor: "var(--dl-border)" }}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-2.5 flex items-center gap-3 flex-wrap">
-        <span className="text-[0.6rem] font-mono " style={{ color: "var(--dl-muted)", opacity: 0.6 }}>
+      <div className="max-w-6xl mx-auto px-5 sm:px-8 py-2.5 flex items-center gap-3 flex-wrap">
+        <span className="text-xs" style={{ color: "var(--dl-muted)", opacity: 0.6 }}>
           Download data
         </span>
         {buttons.map(({ label, title, action }) => (
@@ -340,7 +366,7 @@ function DownloadBar({ data }: { data: DistLabData }) {
             key={label}
             onClick={action}
             title={title}
-            className="text-[0.65rem] font-mono px-2.5 py-1 rounded border transition-colors duration-150"
+            className="inline-flex items-center gap-1.5 rounded-sm border px-2.5 py-1 text-xs transition-colors duration-150"
             style={{
               borderColor: "var(--dl-border)",
               color: "var(--dl-muted)",
@@ -355,10 +381,10 @@ function DownloadBar({ data }: { data: DistLabData }) {
               (e.currentTarget as HTMLButtonElement).style.color = "var(--dl-muted)";
             }}
           >
-            ↓ {label}
+            <Download className="size-3.5" aria-hidden="true" /> {label}
           </button>
         ))}
-        <span className="text-[0.6rem] font-mono hidden sm:block" style={{ color: "var(--dl-muted)", opacity: 0.4 }}>
+        <span className="text-xs hidden sm:block" style={{ color: "var(--dl-muted)", opacity: 0.4 }}>
           {data.base.length} rows · {data.pool_countries.length} countries · {data.year_min}–{data.year_max}
         </span>
       </div>

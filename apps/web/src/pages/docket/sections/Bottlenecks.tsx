@@ -39,7 +39,7 @@ function ScoreBar({ value, max = 100 }: { value: number; max?: number }) {
           style={{ width: `${pct}%`, backgroundColor: color, opacity: 0.85 }}
         />
       </div>
-      <span className="text-xs font-mono w-6 text-right" style={{ color }}>
+      <span className="text-xs w-6 text-right" style={{ color }}>
         {value}
       </span>
     </div>
@@ -80,7 +80,7 @@ export default function Bottlenecks() {
         {/* Scoring table */}
         <div className="lg:col-span-2 overflow-x-auto">
           <div className="flex gap-2 mb-3 flex-wrap">
-            <span className="text-xs font-mono" style={{ color: "var(--docket-muted)" }}>
+            <span className="text-xs" style={{ color: "var(--docket-muted)" }}>
               Sort by:
             </span>
             {[{ key: "composite" as SortKey, label: "BSI" }, ...FACTORS.map((f) => ({ key: f.key, label: f.short }))].map(
@@ -88,7 +88,7 @@ export default function Bottlenecks() {
                 <button
                   key={key}
                   onClick={() => setSortBy(key)}
-                  className="px-2 py-0.5 rounded text-xs font-mono border transition-colors"
+                  className="px-2 py-0.5 rounded text-xs border transition-colors"
                   style={{
                     borderColor: sortBy === key ? "var(--docket-accent)" : "var(--docket-border)",
                     color: sortBy === key ? "var(--docket-accent)" : "var(--docket-muted)",
@@ -104,13 +104,13 @@ export default function Bottlenecks() {
           <table className="w-full text-xs border-separate" style={{ borderSpacing: "0 3px" }}>
             <thead>
               <tr style={{ color: "var(--docket-muted)" }}>
-                <th className="text-left pb-2 font-mono font-normal">State</th>
+                <th className="text-left pb-2 font-normal">State</th>
                 {FACTORS.map((f) => (
-                  <th key={f.key} className="text-right pb-2 font-mono font-normal hidden sm:table-cell">
+                  <th key={f.key} className="text-right pb-2 font-normal hidden sm:table-cell">
                     {f.short}
                   </th>
                 ))}
-                <th className="text-right pb-2 font-mono font-normal">BSI</th>
+                <th className="text-right pb-2 font-normal">BSI</th>
                 <th className="pb-2"></th>
               </tr>
             </thead>
@@ -135,13 +135,13 @@ export default function Bottlenecks() {
                     {FACTORS.map((f) => (
                       <td
                         key={f.key}
-                        className="text-right py-1.5 font-mono hidden sm:table-cell"
+                        className="text-right py-1.5 hidden sm:table-cell"
                         style={{ color: "var(--docket-muted)" }}
                       >
                         {row[f.key]}
                       </td>
                     ))}
-                    <td className="text-right py-1.5 font-mono font-bold pr-2" style={{ color: "var(--docket-text)" }}>
+                    <td className="text-right py-1.5 font-bold pr-2" style={{ color: "var(--docket-text)" }}>
                       {row.composite.toFixed(0)}
                     </td>
                     <td className="text-right py-1.5 pr-2 rounded-r">
@@ -168,7 +168,7 @@ export default function Bottlenecks() {
                     <PolarGrid stroke="var(--docket-border)" />
                     <PolarAngleAxis
                       dataKey="factor"
-                      tick={{ fill: "var(--docket-muted)", fontSize: 10, fontFamily: "monospace" }}
+                      tick={{ fill: "var(--docket-muted)", fontSize: 10, fontFamily: "var(--font-sans-face)" }}
                     />
                     <Radar
                       name={selected.state}
@@ -184,7 +184,7 @@ export default function Bottlenecks() {
                         border: "1px solid var(--docket-border)",
                         borderRadius: 6,
                         fontSize: 11,
-                        fontFamily: "monospace",
+                        fontFamily: "var(--font-sans-face)",
                         color: "var(--docket-text)",
                       }}
                     />
@@ -208,7 +208,7 @@ export default function Bottlenecks() {
                 style={{ borderColor: "var(--docket-border)", color: "var(--docket-muted)" }}
               >
                 Composite BSI:{" "}
-                <span className="font-mono font-bold" style={{ color: "var(--docket-text)" }}>
+                <span className="font-bold" style={{ color: "var(--docket-text)" }}>
                   {selected.composite.toFixed(1)}
                 </span>{" "}
                 — <TierBadge tier={selected.tier} />
@@ -232,7 +232,7 @@ export default function Bottlenecks() {
                     <TierBadge tier={tier} />
                   </div>
                   <div>
-                    <span className="font-mono">{range}</span> — {desc}
+                    <span className="">{range}</span> — {desc}
                   </div>
                 </div>
               ))}
@@ -282,10 +282,10 @@ export default function Bottlenecks() {
           },
         ].map(({ factor, stat, statLabel, body }) => (
           <Card key={factor}>
-            <div className="text-xs font-mono mb-2 " style={{ color: "var(--docket-accent)" }}>
+            <div className="text-xs mb-2" style={{ color: "var(--docket-accent)" }}>
               {factor}
             </div>
-            <div className="text-2xl font-bold font-mono mb-0.5" style={{ color: "var(--docket-text)" }}>
+            <div className="text-2xl font-serif mb-0.5" style={{ color: "var(--docket-text)" }}>
               {stat}
             </div>
             <div className="text-xs mb-3" style={{ color: "var(--docket-muted)" }}>

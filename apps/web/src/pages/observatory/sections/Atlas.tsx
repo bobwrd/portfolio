@@ -107,7 +107,7 @@ export default function Atlas({
 
   return (
     <Section id="atlas" eyebrow="2 · Data atlas" title="What the real series are doing">
-      <div className="max-w-3xl mb-6 text-sm sm:text-base leading-relaxed" style={{ color: "var(--obs-text)" }}>
+      <div className="font-serif max-w-3xl mb-6 text-[1rem] sm:text-[1.0625rem] leading-relaxed" style={{ color: "var(--obs-text)" }}>
         Live data for the variables that would move if the channels above were active. Pick a country and a
         time window. US monthly detail (core CPI, core PCE, IT investment, sector employment) appears once a
         FRED key is connected; the World Bank baseline is always here.
@@ -122,7 +122,7 @@ export default function Atlas({
               <button
                 key={c}
                 onClick={() => setCountry(c)}
-                className="rounded-md px-2.5 py-1 text-xs font-mono border transition-colors"
+                className="rounded-sm px-2.5 py-1 text-xs border transition-colors"
                 style={{
                   borderColor: on ? "var(--obs-accent)" : "var(--obs-border)",
                   color: on ? "var(--obs-accent)" : "var(--obs-muted)",
@@ -141,7 +141,7 @@ export default function Atlas({
               <button
                 key={r.year}
                 onClick={() => setStartYear(r.year)}
-                className="rounded-md px-2.5 py-1 text-xs font-mono border transition-colors"
+                className="rounded-sm px-2.5 py-1 text-xs border transition-colors"
                 style={{
                   borderColor: on ? "var(--obs-accent)" : "var(--obs-border)",
                   color: on ? "var(--obs-accent)" : "var(--obs-muted)",
@@ -158,7 +158,7 @@ export default function Atlas({
       <div className="grid lg:grid-cols-2 gap-5">
         {/* Panel A */}
         <Card title={`Prices — ${cName}`} className="lg:col-span-2">
-          <p className="text-[0.65rem] font-mono mb-4 inline-block px-2 py-0.5 rounded" style={{ color: "var(--obs-accent)", backgroundColor: "var(--obs-accent-dim)" }}>
+          <p className="text-xs mb-4 inline-block px-2 py-0.5 rounded" style={{ color: "var(--obs-accent)", backgroundColor: "var(--obs-accent-dim)" }}>
             Cost channel · Relative-price channel
           </p>
           <div className="h-72 w-full">
@@ -168,7 +168,7 @@ export default function Atlas({
                 <XAxis dataKey="date" tick={ct.tick} axisLine={{ stroke: ct.grid }} tickLine={false} minTickGap={28} />
                 <YAxis tick={ct.tick} axisLine={false} tickLine={false} width={40} tickFormatter={(v) => `${v}%`} />
                 <Tooltip contentStyle={ct.tooltip} />
-                <Legend wrapperStyle={{ fontSize: 11, fontFamily: "ui-monospace, monospace" }} />
+                <Legend wrapperStyle={{ fontSize: 11, fontFamily: "var(--font-sans-face)" }} />
                 {priceMonthly && eventLines(true)}
                 <Line type="monotone" dataKey="headline" name={priceMonthly ? "Headline CPI (YoY)" : "Inflation (annual %)"} stroke="var(--obs-c1)" strokeWidth={2.2} dot={false} connectNulls />
                 {priceMonthly && <Line type="monotone" dataKey="core" name="Core CPI (YoY)" stroke="var(--obs-c2)" strokeWidth={2} dot={false} connectNulls />}
@@ -186,7 +186,7 @@ export default function Atlas({
 
         {/* Panel B */}
         <Card title={hasInvestDetail ? `Investment & tech labour — ${cName}` : `Productivity — ${cName}`}>
-          <p className="text-[0.65rem] font-mono mb-4 inline-block px-2 py-0.5 rounded" style={{ color: "var(--obs-accent)", backgroundColor: "var(--obs-accent-dim)" }}>
+          <p className="text-xs mb-4 inline-block px-2 py-0.5 rounded" style={{ color: "var(--obs-accent)", backgroundColor: "var(--obs-accent-dim)" }}>
             Adoption channel · Demand channel
           </p>
           <div className="h-64 w-full">
@@ -196,7 +196,7 @@ export default function Atlas({
                 <XAxis dataKey="date" tick={ct.tick} axisLine={{ stroke: ct.grid }} tickLine={false} minTickGap={28} />
                 <YAxis tick={ct.tick} axisLine={false} tickLine={false} width={48} />
                 <Tooltip contentStyle={ct.tooltip} />
-                <Legend wrapperStyle={{ fontSize: 11, fontFamily: "ui-monospace, monospace" }} />
+                <Legend wrapperStyle={{ fontSize: 11, fontFamily: "var(--font-sans-face)" }} />
                 {hasInvestDetail ? (
                   <>
                     <Line type="monotone" dataKey="itInvest" name="Info-processing investment ($bn)" stroke="var(--obs-c1)" strokeWidth={2.2} dot={false} connectNulls />
@@ -217,7 +217,7 @@ export default function Atlas({
 
         {/* Panel C */}
         <Card title={`Distribution & wages — ${cName}`}>
-          <p className="text-[0.65rem] font-mono mb-4 inline-block px-2 py-0.5 rounded" style={{ color: "var(--obs-accent)", backgroundColor: "var(--obs-accent-dim)" }}>
+          <p className="text-xs mb-4 inline-block px-2 py-0.5 rounded" style={{ color: "var(--obs-accent)", backgroundColor: "var(--obs-accent-dim)" }}>
             Who gets the gains · Wages vs profits · Across groups
           </p>
           <div className="h-64 w-full">
@@ -228,13 +228,13 @@ export default function Atlas({
                   <XAxis dataKey="date" tick={ct.tick} axisLine={{ stroke: ct.grid }} tickLine={false} minTickGap={28} />
                   <YAxis tick={ct.tick} axisLine={false} tickLine={false} width={44} />
                   <Tooltip contentStyle={ct.tooltip} />
-                  <Legend wrapperStyle={{ fontSize: 11, fontFamily: "ui-monospace, monospace" }} />
+                  <Legend wrapperStyle={{ fontSize: 11, fontFamily: "var(--font-sans-face)" }} />
                   <Line type="monotone" dataKey="realEarnings" name="Real median weekly earnings ($)" stroke="var(--obs-c4)" strokeWidth={2.2} dot={false} connectNulls />
                 </LineChart>
               </ResponsiveContainer>
             ) : (
               <div className="h-full grid place-items-center text-center px-6">
-                <p className="text-sm leading-relaxed" style={{ color: "var(--obs-muted)" }}>
+                <p className="font-serif text-[1rem] leading-relaxed" style={{ color: "var(--obs-muted)" }}>
                   Wage-by-group data isn't available for {cName} from the keyless sources. For the US, real median
                   earnings load here once a FRED key is connected. Decile-level wage series generally need
                   national statistical offices and aren't wired in yet.
@@ -251,8 +251,8 @@ export default function Atlas({
           Baseline data is World Bank (annual, all listed countries). US monthly/quarterly enrichment is FRED and
           appears when a key is configured. Data is fetched on a weekly schedule and baked into the build, so the
           atlas is fast and works offline of the source APIs. Last generated:{" "}
-          <span className="font-mono">{data?.generated ?? "—"}</span>; FRED enrichment:{" "}
-          <span className="font-mono">{enriched ? "on" : "off"}</span>.
+          <span className="">{data?.generated ?? "—"}</span>; FRED enrichment:{" "}
+          <span className="">{enriched ? "on" : "off"}</span>.
         </p>
       </Details>
     </Section>

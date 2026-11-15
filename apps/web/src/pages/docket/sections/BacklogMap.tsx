@@ -33,7 +33,7 @@ function DocketTooltip({
   const bg = "#ffffff";
   return (
     <div
-      className="rounded-lg border px-3 py-2 text-xs font-mono shadow-lg"
+      className="rounded-sm border px-3 py-2 text-xs"
       style={{ backgroundColor: bg, borderColor: "var(--docket-border)", color: "var(--docket-text)" }}
     >
       <div className="mb-1 font-semibold">{label}</div>
@@ -91,10 +91,10 @@ export default function BacklogMap() {
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10">
         {courtLevels.map((c) => (
           <Card key={c.level}>
-            <div className="text-xs font-mono mb-1" style={{ color: "var(--docket-muted)" }}>
+            <div className="text-xs mb-1" style={{ color: "var(--docket-muted)" }}>
               {c.shortLabel}
             </div>
-            <div className="text-3xl font-bold font-mono" style={{ color: "var(--docket-accent)" }}>
+            <div className="text-3xl font-serif" style={{ color: "var(--docket-accent)" }}>
               {c.pendingUnit === "M"
                 ? `${c.pending.toFixed(1)}M`
                 : `${c.pending}K`}
@@ -134,7 +134,7 @@ export default function BacklogMap() {
       {/* State-level bar chart */}
       <div className="mb-8">
         <div className="flex items-center justify-between mb-3">
-          <h3 className="text-sm font-semibold" style={{ color: "var(--docket-text)" }}>
+          <h3 className="text-sm" style={{ color: "var(--docket-text)" }}>
             Pending cases by state (top 15, district courts)
           </h3>
           <div className="flex gap-1">
@@ -142,7 +142,7 @@ export default function BacklogMap() {
               <button
                 key={v}
                 onClick={() => setStateView(v)}
-                className="px-2.5 py-1 rounded text-xs font-mono transition-colors border"
+                className="px-2.5 py-1 rounded text-xs transition-colors border"
                 style={{
                   backgroundColor: stateView === v ? "var(--docket-accent-dim)" : "transparent",
                   borderColor: stateView === v ? "var(--docket-accent)" : "var(--docket-border)",
@@ -237,7 +237,7 @@ export default function BacklogMap() {
       {/* Trend over time */}
       <div className="mb-8">
         <div className="flex items-center justify-between mb-3">
-          <h3 className="text-sm font-semibold" style={{ color: "var(--docket-text)" }}>
+          <h3 className="text-sm" style={{ color: "var(--docket-text)" }}>
             Total pending cases over time (all courts, millions)
           </h3>
           <div className="flex gap-1">
@@ -245,7 +245,7 @@ export default function BacklogMap() {
               <button
                 key={v}
                 onClick={() => setTrendView(v)}
-                className="px-2.5 py-1 rounded text-xs font-mono transition-colors border"
+                className="px-2.5 py-1 rounded text-xs transition-colors border"
                 style={{
                   backgroundColor: trendView === v ? "var(--docket-accent-dim)" : "transparent",
                   borderColor: trendView === v ? "var(--docket-accent)" : "var(--docket-border)",
@@ -309,7 +309,7 @@ export default function BacklogMap() {
                     strokeDasharray="4 2"
                   />
                   <Legend
-                    wrapperStyle={{ color: "var(--docket-muted)", fontSize: 11, fontFamily: "monospace" }}
+                    wrapperStyle={{ color: "var(--docket-muted)", fontSize: 11, fontFamily: "var(--font-sans-face)" }}
                   />
                 </>
               )}
@@ -363,7 +363,7 @@ export default function BacklogMap() {
               <div key={label}>
                 <div className="flex justify-between text-xs mb-1" style={{ color: "var(--docket-muted)" }}>
                   <span>{label}</span>
-                  <span style={{ color, fontFamily: "monospace" }}>{val}</span>
+                  <span style={{ color, fontFamily: "var(--font-sans-face)" }}>{val}</span>
                 </div>
                 <div
                   className="h-2 rounded-full overflow-hidden"

@@ -75,6 +75,7 @@ th.num {
 /* The portfolio's shared site bar spans the full width above the app. */
 .app > .site-bar {
   grid-column: 1 / -1;
+  border-bottom: 6px solid var(--onebook-band);
 }
 
 /* Everything right of the sidebar: top strip, the active route, footer. */

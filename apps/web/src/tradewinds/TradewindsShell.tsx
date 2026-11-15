@@ -11,19 +11,19 @@ export default function TradewindsShell({ children }: { children: React.ReactNod
     >
       <SectionSwitcher current="tradewinds" />
       <header
-        className="sticky top-0 z-40 border-b backdrop-blur-sm"
-        style={{ borderColor: "var(--tw-border)", backgroundColor: "color-mix(in srgb, var(--tw-bg) 90%, transparent)" }}
+        className="sticky top-0 z-40 border-b"
+        style={{ borderTop: "6px solid var(--tw-accent)", borderBottomColor: "var(--tw-border)", backgroundColor: "var(--tw-bg)" }}
       >
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 h-14 flex items-center gap-3">
-          <Link to="/tradewinds" className="font-semibold tracking-tight" style={{ color: "var(--tw-text)" }}>
+        <div className="max-w-6xl mx-auto px-5 sm:px-8 h-14 flex items-center gap-3">
+          <Link to="/tradewinds" className="font-serif text-xl leading-none" style={{ color: "var(--tw-text)" }}>
             Tradewinds
           </Link>
-          <span className="text-xs" style={{ color: "var(--tw-muted)" }}>
+          <span className="font-sans text-[0.875rem]" style={{ color: "var(--tw-muted)" }}>
             A daily puzzle: deduce the voyage from its cargo
           </span>
         </div>
       </header>
-      <main className="max-w-6xl mx-auto px-4 sm:px-6 py-8">{children}</main>
+      <main className="max-w-6xl mx-auto px-5 sm:px-8 py-8">{children}</main>
     </div>
   );
 }

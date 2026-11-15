@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 export default function VerdictAbout() {
-  const sectionClass = "rounded-lg border p-6 mb-5";
+  const sectionClass = "rounded-sm border p-6 mb-5";
   const sectionStyle = {
     backgroundColor: "var(--verdict-surface)",
     borderColor: "var(--verdict-border)",
@@ -22,7 +22,7 @@ export default function VerdictAbout() {
   return (
     <div>
       <div className="mb-8">
-        <h1 className="text-2xl font-bold tracking-tight mb-2" style={{ color: "var(--verdict-text)" }}>
+        <h1 className="text-2xl mb-2" style={{ color: "var(--verdict-text)" }}>
           Methodology
         </h1>
       </div>
@@ -84,7 +84,7 @@ export default function VerdictAbout() {
           ].map(({ key, name, desc, rubric }) => (
             <div key={key} className="border-l-2 pl-4" style={{ borderColor: "var(--verdict-border)" }}>
               <div className="flex items-center gap-2 mb-1">
-                <span className="font-mono font-bold text-sm" style={accentStyle}>{key}</span>
+                <span className="font-bold text-sm" style={accentStyle}>{key}</span>
                 <span className="font-semibold text-sm" style={{ color: "var(--verdict-text)" }}>{name}</span>
               </div>
               <p className="mb-2">{desc}</p>
@@ -101,7 +101,7 @@ export default function VerdictAbout() {
         <div style={headingStyle}>Composite dimensions</div>
         <div style={bodyStyle} className="space-y-4">
           <div>
-            <span className="font-mono" style={accentStyle}>DP</span>
+            <span className="" style={accentStyle}>DP</span>
             {" "}= (LI × 0.55) + (SE × 0.45)
             <p className="mt-1">
               Disruption Potential captures the force of a decision at the level of legal instrument and societal effect.
@@ -109,7 +109,7 @@ export default function VerdictAbout() {
             </p>
           </div>
           <div>
-            <span className="font-mono" style={accentStyle}>DR</span>
+            <span className="" style={accentStyle}>DR</span>
             {" "}= (ER × 0.40) + (SF × 0.35) + (PS × 0.25)
             <p className="mt-1">
               Distributional Reach captures how widely the disruption propagates through markets and institutions.
@@ -183,7 +183,7 @@ export default function VerdictAbout() {
             },
           ].map(({ name, desc }) => (
             <div key={name} className="border-l-2 pl-4" style={{ borderColor: "var(--verdict-border)" }}>
-              <span className="font-mono font-bold text-sm" style={accentStyle}>{name}</span>
+              <span className="font-bold text-sm" style={accentStyle}>{name}</span>
               <p className="mt-1">{desc}</p>
             </div>
           ))}
@@ -201,10 +201,10 @@ export default function VerdictAbout() {
             { tier: "Marginal", range: "1.0–3.9", desc: "Decisions with limited scope, easily absorbed by existing practices." },
           ].map(({ tier, range, desc }) => (
             <div key={tier} className="flex items-start gap-3">
-              <span className="font-mono font-bold text-xs mt-0.5 w-20 shrink-0" style={{ color: "var(--verdict-accent)" }}>
+              <span className="font-bold text-xs mt-0.5 w-20 shrink-0" style={{ color: "var(--verdict-accent)" }}>
                 {tier}
               </span>
-              <span className="font-mono text-xs w-20 shrink-0 mt-0.5">{range}</span>
+              <span className="text-xs w-20 shrink-0 mt-0.5">{range}</span>
               <span>{desc}</span>
             </div>
           ))}
@@ -221,7 +221,7 @@ export default function VerdictAbout() {
         </p>
         <Link
           to="/mini/verdict/how-we-score"
-          className="inline-block text-xs font-mono px-3 py-2 rounded transition-opacity hover:opacity-80"
+          className="inline-block text-xs px-3 py-2 rounded transition-opacity hover:opacity-80"
           style={{ color: "var(--verdict-bg)", backgroundColor: "var(--verdict-accent)" }}
         >
           How we score: EU AI Act

@@ -1,9 +1,8 @@
 import { Link } from "react-router-dom";
 import SectionSwitcher from "@/components/SectionSwitcher";
 import { usePageTitle } from "@/hooks/use-page-title";
+import PaperHeader from "@/components/PaperHeader";
 
-/* Each card borrows its tool's own theme class so the accent here is the
-   same one the visitor meets on the tool's page. */
 const PROJECTS = [
   {
     to: "/mini/verdict",
@@ -66,38 +65,58 @@ export default function MiniIndex() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <SectionSwitcher current="tools" />
-      <main className="mx-auto max-w-3xl px-6 py-16">
-        <header className="mb-12">
-          <h1 className="text-3xl font-bold tracking-tight">Research tools</h1>
-          <p className="mt-3 leading-relaxed text-muted-foreground">
-            Six interactive tools, each a hand-built dataset or model. They
-            come out of the same question as the{" "}
-            <Link to="/writing" className="text-foreground underline decoration-warm-accent underline-offset-4">
-              writing
-            </Link>
-            : where do formal institutions fall short of the people they serve?
-          </p>
-        </header>
-
-        <ul className="flex flex-col gap-4">
-          {PROJECTS.map((p) => (
-            <li key={p.to} className={p.theme} style={{ backgroundColor: "transparent", color: "inherit" }}>
-              <Link
-                to={p.to}
-                className="group block rounded-lg border border-border border-l-4 bg-card px-5 py-4 transition-colors duration-150 hover:border-foreground/30"
-                style={{ borderLeftColor: p.accent }}
-              >
-                <p className="flex flex-wrap items-baseline gap-x-3">
-                  <span className="font-semibold" style={{ color: p.accent }}>
-                    {p.title}
-                  </span>
-                  <span className="text-sm text-muted-foreground">{p.kind}</span>
-                </p>
-                <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{p.summary}</p>
+      <main className="mx-auto max-w-6xl px-5 pt-12 pb-24 sm:px-8">
+        <PaperHeader
+          series="Working Paper Series, No. 02"
+          meta="Six tools, each with a technical note"
+          title="Research tools"
+          byline="Hand-built datasets and models, each asking where an institution falls short."
+          abstract={
+            <p>
+              Each tool is a dataset or model I built by hand, with its sources
+              and method published beside it. They come out of the same
+              question as the{" "}
+              <Link to="/writing" className="text-link underline">
+                writing
               </Link>
-            </li>
-          ))}
-        </ul>
+              : where do formal institutions fall short of the people they
+              serve?
+            </p>
+          }
+        />
+
+        <section aria-labelledby="tools-heading" className="mt-14 max-w-4xl">
+          <h2 id="tools-heading" className="font-sans text-[0.9375rem] font-semibold">
+            Contents
+          </h2>
+          {/* Each row borrows its tool's theme class so the number carries the
+              same colour the visitor meets on that tool's page. */}
+          <ol className="mt-3 border-t border-border">
+            {PROJECTS.map((p, i) => (
+              <li key={p.to} className={`${p.theme} border-b border-border`} style={{ backgroundColor: "transparent", color: "inherit" }}>
+                <Link
+                  to={p.to}
+                  className="group grid grid-cols-[2.5rem_minmax(0,1fr)] gap-x-4 py-5 sm:grid-cols-[2.5rem_minmax(0,1fr)_14rem]"
+                >
+                  <span className="pt-1.5 font-sans text-[0.9375rem] font-semibold tabular-nums" style={{ color: p.accent }}>
+                    2.{i + 1}
+                  </span>
+                  <span className="min-w-0">
+                    <span className="block font-serif text-xl leading-snug decoration-1 underline-offset-4 group-hover:underline sm:text-2xl">
+                      {p.title}
+                    </span>
+                    <span className="mt-1.5 block font-sans text-[0.9375rem] leading-relaxed text-muted-foreground">
+                      {p.summary}
+                    </span>
+                  </span>
+                  <span className="hidden pt-1.5 font-sans text-[0.9375rem] sm:block sm:text-right" style={{ color: p.accent }}>
+                    {p.kind}
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ol>
+        </section>
       </main>
     </div>
   );

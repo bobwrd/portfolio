@@ -21,12 +21,12 @@ export default function VerdictCharts() {
     border: "1px solid var(--verdict-border)",
     borderRadius: "6px",
     fontSize: "12px",
-    fontFamily: "monospace",
+    fontFamily: "var(--font-sans-face)",
     color: "var(--verdict-text)",
   };
 
   const axisProps = {
-    tick: { fill: "var(--verdict-muted)", fontSize: 10, fontFamily: "monospace" },
+    tick: { fill: "var(--verdict-muted)", fontSize: 10, fontFamily: "var(--font-sans-face)" },
     axisLine: { stroke: "var(--verdict-border)" },
     tickLine: false,
   };
@@ -60,13 +60,13 @@ export default function VerdictCharts() {
     if (!active || !payload?.length) return null;
     const d = payload[0].payload;
     return (
-      <div className="rounded border p-3 text-xs font-mono" style={tooltipStyle}>
+      <div className="rounded border p-3 text-xs" style={tooltipStyle}>
         <div style={{ color: TIER_COLORS[d.tier] }} className="font-bold mb-1">{d.tier}</div>
         <div className="max-w-[200px] leading-snug mb-2" style={{ color: "var(--verdict-text)" }}>{d.title}</div>
         <div style={{ color: "var(--verdict-muted)" }}>DP: <span style={{ color: "var(--verdict-accent)" }}>{d.x.toFixed(2)}</span></div>
         <div style={{ color: "var(--verdict-muted)" }}>DR: <span style={{ color: "var(--verdict-accent)" }}>{d.y.toFixed(2)}</span></div>
         <div style={{ color: "var(--verdict-muted)" }}>EDI: <span style={{ color: "var(--verdict-accent)" }}>{d.edi.toFixed(1)}</span></div>
-        <div className="mt-1 text-[0.65rem]" style={{ color: "var(--verdict-muted)" }}>Click to view case</div>
+        <div className="mt-1 text-xs" style={{ color: "var(--verdict-muted)" }}>Click to view case</div>
       </div>
     );
   };
@@ -75,7 +75,7 @@ export default function VerdictCharts() {
     if (!active || !payload?.length) return null;
     const d = payload[0].payload;
     return (
-      <div className="rounded border p-3 text-xs font-mono" style={tooltipStyle}>
+      <div className="rounded border p-3 text-xs" style={tooltipStyle}>
         <div style={{ color: TIER_COLORS[d.tier] }} className="font-bold mb-1">{d.tier}</div>
         <div className="max-w-[200px] leading-snug mb-1" style={{ color: "var(--verdict-text)" }}>{d.name}</div>
         <div style={{ color: "var(--verdict-muted)" }}>EDI: <span style={{ color: "var(--verdict-accent)" }}>{d.EDI.toFixed(1)}</span></div>
@@ -83,7 +83,7 @@ export default function VerdictCharts() {
     );
   };
 
-  const sectionClass = "rounded-lg border p-5 mb-8";
+  const sectionClass = "rounded-sm border p-5 mb-8";
   const sectionStyle = {
     backgroundColor: "var(--verdict-surface)",
     borderColor: "var(--verdict-border)",
@@ -91,7 +91,7 @@ export default function VerdictCharts() {
 
   if (loading) {
     return (
-      <div className="py-16 text-center text-sm font-mono" style={{ color: "var(--verdict-muted)" }}>
+      <div className="py-16 text-center text-sm" style={{ color: "var(--verdict-muted)" }}>
         Loading…
       </div>
     );
@@ -100,7 +100,7 @@ export default function VerdictCharts() {
   return (
     <div>
       <div className="mb-8">
-        <h1 className="text-2xl font-bold tracking-tight mb-2" style={{ color: "var(--verdict-text)" }}>
+        <h1 className="text-2xl mb-2" style={{ color: "var(--verdict-text)" }}>
           Analytics
         </h1>
         <p className="text-sm" style={{ color: "var(--verdict-muted)" }}>
@@ -110,14 +110,14 @@ export default function VerdictCharts() {
 
       {/* Scatter: DP vs DR */}
       <div className={sectionClass} style={sectionStyle}>
-        <div className="text-[0.65rem] font-mono mb-1" style={{ color: "var(--verdict-muted)" }}>
+        <div className="text-xs mb-1" style={{ color: "var(--verdict-muted)" }}>
           Disruption Potential vs Distributional Reach
         </div>
         <p className="text-xs mb-4 leading-relaxed" style={{ color: "var(--verdict-muted)" }}>
           Each dot is a case. X axis: DP (how forceful + societal). Y axis: DR (economic + structural + political). Dot size scales with EDI. Click a dot to open the case.
         </p>
         {scatterData.length === 0 ? (
-          <div className="h-64 flex items-center justify-center text-xs font-mono" style={{ color: "var(--verdict-muted)" }}>
+          <div className="h-64 flex items-center justify-center text-xs" style={{ color: "var(--verdict-muted)" }}>
             No data yet.
           </div>
         ) : (
@@ -130,7 +130,7 @@ export default function VerdictCharts() {
                   type="number"
                   domain={[0, 11]}
                   name="DP"
-                  label={{ value: "DP", position: "bottom", offset: 10, fill: "var(--verdict-muted)", fontSize: 10, fontFamily: "monospace" }}
+                  label={{ value: "DP", position: "bottom", offset: 10, fill: "var(--verdict-muted)", fontSize: 10, fontFamily: "var(--font-sans-face)" }}
                   {...axisProps}
                 />
                 <YAxis
@@ -138,7 +138,7 @@ export default function VerdictCharts() {
                   type="number"
                   domain={[0, 11]}
                   name="DR"
-                  label={{ value: "DR", angle: -90, position: "insideLeft", offset: 10, fill: "var(--verdict-muted)", fontSize: 10, fontFamily: "monospace" }}
+                  label={{ value: "DR", angle: -90, position: "insideLeft", offset: 10, fill: "var(--verdict-muted)", fontSize: 10, fontFamily: "var(--font-sans-face)" }}
                   {...axisProps}
                 />
                 <ZAxis dataKey="z" range={[60, 400]} />
@@ -153,7 +153,7 @@ export default function VerdictCharts() {
                     // Recharts spreads the datum onto the point but types it as
                     // ScatterPointItem; `payload` is the documented way in.
                     const id = (data.payload as (typeof scatterData)[number] | undefined)?.id;
-                    if (id != null) navigate(`/verdict/${id}`);
+                    if (id != null) navigate(`/mini/verdict/${id}`);
                   }}
                   style={{ cursor: "pointer" }}
                 >
@@ -169,14 +169,14 @@ export default function VerdictCharts() {
 
       {/* Bar: cases ranked by EDI */}
       <div className={sectionClass} style={sectionStyle}>
-        <div className="text-[0.65rem] font-mono mb-1" style={{ color: "var(--verdict-muted)" }}>
+        <div className="text-xs mb-1" style={{ color: "var(--verdict-muted)" }}>
           Cases ranked by EDI
         </div>
         <p className="text-xs mb-4 leading-relaxed" style={{ color: "var(--verdict-muted)" }}>
           Horizontal bars ranked by EDI. Error bars show the uncertainty band [min scenario, max scenario]. Coloured by tier.
         </p>
         {barData.length === 0 ? (
-          <div className="h-40 flex items-center justify-center text-xs font-mono" style={{ color: "var(--verdict-muted)" }}>
+          <div className="h-40 flex items-center justify-center text-xs" style={{ color: "var(--verdict-muted)" }}>
             No data yet.
           </div>
         ) : (
@@ -203,7 +203,7 @@ export default function VerdictCharts() {
                   dataKey="name"
                   type="category"
                   width={180}
-                  tick={{ fill: "var(--verdict-muted)", fontSize: 10, fontFamily: "monospace" }}
+                  tick={{ fill: "var(--verdict-muted)", fontSize: 10, fontFamily: "var(--font-sans-face)" }}
                   axisLine={false}
                   tickLine={false}
                 />
@@ -214,7 +214,7 @@ export default function VerdictCharts() {
                     dataKey="EDI"
                     position="right"
                     formatter={(v) => Number(v).toFixed(1)}
-                    style={{ fill: "var(--verdict-muted)", fontSize: 10, fontFamily: "monospace" }}
+                    style={{ fill: "var(--verdict-muted)", fontSize: 10, fontFamily: "var(--font-sans-face)" }}
                   />
                   {barData.map((entry, idx) => (
                     <Cell key={idx} fill={TIER_COLORS[entry.tier] ?? "var(--verdict-accent)"} fillOpacity={0.8} />

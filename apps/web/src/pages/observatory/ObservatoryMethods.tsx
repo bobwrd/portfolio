@@ -4,7 +4,7 @@ import { Eq } from "./shared";
 
 function H2({ children }: { children: React.ReactNode }) {
   return (
-    <h2 className="text-base font-semibold mt-10 mb-3 tracking-tight" style={{ color: "var(--obs-text)" }}>
+    <h2 className="text-base mt-10 mb-3" style={{ color: "var(--obs-text)" }}>
       {children}
     </h2>
   );
@@ -12,7 +12,7 @@ function H2({ children }: { children: React.ReactNode }) {
 
 function H3({ children }: { children: React.ReactNode }) {
   return (
-    <h3 className="text-sm font-semibold mt-6 mb-2" style={{ color: "var(--obs-accent)" }}>
+    <h3 className="text-sm mt-6 mb-2" style={{ color: "var(--obs-accent)" }}>
       {children}
     </h3>
   );
@@ -20,7 +20,7 @@ function H3({ children }: { children: React.ReactNode }) {
 
 function P({ children }: { children: React.ReactNode }) {
   return (
-    <p className="text-sm leading-relaxed mb-4" style={{ color: "var(--obs-text)" }}>
+    <p className="font-serif text-[1rem] leading-relaxed mb-4" style={{ color: "var(--obs-text)" }}>
       {children}
     </p>
   );
@@ -29,7 +29,7 @@ function P({ children }: { children: React.ReactNode }) {
 function Mono({ children }: { children: React.ReactNode }) {
   return (
     <code
-      className="text-xs px-1 py-0.5 rounded font-mono"
+      className="text-xs px-1 py-0.5 rounded"
       style={{ backgroundColor: "var(--obs-surface-2)", color: "var(--obs-accent)" }}
     >
       {children}
@@ -45,7 +45,7 @@ function ParamRow({
   return (
     <tr style={{ borderBottom: "1px solid var(--obs-border)" }}>
       <td className="py-2 pr-4 text-sm font-medium" style={{ color: "var(--obs-text)" }}>{slider}</td>
-      <td className="py-2 pr-4 text-xs font-mono" style={{ color: "var(--obs-accent)" }}>{param}</td>
+      <td className="py-2 pr-4 text-xs" style={{ color: "var(--obs-accent)" }}>{param}</td>
       <td className="py-2 pr-4 text-xs" style={{ color: "var(--obs-muted)" }}>{range}</td>
       <td className="py-2 text-xs" style={{ color: "var(--obs-muted)" }}>{baseline}</td>
     </tr>
@@ -59,10 +59,10 @@ export default function ObservatoryMethods() {
   }, []);
 
   return (
-    <div className="max-w-3xl mx-auto px-4 sm:px-6 py-14">
+    <div className="max-w-3xl mx-auto px-5 sm:px-8 py-14">
       <Link
         to="/mini/observatory"
-        className="text-xs font-mono mb-8 inline-block transition-opacity hover:opacity-70"
+        className="text-xs mb-8 inline-block transition-opacity hover:opacity-70"
         style={{ color: "var(--obs-muted)" }}
       >
         Back to the Observatory
@@ -70,20 +70,20 @@ export default function ObservatoryMethods() {
 
       {/* Title block */}
       <div className="mt-4 mb-10 border-b pb-8" style={{ borderColor: "var(--obs-border)" }}>
-        <div className="text-[0.65rem] font-mono mb-3" style={{ color: "var(--obs-accent)" }}>
+        <div className="text-xs mb-3" style={{ color: "var(--obs-accent)" }}>
           The Observatory: technical note
         </div>
-        <h1 className="text-2xl sm:text-3xl font-bold tracking-tight mb-4" style={{ color: "var(--obs-text)" }}>
+        <h1 className="text-2xl sm:text-3xl mb-4" style={{ color: "var(--obs-text)" }}>
           The Observatory — AI, Productivity and Prices: Data Sources, Transformations and Model Structure
         </h1>
-        <p className="text-xs font-mono mb-6" style={{ color: "var(--obs-muted)" }}>
+        <p className="text-xs mb-6" style={{ color: "var(--obs-muted)" }}>
           By Arin Jain, {new Date().getFullYear()}
         </p>
         <div
-          className="rounded-lg p-4 text-sm leading-relaxed border"
+          className="font-serif rounded-sm p-4 text-[1rem] leading-relaxed border"
           style={{ borderColor: "var(--obs-border)", backgroundColor: "var(--obs-surface)", color: "var(--obs-text)" }}
         >
-          <strong className="text-xs font-mono block mb-2" style={{ color: "var(--obs-muted)" }}>
+          <strong className="text-xs block mb-2" style={{ color: "var(--obs-muted)" }}>
             Abstract
           </strong>
           The Observatory pairs public macroeconomic data with a small simulation model to trace how AI adoption might move productivity, inflation, unemployment, and wages across skill groups. This note covers the series used, the transformations applied, and the model's structure in enough detail to replicate the computations. No observed series is used to calibrate the model directly; data and model run in parallel. All outputs are illustrative.
@@ -229,13 +229,13 @@ export default function ObservatoryMethods() {
         <table className="w-full text-xs border-collapse">
           <thead>
             <tr style={{ borderBottom: "1px solid var(--obs-border)" }}>
-              <th className="text-left pb-2 pr-4 font-mono " style={{ color: "var(--obs-muted)" }}>Slider</th>
-              <th className="text-left pb-2 pr-4 font-mono " style={{ color: "var(--obs-muted)" }}>Parameter(s)</th>
-              <th className="text-left pb-2 pr-4 font-mono " style={{ color: "var(--obs-muted)" }}>Range</th>
-              <th className="text-left pb-2 font-mono " style={{ color: "var(--obs-muted)" }}>Baseline (slider = 0.5)</th>
+              <th className="text-left pb-2 pr-4" style={{ color: "var(--obs-muted)" }}>Slider</th>
+              <th className="text-left pb-2 pr-4" style={{ color: "var(--obs-muted)" }}>Parameter(s)</th>
+              <th className="text-left pb-2 pr-4" style={{ color: "var(--obs-muted)" }}>Range</th>
+              <th className="text-left pb-2" style={{ color: "var(--obs-muted)" }}>Baseline (slider = 0.5)</th>
             </tr>
           </thead>
-          <tbody className="leading-relaxed">
+          <tbody className="font-serif leading-relaxed">
             <ParamRow
               slider="Speed of AI adoption"
               param="s, t₀, total gains, inv hump, ω"
@@ -317,7 +317,7 @@ export default function ObservatoryMethods() {
       </P>
 
       {/* Footer */}
-      <div className="mt-12 pt-6 border-t text-xs font-mono" style={{ borderColor: "var(--obs-border)", color: "var(--obs-muted)" }}>
+      <div className="mt-12 pt-6 border-t text-xs" style={{ borderColor: "var(--obs-border)", color: "var(--obs-muted)" }}>
         <p>The Observatory technical note, by Arin Jain</p>
         <p className="mt-1">
           Data: World Bank (<Mono>FP.CPI.TOTL.ZG</Mono>, <Mono>SL.GDP.PCAP.EM.KD</Mono>); FRED optional. Model: <Mono>model.ts</Mono>. Not a forecast. Not investment, financial, or policy advice.

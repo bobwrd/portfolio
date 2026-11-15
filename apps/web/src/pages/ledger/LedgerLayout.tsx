@@ -46,24 +46,23 @@ export default function LedgerLayout({ children }: { children: React.ReactNode }
       <header
         className="sticky top-0 z-50 border-b"
         style={{
-          backgroundColor: "color-mix(in srgb, var(--ledger-bg) 92%, transparent)",
-          borderColor: "var(--ledger-border)",
-          backdropFilter: "blur(8px)",
+          backgroundColor: "var(--ledger-bg)",
+          borderBottomColor: "var(--ledger-border)",
         }}
       >
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between gap-4">
+        <div className="max-w-6xl mx-auto px-5 sm:px-8 py-2 min-h-14 flex flex-wrap items-center justify-between gap-x-4 gap-y-1">
           <div className="flex items-center gap-4">
             <Link
               to="/mini"
-              className="text-xs underline-offset-4 hover:underline"
+              className="font-sans text-[0.875rem] underline-offset-4 hover:underline"
               style={{ color: "var(--ledger-muted)" }}
             >
               Research tools
             </Link>
             <Link
               to="/mini/ledger"
-              className="font-semibold tracking-tight text-sm flex items-center gap-2"
-              style={{ color: "var(--ledger-accent)" }}
+              className="font-serif text-xl leading-none"
+              style={{ color: "var(--ledger-text)" }}
             >
               The Ledger
             </Link>
@@ -77,10 +76,10 @@ export default function LedgerLayout({ children }: { children: React.ReactNode }
                 <Link
                   key={link.href}
                   to={link.href}
-                  className="px-2.5 py-1.5 rounded text-xs transition-colors duration-150"
+                  className="px-1.5 py-1.5 font-sans text-[0.875rem] transition-colors duration-150"
                   style={{
                     color: active ? "var(--ledger-accent)" : "var(--ledger-muted)",
-                    backgroundColor: active ? "var(--ledger-accent-dim)" : "transparent",
+                    textDecoration: active ? "underline" : "none", textDecorationThickness: "2px", textUnderlineOffset: "0.4em",
                   }}
                 >
                   {link.label}
@@ -91,11 +90,11 @@ export default function LedgerLayout({ children }: { children: React.ReactNode }
         </div>
       </header>
 
-      <main className="max-w-5xl mx-auto px-4 sm:px-6 py-10">{children}</main>
+      <main className="max-w-6xl mx-auto px-5 sm:px-8 py-10">{children}</main>
 
       <footer className="border-t mt-20" style={{ borderColor: "var(--ledger-border)" }}>
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 py-6">
-          <div className="flex items-center justify-between text-xs" style={{ color: "var(--ledger-muted)" }}>
+        <div className="max-w-6xl mx-auto px-5 sm:px-8 py-6">
+          <div className="flex items-center justify-between font-sans text-[0.875rem]" style={{ color: "var(--ledger-muted)" }}>
             <span>The Ledger, by Arin Jain</span>
             <Link
               to="/mini/ledger/about"
@@ -105,7 +104,7 @@ export default function LedgerLayout({ children }: { children: React.ReactNode }
               Methodology
             </Link>
           </div>
-          <p className="mt-3 text-[0.65rem] leading-relaxed" style={{ color: "var(--ledger-muted)" }}>
+          <p className="mt-3 font-sans text-[0.8125rem] leading-relaxed" style={{ color: "var(--ledger-muted)" }}>
             Independent research project. Not affiliated with or endorsed by the Monetary Authority of Singapore or the
             Singapore Government. Compiled from public sources in good faith; provided "as is" with no warranty, and the
             author accepts no liability for errors or for any use of the data. Not legal, financial, or compliance advice.
